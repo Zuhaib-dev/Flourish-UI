@@ -46,8 +46,8 @@ export default function Page() {
         <a className="text-[17px] font-bold tracking-[-0.06em]" href="#top" aria-label="Northstar home">
           northstar<span className="text-[8px] align-top ml-[2px]">®</span>
         </a>
-        <p className="hidden md:block text-[#777671] m-0">Independent creative practice<br />New York / Everywhere</p>
-        <a className="justify-self-end border-b border-[#171717] pb-[2px] hover:text-[#777671] hover:border-[#777671] transition-colors" href="mailto:hello@northstar.studio">
+        <p className="hidden md:block text-[#777671] m-0">Independent creative practice<br />Kashmir / Everywhere</p>
+        <a className="justify-self-end border-b border-[#171717] pb-[2px] hover:text-[#777671] hover:border-[#777671] transition-colors" href="mailto:zuhaibrashid01@gmail.com">
           Get in touch <span aria-hidden="true" className="ml-2">↗</span>
         </a>
       </header>
@@ -69,7 +69,7 @@ export default function Page() {
       <footer className="flex flex-wrap md:flex-nowrap justify-between gap-5 text-[#777671] text-[10px] uppercase tracking-[0.06em] mt-[15vh] pt-4 border-t border-[#171717]">
         <span>© Northstar Studio</span>
         <span className="order-3 md:order-none w-full md:w-auto">Available for select projects</span>
-        <a href="mailto:hello@northstar.studio" className="text-[#171717] hover:text-[#777671] transition-colors">hello@northstar.studio</a>
+        <a href="mailto:zuhaibrashid01@gmail.com" className="text-[#171717] hover:text-[#777671] transition-colors">zuhaibrashid01@gmail.com</a>
       </footer>
     </main>
   );
