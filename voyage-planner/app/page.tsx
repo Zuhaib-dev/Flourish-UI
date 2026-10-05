@@ -116,10 +116,13 @@ export default function VoyageDashboard() {
             </div>
 
             {/* Tear-off Line */}
-            <div className="relative flex items-center justify-center h-4">
-              <div className="absolute left-[-12px] w-6 h-6 rounded-full bg-[#f9f9f9] shadow-[inset_-3px_0_6px_-3px_rgba(0,0,0,0.15)] border-r border-black/[0.03]"></div>
-              <div className="absolute right-[-12px] w-6 h-6 rounded-full bg-[#f9f9f9] shadow-[inset_3px_0_6px_-3px_rgba(0,0,0,0.15)] border-l border-black/[0.03]"></div>
-              <div className="w-full border-t-[2px] border-dashed border-neutral-200 mx-6"></div>
+            <div className="relative flex items-center justify-center h-4 my-2">
+              {/* Left Cutout */}
+              <div className="absolute left-[-16px] w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_-1px_0_0_rgba(0,0,0,0.04),inset_-4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
+              {/* Right Cutout */}
+              <div className="absolute right-[-16px] w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_1px_0_0_rgba(0,0,0,0.04),inset_4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
+              {/* Dashed Line */}
+              <div className="w-full border-t-[2px] border-dashed border-neutral-200 mx-6 opacity-60"></div>
             </div>
 
             {/* Footer */}
