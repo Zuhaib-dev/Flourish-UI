@@ -21,13 +21,15 @@ export default function VoyageDashboard() {
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-white rounded-[36px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
+        className="bg-[#f9f9f9] rounded-[36px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
       >
         
         {/* Header */}
         <div className="flex justify-between items-center px-3 pt-1">
-          <div className="flex items-center gap-2.5 text-neutral-400 font-bold text-[24px]">
-            <Luggage className="w-[26px] h-[26px] fill-neutral-400 stroke-neutral-500" /> 
+          <div className="flex items-center gap-3 text-neutral-400 font-bold text-[24px]">
+            <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center shadow-sm border border-black/[0.03]">
+              <Luggage className="w-5 h-5 fill-neutral-400 stroke-neutral-500" strokeWidth={2} /> 
+            </div>
             <span className="text-neutral-500">Trips</span>
           </div>
           <div className="bg-[#f0f0f0] rounded-full p-1 flex gap-1 border border-black/[0.03]">
@@ -117,9 +119,9 @@ export default function VoyageDashboard() {
 
             {/* Tear-off Line */}
             <div className="relative flex items-center justify-center h-4">
-              <div className="absolute left-[-10px] w-5 h-5 rounded-full bg-white shadow-[inset_-3px_0_4px_-2px_rgba(0,0,0,0.06)] border-r border-black/[0.02]"></div>
-              <div className="absolute right-[-10px] w-5 h-5 rounded-full bg-white shadow-[inset_3px_0_4px_-2px_rgba(0,0,0,0.06)] border-l border-black/[0.02]"></div>
-              <div className="w-full border-t-2 border-dashed border-neutral-100 mx-5"></div>
+              <div className="absolute left-[-12px] w-6 h-6 rounded-full bg-[#f9f9f9] shadow-[inset_-3px_0_6px_-3px_rgba(0,0,0,0.15)] border-r border-black/[0.03]"></div>
+              <div className="absolute right-[-12px] w-6 h-6 rounded-full bg-[#f9f9f9] shadow-[inset_3px_0_6px_-3px_rgba(0,0,0,0.15)] border-l border-black/[0.03]"></div>
+              <div className="w-full border-t-[2px] border-dashed border-neutral-200 mx-6"></div>
             </div>
 
             {/* Footer */}
@@ -149,22 +151,23 @@ export default function VoyageDashboard() {
           </motion.div>
 
           {/* Right Column: Folders List */}
-          <div className="w-[340px] flex flex-col gap-3">
-            {folders.map((f, i) => (
-              <motion.div 
-                key={f.title}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 30 }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
-              >
-                {/* Folder Icon Construction */}
-                <div className="relative w-16 h-14 shrink-0">
-                  {/* Back flap */}
-                  <div className="absolute inset-0 bg-[#e2e8f4] rounded-xl rounded-tl-sm">
-                    <div className="absolute top-0 left-0 w-6 h-2.5 bg-[#e2e8f4] rounded-t-md -translate-y-[90%]"></div>
-                  </div>
+          <div className="w-[340px] flex flex-col justify-between">
+            <div className="flex flex-col gap-[14px]">
+              {folders.map((f, i) => (
+                <motion.div 
+                  key={f.title}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 30 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white rounded-[20px] p-[18px] flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
+                >
+                  {/* Folder Icon Construction */}
+                  <div className="relative w-[68px] h-[60px] shrink-0">
+                    {/* Back flap */}
+                    <div className="absolute inset-0 bg-[#e2e8f4] rounded-[14px] rounded-tl-sm">
+                      <div className="absolute top-0 left-0 w-7 h-2.5 bg-[#e2e8f4] rounded-t-md -translate-y-[90%]"></div>
+                    </div>
                   {/* Image/Content inside folder */}
                   <div className="absolute inset-x-1.5 bottom-1.5 top-2 bg-white rounded-lg shadow-sm border border-neutral-100 overflow-hidden transform -rotate-3 z-10">
                     <img src={f.image} alt={f.title} className="w-full h-full object-cover" />
@@ -172,18 +175,18 @@ export default function VoyageDashboard() {
                   <div className="absolute inset-x-1.5 bottom-1.5 top-2 bg-white rounded-lg shadow-sm border border-neutral-100 overflow-hidden transform rotate-6 z-[11] opacity-60">
                     <img src={f.image} alt={f.title} className="w-full h-full object-cover" />
                   </div>
-                  {/* Front flap (glassmorphic) */}
-                  <div className="absolute inset-x-0 bottom-0 h-[38px] bg-white/50 backdrop-blur-[10px] rounded-xl shadow-[0_-2px_6px_rgba(0,0,0,0.02)] border border-white z-20"></div>
-                  {/* Flag pill */}
-                  <div className="absolute bottom-[-6px] left-0 bg-white rounded-[6px] shadow-[0_2px_6px_rgba(0,0,0,0.08)] border border-neutral-100/50 text-[10px] p-0.5 px-1.5 z-30 flex items-center justify-center h-5">
-                    {f.flag}
+                    {/* Front flap (glassmorphic) */}
+                    <div className="absolute inset-x-0 bottom-0 h-[40px] bg-white/50 backdrop-blur-[10px] rounded-[14px] shadow-[0_-2px_6px_rgba(0,0,0,0.02)] border border-white z-20"></div>
+                    {/* Flag pill */}
+                    <div className="absolute bottom-[-8px] left-[-4px] bg-white rounded-[8px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] border border-neutral-100 text-[11px] p-0.5 px-1.5 z-30 flex items-center justify-center h-[22px]">
+                      {f.flag}
+                    </div>
                   </div>
-                </div>
-                
-                {/* Info */}
-                <div className="flex-1">
-                  <h4 className="text-[13px] font-bold text-neutral-900">{f.title}</h4>
-                  <p className="text-[11px] text-neutral-400 font-bold mt-0.5">{f.dates}</p>
+                  
+                  {/* Info */}
+                  <div className="flex-1">
+                    <h4 className="text-[14px] font-bold text-neutral-900 leading-tight">{f.title}</h4>
+                    <p className="text-[12px] text-neutral-400 font-bold mt-1">{f.dates}</p>
                   <div className="mt-2.5 flex items-center justify-between">
                     <div className="flex -space-x-1.5">
                       {f.avatars.map((a, j) => (
@@ -198,12 +201,13 @@ export default function VoyageDashboard() {
                       {f.status}
                     </span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Bottom Actions */}
-            <div className="flex gap-2 mt-auto pt-2">
+            <div className="flex gap-3 mt-auto pt-4">
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
