@@ -27,7 +27,7 @@ export default function Page() {
               <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                 <span className="text-surface font-serif font-bold text-xl leading-none">D</span>
               </div>
-              <span className="font-headline-sm text-headline-sm text-primary tracking-tight font-serif select-none">Daybreak</span>
+              <span className="font-headline-sm text-headline-sm text-primary tracking-tight select-none">Daybreak</span>
             </div>
             <div className="hidden md:flex items-center gap-2 text-on-surface-variant font-ui-label-sm text-ui-label-sm tracking-wider uppercase pl-4 bg-surface-container-low/60 py-1.5 px-3 rounded-full">
               <span className="opacity-60">Folio 04</span>
@@ -71,11 +71,11 @@ export default function Page() {
             
             <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-16 relative">
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-[1px] bg-outline-variant"></span>
+                <span className="w-12 h-px bg-outline-variant"></span>
                 <span className="font-ui-label-sm text-xs uppercase tracking-[0.2em] text-on-surface-variant font-medium">Folio IV • First Morning Draft</span>
-                <span className="w-12 h-[1px] bg-outline-variant"></span>
+                <span className="w-12 h-px bg-outline-variant"></span>
               </motion.div>
-              <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-5xl md:text-6xl text-primary tracking-tight font-serif lowercase italic mb-4">
+              <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-5xl md:text-6xl text-primary tracking-tight lowercase italic mb-4">
                 <span className="font-normal font-sans not-italic uppercase tracking-wider text-xl md:text-2xl block text-secondary mb-3">Canto Primus</span>
                 The Anatomy of Dawn
               </motion.h1>
@@ -97,7 +97,7 @@ export default function Page() {
               <div className="lg:col-span-4 relative group">
                 <div className="hidden lg:block absolute -left-12 top-1 font-ui-code text-xs text-outline select-none opacity-40">001</div>
                 <p className="font-body-md text-lg text-on-surface text-justify leading-[1.8]">
-                  <span className="float-left font-editorial-dropcap text-6xl leading-none pr-4 pt-2 text-primary font-serif select-none">A</span>
+                  <span className="float-left font-editorial-dropcap text-6xl leading-none pr-4 pt-2 text-primary select-none">A</span>
                   ll light in the northern portico arrives not as illumination, but as an excavation of mass. Before the sun clears the damp red roofs of the fondaco, the travertine columns are merely dormant solids, indistinguishable from the grey limestone quarries of Istria from which they were hewn four centuries prior. In this pale interstice between night and daylight, the writer inherits an ancient silence—a parchment cleared of yesterday’s trivial notations, waiting for the first deliberate strike of the pen.
                 </p>
                 <p className="font-body-md text-lg text-on-surface text-justify leading-[1.8] mt-6">
@@ -106,7 +106,7 @@ export default function Page() {
 
                 <motion.div whileHover={{ scale: 1.02 }} className="my-10 py-6 px-8 bg-surface-container-low/70 rounded-2xl relative overflow-hidden group cursor-pointer transition-colors hover:bg-surface-container-low">
                   <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary group-hover:bg-primary transition-colors"></div>
-                  <blockquote className="font-pull-quote text-2xl font-serif italic text-primary leading-snug">
+                  <blockquote className="font-pull-quote text-2xl italic text-primary leading-snug">
                     “Silence is never the absence of resonance, but the exact stone foundation upon which the syllable rests.”
                   </blockquote>
                   <cite className="block font-ui-label-sm text-xs text-secondary uppercase tracking-widest mt-4 not-italic">
@@ -141,7 +141,7 @@ export default function Page() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <p className="font-body-lg text-xl text-primary font-serif italic leading-relaxed">
+                  <p className="font-body-lg text-xl text-primary italic leading-relaxed">
                     “We do not invent the morning; we merely record the precise moment its slow grey tides inundate the library floor. The syntax must mirror the slow thaw of shadows across the cedar desk.”
                   </p>
                 </motion.div>
@@ -216,7 +216,7 @@ export default function Page() {
                 <CaseSensitive className="w-4 h-4 text-secondary" />
                 <span className="font-ui-label-sm text-sm font-semibold">Aa Style</span>
               </button>
-              <span className="h-5 w-[1px] bg-outline-variant/60 mx-1"></span>
+              <span className="h-5 w-px bg-outline-variant/60 mx-1"></span>
               <button className="group flex items-center gap-2 px-4 py-2 rounded-full text-on-surface hover:bg-surface-container-high transition-colors active:scale-95">
                 <Paintbrush className="w-4 h-4 text-on-surface-variant group-hover:text-primary" />
                 <span className="font-ui-label-sm text-sm hidden sm:inline">Image Study</span>
@@ -225,7 +225,7 @@ export default function Page() {
                 <Edit3 className="w-4 h-4 text-on-surface-variant group-hover:text-primary" />
                 <span className="font-ui-label-sm text-sm hidden sm:inline">Marginalia</span>
               </button>
-              <span className="h-5 w-[1px] bg-outline-variant/60 mx-1"></span>
+              <span className="h-5 w-px bg-outline-variant/60 mx-1"></span>
               <button className="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-full transition-colors active:scale-95">
                 <MoreVertical className="w-5 h-5" />
               </button>
@@ -236,7 +236,7 @@ export default function Page() {
               layout
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1, width: isSynthesisExpanded ? '100%' : 'auto' }}
-              className="pointer-events-auto max-w-3xl overflow-hidden rounded-[2rem] bg-surface-container-lowest/95 backdrop-blur-2xl shadow-[0_24px_64px_-12px_rgba(36,28,21,0.15),0_4px_16px_-2px_rgba(36,28,21,0.05)] border border-surface-variant/90"
+              className="pointer-events-auto max-w-3xl overflow-hidden rounded-4xl bg-surface-container-lowest/95 backdrop-blur-2xl shadow-[0_24px_64px_-12px_rgba(36,28,21,0.15),0_4px_16px_-2px_rgba(36,28,21,0.05)] border border-surface-variant/90"
             >
               {isSynthesisExpanded ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 md:p-8">
@@ -263,7 +263,7 @@ export default function Page() {
                   </div>
 
                   <div className="mb-8">
-                    <h2 className="font-headline-lg text-3xl text-primary font-serif tracking-tight leading-snug">
+                    <h2 className="font-headline-lg text-3xl text-primary tracking-tight leading-snug">
                       Let Daybreak sculpt your chapter’s cadence.
                     </h2>
                     <p className="font-body-md text-base text-on-surface-variant mt-3 leading-relaxed">
@@ -350,7 +350,7 @@ export default function Page() {
 
                   <div className="p-4 rounded-2xl bg-surface-container-low">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-headline-sm text-xl font-serif italic text-primary">caesura</span>
+                      <span className="font-headline-sm text-xl italic text-primary">caesura</span>
                       <span className="font-ui-code text-xs text-secondary font-medium px-2 py-1 bg-secondary/10 rounded-md">lat. caedere</span>
                     </div>
                     <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
@@ -378,7 +378,7 @@ export default function Page() {
                       </span>
                       <span className="font-ui-code text-xs text-on-surface-variant">06:22 AM</span>
                     </div>
-                    <p className="font-body-md text-sm text-on-surface italic text-on-surface-variant/90 leading-relaxed">
+                    <p className="font-body-md text-sm italic text-on-surface-variant/90 leading-relaxed">
                       “Revise stanza three before dawn printing. Ensure the transition between the Istrian stone and the canal current sounds completely inevitable.”
                     </p>
                   </div>
@@ -389,7 +389,7 @@ export default function Page() {
 
           {/* Left Floated Vertical Folio Progress Bar */}
           <aside className="hidden xl:flex fixed left-8 top-32 flex-col items-center gap-4 z-30 pointer-events-auto">
-            <div className="p-3 rounded-[2rem] bg-surface-container-lowest/80 backdrop-blur-xl shadow-lg border border-surface-variant/80 flex flex-col items-center gap-4">
+            <div className="p-3 rounded-4xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-lg border border-surface-variant/80 flex flex-col items-center gap-4">
               <button className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all active:scale-90" title="Beginning of Folio">
                 <ArrowUpToLine className="w-4 h-4" />
               </button>
@@ -414,7 +414,7 @@ export default function Page() {
       <footer className="w-full bg-surface-container-low/80 py-12 shadow-inner border-t border-surface-variant/30">
         <div className="w-full px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 font-ui-label-sm text-sm text-on-surface-variant">
           <div className="flex items-center gap-4">
-            <span className="font-headline-sm text-lg text-on-surface select-none font-serif font-bold">Daybreak</span>
+            <span className="font-headline-sm text-lg text-on-surface select-none font-bold">Daybreak</span>
             <span className="opacity-40">•</span>
             <span>Sanctuary for Classical Narrative &amp; Prose</span>
           </div>

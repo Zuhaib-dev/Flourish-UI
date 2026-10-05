@@ -139,7 +139,7 @@ export default function NotebookGuestbook() {
             </div>
 
             {/* MAIN SKEUOMORPHIC LEATHER BOOK WRAPPER */}
-            <div className="relative w-full rounded-[1.75rem] p-3 sm:p-5 lg:p-7 shadow-[0_25px_60px_-15px_rgba(40,22,10,0.35),0_10px_20px_-8px_rgba(30,15,5,0.22)] bg-gradient-to-br from-[#4e2206] via-[#3a1803] to-[#270e01] transition-all overflow-hidden group/book">
+            <div className="relative w-full rounded-[1.75rem] p-3 sm:p-5 lg:p-7 shadow-[0_25px_60px_-15px_rgba(40,22,10,0.35),0_10px_20px_-8px_rgba(30,15,5,0.22)] bg-linear-to-br from-[#4e2206] via-[#3a1803] to-[#270e01] transition-all overflow-hidden group/book">
               <div className="absolute inset-2 sm:inset-3 rounded-[1.4rem] border-2 border-dashed border-[#8d4f20]/45 pointer-events-none"></div>
               
               {/* Brass Corners */}
@@ -149,9 +149,9 @@ export default function NotebookGuestbook() {
               <div className="absolute bottom-2 right-2 w-8 h-8 rounded-br-[1.2rem] border-b-4 border-r-4 border-[#c5a059]/80 pointer-events-none shadow-[inset_-1px_-1px_2px_rgba(255,255,255,0.3)]"></div>
               
               {/* Velvet Bookmark */}
-              <div className="absolute -top-3 left-[48%] md:left-1/2 w-7 h-16 bg-gradient-to-b from-tertiary to-tertiary-container shadow-lg pointer-events-none z-30 origin-top animate-pulse">
+              <div className="absolute -top-3 left-[48%] md:left-1/2 w-7 h-16 bg-linear-to-b from-tertiary to-tertiary-container shadow-lg pointer-events-none z-30 origin-top animate-pulse">
                 <div className="w-full h-full flex items-end justify-center pb-1">
-                  <div className="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[10px] border-t-[#2a0e06]"></div>
+                  <div className="w-0 h-0 border-l-14 border-l-transparent border-r-14 border-r-transparent border-t-10 border-t-[#2a0e06]"></div>
                 </div>
               </div>
 
@@ -169,17 +169,17 @@ export default function NotebookGuestbook() {
                   >
                     {/* CENTRAL SPINE */}
                     <div className="hidden lg:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-12 pointer-events-none z-20">
-                      <div className="w-full h-full bg-gradient-to-r from-black/25 via-black/40 to-black/20 shadow-inner"></div>
-                      <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2px] bg-[#3a1805]/40"></div>
+                      <div className="w-full h-full bg-linear-to-r from-black/25 via-black/40 to-black/20 shadow-inner"></div>
+                      <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-[#3a1805]/40"></div>
                       <div className="absolute inset-y-4 left-1/2 -translate-x-1/2 flex flex-col justify-between py-2">
                         {Array.from({length: 7}).map((_, i) => (
-                          <span key={i} className="w-3 -ml-[5px] h-[3px] rounded-full bg-[#f8f1e2] shadow-sm"></span>
+                          <span key={i} className="w-3 -ml-1.25 h-0.75 rounded-full bg-[#f8f1e2] shadow-sm"></span>
                         ))}
                       </div>
                     </div>
 
                     {/* LEFT PAGE */}
-                    <div className="relative p-6 sm:p-9 lg:p-11 flex flex-col justify-between min-h-[580px] lg:min-h-[660px] bg-gradient-to-r from-[#FAF6EE] via-[#FDFBF7] to-[#F1ECE1] lg:pr-12 backface-hidden">
+                    <div className="relative p-6 sm:p-9 lg:p-11 flex flex-col justify-between min-h-145 lg:min-h-165 bg-linear-to-r from-[#FAF6EE] via-[#FDFBF7] to-[#F1ECE1] lg:pr-12 backface-hidden">
                       <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#937d6e 0.75px, transparent 0.75px)', backgroundSize: '20px 20px' }}></div>
                       
                       <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 z-10">
@@ -195,9 +195,9 @@ export default function NotebookGuestbook() {
                           </div>
                           <span className="font-headline-md text-[11px] leading-tight font-bold tracking-tight">OCT 14, 2024</span>
                           <div className="w-full flex items-center justify-center gap-0.5 mt-0.5">
-                            <span className="h-[1px] w-3 bg-tertiary/70"></span>
+                            <span className="h-px w-3 bg-tertiary/70"></span>
                             <span className="font-label-sm text-[8px] uppercase">PORTUGAL POST</span>
-                            <span className="h-[1px] w-3 bg-tertiary/70"></span>
+                            <span className="h-px w-3 bg-tertiary/70"></span>
                           </div>
                         </motion.div>
                       </div>
@@ -207,18 +207,18 @@ export default function NotebookGuestbook() {
                           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#eeddb9]/85 backdrop-blur-[1px] rotate-1 shadow-sm border-l border-r border-[#cfbb8c]/50 flex items-center justify-center pointer-events-none">
                             <span className="font-label-sm text-[9px] tracking-wider text-[#795a32]/80 uppercase font-bold">• ARCHIVAL TAPE •</span>
                           </div>
-                          <div className="relative w-full aspect-[4/3] bg-surface-container overflow-hidden rounded-[2px]">
+                          <div className="relative w-full aspect-4/3 bg-surface-container overflow-hidden rounded-xs">
                             <img className="w-full h-full object-cover filter contrast-[1.05] sepia-[0.18] group-hover/polaroid:scale-110 transition-transform duration-700" alt="Polaroid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHdM1_YHkTUE1Y_Bix-iTp9KPCdCpCLBjmQWLi0KBDJ8zgz_WDYPQLNBZY_Hv_gDDp8TYE_I0Bs2Hzbf8Wm4bkV8C0DiztQYc0LKlN9FHsu1Gg0ZtSXYKNIxX1Q_5g-b3CFFaVK5Pk2NUT9gGqWG30KR5wgqP-A43QUEEnVnktAcrAOJy6qmjVIk0TNsJ5iHh15GZc6aEDmIuUh-f5zt6yDU4qb0GH6Cpq5oDd8zcc6mMoSu_6vm5d" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-transparent pointer-events-none"></div>
                           </div>
                           <p className="font-signature-freehand text-[24px] text-primary text-center mt-3 select-none tracking-wide">Spring Gathering '24 ♥</p>
                         </motion.div>
 
-                        <motion.div whileHover={{ rotate: 45, scale: 1.2 }} className="absolute -top-2 right-4 md:left-60 md:right-auto rotate-12 p-2 bg-gradient-to-tr from-amber-200 via-pink-200 to-indigo-200 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.14)] border border-white/60 cursor-pointer select-none">
+                        <motion.div whileHover={{ rotate: 45, scale: 1.2 }} className="absolute -top-2 right-4 md:left-60 md:right-auto rotate-12 p-2 bg-linear-to-tr from-amber-200 via-pink-200 to-indigo-200 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.14)] border border-white/60 cursor-pointer select-none">
                           <Star className="text-[#8a4a15] w-5 h-5 fill-current" />
                         </motion.div>
 
-                        <motion.div whileHover={{ scale: 1.2 }} className="absolute top-28 right-2 sm:right-6 rotate-[18deg] w-14 h-14 rounded-full bg-gradient-to-br from-[#ffa642] to-[#e65c00] p-1 shadow-[1px_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center text-white cursor-pointer select-none">
+                        <motion.div whileHover={{ scale: 1.2 }} className="absolute top-28 right-2 sm:right-6 rotate-18 w-14 h-14 rounded-full bg-linear-to-br from-[#ffa642] to-[#e65c00] p-1 shadow-[1px_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center text-white cursor-pointer select-none">
                           <div className="w-full h-full rounded-full border border-dashed border-white/70 flex flex-col items-center justify-center">
                             <Apple className="w-5 h-5" />
                             <span className="font-label-sm text-[8px] uppercase tracking-tighter font-black mt-0.5">SWEET</span>
@@ -246,7 +246,7 @@ export default function NotebookGuestbook() {
                             {/* Interactive Tooltip using CSS for instant hover, but Framer Motion handles the enter */}
                             <div className="absolute bottom-full left-0 mb-3 w-72 p-4 bg-surface-bright/95 backdrop-blur-md rounded-xl shadow-[0_12px_30px_-5px_rgba(40,25,10,0.22)] border border-outline-variant/40 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto focus-within:opacity-100 focus-within:pointer-events-auto transition-all duration-300 z-30 translate-y-2 group-hover:translate-y-0">
                               <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden flex-shrink-0 shadow-inner">
+                                <div className="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden shrink-0 shadow-inner">
                                   <img className="w-full h-full object-cover" alt="Elena" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCql2zrZrxN_lKeFlOTGQxBxX2_zHsyi05uohpFdRgGCbFt0iOZrM_KySwxWWc6AFu3rKwE8UuLXQlXKfJWzl0C1hItAf68V-hI_2hEBTP2TOZAOENJ65C6Tqkk99aDsBPs7dr17ORzvGk6kh0EDYHQY2VHiNUNeYEVXDxBaFUn_nz3i2bFqTP3Slq3F8PLOzZBmfKaC6rjqjrlw5fFt-4VRp7rHGMhqBIHAc_25PpLX6yqrJdGHG6i"/>
                                 </div>
                                 <div className="min-w-0">
@@ -278,7 +278,7 @@ export default function NotebookGuestbook() {
                     </div>
 
                     {/* RIGHT PAGE */}
-                    <div className="relative p-6 sm:p-9 lg:p-11 flex flex-col justify-between min-h-[580px] lg:min-h-[660px] bg-gradient-to-l from-[#FAF6EE] via-[#FDFBF7] to-[#F1ECE1] lg:pl-12 backface-hidden">
+                    <div className="relative p-6 sm:p-9 lg:p-11 flex flex-col justify-between min-h-145 lg:min-h-165 bg-linear-to-l from-[#FAF6EE] via-[#FDFBF7] to-[#F1ECE1] lg:pl-12 backface-hidden">
                       <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#937d6e 0.75px, transparent 0.75px)', backgroundSize: '20px 20px' }}></div>
                       
                       <div className="relative flex items-start justify-between z-10">
@@ -307,7 +307,7 @@ export default function NotebookGuestbook() {
                       </div>
 
                       <div className="relative my-4 flex-1 flex flex-col justify-around z-10">
-                        <div className="p-5 sm:p-6 rounded-xl bg-surface-bright/70 shadow-[0_2px_10px_rgba(50,30,10,0.06)] border border-dashed border-[#accfb3]/70 relative hover:bg-surface-bright transition-colors">
+                        <div className="p-5 sm:p-6 rounded-xl bg-surface-bright/70 shadow-[0_2px_10px_rgba(50,30,10,0.06)] border border-dashed border-secondary-fixed-dim/70 relative hover:bg-surface-bright transition-colors">
                           <div className="absolute -top-3.5 -right-2 flex items-center justify-center w-8 h-8 rounded-full bg-secondary-fixed shadow-sm">
                             <span className="text-secondary text-xl font-bold select-none leading-none -mt-1">♣</span>
                           </div>
@@ -325,7 +325,7 @@ export default function NotebookGuestbook() {
                           </div>
                         </div>
 
-                        <div className="relative mt-4 p-4 rounded-xl bg-gradient-to-r from-surface-container to-surface-container-high shadow-[0_4px_14px_rgba(0,0,0,0.09)] border border-outline-variant/40 hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-shadow">
+                        <div className="relative mt-4 p-4 rounded-xl bg-linear-to-r from-surface-container to-surface-container-high shadow-[0_4px_14px_rgba(0,0,0,0.09)] border border-outline-variant/40 hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-shadow">
                           <div className="flex items-center gap-4">
                             <motion.button whileTap={{ scale: 0.9 }} onClick={() => setIsPlaying(!isPlaying)} className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors ${isPlaying ? 'bg-secondary' : 'bg-tertiary'} text-white`} type="button">
                               {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current ml-1" />}
@@ -365,8 +365,8 @@ export default function NotebookGuestbook() {
 
                       {/* Interactive Page Curl */}
                       <div onClick={() => flipPage(true)} className="absolute bottom-0 right-0 w-20 h-20 cursor-pointer group/curl" title="Click to flip to next spread">
-                        <div className="absolute inset-0 bg-gradient-to-tl from-black/25 via-black/5 to-transparent rounded-tl-xl pointer-events-none opacity-50 group-hover/curl:opacity-100 transition-opacity"></div>
-                        <div className="absolute bottom-0 right-0 w-0 h-0 border-solid border-t-[40px] border-r-[40px] border-t-[#dfd8cc] border-r-[#c0b7a8] drop-shadow-[-3px_3px_5px_rgba(0,0,0,0.25)] group-hover/curl:border-t-[54px] group-hover/curl:border-r-[54px] transition-all duration-300 ease-out"></div>
+                        <div className="absolute inset-0 bg-linear-to-tl from-black/25 via-black/5 to-transparent rounded-tl-xl pointer-events-none opacity-50 group-hover/curl:opacity-100 transition-opacity"></div>
+                        <div className="absolute bottom-0 right-0 w-0 h-0 border-solid border-t-40 border-r-40 border-t-[#dfd8cc] border-r-[#c0b7a8] drop-shadow-[-3px_3px_5px_rgba(0,0,0,0.25)] group-hover/curl:border-t-54 group-hover/curl:border-r-54 transition-all duration-300 ease-out"></div>
                         <div className="absolute bottom-3 right-3 text-primary/60 group-hover/curl:text-primary transition-colors">
                           <BookOpen className="w-4 h-4" />
                         </div>
@@ -401,18 +401,18 @@ export default function NotebookGuestbook() {
                     <div className="mt-4 space-y-2">
                       <div className="group flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className="w-12 h-12 rounded-xl bg-surface-container-high flex-shrink-0 flex items-center justify-center text-primary overflow-hidden">
+                          <div className="w-12 h-12 rounded-xl bg-surface-container-high shrink-0 flex items-center justify-center text-primary overflow-hidden">
                             <img className="w-full h-full object-cover" alt="Thumb" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs7fIRmsAR0MTNk7T03rR8ggjDcPtLSSylGstY8jngCuPn88FDXXGiOyqDDMzA2R_yMP00yj8Wdw_OrJww1aYcqtz-Zh6DMfuMZoc_hDyfgtqK9ibzURBTschQ3-E0exCUUjRXrSXTW29iaVCa1WeFZfdDcDtga-LodqVbVMxDh5xP6fh7pFj4JcgMcQGBS4ZTe3aPbaQeIzcse91XjIwOmUroyY5EsPH7bZ8TMVQnuAfWo_F5bist"/>
                           </div>
                           <div className="min-w-0">
                             <div className="flex items-center gap-2 mb-1">
                               <h5 className="font-headline-md text-[15px] font-semibold text-on-surface truncate group-hover:text-primary transition-colors">Elena Rostova</h5>
-                              <span className="px-2 py-0.5 rounded-full bg-[#ffa642]/20 text-[#934b19] font-label-sm text-[10px] font-bold uppercase tracking-wider">Citrus Sticker</span>
+                              <span className="px-2 py-0.5 rounded-full bg-[#ffa642]/20 text-surface-tint font-label-sm text-[10px] font-bold uppercase tracking-wider">Citrus Sticker</span>
                             </div>
                             <p className="font-body-sm text-[13px] text-on-surface-variant truncate">“May your memories be warm and your pages full!”</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                        <div className="flex items-center gap-2 shrink-0 ml-4">
                           <span className="font-label-sm text-[11px] font-bold text-outline">Page 14</span>
                           <ChevronRight className="text-outline w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -420,7 +420,7 @@ export default function NotebookGuestbook() {
 
                       <div className="group flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className="w-12 h-12 rounded-xl bg-secondary-fixed flex-shrink-0 flex items-center justify-center text-secondary shadow-inner">
+                          <div className="w-12 h-12 rounded-xl bg-secondary-fixed shrink-0 flex items-center justify-center text-secondary shadow-inner">
                             <span className="text-2xl font-bold select-none -mt-1">♣</span>
                           </div>
                           <div className="min-w-0">
@@ -431,7 +431,7 @@ export default function NotebookGuestbook() {
                             <p className="font-body-sm text-[13px] text-on-surface-variant truncate">“Left a little lucky clover for future wanderers...”</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                        <div className="flex items-center gap-2 shrink-0 ml-4">
                           <span className="font-label-sm text-[11px] font-bold text-outline">Page 15</span>
                           <ChevronRight className="text-outline w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -439,7 +439,7 @@ export default function NotebookGuestbook() {
                       
                       <div className="group flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className="w-12 h-12 rounded-xl bg-surface-container-high flex-shrink-0 flex items-center justify-center text-tertiary">
+                          <div className="w-12 h-12 rounded-xl bg-surface-container-high shrink-0 flex items-center justify-center text-tertiary">
                             <Camera className="w-5 h-5" />
                           </div>
                           <div className="min-w-0">
@@ -450,7 +450,7 @@ export default function NotebookGuestbook() {
                             <p className="font-body-sm text-[13px] text-on-surface-variant truncate">“Cheers to the journey ahead! Let the mountain wind guide us.”</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                        <div className="flex items-center gap-2 shrink-0 ml-4">
                           <span className="font-label-sm text-[11px] font-bold text-outline">Page 8</span>
                           <ChevronRight className="text-outline w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -512,9 +512,9 @@ export default function NotebookGuestbook() {
                       <div>
                         <label className="block font-label-sm text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Select Ink Well</label>
                         <div className="flex items-center gap-4 py-1">
-                          <button onClick={() => setInkColor('#6c2f00')} className={`w-8 h-8 rounded-full bg-[#6c2f00] transition-all ${inkColor === '#6c2f00' ? 'ring-4 ring-offset-2 ring-[#6c2f00]' : 'hover:scale-110'}`} title="Sepia Russet" type="button"></button>
-                          <button onClick={() => setInkColor('#46654f')} className={`w-8 h-8 rounded-full bg-[#46654f] transition-all ${inkColor === '#46654f' ? 'ring-4 ring-offset-2 ring-[#46654f]' : 'hover:scale-110'}`} title="Moss Green" type="button"></button>
-                          <button onClick={() => setInkColor('#702c19')} className={`w-8 h-8 rounded-full bg-[#702c19] transition-all ${inkColor === '#702c19' ? 'ring-4 ring-offset-2 ring-[#702c19]' : 'hover:scale-110'}`} title="Terracotta" type="button"></button>
+                          <button onClick={() => setInkColor('#6c2f00')} className={`w-8 h-8 rounded-full bg-primary transition-all ${inkColor === '#6c2f00' ? 'ring-4 ring-offset-2 ring-primary' : 'hover:scale-110'}`} title="Sepia Russet" type="button"></button>
+                          <button onClick={() => setInkColor('#46654f')} className={`w-8 h-8 rounded-full bg-secondary transition-all ${inkColor === '#46654f' ? 'ring-4 ring-offset-2 ring-secondary' : 'hover:scale-110'}`} title="Moss Green" type="button"></button>
+                          <button onClick={() => setInkColor('#702c19')} className={`w-8 h-8 rounded-full bg-tertiary transition-all ${inkColor === '#702c19' ? 'ring-4 ring-offset-2 ring-tertiary' : 'hover:scale-110'}`} title="Terracotta" type="button"></button>
                           <button onClick={() => setInkColor('#1e2a38')} className={`w-8 h-8 rounded-full bg-[#1e2a38] transition-all ${inkColor === '#1e2a38' ? 'ring-4 ring-offset-2 ring-[#1e2a38]' : 'hover:scale-110'}`} title="Vintage Ink" type="button"></button>
                         </div>
                       </div>
