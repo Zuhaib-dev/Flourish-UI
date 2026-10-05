@@ -32,5 +32,8 @@ Alongside our core components, this repository also houses various UI/UX experim
 - 📓 **[Skeuomorphic Notebook Guestbook](./skeuomorphic-notebook)**  
   A playful, skeuomorphic take on a digital guestbook built with Next.js 15.
 
+- 📊 **[Isometric Dashboard](./isometric-dashboard)**  
+  A premium dark-mode dashboard featuring a true CSS 3D isometric stacked bar chart and interactive heatmap calendar.
+
 ---
 *Built with room to grow. 🌱*
