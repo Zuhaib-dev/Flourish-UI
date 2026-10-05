@@ -71,46 +71,46 @@ export default function VoyageDashboard() {
 
             {/* Flight Info Area */}
             <div className="px-7 pt-10 pb-6 flex flex-col gap-6">
-              <div className="flex justify-between items-center relative">
-                <div className="text-center w-16">
+              <div className="flex justify-between items-start relative">
+                <div className="text-center w-[72px]">
                   <h3 className="text-3xl font-bold tracking-tight text-neutral-800">CDG</h3>
                   <p className="text-[11px] text-neutral-400 font-medium mt-1">Paris • 07:40</p>
                 </div>
                 
                 {/* Flight path curve */}
-                <div className="flex-1 px-4 relative flex items-center justify-center mt-[-20px]">
-                  <div className="absolute top-1/2 -translate-y-1/2 w-[calc(100%-16px)] h-12 border-t-[1.5px] border-dashed border-neutral-300 rounded-[100%]"></div>
-                  <div className="bg-white px-1 z-10 mt-[-6px]">
+                <div className="flex-1 px-2 relative flex flex-col items-center justify-start pt-2">
+                  <div className="absolute top-[14px] w-[calc(100%-24px)] h-12 border-t-[1.5px] border-dashed border-neutral-300 rounded-[100%]"></div>
+                  <div className="bg-white px-1 z-10 relative">
                     <Plane className="w-[18px] h-[18px] text-neutral-800 rotate-45" fill="currentColor" strokeWidth={1} />
                   </div>
-                  <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 bg-white px-2 text-[10px] text-neutral-300 font-bold tracking-wide">2h 35m</div>
-                  <div className="absolute top-[18px] left-2 w-1.5 h-1.5 rounded-full bg-neutral-300"></div>
-                  <div className="absolute top-[18px] right-2 w-1.5 h-1.5 rounded-full bg-emerald-700"></div>
+                  <div className="bg-white px-2 mt-1 text-[10px] text-neutral-300 font-bold tracking-wide relative z-10">2h 35m</div>
+                  <div className="absolute top-[14px] left-3 w-1.5 h-1.5 rounded-full bg-neutral-300 -translate-y-1/2"></div>
+                  <div className="absolute top-[14px] right-3 w-1.5 h-1.5 rounded-full bg-emerald-700 -translate-y-1/2"></div>
                 </div>
 
-                <div className="text-center w-16">
+                <div className="text-center w-[72px]">
                   <h3 className="text-3xl font-bold tracking-tight text-neutral-800">LIS</h3>
                   <p className="text-[11px] text-neutral-400 font-medium mt-1">08:15 • Lisbon</p>
                 </div>
               </div>
 
               {/* Details Grid */}
-              <div className="grid grid-cols-4 gap-2 mt-1">
-                <div>
-                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Date</p>
-                  <p className="text-[13px] font-bold text-neutral-800">Oct 12</p>
+              <div className="flex justify-between items-start mt-2 px-1">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] text-neutral-400 font-medium">Date</span>
+                  <span className="text-[13px] font-bold text-neutral-800">Oct 12</span>
                 </div>
-                <div>
-                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Gate</p>
-                  <p className="text-[13px] font-bold text-neutral-800">K42</p>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] text-neutral-400 font-medium">Gate</span>
+                  <span className="text-[13px] font-bold text-neutral-800">K42</span>
                 </div>
-                <div>
-                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Seat</p>
-                  <p className="text-[13px] font-bold text-neutral-800">14C</p>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] text-neutral-400 font-medium">Seat</span>
+                  <span className="text-[13px] font-bold text-neutral-800">14C</span>
                 </div>
-                <div>
-                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Stay</p>
-                  <p className="text-[13px] font-bold text-neutral-800">6 nights</p>
+                <div className="flex flex-col gap-1 items-end">
+                  <span className="text-[10px] text-neutral-400 font-medium">Stay</span>
+                  <span className="text-[13px] font-bold text-neutral-800">6 nights</span>
                 </div>
               </div>
             </div>
