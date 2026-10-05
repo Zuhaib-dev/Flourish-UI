@@ -119,7 +119,8 @@ export function FlowerSelect({ children, className = '', maxBlooms = 45, bloomSp
         (rect) => rect.width > 0 && rect.height > 0
       );
 
-      const containerRect = containerRef.current.getBoundingClientRect();
+      const containerRect = containerRef.current?.getBoundingClientRect();
+      if (!containerRect) return;
 
       const positions = rects.flatMap((rect) => {
         // Space blooms evenly along the selected text width
