@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Northstar — Independent Creative Practice',
   description: 'Northstar is a small creative studio for brands, people, and places with something to say.',
-  generator: 'v0.app',
+  generator: 'Zuhaib Rashid',
   icons: {
     icon: [
       {

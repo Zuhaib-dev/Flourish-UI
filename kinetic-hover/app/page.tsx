@@ -41,13 +41,13 @@ const projects: HoverItem[] = [
 
 export default function Page() {
   return (
-    <main className="max-w-[1440px] mx-auto px-[5.5vw] py-8 pb-12 bg-[#f4f3f0] text-[#171717] font-sans selection:bg-black/10">
+    <main className="max-w-360 mx-auto px-[5.5vw] py-8 pb-12 bg-[#f4f3f0] text-[#171717] font-sans selection:bg-black/10">
       <header className="grid grid-cols-2 md:grid-cols-3 items-start border-t border-[#171717] pt-4 text-[11px] tracking-[0.03em] leading-[1.3]">
         <a className="text-[17px] font-bold tracking-[-0.06em]" href="#top" aria-label="Northstar home">
-          northstar<span className="text-[8px] align-top ml-[2px]">®</span>
+          northstar<span className="text-[8px] align-top ml-0.5">®</span>
         </a>
         <p className="hidden md:block text-[#777671] m-0">Independent creative practice<br />Kashmir / Everywhere</p>
-        <a className="justify-self-end border-b border-[#171717] pb-[2px] hover:text-[#777671] hover:border-[#777671] transition-colors" href="mailto:zuhaibrashid01@gmail.com">
+        <a className="justify-self-end border-b border-[#171717] pb-0.5 hover:text-[#777671] hover:border-[#777671] transition-colors" href="mailto:zuhaibrashid01@gmail.com">
           Get in touch <span aria-hidden="true" className="ml-2">↗</span>
         </a>
       </header>
@@ -58,7 +58,7 @@ export default function Page() {
           <h1 className="text-[clamp(56px,9.4vw,136px)] tracking-[-0.075em] leading-[0.85] font-medium m-0">
             Ideas made<br /><em className="font-serif font-normal tracking-[-0.105em]">visible.</em>
           </h1>
-          <p className="max-w-[230px] md:max-w-[205px] text-[#777671] text-[13px] leading-[1.35] m-0">
+          <p className="max-w-57.5 md:max-w-51.25 text-[#777671] text-[13px] leading-[1.35] m-0">
             Northstar is a small creative studio for brands, people, and places with something to say.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function Page() {
 
       <footer className="flex flex-wrap md:flex-nowrap justify-between gap-5 text-[#777671] text-[10px] uppercase tracking-[0.06em] mt-[15vh] pt-4 border-t border-[#171717]">
         <span>© Northstar Studio</span>
-        <span className="order-3 md:order-none w-full md:w-auto">Available for select projects</span>
+        <span className="order-3 md:order-0 w-full md:w-auto">Available for select projects</span>
         <a href="mailto:zuhaibrashid01@gmail.com" className="text-[#171717] hover:text-[#777671] transition-colors">zuhaibrashid01@gmail.com</a>
       </footer>
     </main>
