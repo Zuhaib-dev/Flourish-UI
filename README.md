@@ -29,8 +29,8 @@ Alongside our core components, this repository also houses various UI/UX experim
 - 🌅 **[Daybreak Editorial](./daybreak-editorial)**  
   A premium, interactive neo-classical editorial design system built in Next.js 15 with Framer Motion.
 
-- 📓 **[Stitch Skeuomorphic Notebook Guestbook](./stitch_skeuomorphic_notebook_guestbook)**  
-  A playful, skeuomorphic take on a digital guestbook.
+- 📓 **[Skeuomorphic Notebook Guestbook](./skeuomorphic-notebook)**  
+  A playful, skeuomorphic take on a digital guestbook built with Next.js 15.
 
 ---
 *Built with room to grow. 🌱*
