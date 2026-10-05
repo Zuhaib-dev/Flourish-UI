@@ -18,10 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${caveat.variable} ${dancingScript.variable}`}>
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-      </head>
       <body className="font-sans bg-background text-on-surface antialiased selection:bg-primary/10">
         {children}
       </body>

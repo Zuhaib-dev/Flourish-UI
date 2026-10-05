@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SignatureCanvas from 'react-signature-canvas';
+import { FileSignature, X, PenTool, Type, Upload, Check, Eraser, Keyboard, CloudUpload, RefreshCw, Trash2, Lock, BadgeCheck } from 'lucide-react';
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<'draw' | 'type' | 'upload'>('draw');
@@ -10,6 +11,16 @@ export default function Page() {
   // Draw Canvas State
   const [inkColor, setInkColor] = useState<'#0f172a' | '#1d4ed8'>('#0f172a'); // slate-900 or blue-700
   const sigCanvas = useRef<SignatureCanvas>(null);
+  const [hasUserDrawn, setHasUserDrawn] = useState(false);
+
+  // Re-trigger animation when tab changes back to draw
+  const [animationKey, setAnimationKey] = useState(0);
+  
+  useEffect(() => {
+    if (activeTab === 'draw' && !hasUserDrawn) {
+      setAnimationKey(prev => prev + 1);
+    }
+  }, [activeTab, hasUserDrawn]);
 
   // Type Signature State
   const [typedName, setTypedName] = useState('Jonathan Vance');
@@ -23,6 +34,11 @@ export default function Page() {
     if (sigCanvas.current) {
       sigCanvas.current.clear();
     }
+    setHasUserDrawn(true); // Hide animated pre-draw if user clears
+  };
+
+  const handleDrawBegin = () => {
+    setHasUserDrawn(true);
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +75,7 @@ export default function Page() {
           <div className="flex flex-col gap-1 pr-space-md">
             <div className="flex items-center gap-space-sm">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                <span className="material-symbols-outlined text-[22px]">edit_document</span>
+                <FileSignature className="w-5 h-5" strokeWidth={2.5} />
               </div>
               <h1 className="font-headline-lg font-semibold text-on-surface tracking-tight" id="modal-title">Adopt Your Signature</h1>
             </div>
@@ -68,7 +84,7 @@ export default function Page() {
             </p>
           </div>
           <button aria-label="Dismiss signature modal" className="w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container transition-all active:scale-95 flex-shrink-0" type="button">
-            <span className="material-symbols-outlined text-[20px]">close</span>
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -89,9 +105,9 @@ export default function Page() {
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span className="material-symbols-outlined text-[18px]">
-                  {tab === 'draw' ? 'gesture' : tab === 'type' ? 'match_case' : 'upload_file'}
-                </span>
+                {tab === 'draw' && <PenTool className="w-[18px] h-[18px]" />}
+                {tab === 'type' && <Type className="w-[18px] h-[18px]" />}
+                {tab === 'upload' && <Upload className="w-[18px] h-[18px]" />}
                 <span className="capitalize">{tab === 'draw' ? 'Draw' : tab === 'type' ? 'Type' : 'Upload'}</span>
               </button>
             ))}
@@ -123,17 +139,17 @@ export default function Page() {
                       <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-outline-variant/30 pointer-events-auto transition-transform hover:scale-105">
                         <span className="font-label-sm text-secondary pr-1 font-medium">Ink</span>
                         <button onClick={() => setInkColor('#0f172a')} className={`w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center focus:outline-none transition-all ${inkColor === '#0f172a' ? 'ring-2 ring-primary ring-offset-2 scale-110' : 'hover:opacity-80 scale-100'}`} title="Obsidian Black" type="button">
-                          <span className={`material-symbols-outlined text-[12px] text-white ${inkColor === '#0f172a' ? 'opacity-100' : 'opacity-0'}`}>check</span>
+                          <Check className={`w-3 h-3 text-white transition-opacity ${inkColor === '#0f172a' ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
                         </button>
                         <button onClick={() => setInkColor('#1d4ed8')} className={`w-5 h-5 rounded-full bg-blue-700 flex items-center justify-center focus:outline-none transition-all ${inkColor === '#1d4ed8' ? 'ring-2 ring-primary ring-offset-2 scale-110' : 'hover:opacity-80 scale-100'}`} title="Executive Navy" type="button">
-                          <span className={`material-symbols-outlined text-[12px] text-white ${inkColor === '#1d4ed8' ? 'opacity-100' : 'opacity-0'}`}>check</span>
+                          <Check className={`w-3 h-3 text-white transition-opacity ${inkColor === '#1d4ed8' ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
                         </button>
                       </div>
                       
                       {/* History Controls */}
                       <div className="flex items-center bg-white/90 backdrop-blur-md p-1 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-outline-variant/30 pointer-events-auto">
                         <button onClick={handleClear} className="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:text-error hover:bg-error/10 transition-colors" title="Clear canvas" type="button">
-                          <span className="material-symbols-outlined text-[18px]">delete_sweep</span>
+                          <Eraser className="w-[18px] h-[18px]" />
                         </button>
                       </div>
                     </div>
@@ -143,6 +159,7 @@ export default function Page() {
                       <SignatureCanvas
                         ref={sigCanvas}
                         penColor={inkColor}
+                        onBegin={handleDrawBegin}
                         canvasProps={{ className: 'w-full h-full' }}
                         velocityFilterWeight={0.7}
                         minWidth={1.5}
@@ -150,6 +167,33 @@ export default function Page() {
                         dotSize={2}
                       />
                     </div>
+
+                    {/* Pre-drawn Animated Signature (Fades out when user starts drawing) */}
+                    <AnimatePresence>
+                      {!hasUserDrawn && (
+                        <motion.div 
+                          key={animationKey}
+                          initial={{ opacity: 1 }}
+                          exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                          className="absolute inset-0 z-0 flex items-center justify-center px-space-xl pointer-events-none"
+                        >
+                          <svg className={`w-full h-full max-h-[140px] transition-colors duration-200 ${inkColor === '#1d4ed8' ? 'text-blue-700' : 'text-slate-900'}`} viewBox="0 0 520 140">
+                            <motion.path 
+                              initial={{ pathLength: 0 }}
+                              animate={{ pathLength: 1 }}
+                              transition={{ duration: 1.5, ease: "easeOut" }}
+                              d="M 45 68 C 65 30, 95 18, 92 82 C 90 120, 78 128, 70 122 C 60 114, 82 78, 125 72 C 145 70, 160 84, 172 74 C 182 66, 188 56, 198 76 C 205 90, 218 84, 230 76 C 245 65, 275 62, 290 80 C 315 110, 335 40, 350 25 C 362 14, 375 52, 385 82 C 392 102, 404 88, 420 72 C 445 48, 470 60, 495 55" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" 
+                            />
+                            <motion.path 
+                              initial={{ pathLength: 0 }}
+                              animate={{ pathLength: 1 }}
+                              transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
+                              d="M 110 98 Q 280 115 480 82" fill="none" opacity="0.9" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" 
+                            />
+                          </svg>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
 
                     {/* Authentic Legal Signing Baseline & Watermark */}
                     <div className="absolute bottom-4 left-space-lg right-space-lg z-0 flex items-end justify-between pointer-events-none">
@@ -183,7 +227,7 @@ export default function Page() {
                         onChange={(e) => setTypedName(e.target.value)}
                         placeholder="Enter your full name"
                       />
-                      <span className="material-symbols-outlined absolute right-space-md top-1/2 -translate-y-1/2 text-secondary/50 pointer-events-none">keyboard</span>
+                      <Keyboard className="absolute right-space-md top-1/2 -translate-y-1/2 w-5 h-5 text-secondary/50 pointer-events-none" />
                     </div>
                   </div>
 
@@ -202,7 +246,7 @@ export default function Page() {
                       </span>
                       {signatureStyle === 1 && (
                         <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-sm">
-                          <span className="material-symbols-outlined text-[12px] text-on-primary font-bold">check</span>
+                          <Check className="w-3 h-3 text-on-primary font-bold" strokeWidth={3} />
                         </div>
                       )}
                     </button>
@@ -221,7 +265,7 @@ export default function Page() {
                       </span>
                       {signatureStyle === 2 && (
                         <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-sm">
-                          <span className="material-symbols-outlined text-[12px] text-on-primary font-bold">check</span>
+                          <Check className="w-3 h-3 text-on-primary font-bold" strokeWidth={3} />
                         </div>
                       )}
                     </button>
@@ -254,7 +298,7 @@ export default function Page() {
                       type="button"
                     >
                       <div className="w-14 h-14 rounded-full bg-surface-container-highest/50 flex items-center justify-center mb-space-sm text-secondary group-hover:scale-110 group-hover:text-primary transition-all duration-300 shadow-sm">
-                        <span className="material-symbols-outlined text-[26px]">cloud_upload</span>
+                        <CloudUpload className="w-[26px] h-[26px]" />
                       </div>
                       <p className="font-label-lg font-semibold text-on-surface">Click to upload signature</p>
                       <p className="font-body-sm text-secondary mt-1">Supports transparent PNG, SVG, or high-res JPEG (Max 5MB)</p>
@@ -264,10 +308,10 @@ export default function Page() {
                       <img src={uploadedImage} alt="Uploaded signature" className="max-w-full max-h-full object-contain filter contrast-125 mix-blend-multiply" />
                       <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={() => fileInputRef.current?.click()} className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-secondary hover:text-primary hover:scale-105 transition-all" title="Replace image" type="button">
-                          <span className="material-symbols-outlined text-[18px]">find_replace</span>
+                          <RefreshCw className="w-[18px] h-[18px]" />
                         </button>
                         <button onClick={() => setUploadedImage(null)} className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-secondary hover:text-error hover:scale-105 transition-all" title="Remove image" type="button">
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
+                          <Trash2 className="w-[18px] h-[18px]" />
                         </button>
                       </div>
                     </div>
@@ -300,7 +344,7 @@ export default function Page() {
             <label className="relative flex items-center p-0.5 cursor-pointer mt-0.5 group shrink-0">
               <input defaultChecked className="peer sr-only" id="legal-consent-toggle" type="checkbox" />
               <div className="w-5 h-5 rounded-[6px] bg-surface-container-highest border border-outline-variant/50 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center group-hover:ring-4 ring-primary/10">
-                <span className="material-symbols-outlined text-[14px] text-white font-bold opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-300">check</span>
+                <Check className="w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-300" strokeWidth={3} />
               </div>
             </label>
             <label className="font-body-sm text-secondary leading-relaxed cursor-pointer select-none pt-0.5" htmlFor="legal-consent-toggle">
@@ -312,7 +356,7 @@ export default function Page() {
         {/* Modal Footer Bar */}
         <div className="mt-auto px-space-xl py-space-md bg-surface-container-lowest/90 border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-space-md rounded-b-[24px]">
           <div className="flex items-center gap-2 text-secondary">
-            <span className="material-symbols-outlined text-[16px] text-green-600">lock</span>
+            <Lock className="w-4 h-4 text-green-600" />
             <span className="font-legal-disclaimer text-[11px] font-medium tracking-wide">256-BIT TLS ENCRYPTED</span>
           </div>
           <div className="flex items-center gap-space-sm w-full sm:w-auto justify-end">
@@ -320,7 +364,7 @@ export default function Page() {
               Cancel
             </button>
             <button className="w-full sm:w-auto px-space-xl py-2.5 rounded-[10px] bg-primary hover:bg-primary/90 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] active:scale-[0.98] text-white font-label-md font-semibold transition-all flex items-center justify-center gap-2" type="button">
-              <span className="material-symbols-outlined text-[18px]">verified</span>
+              <BadgeCheck className="w-[18px] h-[18px]" />
               <span>Adopt &amp; Sign</span>
             </button>
           </div>
