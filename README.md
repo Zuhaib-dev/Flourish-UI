@@ -35,5 +35,8 @@ Alongside our core components, this repository also houses various UI/UX experim
 - 📊 **[Isometric Dashboard](./isometric-dashboard)**  
   A premium dark-mode dashboard featuring a true CSS 3D isometric stacked bar chart and interactive heatmap calendar.
 
+- ✈️ **[Voyage Planner](./voyage-planner)**  
+  A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts and glassmorphic folders.
+
 ---
 *Built with room to grow. 🌱*
