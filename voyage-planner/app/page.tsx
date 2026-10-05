@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Plane, Plus, Wallet, Luggage, Check } from 'lucide-react';
+import { Plane, Plus, Wallet, Briefcase, Check } from 'lucide-react';
 
 const folders = [
   { title: "Kyoto in Autumn", dates: "Nov 3 – 11", flag: "🇯🇵", image: "/kyoto.jpg", status: "In 41 D", statusColor: "bg-[#eaf1ff] text-[#4a72d4]", avatars: ["👦🏻","👦🏽","👧🏾"] },
@@ -26,10 +26,8 @@ export default function VoyageDashboard() {
         
         {/* Header */}
         <div className="flex justify-between items-center px-3 pt-1">
-          <div className="flex items-center gap-3 text-neutral-400 font-bold text-[24px]">
-            <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center shadow-sm border border-black/[0.03]">
-              <Luggage className="w-5 h-5 fill-neutral-400 stroke-neutral-500" strokeWidth={2} /> 
-            </div>
+          <div className="flex items-center gap-2.5 text-neutral-400 font-bold text-[24px]">
+            <Briefcase className="w-6 h-6 text-neutral-400" fill="currentColor" strokeWidth={0.5} />
             <span className="text-neutral-500">Trips</span>
           </div>
           <div className="bg-[#f0f0f0] rounded-full p-1 flex gap-1 border border-black/[0.03]">
@@ -151,8 +149,8 @@ export default function VoyageDashboard() {
           </motion.div>
 
           {/* Right Column: Folders List */}
-          <div className="w-[340px] flex flex-col justify-between">
-            <div className="flex flex-col gap-[14px]">
+          <div className="w-[340px] flex flex-col h-full">
+            <div className="flex flex-col gap-[16px] flex-1 justify-center">
               {folders.map((f, i) => (
                 <motion.div 
                   key={f.title}
@@ -160,7 +158,7 @@ export default function VoyageDashboard() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 30 }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white rounded-[20px] p-[18px] flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
+                  className="bg-white rounded-[20px] px-[20px] py-[22px] flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
                 >
                   {/* Folder Icon Construction */}
                   <div className="relative w-[68px] h-[60px] shrink-0">
@@ -207,7 +205,7 @@ export default function VoyageDashboard() {
             </div>
 
             {/* Bottom Actions */}
-            <div className="flex gap-3 mt-auto pt-4">
+            <div className="flex gap-3 mt-4 pt-2">
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
