@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Plane, Plus, Wallet, Briefcase, Check } from 'lucide-react';
+import { Plane, Plus, Wallet, Luggage, Check } from 'lucide-react';
 
 const folders = [
-  { title: "Kyoto in Autumn", dates: "Nov 3 – 11", flag: "🇯🇵", image: "/kyoto.jpg", status: "In 41 D", statusColor: "bg-blue-50 text-blue-600", avatars: ["👨🏻","👩🏽","👨🏿"] },
-  { title: "Reykjavík lights", dates: "Jan 18 – 22", flag: "🇮🇸", image: "/reykjavik.jpg", status: "In 4 Mo", statusColor: "bg-fuchsia-50 text-fuchsia-600", avatars: ["👨🏻","👩🏽"] },
-  { title: "Yerevan & Dilijan", dates: "Mar 6 – 10", flag: "🇦🇲", image: "/yerevan.jpg", status: "Draft", statusColor: "bg-orange-50 text-orange-600", avatars: ["👨🏻"] }
+  { title: "Kyoto in Autumn", dates: "Nov 3 – 11", flag: "🇯🇵", image: "/kyoto.jpg", status: "In 41 D", statusColor: "bg-[#eaf1ff] text-[#4a72d4]", avatars: ["👦🏻","👦🏽","👧🏾"] },
+  { title: "Reykjavík lights", dates: "Jan 18 – 22", flag: "🇮🇸", image: "/reykjavik.jpg", status: "In 4 Mo", statusColor: "bg-[#fbeaf4] text-[#d153a0]", avatars: ["👦🏻","👧🏾"] },
+  { title: "Yerevan & Dilijan", dates: "Mar 6 – 10", flag: "🇦🇲", image: "/yerevan.jpg", status: "Draft", statusColor: "bg-[#ffede2] text-[#ee7d4f]", avatars: ["👦🏻"] }
 ];
 
 export default function VoyageDashboard() {
@@ -21,16 +21,16 @@ export default function VoyageDashboard() {
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-[#fcfcfc] rounded-[36px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
+        className="bg-white rounded-[36px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
       >
         
         {/* Header */}
-        <div className="flex justify-between items-center px-2">
-          <div className="flex items-center gap-2 text-neutral-400 font-bold text-[22px]">
-            <Briefcase className="w-6 h-6 fill-neutral-300 stroke-neutral-400" /> 
+        <div className="flex justify-between items-center px-3 pt-1">
+          <div className="flex items-center gap-2.5 text-neutral-400 font-bold text-[24px]">
+            <Luggage className="w-[26px] h-[26px] fill-neutral-400 stroke-neutral-500" /> 
             <span className="text-neutral-500">Trips</span>
           </div>
-          <div className="bg-neutral-100/80 rounded-full p-1 flex gap-1 shadow-inner border border-black/[0.02]">
+          <div className="bg-[#f0f0f0] rounded-full p-1 flex gap-1 border border-black/[0.03]">
             {["Upcoming", "Past"].map(tab => (
               <button 
                 key={tab}
@@ -60,65 +60,65 @@ export default function VoyageDashboard() {
           >
             {/* Top Image Area */}
             <div className="p-3 pb-0">
-              <div className="relative h-[180px] rounded-2xl overflow-hidden bg-neutral-100 border border-black/[0.03]">
+              <div className="relative h-[180px] rounded-[20px] overflow-hidden bg-neutral-100 border border-black/[0.03]">
                 <img src="/lisbon.jpg" alt="Lisbon" className="w-full h-full object-cover" />
                 {/* Lisbon Getaway pill */}
-                <div className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-xl rounded-full px-3 py-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/40 flex items-center gap-1.5 text-[11px] font-bold z-10 whitespace-nowrap">
+                <div className="absolute bottom-[-16px] left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xl rounded-full px-3 py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-white/50 flex items-center gap-1.5 text-[11px] font-bold z-10 whitespace-nowrap">
                   <span className="text-sm shadow-sm rounded-full bg-white leading-none">🇵🇹</span> Lisbon Getaway
                 </div>
               </div>
             </div>
 
             {/* Flight Info Area */}
-            <div className="px-7 pt-10 pb-6 flex flex-col gap-5">
+            <div className="px-7 pt-10 pb-6 flex flex-col gap-6">
               <div className="flex justify-between items-center relative">
                 <div className="text-center w-16">
-                  <h3 className="text-3xl font-extrabold tracking-tight">CDG</h3>
-                  <p className="text-[10px] text-neutral-400 font-bold mt-1">Paris • 07:40</p>
+                  <h3 className="text-3xl font-bold tracking-tight text-neutral-800">CDG</h3>
+                  <p className="text-[11px] text-neutral-400 font-medium mt-1">Paris • 07:40</p>
                 </div>
                 
                 {/* Flight path curve */}
-                <div className="flex-1 px-4 relative flex items-center justify-center mt-[-16px]">
-                  <div className="absolute top-1/2 -translate-y-1/2 w-[calc(100%-16px)] h-12 border-t-2 border-dashed border-neutral-200 rounded-[100%]"></div>
-                  <div className="bg-white px-2 z-10 mt-[-6px]">
-                    <Plane className="w-5 h-5 text-emerald-800 rotate-45" fill="currentColor" strokeWidth={1} />
+                <div className="flex-1 px-4 relative flex items-center justify-center mt-[-20px]">
+                  <div className="absolute top-1/2 -translate-y-1/2 w-[calc(100%-16px)] h-12 border-t-[1.5px] border-dashed border-neutral-300 rounded-[100%]"></div>
+                  <div className="bg-white px-1 z-10 mt-[-6px]">
+                    <Plane className="w-[18px] h-[18px] text-neutral-800 rotate-45" fill="currentColor" strokeWidth={1} />
                   </div>
-                  <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 bg-white px-2 text-[10px] text-neutral-300 font-extrabold tracking-wider">2h 35m</div>
+                  <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 bg-white px-2 text-[10px] text-neutral-300 font-bold tracking-wide">2h 35m</div>
                   <div className="absolute top-[18px] left-2 w-1.5 h-1.5 rounded-full bg-neutral-300"></div>
                   <div className="absolute top-[18px] right-2 w-1.5 h-1.5 rounded-full bg-emerald-700"></div>
                 </div>
 
                 <div className="text-center w-16">
-                  <h3 className="text-3xl font-extrabold tracking-tight">LIS</h3>
-                  <p className="text-[10px] text-neutral-400 font-bold mt-1">08:15 • Lisbon</p>
+                  <h3 className="text-3xl font-bold tracking-tight text-neutral-800">LIS</h3>
+                  <p className="text-[11px] text-neutral-400 font-medium mt-1">08:15 • Lisbon</p>
                 </div>
               </div>
 
               {/* Details Grid */}
               <div className="grid grid-cols-4 gap-2 mt-1">
                 <div>
-                  <p className="text-[10px] text-neutral-300 font-bold mb-0.5 tracking-wide">Date</p>
-                  <p className="text-[13px] font-extrabold">Oct 12</p>
+                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Date</p>
+                  <p className="text-[13px] font-bold text-neutral-800">Oct 12</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-neutral-300 font-bold mb-0.5 tracking-wide">Gate</p>
-                  <p className="text-[13px] font-extrabold">K42</p>
+                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Gate</p>
+                  <p className="text-[13px] font-bold text-neutral-800">K42</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-neutral-300 font-bold mb-0.5 tracking-wide">Seat</p>
-                  <p className="text-[13px] font-extrabold">14C</p>
+                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Seat</p>
+                  <p className="text-[13px] font-bold text-neutral-800">14C</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-neutral-300 font-bold mb-0.5 tracking-wide">Stay</p>
-                  <p className="text-[13px] font-extrabold">6 nights</p>
+                  <p className="text-[10px] text-neutral-400 font-medium mb-0.5">Stay</p>
+                  <p className="text-[13px] font-bold text-neutral-800">6 nights</p>
                 </div>
               </div>
             </div>
 
             {/* Tear-off Line */}
             <div className="relative flex items-center justify-center h-4">
-              <div className="absolute left-[-10px] w-5 h-5 rounded-full bg-[#fcfcfc] shadow-[inset_-3px_0_4px_-2px_rgba(0,0,0,0.06)] border-r border-black/[0.02]"></div>
-              <div className="absolute right-[-10px] w-5 h-5 rounded-full bg-[#fcfcfc] shadow-[inset_3px_0_4px_-2px_rgba(0,0,0,0.06)] border-l border-black/[0.02]"></div>
+              <div className="absolute left-[-10px] w-5 h-5 rounded-full bg-white shadow-[inset_-3px_0_4px_-2px_rgba(0,0,0,0.06)] border-r border-black/[0.02]"></div>
+              <div className="absolute right-[-10px] w-5 h-5 rounded-full bg-white shadow-[inset_3px_0_4px_-2px_rgba(0,0,0,0.06)] border-l border-black/[0.02]"></div>
               <div className="w-full border-t-2 border-dashed border-neutral-100 mx-5"></div>
             </div>
 
@@ -173,9 +173,9 @@ export default function VoyageDashboard() {
                     <img src={f.image} alt={f.title} className="w-full h-full object-cover" />
                   </div>
                   {/* Front flap (glassmorphic) */}
-                  <div className="absolute inset-x-0 bottom-0 h-9 bg-white/40 backdrop-blur-[8px] rounded-xl shadow-[0_-2px_6px_rgba(0,0,0,0.03)] border border-white z-20"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-[38px] bg-white/50 backdrop-blur-[10px] rounded-xl shadow-[0_-2px_6px_rgba(0,0,0,0.02)] border border-white z-20"></div>
                   {/* Flag pill */}
-                  <div className="absolute -bottom-1 -left-1 bg-white rounded-md shadow-[0_2px_4px_rgba(0,0,0,0.08)] border border-neutral-100 text-[10px] p-0.5 px-1 z-30">
+                  <div className="absolute bottom-[-6px] left-0 bg-white rounded-[6px] shadow-[0_2px_6px_rgba(0,0,0,0.08)] border border-neutral-100/50 text-[10px] p-0.5 px-1.5 z-30 flex items-center justify-center h-5">
                     {f.flag}
                   </div>
                 </div>
@@ -207,16 +207,16 @@ export default function VoyageDashboard() {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 bg-[#1c1c1e] text-white rounded-[20px] py-4 flex items-center justify-center gap-2 font-bold text-[13px] shadow-[0_8px_16px_rgba(28,28,30,0.2)] hover:bg-black transition-colors"
+                className="flex-1 bg-[#18181b] text-white rounded-[18px] py-[15px] flex items-center justify-center gap-2 font-bold text-[13px] shadow-[0_8px_16px_rgba(24,24,27,0.2)] hover:bg-black transition-colors"
               >
                 <Plus className="w-4 h-4 stroke-[3px]" /> Plan a trip
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-[52px] h-[52px] bg-white rounded-[20px] flex items-center justify-center shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] text-neutral-900 hover:bg-neutral-50 transition-colors"
+                className="w-[50px] h-[50px] bg-white rounded-[18px] flex items-center justify-center shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] text-neutral-900 hover:bg-neutral-50 transition-colors"
               >
-                <Wallet className="w-5 h-5" />
+                <Wallet className="w-[18px] h-[18px]" />
               </motion.button>
             </div>
           </div>
