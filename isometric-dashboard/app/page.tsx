@@ -28,7 +28,7 @@ const rawData = [
   { h: 10, b: 40, s: 5, c: 10, rw: 5, sc: 5 },
 ];
 
-const chartData = rawData.map((d, i) => ({
+const chartData: { day: string; output: Segment[]; scrap: Segment[] }[] = rawData.map((d, i) => ({
   day: `Sep ${14 + i}`,
   output: [
     { id: 'housing', h: d.h * 1.5, color: 'cyan', val: d.h * 10 },
@@ -42,7 +42,22 @@ const chartData = rawData.map((d, i) => ({
   ]
 }));
 
-const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave, delay }: any) => {
+type IsoColorKey = 'cyan' | 'yellow' | 'emerald' | 'purple' | 'pink' | 'orange';
+type Segment = { id: string; h: number; color: IsoColorKey; val: number };
+
+interface IsoBarProps {
+  x: number;
+  y: number;
+  z: number;
+  w: number;
+  h: number;
+  colorKey: IsoColorKey;
+  delay: number;
+  onMouseMove: (e: React.MouseEvent) => void;
+  onLeave: () => void;
+}
+
+const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave, delay }: IsoBarProps) => {
   const c = isoColors[colorKey];
   return (
     <motion.div 
@@ -74,19 +89,27 @@ const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave, delay }: any) =
   );
 };
 
-const Stack = ({ x, y, w, segments, onMouseMove, onLeave, colIndex }: any) => {
-  let currentZ = 0;
+interface StackProps {
+  x: number;
+  y: number;
+  w: number;
+  segments: Segment[];
+  colIndex: number;
+  onMouseMove: (e: React.MouseEvent, seg: Segment) => void;
+  onLeave: () => void;
+}
+
+const Stack = ({ x, y, w, segments, onMouseMove, onLeave, colIndex }: StackProps) => {
   return (
     <>
-      {segments.map((seg: any, i: number) => {
-        const z = currentZ;
-        currentZ += seg.h;
+      {segments.map((seg, i) => {
+        const z = segments.slice(0, i).reduce((sum, s) => sum + s.h, 0);
         const delay = colIndex * 0.05 + i * 0.05;
         return (
           <IsoBar 
             key={i} x={x} y={y} z={z} w={w} h={seg.h} colorKey={seg.color}
             delay={delay}
-            onMouseMove={(e: any) => onMouseMove(e, seg)}
+            onMouseMove={(e) => onMouseMove(e, seg)}
             onLeave={onLeave}
           />
         );
@@ -100,7 +123,7 @@ export default function Dashboard() {
   const [compare, setCompare] = useState(true);
   const [activeRange, setActiveRange] = useState('1M');
 
-  const handleMouseMove = (e: React.MouseEvent, day: string, seg: any) => {
+  const handleMouseMove = (e: React.MouseEvent, day: string, seg: Segment) => {
     setTooltip({
       show: true,
       x: e.clientX,
@@ -267,13 +290,13 @@ export default function Dashboard() {
                   {/* Output Stack (Back Row) */}
                   <Stack 
                     x={i * 24} y={0} w={14} segments={col.output} colIndex={i}
-                    onMouseMove={(e: any, seg: any) => handleMouseMove(e, col.day, seg)}
+                    onMouseMove={(e: React.MouseEvent, seg: Segment) => handleMouseMove(e, col.day, seg)}
                     onLeave={() => setTooltip(null)}
                   />
                   {/* Scrap Stack (Front Row) */}
                   <Stack 
                     x={i * 24} y={24} w={14} segments={col.scrap} colIndex={i + 0.5}
-                    onMouseMove={(e: any, seg: any) => handleMouseMove(e, col.day, seg)}
+                    onMouseMove={(e: React.MouseEvent, seg: Segment) => handleMouseMove(e, col.day, seg)}
                     onLeave={() => setTooltip(null)}
                   />
                 </React.Fragment>
