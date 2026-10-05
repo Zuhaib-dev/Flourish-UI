@@ -24,4 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Framer Motion
 - Lucide React
 
-*Designed by Studio Daybreak / Zuhaib Rashid*
+---
+**Author:** Zuhaib Rashid (@Zuhaib-dev)  
+**Tags:** `#react` `#ui-library` `#framer-motion` `#tailwind` `#components` `#design-system`

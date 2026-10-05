@@ -13,3 +13,7 @@ It splits the view into an interactive list on the left and a sticky, cross-fadi
 - React / Next.js
 - Tailwind CSS
 - Framer Motion
+
+---
+**Author:** Zuhaib Rashid (@Zuhaib-dev)  
+**Tags:** `#react` `#ui-library` `#framer-motion` `#tailwind` `#components` `#design-system`
