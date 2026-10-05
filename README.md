@@ -25,7 +25,7 @@ Alongside our core components, this repository also houses various UI/UX experim
 - 🌅 **[Stitch Daybreak Editorial Design System](./stitch_daybreak_editorial_design_system)**  
   A clean, editorial-focused design system.
 
-- ✍️ **[Stitch Digital Signature Modal Flow](./stitch_digital_signature_modal_flow)**  
+- ✍️ **[Digital Signature Modal](./digital-signature-modal)**  
   A smooth and intuitive modal flow for capturing digital signatures.
 
 - 📓 **[Stitch Skeuomorphic Notebook Guestbook](./stitch_skeuomorphic_notebook_guestbook)**  
