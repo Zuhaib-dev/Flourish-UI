@@ -42,14 +42,17 @@ const chartData = rawData.map((d, i) => ({
   ]
 }));
 
-const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave }: any) => {
+const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave, delay }: any) => {
   const c = isoColors[colorKey];
   return (
-    <div 
+    <motion.div 
+      initial={{ opacity: 0, z: z + 150, scale: 0.8 }}
+      animate={{ opacity: 1, z: z, scale: 1 }}
+      transition={{ delay, type: "spring", stiffness: 100, damping: 20 }}
       className="absolute top-0 left-0 hover:brightness-125 transition-all cursor-pointer group"
       style={{ 
         width: w, height: w, 
-        transform: `translate3d(${x}px, ${y}px, ${z}px)`, 
+        x, y,
         transformStyle: 'preserve-3d' 
       }}
       onMouseMove={onMouseMove}
@@ -67,20 +70,22 @@ const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave }: any) => {
         className={`absolute top-0 left-0 ${c.left} origin-left border-[0.5px] border-black/20`} 
         style={{ width: h, height: w, transform: `rotateY(-90deg)` }} 
       />
-    </div>
+    </motion.div>
   );
 };
 
-const Stack = ({ x, y, w, segments, onMouseMove, onLeave }: any) => {
+const Stack = ({ x, y, w, segments, onMouseMove, onLeave, colIndex }: any) => {
   let currentZ = 0;
   return (
     <>
       {segments.map((seg: any, i: number) => {
         const z = currentZ;
         currentZ += seg.h;
+        const delay = colIndex * 0.05 + i * 0.05;
         return (
           <IsoBar 
             key={i} x={x} y={y} z={z} w={w} h={seg.h} colorKey={seg.color}
+            delay={delay}
             onMouseMove={(e: any) => onMouseMove(e, seg)}
             onLeave={onLeave}
           />
@@ -259,13 +264,15 @@ export default function Dashboard() {
 
               {chartData.map((col, i) => (
                 <React.Fragment key={i}>
+                  {/* Output Stack (Back Row) */}
                   <Stack 
-                    x={i * 24} y={0} w={14} segments={col.output} 
+                    x={i * 24} y={0} w={14} segments={col.output} colIndex={i}
                     onMouseMove={(e: any, seg: any) => handleMouseMove(e, col.day, seg)}
                     onLeave={() => setTooltip(null)}
                   />
+                  {/* Scrap Stack (Front Row) */}
                   <Stack 
-                    x={i * 24} y={24} w={14} segments={col.scrap} 
+                    x={i * 24} y={24} w={14} segments={col.scrap} colIndex={i + 0.5}
                     onMouseMove={(e: any, seg: any) => handleMouseMove(e, col.day, seg)}
                     onLeave={() => setTooltip(null)}
                   />

@@ -13,8 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Isometric Dashboard",
-  description: "A premium 3D isometric dashboard component",
+  title: "Isometric Dashboard | Flourish UI",
+  description: "A premium 3D isometric dashboard component with Framer Motion and Tailwind CSS.",
+  keywords: ["react", "nextjs", "dashboard", "isometric", "framer-motion", "tailwind"],
+  authors: [{ name: "Zuhaib Rashid" }],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
