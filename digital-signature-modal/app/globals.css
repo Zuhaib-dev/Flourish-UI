@@ -61,15 +61,15 @@
   --spacing-margin: 1rem;
   --spacing-space-xs: 0.25rem;
   
-  --font-body-lg: Inter, sans-serif;
-  --font-headline-md: Inter, sans-serif;
-  --font-headline-lg: Inter, sans-serif;
-  --font-label-md: Inter, sans-serif;
-  --font-body-md: Inter, sans-serif;
-  --font-legal-disclaimer: Inter, sans-serif;
-  --font-body-sm: Inter, sans-serif;
-  --font-label-sm: Inter, sans-serif;
-  --font-headline-sm: Inter, sans-serif;
+  --font-body-lg: var(--font-outfit);
+  --font-headline-md: var(--font-outfit);
+  --font-headline-lg: var(--font-outfit);
+  --font-label-md: var(--font-outfit);
+  --font-body-md: var(--font-outfit);
+  --font-legal-disclaimer: var(--font-outfit);
+  --font-body-sm: var(--font-outfit);
+  --font-label-sm: var(--font-outfit);
+  --font-headline-sm: var(--font-outfit);
 }
 
 @layer base {

@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
+import { Outfit, Caveat, Dancing_Script } from 'next/font/google';
 import './globals.css';
 
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
+const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' });
+const dancingScript = Dancing_Script({ subsets: ['latin'], variable: '--font-dancing-script' });
+
 export const metadata: Metadata = {
-  title: 'Document Signing Workspace',
-  description: 'Document Signing Workspace',
+  title: 'Digital Signature Modal',
+  description: 'Premium digital signature capture modal component.',
 };
 
 export default function RootLayout({
@@ -12,15 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${caveat.variable} ${dancingScript.variable}`}>
       <head>
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link crossOrigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-background font-body-md text-on-surface antialiased">
+      <body className="font-sans bg-background text-on-surface antialiased selection:bg-primary/10">
         {children}
       </body>
     </html>
