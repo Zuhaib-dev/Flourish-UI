@@ -19,8 +19,8 @@ A beautiful, interactive React component that blooms organic, premium SVG flower
 
 Alongside our core components, this repository also houses various UI/UX experiments and design systems:
 
-- 🖱️ **[Hover Interaction Design Brief](./hover-interaction-design-brief)**  
-  Explorations into fluid, tactile hover states.
+- 🖱️ **[Kinetic Hover](./kinetic-hover)**  
+  A high-fidelity editorial layout with fluid magnetic hover effects and smooth preview transitions.
 
 - 🌅 **[Stitch Daybreak Editorial Design System](./stitch_daybreak_editorial_design_system)**  
   A clean, editorial-focused design system.
