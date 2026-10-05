@@ -46,7 +46,7 @@ const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave }: any) => {
   const c = isoColors[colorKey];
   return (
     <div 
-      className="absolute top-0 left-0 hover:brightness-110 transition-all cursor-pointer group"
+      className="absolute top-0 left-0 hover:brightness-125 transition-all cursor-pointer group"
       style={{ 
         width: w, height: w, 
         transform: `translate3d(${x}px, ${y}px, ${z}px)`, 
@@ -56,10 +56,10 @@ const IsoBar = ({ x, y, z, w, h, colorKey, onMouseMove, onLeave }: any) => {
       onMouseLeave={onLeave}
     >
       {/* Top Face */}
-      <div className={`absolute inset-0 ${c.top} border-[0.5px] border-black/20`} style={{ transform: `translateZ(${h}px)` }} />
+      <div className={`absolute inset-0 ${c.top} border-[0.5px] border-white/20`} style={{ transform: `translateZ(${h}px)` }} />
       {/* Right Face */}
       <div 
-        className={`absolute bottom-0 left-0 ${c.right} origin-bottom border-[0.5px] border-black/20`} 
+        className={`absolute bottom-0 left-0 ${c.right} origin-bottom border-[0.5px] border-black/40`} 
         style={{ width: w, height: h, transform: `rotateX(-90deg)` }} 
       />
       {/* Left Face */}
@@ -93,6 +93,7 @@ const Stack = ({ x, y, w, segments, onMouseMove, onLeave }: any) => {
 export default function Dashboard() {
   const [tooltip, setTooltip] = useState<{show: boolean, x: number, y: number, day: string, id: string, val: number} | null>(null);
   const [compare, setCompare] = useState(true);
+  const [activeRange, setActiveRange] = useState('1M');
 
   const handleMouseMove = (e: React.MouseEvent, day: string, seg: any) => {
     setTooltip({
@@ -106,12 +107,16 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] flex items-center justify-center p-8 font-sans selection:bg-sky-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8 font-sans selection:bg-sky-500/30 relative">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      
       <div className="flex flex-col md:flex-row gap-6 max-w-5xl relative z-10">
         
         {/* Time Range Card */}
-        <div className="w-80 bg-[#1f1f1f] rounded-[32px] p-6 shadow-2xl border border-white/5 flex flex-col gap-6 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/10 blur-xl"></div>
+        <div className="w-80 bg-[#161616]/80 backdrop-blur-3xl rounded-[32px] p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/[0.04] flex flex-col gap-6 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-2 bg-sky-500/10 blur-xl"></div>
           
           <div className="relative z-10">
             <h2 className="text-neutral-100 font-semibold text-lg">Time Range</h2>
@@ -123,10 +128,21 @@ export default function Dashboard() {
             <span className="text-neutral-200 text-[13px] font-medium">Sep 4 - Sep 25 • 22 days</span>
           </div>
 
-          <div className="bg-[#141414] rounded-xl p-1 flex items-center justify-between border border-white/5 relative z-10">
+          <div className="bg-[#0f0f0f] rounded-xl p-1 flex items-center justify-between border border-white/[0.03] shadow-inner relative z-10">
             {['12h', '24h', '1W', '1M', '3M'].map(opt => (
-              <button key={opt} className={`flex-1 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${opt === '1M' ? 'bg-[#333333] text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}`}>
-                {opt}
+              <button 
+                key={opt} 
+                onClick={() => setActiveRange(opt)}
+                className={`relative flex-1 py-1.5 text-[11px] font-semibold rounded-lg transition-colors duration-300 ${activeRange === opt ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'}`}
+              >
+                {activeRange === opt && (
+                  <motion.div 
+                    layoutId="range-pill" 
+                    className="absolute inset-0 bg-[#262626] rounded-lg shadow-md border border-white/5" 
+                    style={{ zIndex: 0 }}
+                  />
+                )}
+                <span className="relative z-10">{opt}</span>
               </button>
             ))}
           </div>
@@ -151,8 +167,8 @@ export default function Dashboard() {
                 let border = 'border border-transparent';
 
                 if (isOut) { text = 'text-neutral-600'; }
-                else if (isStart || isEnd) { bg = 'bg-[#2a2a2a]'; text = 'text-white'; border = 'border-[2px] border-sky-500'; }
-                else if (isHigh) { bg = 'bg-white'; text = 'text-black'; }
+                else if (isStart || isEnd) { bg = 'bg-[#2a2a2a]'; text = 'text-white'; border = 'border-[2px] border-sky-500 shadow-[0_0_12px_rgba(56,189,248,0.4)]'; }
+                else if (isHigh) { bg = 'bg-white'; text = 'text-black shadow-[0_0_10px_rgba(255,255,255,0.3)]'; }
                 else if (isMed) { bg = 'bg-[#4a4a4a]'; text = 'text-white'; }
                 else if (isLow) { bg = 'bg-[#2a2a2a]'; text = 'text-neutral-300'; }
                 else if (isNone) { text = 'text-neutral-600'; border = 'border border-dashed border-white/10'; }
@@ -187,16 +203,22 @@ export default function Dashboard() {
             </div>
             <button 
               onClick={() => setCompare(!compare)}
-              className={`w-11 h-[22px] rounded-full flex items-center p-[2px] transition-colors ${compare ? 'bg-sky-500' : 'bg-[#333]'}`}
+              className={`w-11 h-[22px] rounded-full flex items-center p-[2px] transition-colors duration-300 ${compare ? 'bg-sky-500' : 'bg-[#2a2a2a] border border-white/5'}`}
             >
-              <div className={`w-[18px] h-[18px] bg-white rounded-full shadow-sm transition-transform ${compare ? 'translate-x-[22px]' : 'translate-x-0'}`}></div>
+              <motion.div 
+                layout 
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                className="w-[18px] h-[18px] bg-white rounded-full shadow-sm"
+                animate={{ x: compare ? 20 : 0 }}
+              />
             </button>
           </div>
         </div>
 
         {/* Output & Scrap Card */}
-        <div className="w-[480px] bg-[#1f1f1f] rounded-[32px] p-7 shadow-2xl border border-white/5 flex flex-col relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-white/10 blur-xl"></div>
+        <div className="w-[480px] bg-[#161616]/80 backdrop-blur-3xl rounded-[32px] p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/[0.04] flex flex-col relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-2 bg-purple-500/10 blur-xl"></div>
           
           <div className="mb-6 relative z-10">
             <h2 className="text-neutral-100 font-semibold text-lg">Output & Scrap</h2>
@@ -205,7 +227,7 @@ export default function Dashboard() {
 
           <div className="flex items-end justify-between mb-2 relative z-10">
             <div className="flex items-baseline gap-2">
-              <span className="text-[32px] font-bold text-white tracking-tight leading-none">41,208</span>
+              <span className="text-[32px] font-bold tracking-tight leading-none bg-linear-to-b from-white to-neutral-400 bg-clip-text text-transparent">41,208</span>
               <span className="text-neutral-500 text-sm font-medium">units</span>
             </div>
             <span className="text-orange-500 font-semibold text-sm">scrap 2.4 %</span>
@@ -223,6 +245,18 @@ export default function Dashboard() {
                 marginTop: '-40px'
               }}
             >
+              {/* Grid Floor */}
+              <div 
+                className="absolute top-0 left-0 border border-white/5 opacity-60" 
+                style={{ 
+                  width: 12 * 24, 
+                  height: 48, 
+                  transform: 'translateZ(-1px)',
+                  backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)', 
+                  backgroundSize: '24px 24px' 
+                }} 
+              />
+
               {chartData.map((col, i) => (
                 <React.Fragment key={i}>
                   <Stack 
@@ -259,7 +293,7 @@ export default function Dashboard() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.1 } }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="fixed z-50 pointer-events-none bg-[#2a2a2a]/90 border border-white/10 rounded-xl px-3 py-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-md"
+              className="fixed z-50 pointer-events-none bg-[#1e1e1e]/80 border border-white/10 rounded-xl px-3 py-2 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] backdrop-blur-xl"
               style={{ left: tooltip.x + 15, top: tooltip.y - 40 }}
             >
               <div className="text-[10px] text-neutral-400 font-semibold mb-0.5">{tooltip.day}</div>
