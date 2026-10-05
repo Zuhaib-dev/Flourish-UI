@@ -53,11 +53,11 @@ export default function Page() {
   };
 
   return (
-    <main className="w-full min-h-screen bg-gradient-to-br from-surface-container-highest/20 via-background to-surface-container-low flex items-center justify-center p-space-md sm:p-space-xl relative overflow-hidden">
+    <main className="w-full min-h-screen bg-linear-to-br from-surface-container-highest/20 via-background to-surface-container-low flex items-center justify-center p-space-md sm:p-space-xl relative overflow-hidden">
       
       {/* Decorative ambient background glows */}
-      <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
-      <div className="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute top-[20%] left-[20%] w-125 h-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute bottom-[20%] right-[20%] w-100 h-100 bg-secondary/5 rounded-full blur-[100px] pointer-events-none mix-blend-multiply"></div>
 
       {/* Centered Modal Container */}
       <motion.div 
@@ -66,7 +66,7 @@ export default function Page() {
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
         aria-labelledby="modal-title" 
         aria-modal="true" 
-        className="relative w-full max-w-[640px] bg-surface-container-lowest/80 backdrop-blur-xl rounded-[24px] shadow-[0_32px_80px_-12px_rgba(0,0,0,0.12)] border border-outline-variant/30 flex flex-col overflow-hidden" 
+        className="relative w-full max-w-160 bg-surface-container-lowest/80 backdrop-blur-xl rounded-3xl shadow-[0_32px_80px_-12px_rgba(0,0,0,0.12)] border border-outline-variant/30 flex flex-col overflow-hidden" 
         role="dialog"
       >
         
@@ -79,11 +79,11 @@ export default function Page() {
               </div>
               <h1 className="font-headline-lg font-semibold text-on-surface tracking-tight" id="modal-title">Adopt Your Signature</h1>
             </div>
-            <p className="font-body-sm text-secondary mt-1 pl-[52px]">
+            <p className="font-body-sm text-secondary mt-1 pl-13">
               Review or create your signature for Master Services Agreement (MSA) - Ref #4092-B
             </p>
           </div>
-          <button aria-label="Dismiss signature modal" className="w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container transition-all active:scale-95 flex-shrink-0" type="button">
+          <button aria-label="Dismiss signature modal" className="w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container transition-all active:scale-95 shrink-0" type="button">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -95,19 +95,19 @@ export default function Page() {
               <button 
                 key={tab}
                 onClick={() => setActiveTab(tab)} 
-                className={`flex-1 py-2 px-space-md rounded-[8px] font-label-md font-medium transition-colors flex items-center justify-center gap-space-sm relative z-10 ${activeTab === tab ? 'text-on-surface' : 'text-secondary hover:text-on-surface hover:bg-surface-container-lowest/30'}`} 
+                className={`flex-1 py-2 px-space-md rounded-lg font-label-md font-medium transition-colors flex items-center justify-center gap-space-sm relative z-10 ${activeTab === tab ? 'text-on-surface' : 'text-secondary hover:text-on-surface hover:bg-surface-container-lowest/30'}`} 
                 type="button"
               >
                 {activeTab === tab && (
                   <motion.div
                     layoutId="activeTabIndicator"
-                    className="absolute inset-0 bg-surface-container-lowest shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-[8px] -z-10"
+                    className="absolute inset-0 bg-surface-container-lowest shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-lg -z-10"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                {tab === 'draw' && <PenTool className="w-[18px] h-[18px]" />}
-                {tab === 'type' && <Type className="w-[18px] h-[18px]" />}
-                {tab === 'upload' && <Upload className="w-[18px] h-[18px]" />}
+                {tab === 'draw' && <PenTool className="w-4.5 h-4.5" />}
+                {tab === 'type' && <Type className="w-4.5 h-4.5" />}
+                {tab === 'upload' && <Upload className="w-4.5 h-4.5" />}
                 <span className="capitalize">{tab === 'draw' ? 'Draw' : tab === 'type' ? 'Type' : 'Upload'}</span>
               </button>
             ))}
@@ -118,7 +118,7 @@ export default function Page() {
         <div className="px-space-xl flex flex-col gap-space-lg pb-space-lg">
           
           {/* Views Container */}
-          <div className="relative min-h-[240px]">
+          <div className="relative min-h-60">
             <AnimatePresence mode="wait">
               
               {/* View 1: DRAW CANVAS */}
@@ -131,7 +131,7 @@ export default function Page() {
                   transition={{ duration: 0.2 }}
                   className="flex flex-col absolute inset-0"
                 >
-                  <div className="relative w-full h-[220px] bg-[#fcfcfc] rounded-[16px] flex flex-col justify-between overflow-hidden shadow-inner group border border-outline-variant/40 ring-1 ring-inset ring-black/5">
+                  <div className="relative w-full h-55 bg-[#fcfcfc] rounded-2xl flex flex-col justify-between overflow-hidden shadow-inner group border border-outline-variant/40 ring-1 ring-inset ring-black/5">
                     
                     {/* Top Controls Overlay */}
                     <div className="absolute top-space-sm left-space-sm right-space-sm z-20 flex items-center justify-between pointer-events-none">
@@ -149,7 +149,7 @@ export default function Page() {
                       {/* History Controls */}
                       <div className="flex items-center bg-white/90 backdrop-blur-md p-1 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-outline-variant/30 pointer-events-auto">
                         <button onClick={handleClear} className="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:text-error hover:bg-error/10 transition-colors" title="Clear canvas" type="button">
-                          <Eraser className="w-[18px] h-[18px]" />
+                          <Eraser className="w-4.5 h-4.5" />
                         </button>
                       </div>
                     </div>
@@ -177,7 +177,7 @@ export default function Page() {
                           exit={{ opacity: 0, transition: { duration: 0.3 } }}
                           className="absolute inset-0 z-0 flex items-center justify-center px-space-xl pointer-events-none"
                         >
-                          <svg className={`w-full h-full max-h-[140px] transition-colors duration-200 ${inkColor === '#1d4ed8' ? 'text-blue-700' : 'text-slate-900'}`} viewBox="0 0 520 140">
+                          <svg className={`w-full h-full max-h-35 transition-colors duration-200 ${inkColor === '#1d4ed8' ? 'text-blue-700' : 'text-slate-900'}`} viewBox="0 0 520 140">
                             <motion.path 
                               initial={{ pathLength: 0 }}
                               animate={{ pathLength: 1 }}
@@ -231,11 +231,11 @@ export default function Page() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md h-[120px]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md h-30">
                     {/* Style 1: Caveat */}
                     <button 
                       onClick={() => setSignatureStyle(1)}
-                      className={`relative overflow-hidden p-space-md rounded-[16px] flex flex-col justify-center items-center cursor-pointer transition-all ${signatureStyle === 1 ? 'bg-primary/5 border-2 border-primary shadow-sm' : 'bg-surface-container-highest/20 border-2 border-transparent hover:bg-surface-container-highest/40'}`}
+                      className={`relative overflow-hidden p-space-md rounded-2xl flex flex-col justify-center items-center cursor-pointer transition-all ${signatureStyle === 1 ? 'bg-primary/5 border-2 border-primary shadow-sm' : 'bg-surface-container-highest/20 border-2 border-transparent hover:bg-surface-container-highest/40'}`}
                       type="button"
                     >
                       <span 
@@ -254,7 +254,7 @@ export default function Page() {
                     {/* Style 2: Dancing Script */}
                     <button 
                       onClick={() => setSignatureStyle(2)}
-                      className={`relative overflow-hidden p-space-md rounded-[16px] flex flex-col justify-center items-center cursor-pointer transition-all ${signatureStyle === 2 ? 'bg-primary/5 border-2 border-primary shadow-sm' : 'bg-surface-container-highest/20 border-2 border-transparent hover:bg-surface-container-highest/40'}`}
+                      className={`relative overflow-hidden p-space-md rounded-2xl flex flex-col justify-center items-center cursor-pointer transition-all ${signatureStyle === 2 ? 'bg-primary/5 border-2 border-primary shadow-sm' : 'bg-surface-container-highest/20 border-2 border-transparent hover:bg-surface-container-highest/40'}`}
                       type="button"
                     >
                       <span 
@@ -294,24 +294,24 @@ export default function Page() {
                   {!uploadedImage ? (
                     <button 
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full h-[220px] rounded-[16px] bg-surface-container-highest/10 flex flex-col items-center justify-center p-space-md text-center hover:bg-surface-container-highest/20 transition-all cursor-pointer border-2 border-outline-variant/40 border-dashed group"
+                      className="w-full h-55 rounded-2xl bg-surface-container-highest/10 flex flex-col items-center justify-center p-space-md text-center hover:bg-surface-container-highest/20 transition-all cursor-pointer border-2 border-outline-variant/40 border-dashed group"
                       type="button"
                     >
                       <div className="w-14 h-14 rounded-full bg-surface-container-highest/50 flex items-center justify-center mb-space-sm text-secondary group-hover:scale-110 group-hover:text-primary transition-all duration-300 shadow-sm">
-                        <CloudUpload className="w-[26px] h-[26px]" />
+                        <CloudUpload className="w-6.5 h-6.5" />
                       </div>
                       <p className="font-label-lg font-semibold text-on-surface">Click to upload signature</p>
                       <p className="font-body-sm text-secondary mt-1">Supports transparent PNG, SVG, or high-res JPEG (Max 5MB)</p>
                     </button>
                   ) : (
-                    <div className="relative w-full h-[220px] rounded-[16px] bg-[#fcfcfc] border border-outline-variant/30 flex items-center justify-center p-space-xl group shadow-inner">
+                    <div className="relative w-full h-55 rounded-2xl bg-[#fcfcfc] border border-outline-variant/30 flex items-center justify-center p-space-xl group shadow-inner">
                       <img src={uploadedImage} alt="Uploaded signature" className="max-w-full max-h-full object-contain filter contrast-125 mix-blend-multiply" />
                       <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={() => fileInputRef.current?.click()} className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-secondary hover:text-primary hover:scale-105 transition-all" title="Replace image" type="button">
-                          <RefreshCw className="w-[18px] h-[18px]" />
+                          <RefreshCw className="w-4.5 h-4.5" />
                         </button>
                         <button onClick={() => setUploadedImage(null)} className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-secondary hover:text-error hover:scale-105 transition-all" title="Remove image" type="button">
-                          <Trash2 className="w-[18px] h-[18px]" />
+                          <Trash2 className="w-4.5 h-4.5" />
                         </button>
                       </div>
                     </div>
@@ -322,7 +322,7 @@ export default function Page() {
           </div>
 
           {/* Signer Identity Metadata Summary Strip */}
-          <div className="grid grid-cols-3 gap-space-sm bg-surface-container-low/50 border border-outline-variant/20 p-space-md rounded-[12px] mt-2">
+          <div className="grid grid-cols-3 gap-space-sm bg-surface-container-low/50 border border-outline-variant/20 p-space-md rounded-xl mt-2">
             <div className="flex flex-col px-space-xs">
               <span className="font-legal-disclaimer text-[10px] font-semibold text-secondary uppercase tracking-widest mb-0.5">Signer</span>
               <span className="font-label-md font-medium text-on-surface truncate">{typedName || 'Jonathan Vance'}</span>
@@ -343,7 +343,7 @@ export default function Page() {
           <div className="flex items-start gap-space-md pt-2">
             <label className="relative flex items-center p-0.5 cursor-pointer mt-0.5 group shrink-0">
               <input defaultChecked className="peer sr-only" id="legal-consent-toggle" type="checkbox" />
-              <div className="w-5 h-5 rounded-[6px] bg-surface-container-highest border border-outline-variant/50 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center group-hover:ring-4 ring-primary/10">
+              <div className="w-5 h-5 rounded-md bg-surface-container-highest border border-outline-variant/50 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center group-hover:ring-4 ring-primary/10">
                 <Check className="w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-300" strokeWidth={3} />
               </div>
             </label>
@@ -354,7 +354,7 @@ export default function Page() {
         </div>
 
         {/* Modal Footer Bar */}
-        <div className="mt-auto px-space-xl py-space-md bg-surface-container-lowest/90 border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-space-md rounded-b-[24px]">
+        <div className="mt-auto px-space-xl py-space-md bg-surface-container-lowest/90 border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-space-md rounded-b-3xl">
           <div className="flex items-center gap-2 text-secondary">
             <Lock className="w-4 h-4 text-green-600" />
             <span className="font-legal-disclaimer text-[11px] font-medium tracking-wide">256-BIT TLS ENCRYPTED</span>
@@ -364,7 +364,7 @@ export default function Page() {
               Cancel
             </button>
             <button className="w-full sm:w-auto px-space-xl py-2.5 rounded-[10px] bg-primary hover:bg-primary/90 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] active:scale-[0.98] text-white font-label-md font-semibold transition-all flex items-center justify-center gap-2" type="button">
-              <BadgeCheck className="w-[18px] h-[18px]" />
+              <BadgeCheck className="w-4.5 h-4.5" />
               <span>Adopt &amp; Sign</span>
             </button>
           </div>
