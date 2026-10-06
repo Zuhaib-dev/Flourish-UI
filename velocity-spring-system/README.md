@@ -1,7 +1,7 @@
 # 🌊 Velocity Spring System
 
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #c8d4df; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #444; font-weight: bold;">Preview coming soon</div>
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Velocity Spring System" />
 </div>
 
 A breathtaking, highly interactive layout animation system featuring MacOS dock mechanics, seamless masonry grid toggles, and perfect physical spring interpolation. Built for the Flourish UI component library.
