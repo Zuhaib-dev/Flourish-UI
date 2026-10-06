@@ -75,5 +75,11 @@ A highly premium, two-column split-layout sign up modal featuring a clean typogr
   <img src="./split-signup-modal/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Split Sign Up Modal" />
 </div>
 
+### 🌊 [Velocity Spring System](./velocity-spring-system)
+A breathtaking layout animation system featuring MacOS dock mechanics, seamless masonry grid toggles, and perfect physical spring interpolation.
+<div align="center">
+  <img src="./velocity-spring-system/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Velocity Spring System" />
+</div>
+
 ---
 *Built with room to grow. 🌱*
