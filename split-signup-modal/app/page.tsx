@@ -38,9 +38,9 @@ export default function SplitSignupModal() {
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
-              <div className="flex-1 h-[1px] bg-neutral-100" />
+              <div className="flex-1 h-px bg-neutral-100" />
               <span className="text-[9px] font-bold text-neutral-400 tracking-wider">OR</span>
-              <div className="flex-1 h-[1px] bg-neutral-100" />
+              <div className="flex-1 h-px bg-neutral-100" />
             </div>
 
             {/* Email Form */}
@@ -95,11 +95,11 @@ export default function SplitSignupModal() {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-[22%] right-[16%] z-30"
           >
-            <div className="relative w-27.5 h-[55px] opacity-95 drop-shadow-[0_12px_24px_rgba(200,160,220,0.25)]">
+            <div className="relative w-27.5 h-13.75 opacity-95 drop-shadow-[0_12px_24px_rgba(200,160,220,0.25)]">
               {/* Cloud body */}
               <div className="absolute bottom-0 left-0 right-0 h-7 bg-linear-to-r from-[#e7d3ef] via-[#f7ebf8] to-[#edd9f3] rounded-full blur-[0.5px] shadow-[inset_0_-2px_6px_rgba(255,255,255,0.7)]" />
               <div className="absolute bottom-3 left-4.5 w-9.5 h-9.5 bg-linear-to-br from-[#f8f0fa] to-[#e4cee9] rounded-full blur-[0.5px]" />
-              <div className="absolute bottom-2.5 left-[45px] w-[45px] h-[45px] bg-linear-to-b from-[#fbf4fc] to-[#ebd7f1] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-2.5 left-11.25 w-11.25 h-11.25 bg-linear-to-b from-[#fbf4fc] to-[#ebd7f1] rounded-full blur-[0.5px]" />
             </div>
           </motion.div>
 
@@ -108,11 +108,11 @@ export default function SplitSignupModal() {
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute top-[48%] left-[8%] z-30"
           >
-            <div className="relative w-30 h-[45px] opacity-90 drop-shadow-[0_8px_20px_rgba(200,160,220,0.2)]">
+            <div className="relative w-30 h-11.25 opacity-90 drop-shadow-[0_8px_20px_rgba(200,160,220,0.2)]">
               {/* Cloud body */}
               <div className="absolute bottom-0 left-0 right-0 h-6.5 bg-linear-to-r from-[#ebd6ed] via-[#f9eef9] to-[#ebd9ee] rounded-full blur-[0.5px] shadow-[inset_0_-2px_4px_rgba(255,255,255,0.6)]" />
-              <div className="absolute bottom-2.5 left-[15px] w-10 h-10 bg-linear-to-br from-[#faf2fa] to-[#ebd8ec] rounded-full blur-[0.5px]" />
-              <div className="absolute bottom-2 left-12.5 w-[35px] h-[35px] bg-linear-to-b from-[#fdf8fd] to-[#ebd4ea] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-2.5 left-3.75 w-10 h-10 bg-linear-to-br from-[#faf2fa] to-[#ebd8ec] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-2 left-12.5 w-8.75 h-8.75 bg-linear-to-b from-[#fdf8fd] to-[#ebd4ea] rounded-full blur-[0.5px]" />
             </div>
           </motion.div>
 

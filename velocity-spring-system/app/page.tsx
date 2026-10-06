@@ -231,7 +231,7 @@ export default function VelocitySpringSystem() {
                       
                       <motion.div 
                         animate={{ y: [5, -5, 5], rotate: [2, -2, 2] }} transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                        className="absolute top-[30%] left-[44%] w-15 h-60 bg-linear-to-br from-[#fc7960] to-[#c7432c] rounded-7.5 shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.3),0_24px_48px_rgba(0,0,0,0.2)] rotate-[25deg]" 
+                        className="absolute top-[30%] left-[44%] w-15 h-60 bg-linear-to-br from-[#fc7960] to-[#c7432c] rounded-7.5 shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.3),0_24px_48px_rgba(0,0,0,0.2)] rotate-25" 
                       /> {/* Carrot */}
                       
                       <motion.div 
