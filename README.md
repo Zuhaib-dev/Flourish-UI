@@ -38,5 +38,8 @@ Alongside our core components, this repository also houses various UI/UX experim
 - ✈️ **[Voyage Planner](./voyage-planner)**  
   A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts and glassmorphic folders.
 
+- 📔 **[Digital Journal Album](./digital-journal-album)**  
+  A photorealistic 3D digital journal with interactive physical flipbook mechanics and cinematic visuals.
+
 ---
 *Built with room to grow. 🌱*

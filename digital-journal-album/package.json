@@ -1,6 +1,8 @@
 {
   "name": "digital-journal-album",
   "version": "0.1.0",
+  "description": "A photorealistic 3D digital journal with interactive flipbook mechanics and cinematic visuals.",
+  "author": "Zuhaib Rashid",
   "private": true,
   "scripts": {
     "dev": "next dev",
