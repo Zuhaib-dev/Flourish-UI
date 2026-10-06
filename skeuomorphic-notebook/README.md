@@ -1,5 +1,9 @@
 # Skeuomorphic Notebook Guestbook 📓
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Skeuomorphic Notebook Preview" />
+</div>
+
 A playful, highly interactive skeuomorphic take on a digital guestbook. It brings the tactile feel of a physical leather-bound journal into the browser with realistic page flips, handwritten typography, and organic ink features.
 
 ## Features

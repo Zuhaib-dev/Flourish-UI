@@ -1,5 +1,9 @@
 # 📔 Digital Journal Album
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Digital Journal Album Preview" />
+</div>
+
 A photorealistic, highly interactive 3D digital journal with true physical flipbook mechanics and cinematic visuals, built for the Flourish UI component library.
 
 ## 🌟 Overview
