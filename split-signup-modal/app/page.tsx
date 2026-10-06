@@ -78,49 +78,56 @@ export default function SplitSignupModal() {
         {/* ======================= */}
         {/* RIGHT COLUMN (Visual)   */}
         {/* ======================= */}
-        <div className="hidden md:flex flex-1 relative bg-gradient-to-br from-[#faf3e3] via-[#faedea] to-[#f7e6f3] overflow-hidden border-l border-neutral-100 items-center justify-center">
+        <div className="hidden md:flex flex-1 relative bg-[#fdfbf7] overflow-hidden border-l border-neutral-100 items-center justify-center">
           
-          {/* Animated Mesh Gradient Blobs */}
+          {/* Advanced Mesh Gradient Base */}
+          <div className="absolute inset-0 opacity-[0.85]" style={{
+            backgroundImage: `
+              radial-gradient(circle at 85% 10%, #fadce4 0%, transparent 45%),
+              radial-gradient(circle at 10% 85%, #fbe8d5 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, #f4e1f7 0%, transparent 50%),
+              radial-gradient(circle at 20% 20%, #fef3e5 0%, transparent 40%)
+            `
+          }} />
+
+          {/* Animated Ambient Orbs for Living Light */}
           <motion.div 
-            animate={{ 
-              x: [-30, 30, -30],
-              y: [-20, 20, -20],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] right-[5%] w-[450px] h-[450px] bg-[#dfb2ef] rounded-full mix-blend-multiply filter blur-[120px] opacity-40" 
-          />
-          <motion.div 
-            animate={{ 
-              x: [30, -30, 30],
-              y: [20, -20, 20],
-              scale: [1.1, 1, 1.1]
-            }}
+            animate={{ x: [-20, 20, -20], y: [-20, 20, -20] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[10%] left-[5%] w-[500px] h-[500px] bg-[#fad8b4] rounded-full mix-blend-multiply filter blur-[120px] opacity-40" 
+            className="absolute top-[15%] right-[10%] w-[40vw] h-[40vw] bg-pink-300/20 rounded-full mix-blend-multiply blur-[120px]" 
           />
           <motion.div 
-            animate={{ 
-              x: [-20, 20, -20],
-              y: [20, -20, 20],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute top-[40%] left-[30%] w-[350px] h-[350px] bg-[#f9cbe0] rounded-full mix-blend-multiply filter blur-[100px] opacity-30" 
+            animate={{ x: [20, -20, 20], y: [20, -20, 20] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[10%] left-[10%] w-[40vw] h-[40vw] bg-orange-200/20 rounded-full mix-blend-multiply blur-[120px]" 
           />
 
-          {/* Abstract Floating Clouds */}
+          {/* Floating CSS Clouds (Mimicking 3D painted clouds) */}
           <motion.div 
-            animate={{ y: [-8, 8, -8], rotate: [-2, 2, -2] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[22%] right-[12%] w-[160px] h-[60px] bg-gradient-to-r from-purple-100/90 to-pink-100/90 rounded-full blur-[2px] opacity-90 shadow-[0_12px_40px_rgba(150,100,200,0.25)] border border-white/60 z-20"
-            style={{ borderRadius: "50% 50% 40% 60% / 60% 50% 50% 40%" }}
-          />
+            animate={{ y: [-10, 10, -10], rotate: [-1, 1, -1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[22%] right-[12%] z-20 drop-shadow-[0_12px_24px_rgba(200,160,220,0.25)]"
+          >
+            <div className="relative w-[130px] h-[50px]">
+              {/* Cloud Puffs */}
+              <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-r from-[#e7d5ef] via-[#f3e6f5] to-[#f4dcf1] rounded-full blur-[1px] shadow-inner" />
+              <div className="absolute bottom-[15px] left-[20px] w-[50px] h-[50px] bg-gradient-to-br from-[#f6eef8] to-[#e7d5ef] rounded-full blur-[1px]" />
+              <div className="absolute bottom-[10px] left-[55px] w-[55px] h-[55px] bg-gradient-to-b from-[#faeff8] to-[#eeddf3] rounded-full blur-[1px]" />
+            </div>
+          </motion.div>
+
           <motion.div 
-            animate={{ y: [8, -8, 8], rotate: [2, -2, 2] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-[52%] left-[12%] w-[140px] h-[50px] bg-gradient-to-r from-pink-50/90 to-purple-100/90 rounded-full blur-[1px] opacity-80 shadow-[0_12px_40px_rgba(150,100,200,0.2)] border border-white/60 z-20"
-            style={{ borderRadius: "40% 60% 50% 50% / 50% 40% 60% 50%" }}
-          />
+            animate={{ y: [8, -8, 8], rotate: [1, -1, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            className="absolute top-[52%] left-[10%] z-20 drop-shadow-[0_12px_24px_rgba(200,160,220,0.2)]"
+          >
+            <div className="relative w-[110px] h-[45px]">
+              {/* Cloud Puffs */}
+              <div className="absolute bottom-0 left-0 right-0 h-[35px] bg-gradient-to-r from-[#efe0f4] via-[#f7ebf8] to-[#ebdaef] rounded-full blur-[1px] shadow-inner" />
+              <div className="absolute bottom-[10px] left-[15px] w-[45px] h-[45px] bg-gradient-to-br from-[#faeff8] to-[#ebdaef] rounded-full blur-[1px]" />
+              <div className="absolute bottom-[8px] left-[45px] w-[45px] h-[45px] bg-gradient-to-b from-[#fdf6fc] to-[#e8d5ec] rounded-full blur-[1px]" />
+            </div>
+          </motion.div>
 
           {/* Central Glass Mockup - Elongated */}
           <div className="relative z-10 w-[420px] h-[520px] -mt-20 ml-16">
@@ -130,7 +137,7 @@ export default function SplitSignupModal() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 bg-white/40 backdrop-blur-[24px] rounded-[32px] border border-white/80 shadow-[0_32px_100px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col p-8 pl-[90px]"
+              className="absolute inset-0 bg-white/50 backdrop-blur-[40px] backdrop-saturate-[1.1] rounded-[32px] border border-white/70 shadow-[0_32px_100px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col p-8 pl-[90px]"
             >
               <h2 className="text-[19px] font-bold text-[#333] tracking-tight mb-8 mt-2">Better, faster decisions</h2>
               
