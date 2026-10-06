@@ -1,7 +1,7 @@
 # Flourish UI ✨
 
 <div align="center">
-  <video src="./public/Preview.mp4" autoPlay loop muted playsInline width="100%" style="border-radius: 12px; margin-bottom: 24px;"></video>
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Bloom Select Preview" />
 </div>
 
 A premium, highly interactive React component library crafted for modern web applications. 

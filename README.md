@@ -12,7 +12,7 @@ A premium, highly interactive UI component library crafted for modern web applic
 ### 🌸 [Bloom Select](./bloom-select)
 A beautiful, interactive React component that blooms organic, premium SVG flowers when you highlight text. Designed with a calming aesthetic and powered by fluid spring physics.
 <div align="center">
-  <video src="./bloom-select/public/Preview.mp4" autoPlay loop muted playsInline width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"></video>
+  <img src="./bloom-select/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Bloom Select" />
 </div>
 
 ### ✍️ [Digital Signature Modal](./digital-signature-modal)
