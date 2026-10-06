@@ -82,4 +82,12 @@ A breathtaking layout animation system featuring MacOS dock mechanics, seamless 
 </div>
 
 ---
+
+### 📈 [Dashboard May Look Minimal](./dashboard-may-look-minimal)
+A hyper-minimal SaaS dashboard exploring architectural wireframe aesthetics, custom SVG micro-charts, and JetBrains Mono data typography.
+<div align="center">
+  <div style="width: 100%; height: 300px; background: #f5f7fa; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; font-family: monospace; color: #64748b; font-weight: bold;">Preview coming soon</div>
+</div>
+
+---
 *Built with room to grow. 🌱*

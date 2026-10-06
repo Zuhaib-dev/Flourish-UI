@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-mono);
+}
+
+@layer utilities {
+  .crop-mark-tl {
+    position: relative;
+  }
+  .crop-mark-tl::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 6px;
+    height: 1px;
+    background-color: #d4d4d8;
+  }
+  .crop-mark-tl::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 1px;
+    height: 6px;
+    background-color: #d4d4d8;
+  }
+  
+  .crop-mark-tr {
+    position: relative;
+  }
+  .crop-mark-tr::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 6px;
+    height: 1px;
+    background-color: #d4d4d8;
+  }
+  .crop-mark-tr::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 1px;
+    height: 6px;
+    background-color: #d4d4d8;
+  }
+
+  .crop-mark-bl {
+    position: relative;
+  }
+  .crop-mark-bl::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    width: 6px;
+    height: 1px;
+    background-color: #d4d4d8;
+  }
+  .crop-mark-bl::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    width: 1px;
+    height: 6px;
+    background-color: #d4d4d8;
+  }
+
+  .crop-mark-br {
+    position: relative;
+  }
+  .crop-mark-br::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 6px;
+    height: 1px;
+    background-color: #d4d4d8;
+  }
+  .crop-mark-br::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 1px;
+    height: 6px;
+    background-color: #d4d4d8;
+  }
+}
