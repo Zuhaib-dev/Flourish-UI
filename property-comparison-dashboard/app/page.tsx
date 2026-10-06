@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, MoreHorizontal, Maximize2, Sparkles, Home, 
-  Link2, BookOpen, Layers, Bookmark, Download
+  Search, BookOpen, Layers, Bookmark, Download, MapPin
 } from "lucide-react";
 
 const properties = [
@@ -65,87 +65,87 @@ export default function PropertyDashboard() {
   const activeProp = properties.find(p => p.id === activeId)!;
 
   return (
-    <div className="flex h-screen w-full bg-[#f8f6f0] p-4 gap-6 font-sans overflow-hidden">
+    <div className="flex h-screen w-full bg-[#f6f5ef] p-4 gap-6 font-sans overflow-hidden selection:bg-blue-100">
       
       {/* 1. Left Navigation Sidebar */}
-      <nav className="w-16 h-full bg-white rounded-3xl flex flex-col items-center py-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-black/[0.02]">
-        <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-8 shadow-sm border border-indigo-100">
-          <Sparkles className="w-5 h-5 text-indigo-500" />
+      <nav className="w-16 h-full bg-white rounded-3xl flex flex-col items-center py-6 shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/[0.03] z-20">
+        <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-8 shadow-sm border border-indigo-100/50 cursor-pointer hover:bg-indigo-100 transition-colors">
+          <Sparkles className="w-4 h-4 text-indigo-500" />
         </div>
         
-        <div className="flex flex-col gap-6 text-neutral-400">
-          <button className="hover:text-neutral-800 transition-colors p-2"><Home className="w-5 h-5" /></button>
-          <button className="hover:text-neutral-800 transition-colors p-2"><Link2 className="w-5 h-5" /></button>
-          <button className="bg-neutral-100 text-neutral-800 p-2 rounded-xl"><BookOpen className="w-5 h-5" /></button>
-          <button className="hover:text-neutral-800 transition-colors p-2"><Layers className="w-5 h-5" /></button>
-          <button className="hover:text-neutral-800 transition-colors p-2"><Bookmark className="w-5 h-5" /></button>
+        <div className="flex flex-col gap-4 text-neutral-400 w-full px-3">
+          <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Home className="w-5 h-5" /></button>
+          <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Search className="w-5 h-5" /></button>
+          <button className="bg-neutral-100 text-neutral-900 p-2.5 rounded-xl flex justify-center shadow-sm border border-black/[0.02]"><BookOpen className="w-5 h-5" /></button>
+          <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Layers className="w-5 h-5" /></button>
+          <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Bookmark className="w-5 h-5" /></button>
         </div>
 
-        <div className="mt-auto">
-          <button className="hover:text-neutral-800 transition-colors p-2 text-neutral-400"><Sparkles className="w-5 h-5" /></button>
+        <div className="mt-auto w-full px-3">
+          <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center w-full"><Sparkles className="w-5 h-5" /></button>
         </div>
       </nav>
 
       {/* 2. Middle Column: Comparison List */}
-      <div className="flex-1 max-w-xl flex flex-col pt-2 h-full">
+      <div className="flex-1 max-w-[580px] flex flex-col pt-1 h-full z-10">
         
         {/* Top Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            <button className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-black/[0.03] hover:bg-neutral-50 transition-colors">
-              <ArrowLeft className="w-4 h-4 text-neutral-600" />
+        <div className="flex items-center justify-between mb-8 px-1">
+          <div className="flex items-center gap-3">
+            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04] hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
+              <ArrowLeft className="w-4 h-4" />
             </button>
-            <div className="bg-white h-10 px-4 rounded-xl flex items-center gap-3 shadow-sm border border-black/[0.03]">
-              <span className="font-semibold text-[14px] text-neutral-900 tracking-tight">Martins — Home Search</span>
-              <div className="bg-blue-50 text-blue-600 text-[11px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
+            <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04]">
+              <span className="font-semibold text-[13.5px] text-[#222] tracking-tight">Martins — Home Search</span>
+              <div className="bg-blue-50/80 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-100/50 uppercase tracking-wide">
                 V1.2
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </div>
             </div>
           </div>
-          <button className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-black/[0.03] hover:bg-neutral-50 transition-colors text-neutral-500">
-            <MoreHorizontal className="w-5 h-5" />
+          <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04] hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
+            <MoreHorizontal className="w-4 h-4" />
           </button>
         </div>
 
         {/* Bullet Points */}
-        <div className="mb-8 px-2 space-y-2">
-          <div className="flex items-start gap-2">
-            <span className="text-neutral-400 mt-1.5 text-[10px]">●</span>
-            <p className="text-[14px] text-neutral-700">Adjusted -$5,000 for smaller lot size vs 305 Maple Dr</p>
+        <div className="mb-6 px-3 space-y-2.5">
+          <div className="flex items-start gap-2.5 group">
+            <span className="text-neutral-300 mt-1.5 text-[8px] group-hover:text-neutral-500 transition-colors">●</span>
+            <p className="text-[14.5px] text-neutral-600 font-medium tracking-tight">Adjusted -$5,000 for smaller lot size vs 305 Maple Dr</p>
           </div>
-          <div className="flex items-start gap-2">
-            <span className="text-neutral-400 mt-1.5 text-[10px]">●</span>
-            <p className="text-[14px] text-neutral-700">Median adjusted comp value: $487,200</p>
+          <div className="flex items-start gap-2.5 group">
+            <span className="text-neutral-300 mt-1.5 text-[8px] group-hover:text-neutral-500 transition-colors">●</span>
+            <p className="text-[14.5px] text-neutral-600 font-medium tracking-tight">Median adjusted comp value: <span className="text-neutral-900 font-semibold">$487,200</span></p>
           </div>
         </div>
 
         {/* Table Card */}
-        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-black/[0.02] flex flex-col overflow-hidden h-[550px]">
+        <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/[0.03] flex flex-col flex-1 overflow-hidden min-h-0 relative">
           
           {/* Card Header */}
-          <div className="px-6 pt-6 pb-4 flex items-center justify-between">
-            <h2 className="text-[15px] font-semibold text-neutral-800">Property Comparison</h2>
-            <div className="flex items-center gap-2">
-              <button className="w-8 h-8 rounded-lg border border-black/[0.06] flex items-center justify-center hover:bg-neutral-50 transition-colors text-neutral-500">
-                <Download className="w-4 h-4" />
+          <div className="px-6 pt-7 pb-5 flex items-center justify-between">
+            <h2 className="text-[16px] font-semibold text-[#222] tracking-tight">Property Comparison</h2>
+            <div className="flex items-center gap-2.5">
+              <button className="w-8 h-8 rounded-lg border border-black/[0.06] flex items-center justify-center hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 shadow-sm">
+                <Download className="w-3.5 h-3.5" />
               </button>
-              <button className="bg-[#222222] text-white text-[13px] font-medium px-4 h-8 rounded-lg flex items-center gap-2 hover:bg-black transition-colors">
+              <button className="bg-[#222] text-white text-[13px] font-semibold px-4 h-8 rounded-lg flex items-center gap-2 hover:bg-black transition-all active:scale-95 shadow-[0_2px_8px_rgba(0,0,0,0.12)]">
                 Expand table
-                <Maximize2 className="w-3.5 h-3.5 opacity-70" />
+                <Maximize2 className="w-3.5 h-3.5 opacity-80" />
               </button>
             </div>
           </div>
 
           {/* Table Headers */}
-          <div className="grid grid-cols-[1fr_120px_120px] px-6 py-3 bg-[#f7f6ec]/50 border-y border-black/[0.04] text-[13px] font-medium text-neutral-600">
+          <div className="grid grid-cols-[1fr_110px_110px] px-6 py-2.5 bg-[#f6f5ef]/40 border-y border-black/[0.03] text-[12px] font-semibold text-neutral-500 tracking-wide uppercase">
             <div>Property</div>
             <div>Price</div>
             <div>Beds / baths</div>
           </div>
 
           {/* Table Rows (Interactive) */}
-          <div className="flex-1 overflow-y-auto relative">
+          <div className="flex-1 overflow-y-auto relative py-1">
             {properties.map((prop) => {
               const isActive = prop.id === activeId;
               
@@ -153,35 +153,48 @@ export default function PropertyDashboard() {
                 <div 
                   key={prop.id} 
                   onClick={() => setActiveId(prop.id)}
-                  className={`relative grid grid-cols-[1fr_120px_120px] items-center px-6 py-4 border-b border-black/[0.03] cursor-pointer transition-colors
-                    ${isActive ? 'bg-blue-50/10' : 'hover:bg-neutral-50'}
-                  `}
+                  className="relative grid grid-cols-[1fr_110px_110px] items-center px-6 py-3.5 cursor-pointer group"
                 >
-                  {/* Highlight Bar for Active Row */}
+                  {/* Subtle hover background (only when not active) */}
+                  {!isActive && (
+                    <div className="absolute inset-x-2 inset-y-0.5 rounded-xl bg-neutral-50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  )}
+
+                  {/* Highlight Bar and Background for Active Row */}
+                  {isActive && (
+                    <motion.div 
+                      layoutId="active-row-bg"
+                      className="absolute inset-x-2 inset-y-0.5 rounded-xl bg-blue-50/40 border border-blue-100/50"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                    />
+                  )}
                   {isActive && (
                     <motion.div 
                       layoutId="active-row-indicator"
-                      className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"
+                      className="absolute left-2 top-2 bottom-2 w-1 rounded-full bg-blue-500 z-10"
                       initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
                   )}
 
-                  <div className="flex items-center gap-3">
-                    <img src={prop.img} alt={prop.address} className="w-12 h-10 rounded-md object-cover border border-black/[0.05] shadow-sm" />
-                    <span className={`text-[14px] font-medium ${isActive ? 'text-blue-700' : 'text-neutral-800'}`}>
+                  <div className="flex items-center gap-3.5 relative z-10 pl-1">
+                    <img src={prop.img} alt={prop.address} className="w-12 h-10 rounded-lg object-cover border border-black/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.06)]" />
+                    <span className={`text-[14.5px] font-semibold tracking-tight transition-colors ${isActive ? 'text-blue-900' : 'text-[#222]'}`}>
                       {prop.address}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2.5 py-0.5 rounded-md text-[13px] font-semibold shadow-sm border border-black/[0.02] transition-colors
-                      ${isActive ? 'bg-[#e6f0ff] text-blue-700' : 'bg-[#fff5e6] text-orange-800'}
+
+                  <div className="flex items-center gap-2 relative z-10">
+                    <span className={`px-2.5 py-1 rounded-md text-[13px] font-bold shadow-sm border transition-colors
+                      ${isActive ? 'bg-blue-100/50 text-blue-700 border-blue-200/50' : 'bg-[#fff5e6] text-orange-900/80 border-orange-200/30'}
                     `}>
                       {prop.price}
                     </span>
-                    <span className="text-[13px] font-medium text-neutral-500">{prop.tag}</span>
+                    <span className="text-[12px] font-bold text-neutral-400">{prop.tag}</span>
                   </div>
-                  <div className={`text-[13px] ${isActive ? 'text-blue-600/80 font-medium' : 'text-neutral-600'}`}>
+
+                  <div className={`text-[13.5px] relative z-10 transition-colors ${isActive ? 'text-blue-700 font-semibold' : 'text-neutral-500 font-medium'}`}>
                     {prop.beds}
                   </div>
                 </div>
@@ -190,17 +203,17 @@ export default function PropertyDashboard() {
           </div>
 
           {/* Pagination */}
-          <div className="p-4 border-t border-black/[0.04] flex items-center justify-between">
-            <div className="w-48 h-1 bg-neutral-200 rounded-full overflow-hidden ml-2">
-              <div className="w-1/2 h-full bg-[#d6cbb5]" />
+          <div className="p-4 border-t border-black/[0.03] flex items-center justify-between bg-white/50">
+            <div className="w-48 h-1.5 bg-neutral-100 rounded-full overflow-hidden ml-3 shadow-inner">
+              <div className="w-1/2 h-full bg-neutral-300 rounded-full" />
             </div>
-            <div className="flex items-center gap-4 text-[13px] font-medium">
+            <div className="flex items-center gap-3 text-[13px] font-semibold">
               <div className="flex gap-2">
-                <button className="w-8 h-8 rounded-lg bg-white border border-black/[0.06] shadow-sm flex items-center justify-center text-neutral-800">1</button>
-                <button className="w-8 h-8 rounded-lg flex items-center justify-center text-neutral-500 hover:bg-neutral-100 transition-colors">2</button>
+                <button className="w-8 h-8 rounded-lg bg-white border border-black/[0.06] shadow-sm flex items-center justify-center text-[#222]">1</button>
+                <button className="w-8 h-8 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-800 hover:bg-neutral-50 transition-colors">2</button>
               </div>
-              <button className="h-8 px-3 rounded-lg bg-white border border-black/[0.06] shadow-sm flex items-center gap-1 text-neutral-800 hover:bg-neutral-50 transition-colors">
-                Next <ArrowLeft className="w-3.5 h-3.5 rotate-180 opacity-60" />
+              <button className="h-8 px-3.5 rounded-lg bg-white border border-black/[0.06] shadow-[0_2px_6px_rgba(0,0,0,0.03)] flex items-center gap-1.5 text-[#222] hover:bg-neutral-50 transition-all active:scale-95">
+                Next <ArrowLeft className="w-3.5 h-3.5 rotate-180 opacity-50" />
               </button>
             </div>
           </div>
@@ -208,81 +221,84 @@ export default function PropertyDashboard() {
       </div>
 
       {/* Resize Handle (Visual Only) */}
-      <div className="w-6 flex items-center justify-center h-full">
-        <div className="w-1 h-12 bg-black/[0.04] rounded-full" />
+      <div className="w-8 flex items-center justify-center h-full opacity-60">
+        <div className="w-1 h-12 bg-black/[0.05] rounded-full" />
       </div>
 
       {/* 3. Right Column: Detail View */}
-      <div className="flex-[1.5] h-full flex flex-col pt-2 pb-4">
+      <div className="flex-[1.5] h-full flex flex-col pt-1 pb-2 z-10">
         
         {/* Top Breadcrumb */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="bg-white h-10 px-4 rounded-xl flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.02]">
-            <span className="font-semibold text-[14px] text-neutral-900 tracking-tight">Property details</span>
-            <div className="bg-blue-50 text-blue-600 text-[11px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
+        <div className="flex items-center gap-3 mb-8 px-1">
+          <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04]">
+            <span className="font-semibold text-[13.5px] text-[#222] tracking-tight">Property details</span>
+            <div className="bg-blue-50/80 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-100/50 uppercase tracking-wide">
               V1.2
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
           </div>
           
           <AnimatePresence mode="popLayout">
             <motion.div 
               key={activeProp.id}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              className="bg-white/60 h-10 px-4 rounded-xl flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-black/[0.02] backdrop-blur-sm"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              className="bg-white/40 h-9 px-4 rounded-full flex items-center shadow-sm border border-black/[0.03] backdrop-blur-md"
             >
-              <span className="font-medium text-[14px] text-neutral-600 tracking-tight">{activeProp.address}</span>
+              <span className="font-semibold text-[13.5px] text-neutral-500 tracking-tight">{activeProp.address}</span>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Agent Pill */}
-        <div className="mb-6 flex">
-          <div className="bg-white shadow-sm border border-black/[0.03] rounded-full pl-3 pr-4 py-1.5 flex items-center gap-3">
-            <span className="text-[13px] font-medium text-neutral-500">Listing agent:</span>
-            <div className="flex items-center gap-2">
+        <div className="mb-6 flex px-1">
+          <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-black/[0.04] rounded-full pl-3 pr-4 py-1.5 flex items-center gap-3 cursor-pointer hover:bg-neutral-50 transition-colors">
+            <span className="text-[13px] font-medium text-neutral-400">Listing agent:</span>
+            <div className="flex items-center gap-2.5">
               <img src="/avatar.jpg" alt="Jenny Dukes" className="w-6 h-6 rounded-full object-cover border border-black/[0.05]" />
-              <span className="text-[13px] font-semibold text-neutral-800">Jenny Dukes</span>
+              <span className="text-[13.5px] font-bold text-[#222]">Jenny Dukes</span>
             </div>
           </div>
         </div>
 
         {/* Dynamic Property Details Content */}
-        <div className="flex flex-col gap-3 mb-8 px-2 relative min-h-[140px]">
+        <div className="flex flex-col mb-8 px-2 relative min-h-[160px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProp.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute inset-0"
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute inset-0 flex flex-col"
             >
-              <h1 className="text-[32px] font-semibold text-neutral-900 tracking-tight">{activeProp.address}</h1>
+              <div className="flex items-center gap-3 mb-2">
+                <MapPin className="w-5 h-5 text-neutral-300" />
+                <h1 className="text-[34px] font-bold text-[#222] tracking-tight leading-none">{activeProp.address}</h1>
+              </div>
               
-              <p className="text-[14px] text-neutral-600 font-medium">
+              <p className="text-[14.5px] text-neutral-500 font-semibold tracking-tight mt-1 pl-8">
                 {activeProp.details}
               </p>
               
-              <p className="text-[15px] leading-relaxed text-neutral-700 max-w-2xl mt-2">
+              <p className="text-[15.5px] leading-[1.7] text-neutral-600 max-w-[65ch] mt-4 pl-8">
                 {activeProp.description}
               </p>
 
-              <div className="flex items-center gap-3 mt-4">
-                <span className="text-[14px] text-neutral-500">Asking price:</span>
-                <span className="px-3 py-1 rounded-md text-[14px] font-bold shadow-sm border border-black/[0.02] bg-[#fff5e6] text-orange-900">
+              <div className="flex items-center gap-4 mt-6 pl-8">
+                <span className="text-[14px] font-medium text-neutral-400">Asking price:</span>
+                <span className="px-3.5 py-1.5 rounded-lg text-[15px] font-black shadow-sm border border-orange-200/40 bg-[#fff5e6] text-orange-900 tracking-tight">
                   {activeProp.price}
                 </span>
-                <span className="text-[14px] font-bold text-neutral-800 ml-2">{activeProp.tag} category</span>
+                <span className="text-[13px] font-bold text-neutral-400 uppercase tracking-widest">{activeProp.tag} category</span>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Massive Dynamic Image Container */}
-        <div className="flex-1 w-full bg-white rounded-[32px] shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-black/[0.03] overflow-hidden relative">
+        <div className="flex-1 w-full bg-white rounded-[40px] shadow-[0_12px_48px_rgba(0,0,0,0.06)] border border-black/[0.04] overflow-hidden relative group">
           <AnimatePresence mode="wait">
             <motion.img 
               key={activeProp.id}
@@ -291,12 +307,15 @@ export default function PropertyDashboard() {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              className="w-full h-full object-cover absolute inset-0"
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-105"
             />
           </AnimatePresence>
           {/* Subtle Inner shadow to ground the image in the card */}
-          <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] pointer-events-none rounded-[32px]" />
+          <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.1)] pointer-events-none rounded-[40px]" />
+          
+          {/* Subtle gradient overlay at bottom for premium feel */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-b-[40px]" />
         </div>
 
       </div>
