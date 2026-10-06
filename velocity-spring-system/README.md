@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌊 Velocity Spring System
 
-## Getting Started
+<div align="center">
+  <div style="width: 100%; height: 300px; background: #c8d4df; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #444; font-weight: bold;">Preview coming soon</div>
+</div>
 
-First, run the development server:
+A breathtaking, highly interactive layout animation system featuring MacOS dock mechanics, seamless masonry grid toggles, and perfect physical spring interpolation. Built for the Flourish UI component library.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The **Velocity Spring System** pushes Framer Motion to its absolute limit using `<motion.div layout>` and `layoutId`. It acts as a premium digital environment where interface elements (like image cards) seamlessly transition between a horizontally scrolling dock, a dense masonry grid, and a massive full-screen focal view, all while respecting advanced spring physics.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **MacOS Dock Physics**: Cards sit cleanly in a horizontal scrolling row and scale elegantly when hovered, mimicking the classic MacOS dock feel.
+- **Flawless Layout Interpolation**: With a click of a button, the entire UI intelligently recalculates and flies into a tightly packed center-aligned grid layout.
+- **Custom Spring Mechanics**: Calibrated specifically for a tactile feel (`stiffness: 350, damping: 28, mass: 1.1`).
+- **Interactive Layers**: Fully functional dropdown menus and toggleable metadata overlays that slide up organically over images.
+- **Micro-interactions**: Features a custom 3D CSS vegetable scene with independent floating elements and bezier curves that draw themselves!
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 14 (App Router)
+- React 18
+- Tailwind CSS v4
+- Framer Motion (Advanced Layout animations)
+- Lucide React (Icons)
