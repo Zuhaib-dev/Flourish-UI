@@ -18,7 +18,7 @@ export default function VerifyEmail() {
     <main className="flex-1 flex flex-col items-center justify-center p-6 selection:bg-neutral-200">
       
       {/* 3D Mailbox Image with mix-blend-multiply to remove white background */}
-      <div className="w-[320px] h-[320px] mb-2 -mt-16 pointer-events-none">
+      <div className="w-80 h-80 mb-2 -mt-16 pointer-events-none">
         <img 
           src="/mailbox.jpg" 
           alt="3D Mailbox" 
@@ -27,7 +27,7 @@ export default function VerifyEmail() {
       </div>
 
       {/* Typography block */}
-      <div className="text-center max-w-[360px] flex flex-col items-center">
+      <div className="text-center max-w-90 flex flex-col items-center">
         <h1 className="text-[19px] font-semibold tracking-tight text-[#222222] mb-3">
           Verify your email
         </h1>
@@ -46,9 +46,9 @@ export default function VerifyEmail() {
           disabled
           className="
             px-5 py-2.5 
-            rounded-[14px] 
+            rounded-3.5 
             bg-[#ebe8dd] 
-            border border-black/[0.04]
+            border border-black/4
             shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.04)]
             text-[#a0a0a0] 
             text-[14.5px] font-medium 
@@ -64,9 +64,9 @@ export default function VerifyEmail() {
         <button 
           className="
             px-5 py-2.5 
-            rounded-[14px] 
+            rounded-3.5 
             bg-white 
-            border border-black/[0.03]
+            border border-black/3
             shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06),inset_0_-2px_4px_rgba(0,0,0,0.02)]
             text-[#222222] 
             text-[14.5px] font-medium 

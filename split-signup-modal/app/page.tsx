@@ -9,14 +9,14 @@ export default function SplitSignupModal() {
     <div className="min-h-screen w-full flex items-center justify-center p-4 lg:p-8 relative bg-[#f4f3f0]">
       
       {/* The Main Modal Container */}
-      <div className="w-full max-w-[1140px] h-[80vh] max-h-[820px] min-h-[640px] bg-white rounded-[24px] shadow-[0_24px_80px_rgba(0,0,0,0.07),0_4px_20px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col md:flex-row relative">
+      <div className="w-full max-w-285 h-[80vh] max-h-205 min-h-160 bg-white rounded-6 shadow-[0_24px_80px_rgba(0,0,0,0.07),0_4px_20px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col md:flex-row relative">
         
         {/* ======================= */}
         {/* LEFT COLUMN (Form)      */}
         {/* ======================= */}
         <div className="w-full md:w-[45%] lg:w-[42%] flex flex-col pt-16 pb-8 px-12 lg:px-20 relative bg-white z-10">
           
-          <div className="flex-1 flex flex-col justify-center max-w-[340px] mx-auto w-full">
+          <div className="flex-1 flex flex-col justify-center max-w-85 mx-auto w-full">
             {/* Logo */}
             <div className="w-10 h-10 rounded-xl bg-[#faecd8] flex items-center justify-center mb-6">
               <Mountain className="w-5 h-5 text-[#222] stroke-[2.5]" />
@@ -26,7 +26,7 @@ export default function SplitSignupModal() {
             <p className="text-[13.5px] text-neutral-500 mb-8 font-medium">Be back in control of your team decision</p>
 
             {/* Google Button */}
-            <button className="w-full h-[46px] bg-white border border-neutral-200/80 rounded-lg flex items-center justify-center gap-2.5 hover:bg-neutral-50 transition-colors shadow-sm active:scale-[0.98]">
+            <button className="w-full h-11.5 bg-white border border-neutral-200/80 rounded-lg flex items-center justify-center gap-2.5 hover:bg-neutral-50 transition-colors shadow-sm active:scale-[0.98]">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.63 16.88 16.78 15.7 17.57V20.34H19.27C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4"/>
                 <path d="M12 23C14.97 23 17.46 22.02 19.27 20.34L15.7 17.57C14.72 18.23 13.47 18.63 12 18.63C9.15 18.63 6.74 16.71 5.86 14.14H2.18V16.99C4.01 20.63 7.74 23 12 23Z" fill="#34A853"/>
@@ -49,15 +49,15 @@ export default function SplitSignupModal() {
               <input 
                 type="email" 
                 placeholder="mail@example.com"
-                className="w-full h-[46px] px-4 rounded-lg border border-neutral-200/80 text-[13px] font-medium outline-none focus:border-neutral-400 transition-colors placeholder:text-neutral-400 shadow-sm"
+                className="w-full h-11.5 px-4 rounded-lg border border-neutral-200/80 text-[13px] font-medium outline-none focus:border-neutral-400 transition-colors placeholder:text-neutral-400 shadow-sm"
               />
             </div>
 
-            <button className="w-full h-[46px] bg-[#111] hover:bg-black text-white rounded-lg text-[13.5px] font-semibold transition-all shadow-md active:scale-[0.98]">
+            <button className="w-full h-11.5 bg-[#111] hover:bg-black text-white rounded-lg text-[13.5px] font-semibold transition-all shadow-md active:scale-[0.98]">
               Continue with email
             </button>
 
-            <p className="text-[10px] text-neutral-400 text-center mt-6 max-w-[240px] mx-auto leading-relaxed">
+            <p className="text-[10px] text-neutral-400 text-center mt-6 max-w-60 mx-auto leading-relaxed">
               By signing up, you agree to the <a href="#" className="font-semibold text-neutral-600 hover:text-black transition-colors">Terms of Service</a> and <a href="#" className="font-semibold text-neutral-600 hover:text-black transition-colors">Data Processing Agreement</a>.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function SplitSignupModal() {
         {/* ======================= */}
         {/* RIGHT COLUMN (Visual)   */}
         {/* ======================= */}
-        <div className="hidden md:flex flex-1 relative bg-gradient-to-tr from-[#fbf5eb] via-[#faede6] to-[#fae6f2] overflow-hidden items-center justify-center">
+        <div className="hidden md:flex flex-1 relative bg-linear-to-tr from-[#fbf5eb] via-[#faede6] to-[#fae6f2] overflow-hidden items-center justify-center">
           
           {/* Ambient Lighting Orbs */}
           <motion.div 
@@ -95,11 +95,11 @@ export default function SplitSignupModal() {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-[22%] right-[16%] z-30"
           >
-            <div className="relative w-[110px] h-[55px] opacity-95 drop-shadow-[0_12px_24px_rgba(200,160,220,0.25)]">
+            <div className="relative w-27.5 h-[55px] opacity-95 drop-shadow-[0_12px_24px_rgba(200,160,220,0.25)]">
               {/* Cloud body */}
-              <div className="absolute bottom-0 left-0 right-0 h-[28px] bg-gradient-to-r from-[#e7d3ef] via-[#f7ebf8] to-[#edd9f3] rounded-full blur-[0.5px] shadow-[inset_0_-2px_6px_rgba(255,255,255,0.7)]" />
-              <div className="absolute bottom-[12px] left-[18px] w-[38px] h-[38px] bg-gradient-to-br from-[#f8f0fa] to-[#e4cee9] rounded-full blur-[0.5px]" />
-              <div className="absolute bottom-[10px] left-[45px] w-[45px] h-[45px] bg-gradient-to-b from-[#fbf4fc] to-[#ebd7f1] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-0 left-0 right-0 h-7 bg-linear-to-r from-[#e7d3ef] via-[#f7ebf8] to-[#edd9f3] rounded-full blur-[0.5px] shadow-[inset_0_-2px_6px_rgba(255,255,255,0.7)]" />
+              <div className="absolute bottom-3 left-4.5 w-9.5 h-9.5 bg-linear-to-br from-[#f8f0fa] to-[#e4cee9] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-2.5 left-[45px] w-[45px] h-[45px] bg-linear-to-b from-[#fbf4fc] to-[#ebd7f1] rounded-full blur-[0.5px]" />
             </div>
           </motion.div>
 
@@ -108,29 +108,29 @@ export default function SplitSignupModal() {
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute top-[48%] left-[8%] z-30"
           >
-            <div className="relative w-[120px] h-[45px] opacity-90 drop-shadow-[0_8px_20px_rgba(200,160,220,0.2)]">
+            <div className="relative w-30 h-[45px] opacity-90 drop-shadow-[0_8px_20px_rgba(200,160,220,0.2)]">
               {/* Cloud body */}
-              <div className="absolute bottom-0 left-0 right-0 h-[26px] bg-gradient-to-r from-[#ebd6ed] via-[#f9eef9] to-[#ebd9ee] rounded-full blur-[0.5px] shadow-[inset_0_-2px_4px_rgba(255,255,255,0.6)]" />
-              <div className="absolute bottom-[10px] left-[15px] w-[40px] h-[40px] bg-gradient-to-br from-[#faf2fa] to-[#ebd8ec] rounded-full blur-[0.5px]" />
-              <div className="absolute bottom-[8px] left-[50px] w-[35px] h-[35px] bg-gradient-to-b from-[#fdf8fd] to-[#ebd4ea] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-0 left-0 right-0 h-6.5 bg-linear-to-r from-[#ebd6ed] via-[#f9eef9] to-[#ebd9ee] rounded-full blur-[0.5px] shadow-[inset_0_-2px_4px_rgba(255,255,255,0.6)]" />
+              <div className="absolute bottom-2.5 left-[15px] w-10 h-10 bg-linear-to-br from-[#faf2fa] to-[#ebd8ec] rounded-full blur-[0.5px]" />
+              <div className="absolute bottom-2 left-12.5 w-[35px] h-[35px] bg-linear-to-b from-[#fdf8fd] to-[#ebd4ea] rounded-full blur-[0.5px]" />
             </div>
           </motion.div>
 
           {/* Central UI Stack */}
-          <div className="relative z-10 w-[350px] flex flex-col gap-5 mt-4">
+          <div className="relative z-10 w-87.5 flex flex-col gap-5 mt-4">
             
             {/* The Glass Card */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-full h-[440px] bg-white/40 backdrop-blur-[32px] rounded-[24px] border border-white/60 shadow-[0_24px_80px_rgba(0,0,0,0.05)] flex flex-col p-6 pl-[80px]"
+              className="relative w-full h-110 bg-white/40 backdrop-blur-[32px] rounded-6 border border-white/60 shadow-[0_24px_80px_rgba(0,0,0,0.05)] flex flex-col p-6 pl-20"
             >
               <h2 className="text-[14px] font-semibold text-[#444] mb-6">Better, faster decisions</h2>
               
               {/* Fake UI Header Image Placeholder */}
-              <div className="w-[42px] h-[30px] rounded border border-neutral-200/50 bg-white/50 mb-8 flex items-center justify-center">
-                <div className="w-[18px] h-[10px] bg-neutral-200 rounded-[2px]" />
+              <div className="w-10.5 h-7.5 rounded border border-neutral-200/50 bg-white/50 mb-8 flex items-center justify-center">
+                <div className="w-4.5 h-2.5 bg-neutral-200 rounded-0.5" />
               </div>
 
               {/* Fake UI List (Decisions) */}
@@ -150,13 +150,13 @@ export default function SplitSignupModal() {
                       className="h-1.5 rounded-full bg-neutral-200" 
                       style={{ width: i % 2 === 0 ? '55%' : i % 3 === 0 ? '75%' : '40%' }}
                     />
-                    {i === 6 && <div className="h-1.5 w-[50px] bg-neutral-200 rounded-full ml-1" />}
+                    {i === 6 && <div className="h-1.5 w-12.5 bg-neutral-200 rounded-full ml-1" />}
                   </div>
                 ))}
               </div>
 
               {/* Floating Left-Side Icons */}
-              <div className="absolute left-[-20px] top-6 flex flex-col gap-3">
+              <div className="absolute -left-5 top-6 flex flex-col gap-3">
                 <motion.div 
                   initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }}
                   className="w-10 h-10 rounded-xl bg-[#f6edff] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
@@ -182,21 +182,21 @@ export default function SplitSignupModal() {
             <div className="flex gap-2.5">
               <motion.div 
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-                className="flex-1 h-[64px] bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
+                className="flex-1 h-16 bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
               >
                 <span className="text-[9.5px] font-medium text-neutral-500 mb-0.5">Deadline</span>
                 <span className="text-[11px] font-semibold text-[#222]">Wed, Sep 12 2024</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
-                className="flex-1 h-[64px] bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
+                className="flex-1 h-16 bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
               >
                 <span className="text-[9.5px] font-medium text-neutral-500 mb-0.5">Decision maker</span>
                 <span className="text-[11px] font-semibold text-[#222]">Jordyn Torff</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-                className="flex-1 h-[64px] bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
+                className="flex-1 h-16 bg-white/60 backdrop-blur-xl rounded-xl border border-white shadow-sm flex flex-col justify-center px-4"
               >
                 <span className="text-[9.5px] font-medium text-neutral-500 mb-0.5">Contributors</span>
                 <span className="text-[11px] font-semibold text-[#222]">89</span>

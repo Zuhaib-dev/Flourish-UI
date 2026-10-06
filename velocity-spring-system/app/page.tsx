@@ -25,7 +25,7 @@ export default function VelocitySpringSystem() {
   const [valuesActive, setValuesActive] = useState(false);
 
   // Custom Physics
-  const springConfig = { type: "spring", stiffness: 350, damping: 28, mass: 1.1 };
+  const springConfig = { type: "spring", stiffness: 350, damping: 28, mass: 1.1 } as const;
 
   return (
     <div className="relative w-full h-screen bg-[#c8d4df] flex items-center justify-center overflow-hidden font-sans">
@@ -53,7 +53,7 @@ export default function VelocitySpringSystem() {
           scale: activeCard ? 0.97 : 1
         }}
         transition={springConfig}
-        className="relative z-10 w-[94vw] h-[90vh] max-w-[1500px] max-h-[900px] rounded-[36px] shadow-[0_40px_120px_rgba(0,0,0,0.35)] overflow-hidden flex flex-col transition-colors duration-700"
+        className="relative z-10 w-[94vw] h-[90vh] max-w-375 max-h-225 rounded-9 shadow-[0_40px_120px_rgba(0,0,0,0.35)] overflow-hidden flex flex-col transition-colors duration-700"
         onClick={() => {
           if (activeCard) setActiveCard(null);
         }}
@@ -71,7 +71,7 @@ export default function VelocitySpringSystem() {
             }}
             className="w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-colors shadow-sm"
           >
-            <SlidersHorizontal className="w-[18px] h-[18px]" />
+            <SlidersHorizontal className="w-4.5 h-4.5" />
           </motion.button>
 
           {/* Values Toggle Button */}
@@ -109,8 +109,8 @@ export default function VelocitySpringSystem() {
               layout
               className={`flex ${
                 isGridMode 
-                  ? "flex-wrap items-center justify-center gap-6 max-w-[1200px] mx-auto h-full" 
-                  : "items-end justify-start gap-6 min-w-max h-[450px] pr-[10vw]"
+                  ? "flex-wrap items-center justify-center gap-6 max-w-300 mx-auto h-full" 
+                  : "items-end justify-start gap-6 min-w-max h-112.5 pr-[10vw]"
               }`}
             >
               {CARDS.map((card, idx) => {
@@ -145,7 +145,7 @@ export default function VelocitySpringSystem() {
                     whileHover={{ y: isGridMode ? -8 : -24, scale: 1.05, zIndex: 10 }}
                     whileTap={{ scale: 0.95 }}
                     transition={springConfig}
-                    className={`relative ${card.aspect} flex-shrink-0 cursor-pointer rounded-[16px] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] group`}
+                    className={`relative ${card.aspect} shrink-0 cursor-pointer rounded-4 overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] group`}
                     style={{ width: card.width }}
                   >
                     <img src={card.src} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -157,7 +157,7 @@ export default function VelocitySpringSystem() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 20 }}
-                          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4"
+                          className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4"
                         >
                           <span className="text-white font-bold text-[12px] leading-tight mb-2">{card.title}</span>
                           <div className="flex gap-2">
@@ -189,7 +189,7 @@ export default function VelocitySpringSystem() {
                 <motion.div
                   layoutId={`card-${card.id}`}
                   key={`active-${card.id}`}
-                  className="relative rounded-[32px] overflow-hidden shadow-[0_60px_140px_rgba(0,0,0,0.5)] cursor-pointer pointer-events-auto"
+                  className="relative rounded-8 overflow-hidden shadow-[0_60px_140px_rgba(0,0,0,0.5)] cursor-pointer pointer-events-auto"
                   style={{ 
                     width: card.id === "salad" ? "740px" : "660px",
                     height: card.id === "salad" ? "740px" : "660px",
@@ -226,22 +226,22 @@ export default function VelocitySpringSystem() {
                       {/* Fake 3D Vegetable Blobs to mimic the video */}
                       <motion.div 
                         animate={{ y: [-6, 6, -6], rotate: [-2, 2, -2] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-[38%] left-[28%] w-[90px] h-[180px] bg-gradient-to-br from-[#2a684b] to-[#123326] rounded-[45px] shadow-[inset_-12px_-12px_24px_rgba(0,0,0,0.5),_0_24px_48px_rgba(0,0,0,0.2)] rotate-[-15deg]" 
+                        className="absolute top-[38%] left-[28%] w-22.5 h-45 bg-linear-to-br from-[#2a684b] to-[#123326] rounded-[45px] shadow-[inset_-12px_-12px_24px_rgba(0,0,0,0.5),0_24px_48px_rgba(0,0,0,0.2)] rotate-[-15deg]" 
                       /> {/* Cucumber */}
                       
                       <motion.div 
                         animate={{ y: [5, -5, 5], rotate: [2, -2, 2] }} transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                        className="absolute top-[30%] left-[44%] w-[60px] h-[240px] bg-gradient-to-br from-[#fc7960] to-[#c7432c] rounded-[30px] shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.3),_0_24px_48px_rgba(0,0,0,0.2)] rotate-[25deg]" 
+                        className="absolute top-[30%] left-[44%] w-15 h-60 bg-linear-to-br from-[#fc7960] to-[#c7432c] rounded-7.5 shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.3),0_24px_48px_rgba(0,0,0,0.2)] rotate-[25deg]" 
                       /> {/* Carrot */}
                       
                       <motion.div 
                         animate={{ y: [-4, 4, -4], rotate: [-1, 1, -1] }} transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute top-[58%] left-[47%] w-[140px] h-[100px] bg-gradient-to-br from-[#d49988] to-[#9c6353] rounded-[60px] shadow-[inset_-14px_-14px_28px_rgba(0,0,0,0.4),_0_24px_48px_rgba(0,0,0,0.3)] rotate-[-10deg]" 
+                        className="absolute top-[58%] left-[47%] w-35 h-25 bg-linear-to-br from-[#d49988] to-[#9c6353] rounded-15 shadow-[inset_-14px_-14px_28px_rgba(0,0,0,0.4),0_24px_48px_rgba(0,0,0,0.3)] rotate-[-10deg]" 
                       /> {/* Potato */}
                       
                       <motion.div 
                         animate={{ y: [4, -4, 4], rotate: [1, -1, 1] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                        className="absolute top-[60%] left-[64%] w-[130px] h-[110px] bg-gradient-to-br from-[#9c1e52] to-[#540c29] rounded-[60px_60px_20px_20px] shadow-[inset_-18px_-12px_36px_rgba(0,0,0,0.6),_0_24px_48px_rgba(0,0,0,0.4)]" 
+                        className="absolute top-[60%] left-[64%] w-32.5 h-27.5 bg-linear-to-br from-[#9c1e52] to-[#540c29] rounded-[60px_60px_20px_20px] shadow-[inset_-18px_-12px_36px_rgba(0,0,0,0.6),0_24px_48px_rgba(0,0,0,0.4)]" 
                       /> {/* Onion */}
 
                       {/* SVG Annotation Lines & Labels */}

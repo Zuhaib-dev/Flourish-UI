@@ -137,13 +137,13 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8 font-sans selection:bg-sky-500/30 relative">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-150 bg-sky-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       
       <div className="flex flex-col md:flex-row gap-6 max-w-5xl relative z-10">
         
         {/* Time Range Card */}
-        <div className="w-80 bg-[#161616]/80 backdrop-blur-3xl rounded-[32px] p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/[0.04] flex flex-col gap-6 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
+        <div className="w-80 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col gap-6 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-linear-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-2 bg-sky-500/10 blur-xl"></div>
           
           <div className="relative z-10">
@@ -156,7 +156,7 @@ export default function Dashboard() {
             <span className="text-neutral-200 text-[13px] font-medium">Sep 4 - Sep 25 • 22 days</span>
           </div>
 
-          <div className="bg-[#0f0f0f] rounded-xl p-1 flex items-center justify-between border border-white/[0.03] shadow-inner relative z-10">
+          <div className="bg-[#0f0f0f] rounded-xl p-1 flex items-center justify-between border border-white/3 shadow-inner relative z-10">
             {['12h', '24h', '1W', '1M', '3M'].map(opt => (
               <button 
                 key={opt} 
@@ -195,7 +195,7 @@ export default function Dashboard() {
                 let border = 'border border-transparent';
 
                 if (isOut) { text = 'text-neutral-600'; }
-                else if (isStart || isEnd) { bg = 'bg-[#2a2a2a]'; text = 'text-white'; border = 'border-[2px] border-sky-500 shadow-[0_0_12px_rgba(56,189,248,0.4)]'; }
+                else if (isStart || isEnd) { bg = 'bg-[#2a2a2a]'; text = 'text-white'; border = 'border-0.5 border-sky-500 shadow-[0_0_12px_rgba(56,189,248,0.4)]'; }
                 else if (isHigh) { bg = 'bg-white'; text = 'text-black shadow-[0_0_10px_rgba(255,255,255,0.3)]'; }
                 else if (isMed) { bg = 'bg-[#4a4a4a]'; text = 'text-white'; }
                 else if (isLow) { bg = 'bg-[#2a2a2a]'; text = 'text-neutral-300'; }
@@ -222,7 +222,7 @@ export default function Dashboard() {
             <span>more</span>
           </div>
 
-          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full my-1 relative z-10"></div>
+          <div className="h-px bg-linear-to-r from-transparent via-white/10 to-transparent w-full my-1 relative z-10"></div>
 
           <div className="flex items-center justify-between relative z-10">
             <div>
@@ -231,12 +231,12 @@ export default function Dashboard() {
             </div>
             <button 
               onClick={() => setCompare(!compare)}
-              className={`w-11 h-[22px] rounded-full flex items-center p-[2px] transition-colors duration-300 ${compare ? 'bg-sky-500' : 'bg-[#2a2a2a] border border-white/5'}`}
+              className={`w-11 h-5.5 rounded-full flex items-center p-0.5 transition-colors duration-300 ${compare ? 'bg-sky-500' : 'bg-[#2a2a2a] border border-white/5'}`}
             >
               <motion.div 
                 layout 
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className="w-[18px] h-[18px] bg-white rounded-full shadow-sm"
+                className="w-4.5 h-4.5 bg-white rounded-full shadow-sm"
                 animate={{ x: compare ? 20 : 0 }}
               />
             </button>
@@ -244,8 +244,8 @@ export default function Dashboard() {
         </div>
 
         {/* Output & Scrap Card */}
-        <div className="w-[480px] bg-[#161616]/80 backdrop-blur-3xl rounded-[32px] p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/[0.04] flex flex-col relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
+        <div className="w-120 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-linear-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-2 bg-purple-500/10 blur-xl"></div>
           
           <div className="mb-6 relative z-10">
@@ -262,7 +262,7 @@ export default function Dashboard() {
           </div>
 
           {/* 3D Chart Area */}
-          <div className="flex-1 relative min-h-[320px] flex items-center justify-center pointer-events-none mt-4">
+          <div className="flex-1 relative min-h-80 flex items-center justify-center pointer-events-none mt-4">
             <div 
               className="relative pointer-events-auto"
               style={{ 

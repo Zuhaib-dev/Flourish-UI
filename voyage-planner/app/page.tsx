@@ -21,7 +21,7 @@ export default function VoyageDashboard() {
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-[#f9f9f9] rounded-[36px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
+        className="bg-[#f9f9f9] rounded-9 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
       >
         
         {/* Header */}
@@ -30,7 +30,7 @@ export default function VoyageDashboard() {
             <Briefcase className="w-6 h-6 text-neutral-400" fill="currentColor" strokeWidth={0.5} />
             <span className="text-neutral-500">Trips</span>
           </div>
-          <div className="bg-[#f0f0f0] rounded-full p-1 flex gap-1 border border-black/[0.03]">
+          <div className="bg-[#f0f0f0] rounded-full p-1 flex gap-1 border border-black/3">
             {["Upcoming", "Past"].map(tab => (
               <button 
                 key={tab}
@@ -40,7 +40,7 @@ export default function VoyageDashboard() {
                 {activeTab === tab && (
                   <motion.div 
                     layoutId="tab"
-                    className="absolute inset-0 bg-white rounded-full shadow-sm border border-black/[0.04]"
+                    className="absolute inset-0 bg-white rounded-full shadow-sm border border-black/4"
                     style={{ zIndex: 0 }}
                   />
                 )}
@@ -56,14 +56,14 @@ export default function VoyageDashboard() {
           {/* Left Column: The Ticket */}
           <motion.div 
             whileHover={{ y: -4 }}
-            className="w-[360px] bg-white rounded-[28px] shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] flex flex-col relative overflow-hidden transition-all duration-300"
+            className="w-90 bg-white rounded-7 shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] flex flex-col relative overflow-hidden transition-all duration-300"
           >
             {/* Top Image Area */}
             <div className="p-3 pb-0">
-              <div className="relative h-[180px] rounded-[20px] overflow-hidden bg-neutral-100 border border-black/[0.03]">
+              <div className="relative h-45 rounded-5 overflow-hidden bg-neutral-100 border border-black/3">
                 <img src="/lisbon.jpg" alt="Lisbon" className="w-full h-full object-cover" />
                 {/* Lisbon Getaway pill */}
-                <div className="absolute bottom-[-16px] left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xl rounded-full px-3 py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-white/50 flex items-center gap-1.5 text-[11px] font-bold z-10 whitespace-nowrap">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xl rounded-full px-3 py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-white/50 flex items-center gap-1.5 text-[11px] font-bold z-10 whitespace-nowrap">
                   <span className="text-sm shadow-sm rounded-full bg-white leading-none">🇵🇹</span> Lisbon Getaway
                 </div>
               </div>
@@ -72,23 +72,23 @@ export default function VoyageDashboard() {
             {/* Flight Info Area */}
             <div className="px-7 pt-10 pb-6 flex flex-col gap-6">
               <div className="flex justify-between items-start relative">
-                <div className="text-center w-[72px]">
+                <div className="text-center w-18">
                   <h3 className="text-3xl font-bold tracking-tight text-neutral-800">CDG</h3>
                   <p className="text-[11px] text-neutral-400 font-medium mt-1">Paris • 07:40</p>
                 </div>
                 
                 {/* Flight path curve */}
                 <div className="flex-1 px-2 relative flex flex-col items-center justify-start pt-2">
-                  <div className="absolute top-[14px] w-[calc(100%-24px)] h-12 border-t-[1.5px] border-dashed border-neutral-300 rounded-[100%]"></div>
+                  <div className="absolute top-3.5 w-[calc(100%-24px)] h-12 border-t-[1.5px] border-dashed border-neutral-300 rounded-[100%]"></div>
                   <div className="bg-white px-1 z-10 relative">
-                    <Plane className="w-[18px] h-[18px] text-neutral-800 rotate-45" fill="currentColor" strokeWidth={1} />
+                    <Plane className="w-4.5 h-4.5 text-neutral-800 rotate-45" fill="currentColor" strokeWidth={1} />
                   </div>
                   <div className="bg-white px-2 mt-1 text-[10px] text-neutral-300 font-bold tracking-wide relative z-10">2h 35m</div>
-                  <div className="absolute top-[14px] left-3 w-1.5 h-1.5 rounded-full bg-neutral-300 -translate-y-1/2"></div>
-                  <div className="absolute top-[14px] right-3 w-1.5 h-1.5 rounded-full bg-emerald-700 -translate-y-1/2"></div>
+                  <div className="absolute top-3.5 left-3 w-1.5 h-1.5 rounded-full bg-neutral-300 -translate-y-1/2"></div>
+                  <div className="absolute top-3.5 right-3 w-1.5 h-1.5 rounded-full bg-emerald-700 -translate-y-1/2"></div>
                 </div>
 
-                <div className="text-center w-[72px]">
+                <div className="text-center w-18">
                   <h3 className="text-3xl font-bold tracking-tight text-neutral-800">LIS</h3>
                   <p className="text-[11px] text-neutral-400 font-medium mt-1">08:15 • Lisbon</p>
                 </div>
@@ -118,11 +118,11 @@ export default function VoyageDashboard() {
             {/* Tear-off Line */}
             <div className="relative flex items-center justify-center h-4 my-2">
               {/* Left Cutout */}
-              <div className="absolute left-[-16px] w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_-1px_0_0_rgba(0,0,0,0.04),inset_-4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
+              <div className="absolute -left-4 w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_-1px_0_0_rgba(0,0,0,0.04),inset_-4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
               {/* Right Cutout */}
-              <div className="absolute right-[-16px] w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_1px_0_0_rgba(0,0,0,0.04),inset_4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
+              <div className="absolute -right-4 w-8 h-8 rounded-full bg-[#f9f9f9] shadow-[inset_1px_0_0_rgba(0,0,0,0.04),inset_4px_0_8px_-2px_rgba(0,0,0,0.08)] z-10"></div>
               {/* Dashed Line */}
-              <div className="w-full border-t-[2px] border-dashed border-neutral-200 mx-6 opacity-60"></div>
+              <div className="w-full border-t-0.5 border-dashed border-neutral-200 mx-6 opacity-60"></div>
             </div>
 
             {/* Footer */}
@@ -152,8 +152,8 @@ export default function VoyageDashboard() {
           </motion.div>
 
           {/* Right Column: Folders List */}
-          <div className="w-[340px] flex flex-col h-full">
-            <div className="flex flex-col gap-[16px] flex-1 justify-center">
+          <div className="w-85 flex flex-col h-full">
+            <div className="flex flex-col gap-4 flex-1 justify-center">
               {folders.map((f, i) => (
                 <motion.div 
                   key={f.title}
@@ -161,12 +161,12 @@ export default function VoyageDashboard() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 30 }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white rounded-[20px] px-[20px] py-[22px] flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
+                  className="bg-white rounded-5 px-5 py-5.5 flex items-center gap-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] cursor-pointer"
                 >
                   {/* Folder Icon Construction */}
-                  <div className="relative w-[68px] h-[60px] shrink-0">
+                  <div className="relative w-17 h-15 shrink-0">
                     {/* Back flap */}
-                    <div className="absolute inset-0 bg-[#e2e8f4] rounded-[14px] rounded-tl-sm">
+                    <div className="absolute inset-0 bg-[#e2e8f4] rounded-3.5 rounded-tl-sm">
                       <div className="absolute top-0 left-0 w-7 h-2.5 bg-[#e2e8f4] rounded-t-md -translate-y-[90%]"></div>
                     </div>
                   {/* Image/Content inside folder */}
@@ -177,9 +177,9 @@ export default function VoyageDashboard() {
                     <img src={f.image} alt={f.title} className="w-full h-full object-cover" />
                   </div>
                     {/* Front flap (glassmorphic) */}
-                    <div className="absolute inset-x-0 bottom-0 h-[40px] bg-white/50 backdrop-blur-[10px] rounded-[14px] shadow-[0_-2px_6px_rgba(0,0,0,0.02)] border border-white z-20"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-10 bg-white/50 backdrop-blur-[10px] rounded-3.5 shadow-[0_-2px_6px_rgba(0,0,0,0.02)] border border-white z-20"></div>
                     {/* Flag pill */}
-                    <div className="absolute bottom-[-8px] left-[-4px] bg-white rounded-[8px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] border border-neutral-100 text-[11px] p-0.5 px-1.5 z-30 flex items-center justify-center h-[22px]">
+                    <div className="absolute -bottom-2 -left-1 bg-white rounded-2 shadow-[0_4px_10px_rgba(0,0,0,0.1)] border border-neutral-100 text-[11px] p-0.5 px-1.5 z-30 flex items-center justify-center h-5.5">
                       {f.flag}
                     </div>
                   </div>
@@ -212,16 +212,16 @@ export default function VoyageDashboard() {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 bg-[#18181b] text-white rounded-[18px] py-[15px] flex items-center justify-center gap-2 font-bold text-[13px] shadow-[0_8px_16px_rgba(24,24,27,0.2)] hover:bg-black transition-colors"
+                className="flex-1 bg-[#18181b] text-white rounded-4.5 py-[15px] flex items-center justify-center gap-2 font-bold text-[13px] shadow-[0_8px_16px_rgba(24,24,27,0.2)] hover:bg-black transition-colors"
               >
                 <Plus className="w-4 h-4 stroke-[3px]" /> Plan a trip
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-[50px] h-[50px] bg-white rounded-[18px] flex items-center justify-center shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] text-neutral-900 hover:bg-neutral-50 transition-colors"
+                className="w-12.5 h-12.5 bg-white rounded-4.5 flex items-center justify-center shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] text-neutral-900 hover:bg-neutral-50 transition-colors"
               >
-                <Wallet className="w-[18px] h-[18px]" />
+                <Wallet className="w-4.5 h-4.5" />
               </motion.button>
             </div>
           </div>

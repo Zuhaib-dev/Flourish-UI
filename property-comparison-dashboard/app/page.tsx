@@ -68,7 +68,7 @@ export default function PropertyDashboard() {
     <div className="flex h-screen w-full bg-[#f6f5ef] p-4 gap-6 font-sans overflow-hidden selection:bg-blue-100">
       
       {/* 1. Left Navigation Sidebar */}
-      <nav className="w-16 h-full bg-white rounded-3xl flex flex-col items-center py-6 shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/[0.03] z-20">
+      <nav className="w-16 h-full bg-white rounded-3xl flex flex-col items-center py-6 shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/3 z-20">
         <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-8 shadow-sm border border-indigo-100/50 cursor-pointer hover:bg-indigo-100 transition-colors">
           <Sparkles className="w-4 h-4 text-indigo-500" />
         </div>
@@ -76,7 +76,7 @@ export default function PropertyDashboard() {
         <div className="flex flex-col gap-4 text-neutral-400 w-full px-3">
           <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Home className="w-5 h-5" /></button>
           <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Search className="w-5 h-5" /></button>
-          <button className="bg-neutral-100 text-neutral-900 p-2.5 rounded-xl flex justify-center shadow-sm border border-black/[0.02]"><BookOpen className="w-5 h-5" /></button>
+          <button className="bg-neutral-100 text-neutral-900 p-2.5 rounded-xl flex justify-center shadow-sm border border-black/2"><BookOpen className="w-5 h-5" /></button>
           <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Layers className="w-5 h-5" /></button>
           <button className="hover:text-neutral-900 hover:bg-neutral-50 transition-all p-2.5 rounded-xl flex justify-center"><Bookmark className="w-5 h-5" /></button>
         </div>
@@ -87,15 +87,15 @@ export default function PropertyDashboard() {
       </nav>
 
       {/* 2. Middle Column: Comparison List */}
-      <div className="flex-1 max-w-[580px] flex flex-col pt-1 h-full z-10">
+      <div className="flex-1 max-w-145 flex flex-col pt-1 h-full z-10">
         
         {/* Top Header */}
         <div className="flex items-center justify-between mb-8 px-1">
           <div className="flex items-center gap-3">
-            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04] hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
+            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/4 hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
               <ArrowLeft className="w-4 h-4" />
             </button>
-            <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04]">
+            <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/4">
               <span className="font-semibold text-[13.5px] text-[#222] tracking-tight">Martins — Home Search</span>
               <div className="bg-blue-50/80 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-100/50 uppercase tracking-wide">
                 V1.2
@@ -103,7 +103,7 @@ export default function PropertyDashboard() {
               </div>
             </div>
           </div>
-          <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04] hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
+          <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/4 hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 hover:text-neutral-900">
             <MoreHorizontal className="w-4 h-4" />
           </button>
         </div>
@@ -121,13 +121,13 @@ export default function PropertyDashboard() {
         </div>
 
         {/* Table Card */}
-        <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/[0.03] flex flex-col flex-1 overflow-hidden min-h-0 relative">
+        <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/3 flex flex-col flex-1 overflow-hidden min-h-0 relative">
           
           {/* Card Header */}
           <div className="px-6 pt-7 pb-5 flex items-center justify-between">
             <h2 className="text-[16px] font-semibold text-[#222] tracking-tight">Property Comparison</h2>
             <div className="flex items-center gap-2.5">
-              <button className="w-8 h-8 rounded-lg border border-black/[0.06] flex items-center justify-center hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 shadow-sm">
+              <button className="w-8 h-8 rounded-lg border border-black/6 flex items-center justify-center hover:bg-neutral-50 transition-all active:scale-95 text-neutral-500 shadow-sm">
                 <Download className="w-3.5 h-3.5" />
               </button>
               <button className="bg-[#222] text-white text-[13px] font-semibold px-4 h-8 rounded-lg flex items-center gap-2 hover:bg-black transition-all active:scale-95 shadow-[0_2px_8px_rgba(0,0,0,0.12)]">
@@ -138,7 +138,7 @@ export default function PropertyDashboard() {
           </div>
 
           {/* Table Headers */}
-          <div className="grid grid-cols-[1fr_110px_110px] px-6 py-2.5 bg-[#f6f5ef]/40 border-y border-black/[0.03] text-[12px] font-semibold text-neutral-500 tracking-wide uppercase">
+          <div className="grid grid-cols-[1fr_110px_110px] px-6 py-2.5 bg-[#f6f5ef]/40 border-y border-black/3 text-[12px] font-semibold text-neutral-500 tracking-wide uppercase">
             <div>Property</div>
             <div>Price</div>
             <div>Beds / baths</div>
@@ -179,7 +179,7 @@ export default function PropertyDashboard() {
                   )}
 
                   <div className="flex items-center gap-3.5 relative z-10 pl-1">
-                    <img src={prop.img} alt={prop.address} className="w-12 h-10 rounded-lg object-cover border border-black/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.06)]" />
+                    <img src={prop.img} alt={prop.address} className="w-12 h-10 rounded-lg object-cover border border-black/6 shadow-[0_2px_8px_rgba(0,0,0,0.06)]" />
                     <span className={`text-[14.5px] font-semibold tracking-tight transition-colors ${isActive ? 'text-blue-900' : 'text-[#222]'}`}>
                       {prop.address}
                     </span>
@@ -203,16 +203,16 @@ export default function PropertyDashboard() {
           </div>
 
           {/* Pagination */}
-          <div className="p-4 border-t border-black/[0.03] flex items-center justify-between bg-white/50">
+          <div className="p-4 border-t border-black/3 flex items-center justify-between bg-white/50">
             <div className="w-48 h-1.5 bg-neutral-100 rounded-full overflow-hidden ml-3 shadow-inner">
               <div className="w-1/2 h-full bg-neutral-300 rounded-full" />
             </div>
             <div className="flex items-center gap-3 text-[13px] font-semibold">
               <div className="flex gap-2">
-                <button className="w-8 h-8 rounded-lg bg-white border border-black/[0.06] shadow-sm flex items-center justify-center text-[#222]">1</button>
+                <button className="w-8 h-8 rounded-lg bg-white border border-black/6 shadow-sm flex items-center justify-center text-[#222]">1</button>
                 <button className="w-8 h-8 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-800 hover:bg-neutral-50 transition-colors">2</button>
               </div>
-              <button className="h-8 px-3.5 rounded-lg bg-white border border-black/[0.06] shadow-[0_2px_6px_rgba(0,0,0,0.03)] flex items-center gap-1.5 text-[#222] hover:bg-neutral-50 transition-all active:scale-95">
+              <button className="h-8 px-3.5 rounded-lg bg-white border border-black/6 shadow-[0_2px_6px_rgba(0,0,0,0.03)] flex items-center gap-1.5 text-[#222] hover:bg-neutral-50 transition-all active:scale-95">
                 Next <ArrowLeft className="w-3.5 h-3.5 rotate-180 opacity-50" />
               </button>
             </div>
@@ -222,7 +222,7 @@ export default function PropertyDashboard() {
 
       {/* Resize Handle (Visual Only) */}
       <div className="w-8 flex items-center justify-center h-full opacity-60">
-        <div className="w-1 h-12 bg-black/[0.05] rounded-full" />
+        <div className="w-1 h-12 bg-black/5 rounded-full" />
       </div>
 
       {/* 3. Right Column: Detail View */}
@@ -230,7 +230,7 @@ export default function PropertyDashboard() {
         
         {/* Top Breadcrumb */}
         <div className="flex items-center gap-3 mb-8 px-1">
-          <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/[0.04]">
+          <div className="bg-white h-9 px-4 rounded-full flex items-center gap-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-black/4">
             <span className="font-semibold text-[13.5px] text-[#222] tracking-tight">Property details</span>
             <div className="bg-blue-50/80 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-100/50 uppercase tracking-wide">
               V1.2
@@ -244,7 +244,7 @@ export default function PropertyDashboard() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
-              className="bg-white/40 h-9 px-4 rounded-full flex items-center shadow-sm border border-black/[0.03] backdrop-blur-md"
+              className="bg-white/40 h-9 px-4 rounded-full flex items-center shadow-sm border border-black/3 backdrop-blur-md"
             >
               <span className="font-semibold text-[13.5px] text-neutral-500 tracking-tight">{activeProp.address}</span>
             </motion.div>
@@ -253,17 +253,17 @@ export default function PropertyDashboard() {
 
         {/* Agent Pill */}
         <div className="mb-6 flex px-1">
-          <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-black/[0.04] rounded-full pl-3 pr-4 py-1.5 flex items-center gap-3 cursor-pointer hover:bg-neutral-50 transition-colors">
+          <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-black/4 rounded-full pl-3 pr-4 py-1.5 flex items-center gap-3 cursor-pointer hover:bg-neutral-50 transition-colors">
             <span className="text-[13px] font-medium text-neutral-400">Listing agent:</span>
             <div className="flex items-center gap-2.5">
-              <img src="/avatar.jpg" alt="Jenny Dukes" className="w-6 h-6 rounded-full object-cover border border-black/[0.05]" />
+              <img src="/avatar.jpg" alt="Jenny Dukes" className="w-6 h-6 rounded-full object-cover border border-black/5" />
               <span className="text-[13.5px] font-bold text-[#222]">Jenny Dukes</span>
             </div>
           </div>
         </div>
 
         {/* Dynamic Property Details Content */}
-        <div className="flex flex-col mb-8 px-2 relative min-h-[160px]">
+        <div className="flex flex-col mb-8 px-2 relative min-h-40">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProp.id}
@@ -298,7 +298,7 @@ export default function PropertyDashboard() {
         </div>
 
         {/* Massive Dynamic Image Container */}
-        <div className="flex-1 w-full bg-white rounded-[40px] shadow-[0_12px_48px_rgba(0,0,0,0.06)] border border-black/[0.04] overflow-hidden relative group">
+        <div className="flex-1 w-full bg-white rounded-10 shadow-[0_12px_48px_rgba(0,0,0,0.06)] border border-black/4 overflow-hidden relative group">
           <AnimatePresence mode="wait">
             <motion.img 
               key={activeProp.id}
@@ -312,10 +312,10 @@ export default function PropertyDashboard() {
             />
           </AnimatePresence>
           {/* Subtle Inner shadow to ground the image in the card */}
-          <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.1)] pointer-events-none rounded-[40px]" />
+          <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.1)] pointer-events-none rounded-10" />
           
           {/* Subtle gradient overlay at bottom for premium feel */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-b-[40px]" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/20 to-transparent pointer-events-none rounded-b-[40px]" />
         </div>
 
       </div>

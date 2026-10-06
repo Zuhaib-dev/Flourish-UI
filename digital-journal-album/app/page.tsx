@@ -77,12 +77,12 @@ export default function DigitalJournal() {
       
       {/* 3D Scene Container */}
       <div 
-        className="relative w-full max-w-[900px] aspect-[2/1.3] perspective-[2500px]"
+        className="relative w-full max-w-225 aspect-[2/1.3] perspective-[2500px]"
       >
         {/* Hardcover Base */}
         <div className="absolute inset-0 bg-[#d8d5cd] rounded-xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] pointer-events-none border border-black/10 flex items-center justify-center">
            {/* Center crease of hardcover */}
-           <div className="w-[4px] h-full bg-black/10 shadow-[inset_1px_0_3px_rgba(0,0,0,0.2)]" />
+           <div className="w-1 h-full bg-black/10 shadow-[inset_1px_0_3px_rgba(0,0,0,0.2)]" />
         </div>
 
         {/* Leaves Wrapper - slightly inset to show cover edges */}
@@ -93,7 +93,7 @@ export default function DigitalJournal() {
             {[...Array(14)].map((_, i) => (
               <div 
                 key={i} 
-                className="w-full h-2.5 rounded-full bg-gradient-to-b from-[#fdfdfd] via-[#999] to-[#444] shadow-[0_2px_4px_rgba(0,0,0,0.5)] border border-black/30" 
+                className="w-full h-2.5 rounded-full bg-linear-to-b from-[#fdfdfd] via-[#999] to-[#444] shadow-[0_2px_4px_rgba(0,0,0,0.5)] border border-black/30" 
               />
             ))}
           </div>
@@ -135,12 +135,12 @@ export default function DigitalJournal() {
                   
                   {/* Dynamic Lighting Overlay */}
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20 pointer-events-none"
+                    className="absolute inset-0 bg-linear-to-l from-transparent via-transparent to-black/20 pointer-events-none"
                     animate={{ opacity: isFlipped ? 1 : 0 }}
                     transition={{ duration: 0.6 }}
                   />
                   {/* Hover fold hint */}
-                  <div className="absolute inset-0 bg-black/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 </div>
 
                 {/* BACK OF PAGE */}
@@ -152,12 +152,12 @@ export default function DigitalJournal() {
                   
                   {/* Dynamic Lighting Overlay */}
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 pointer-events-none"
+                    className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-black/20 pointer-events-none"
                     animate={{ opacity: isFlipped ? 0 : 1 }}
                     transition={{ duration: 0.6 }}
                   />
                   {/* Hover fold hint */}
-                  <div className="absolute inset-0 bg-black/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 </div>
 
               </motion.div>
