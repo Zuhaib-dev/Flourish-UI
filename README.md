@@ -72,7 +72,7 @@ A playful, skeuomorphic take on a digital guestbook built with Next.js 15.
 ### ☁️ [Split Sign Up Modal](./split-signup-modal)
 A highly premium, two-column split-layout sign up modal featuring a clean typographic form and a dreamy, animated glassmorphic right panel.
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #f4f3f0; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #666;">Preview coming soon</div>
+  <img src="./split-signup-modal/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Split Sign Up Modal" />
 </div>
 
 ---

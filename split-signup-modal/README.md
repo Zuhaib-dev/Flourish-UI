@@ -1,5 +1,9 @@
 # ☁️ Split Sign Up Modal
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Split Sign Up Modal Preview" />
+</div>
+
 A highly premium, two-column split-layout sign up modal featuring a clean typographic left panel and a dreamy, animated glassmorphic right panel. Built for the Flourish UI component library.
 
 ## 🌟 Overview
