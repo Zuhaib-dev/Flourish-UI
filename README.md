@@ -41,5 +41,8 @@ Alongside our core components, this repository also houses various UI/UX experim
 - 📔 **[Digital Journal Album](./digital-journal-album)**  
   A photorealistic 3D digital journal with interactive physical flipbook mechanics and cinematic visuals.
 
+- 🏡 **[Property Comparison Dashboard](./property-comparison-dashboard)**  
+  A highly interactive, fluid property comparison dashboard featuring soft skeuomorphic design and smooth framer-motion transitions.
+
 ---
 *Built with room to grow. 🌱*
