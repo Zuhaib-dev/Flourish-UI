@@ -1,7 +1,7 @@
 # 📈 Dashboard May Look Minimal
 
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #f5f7fa; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; font-family: monospace; color: #64748b; font-weight: bold;">Preview coming soon</div>
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Dashboard May Look Minimal" />
 </div>
 
 A stunning, hyper-minimal SaaS dashboard UI featuring bespoke handcrafted SVG charts, wireframe-style crop marks, and perfect technical typography.
