@@ -3,7 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "description": "A stunning layout animation system with MacOS dock physics, interactive masonry grids, and highly physical spring mechanics.",
-  "keywords": ["react", "nextjs", "framer-motion", "dock", "macos", "spring-physics", "layout-animation", "ui-component", "flourish-ui"],
+  "keywords": [
+    "react",
+    "nextjs",
+    "framer-motion",
+    "dock",
+    "macos",
+    "spring-physics",
+    "layout-animation",
+    "ui-component",
+    "flourish-ui"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -27,5 +37,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev"
 }

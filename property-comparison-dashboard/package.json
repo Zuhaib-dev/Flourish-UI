@@ -2,7 +2,7 @@
   "name": "property-comparison-dashboard",
   "version": "0.1.0",
   "description": "A highly interactive, fluid property comparison dashboard with framer-motion animations.",
-  "author": "Zuhaib Rashid",
+  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
   "private": true,
   "scripts": {
     "dev": "next dev",
