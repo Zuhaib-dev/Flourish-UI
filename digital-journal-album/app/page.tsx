@@ -1,160 +1,154 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const pages = [
-  { id: 1, image: "/1.jpg", caption: "Tokyo Cafe" },
-  { id: 2, image: "/2.jpg", caption: "Alpine Mist" },
-  { id: 3, image: "/3.jpg", caption: "Morning Light" },
+const spreads = [
+  { id: 1, image: "/spread1.jpg" },
+  { id: 2, image: "/spread2.jpg" },
+  { id: 3, image: "/spread3.jpg" },
 ];
 
 export default function DigitalJournal() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isPlaying) {
-      timer = setInterval(() => {
-        nextPage();
-      }, 3000);
-    }
-    return () => clearInterval(timer);
-  }, [isPlaying, currentIndex]);
 
   const nextPage = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % pages.length);
+    setCurrentIndex((prev) => Math.min(prev + 1, spreads.length - 1));
   };
 
   const prevPage = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + pages.length) % pages.length);
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? "20%" : "-20%",
-      rotateY: dir > 0 ? 15 : -15,
-      z: -100,
-      opacity: 0,
-      boxShadow: "0px 0px 0px rgba(0,0,0,0)",
-    }),
-    center: {
-      x: 0,
-      rotateY: 0,
-      z: 0,
-      opacity: 1,
-      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0,0,0,0.1)",
-      transition: {
-        x: { type: "spring", stiffness: 200, damping: 25 },
-        opacity: { duration: 0.4 },
-        rotateY: { type: "spring", stiffness: 150, damping: 20 },
-      },
-    },
-    exit: (dir: number) => ({
-      x: dir < 0 ? "20%" : "-20%",
-      rotateY: dir < 0 ? 15 : -15,
-      z: -100,
-      opacity: 0,
-      boxShadow: "0px 0px 0px rgba(0,0,0,0)",
-      transition: {
-        x: { type: "spring", stiffness: 200, damping: 25 },
-        opacity: { duration: 0.4 },
-        rotateY: { type: "spring", stiffness: 150, damping: 20 },
-      },
-    }),
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') nextPage();
+    if (e.key === 'ArrowLeft') prevPage();
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 overflow-hidden font-sans">
+    <div 
+      className="min-h-screen flex flex-col items-center justify-center overflow-hidden font-sans bg-[#f2f1ef]"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+    >
       {/* Header Context */}
-      <div className="mb-10 text-center flex flex-col items-center">
-        <h1 className="font-serif text-[42px] font-medium tracking-tight text-neutral-800 leading-none mb-4">
+      <div className="mb-16 text-center flex flex-col items-center z-50">
+        <h1 className="font-serif text-[56px] font-bold tracking-tight text-neutral-900 leading-none mb-3">
           Journal
         </h1>
-        <p className="font-sans text-[11px] font-bold tracking-[0.2em] text-neutral-500 uppercase">
-          {pages.length} Pages
+        <p className="font-sans text-[10px] font-bold tracking-[0.3em] text-neutral-600 uppercase">
+          14 PAGES
         </p>
       </div>
 
-      {/* Interactive Journal Container */}
-      <div className="relative w-full max-w-[400px] aspect-[3/4] group perspective-[1200px]">
-        {/* Navigation Overlay (Visible on Hover/Interaction) */}
-        <div className="absolute inset-0 z-20 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevPage();
-            }}
-            className="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/40 transition-colors pointer-events-auto"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+      {/* Interactive Journal Coverflow */}
+      <div className="relative w-full max-w-[900px] h-[450px] flex items-center justify-center perspective-[1500px] transform-style-3d">
+        <AnimatePresence initial={false}>
+          {spreads.map((spread, index) => {
+            const isCenter = index === currentIndex;
+            const isLeft = index < currentIndex;
+            const isRight = index > currentIndex;
+            const offset = Math.abs(index - currentIndex);
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsPlaying(!isPlaying);
-            }}
-            className="w-12 h-12 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/40 transition-colors pointer-events-auto"
-          >
-            {isPlaying ? (
-              <Pause className="w-5 h-5" fill="currentColor" />
-            ) : (
-              <Play className="w-5 h-5 ml-1" fill="currentColor" />
-            )}
-          </button>
+            // Don't render items too far away
+            if (offset > 2) return null;
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextPage();
-            }}
-            className="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/40 transition-colors pointer-events-auto"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+            // Determine variants dynamically based on position
+            let initialX = 0;
+            let initialRotateY = 0;
+            let initialScale = 1;
+            let initialZ = 0;
+            let filter = "brightness(1)";
 
-        {/* Page Stack */}
-        <div className="relative w-full h-full transform-style-3d">
-          <AnimatePresence initial={false} custom={direction} mode="popLayout">
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="absolute inset-0 w-full h-full rounded-[24px] overflow-hidden bg-neutral-200 cursor-grab active:cursor-grabbing border-[4px] border-white"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = offset.x;
-                if (swipe < -50) {
-                  nextPage();
-                } else if (swipe > 50) {
-                  prevPage();
-                }
-              }}
-            >
-              {/* Full Bleed Image */}
-              <img
-                src={pages[currentIndex].image}
-                alt={pages[currentIndex].caption}
-                className="w-full h-full object-cover pointer-events-none"
-              />
-              
-              {/* Subtle Inner Shadow for Book Feel */}
-              <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            if (isLeft) {
+              initialX = -45 - (offset * 12);
+              initialRotateY = 35; // left edge forward, right edge back
+              initialScale = 0.85 - (offset * 0.05);
+              initialZ = -100 - (offset * 50);
+              filter = `brightness(${0.6 - offset * 0.1})`;
+            } else if (isRight) {
+              initialX = 45 + (offset * 12);
+              initialRotateY = -35; // right edge forward, left edge back
+              initialScale = 0.85 - (offset * 0.05);
+              initialZ = -100 - (offset * 50);
+              filter = `brightness(${0.6 - offset * 0.1})`;
+            }
+
+            return (
+              <motion.div
+                key={spread.id}
+                initial={false}
+                animate={{
+                  x: isCenter ? "0%" : `${initialX}%`,
+                  rotateY: isCenter ? 0 : initialRotateY,
+                  scale: isCenter ? 1 : initialScale,
+                  z: isCenter ? 0 : initialZ,
+                  zIndex: 10 - offset,
+                  filter: isCenter ? "brightness(1)" : filter,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 25,
+                  mass: 1,
+                }}
+                className={`absolute w-full h-full rounded-[24px] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer
+                  ${!isCenter ? 'hover:brightness-90 transition-all duration-300' : ''}
+                `}
+                onClick={() => {
+                  if (isLeft) prevPage();
+                  if (isRight) nextPage();
+                }}
+              >
+                {/* Full Bleed Image */}
+                <img
+                  src={spread.image}
+                  alt={`Spread ${index + 1}`}
+                  className="w-full h-full object-cover pointer-events-none"
+                />
+                
+                {/* Photorealistic Spine Shadow and Lighting */}
+                <div 
+                  className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-80"
+                  style={{
+                    backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0.8) 49.5%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0.8) 50.5%, rgba(0,0,0,0.1) 55%, rgba(255,255,255,0) 100%)'
+                  }}
+                />
+                {/* Spine Highlight (for volume) */}
+                <div 
+                  className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-60"
+                  style={{
+                    backgroundImage: 'linear-gradient(to right, transparent 48%, rgba(255,255,255,0.4) 49%, transparent 49.5%, transparent 50.5%, rgba(255,255,255,0.4) 51%, transparent 52%)'
+                  }}
+                />
+
+                {/* Left/Right Edge Shadows (subtle curve of paper) */}
+                <div className="absolute inset-0 shadow-[inset_20px_0_40px_-20px_rgba(0,0,0,0.3),inset_-20px_0_40px_-20px_rgba(0,0,0,0.3)] pointer-events-none" />
+
+                {/* Sub-navigation Controls on Active Spread */}
+                {isCenter && (
+                  <div className="absolute bottom-6 left-12 flex gap-1 bg-black/20 backdrop-blur-md rounded-full px-2 py-1 shadow-sm border border-white/10 z-50">
+                    <button 
+                      className={`p-0.5 rounded-full hover:bg-black/40 transition-colors ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      onClick={(e) => { e.stopPropagation(); prevPage(); }}
+                      disabled={currentIndex === 0}
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5 text-white" />
+                    </button>
+                    <button 
+                      className={`p-0.5 rounded-full hover:bg-black/40 transition-colors ${currentIndex === spreads.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      onClick={(e) => { e.stopPropagation(); nextPage(); }}
+                      disabled={currentIndex === spreads.length - 1}
+                    >
+                      <ChevronRight className="w-3.5 h-3.5 text-white" />
+                    </button>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
     </div>
   );
