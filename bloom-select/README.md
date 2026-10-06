@@ -1,5 +1,9 @@
 # Flourish UI ✨
 
+<div align="center">
+  <video src="./public/Preview.mp4" autoPlay loop muted playsInline width="100%" style="border-radius: 12px; margin-bottom: 24px;"></video>
+</div>
+
 A premium, highly interactive React component library crafted for modern web applications. 
 
 **Author:** Zuhaib Rashid (@Zuhaib-dev)

@@ -1,5 +1,9 @@
 # ✈️ Voyage Planner
 
+<div align="center">
+  <img src="./public/Preview.jpeg" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Voyage Planner Preview" />
+</div>
+
 A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts, glassmorphic folders, and ultra-premium UI details. 
 
 ## 🌟 Overview
