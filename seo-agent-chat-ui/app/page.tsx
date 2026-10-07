@@ -143,10 +143,10 @@ export default function AgentChatUI() {
 
       {/* Main Content Area */}
       <main className="flex-1 h-full p-4 pl-0">
-        <div className="bg-white w-full h-full rounded-[20px] border border-gray-200 shadow-[0_4px_24px_rgba(0,0,0,0.02)] flex flex-col overflow-hidden relative">
+        <div className="bg-white w-full h-full rounded-[24px] border border-gray-100 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_8px_40px_rgba(0,0,0,0.04)] flex flex-col overflow-hidden relative">
           
           {/* Chat Header */}
-          <header className="px-6 py-4 flex items-center justify-between border-b border-transparent z-10 bg-white/80 backdrop-blur-md">
+          <header className="px-6 py-4 flex items-center justify-between z-10 bg-white/90 backdrop-blur-md border-b border-gray-50/50">
             <div className="flex items-center gap-3">
               <button className="p-2 border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-500 transition-colors">
                 <RotateCcw className="w-4 h-4" />
@@ -169,12 +169,12 @@ export default function AgentChatUI() {
               </button>
               
               {/* Credits */}
-              <div className="flex items-center gap-1.5 bg-gray-50 rounded-full pl-1.5 pr-3 py-1 border border-gray-100">
+              <div className="flex items-center gap-1.5 bg-gray-50 rounded-full pl-1.5 pr-3 py-1 border border-gray-100 hover:bg-gray-100 transition-colors cursor-pointer">
                 <svg className="w-5 h-5 text-blue-500 -rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <circle cx="12" cy="12" r="8" stroke="currentColor" strokeOpacity="0.2" />
                   <path d="M12 4a8 8 0 0 1 8 8" />
                 </svg>
-                <span className="text-[13px] font-semibold text-gray-700">12,450</span>
+                <span className="text-[13px] font-semibold text-gray-700 tabular-nums">12,450</span>
               </div>
 
               <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden cursor-pointer border border-gray-200">
@@ -212,8 +212,8 @@ export default function AgentChatUI() {
                 </div>
 
                 {/* Performance Snapshot Card */}
-                <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
-                  <h3 className="text-[14px] font-semibold mb-4">Performance Snapshot</h3>
+                <div className="w-full bg-white border border-gray-100 rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300">
+                  <h3 className="text-[14px] font-semibold mb-4 tracking-tight">Performance Snapshot</h3>
                   <div className="grid grid-cols-4 gap-4">
                     <StatBox label="Spend" value="$18.4k" change="+6%" trend="up" />
                     <StatBox label="ROAS" value="2.4x" change="↓0.3" trend="down" />
@@ -227,10 +227,10 @@ export default function AgentChatUI() {
                 </div>
 
                 {/* Recommended Allocation Card */}
-                <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                <div className="w-full bg-white border border-gray-100 rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex justify-between items-center mb-5">
-                    <h3 className="text-[14px] font-semibold">Recommended Allocation</h3>
-                    <span className="text-[11px] font-medium text-gray-400">2.9x ROAS</span>
+                    <h3 className="text-[14px] font-semibold tracking-tight">Recommended Allocation</h3>
+                    <span className="text-[11px] font-medium text-gray-400 tabular-nums">2.9x ROAS</span>
                   </div>
                   
                   <div className="flex flex-col gap-4 mb-6">
@@ -298,13 +298,13 @@ export default function AgentChatUI() {
 
           {/* Chat Input Floating */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center px-6 pointer-events-none z-20">
-            <div className="w-full max-w-[640px] bg-white border border-gray-200 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-transform hover:-translate-y-0.5 duration-300 group focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-400">
+            <div className="w-full max-w-[640px] bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-all hover:-translate-y-0.5 duration-300 group focus-within:ring-4 focus-within:ring-blue-50 focus-within:border-blue-200 focus-within:shadow-[0_8px_40px_rgba(15,98,254,0.1)]">
               <input 
                 type="text" 
                 placeholder="Ask SEO Specialist..."
                 className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-2 text-[14px] placeholder:text-gray-400 outline-none"
               />
-              <button className="w-8 h-8 rounded-xl bg-[#0f62fe] hover:bg-blue-600 text-white flex items-center justify-center transition-colors shadow-sm shadow-blue-500/20 group-focus-within:bg-blue-600">
+              <button className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0f62fe] to-[#3b82f6] hover:from-[#0353e9] hover:to-[#2563eb] text-white flex items-center justify-center transition-all shadow-sm shadow-blue-500/30 group-focus-within:scale-105 active:scale-95">
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
@@ -412,10 +412,10 @@ function BrandIcon({ name, size = 16 }: { name: string, size?: number }) {
 
 function StatBox({ label, value, change, trend, color = "text-emerald-500" }: { label: string, value: string, change: string, trend: 'up' | 'down', color?: string }) {
   return (
-    <div className="flex flex-col gap-1">
-      <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wide">{label}</span>
-      <span className="text-[18px] font-bold text-gray-900">{value}</span>
-      <span className={`text-[11px] font-semibold ${trend === 'up' ? color : 'text-red-500'}`}>
+    <div className="flex flex-col gap-1 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-default">
+      <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">{label}</span>
+      <span className="text-[19px] font-bold text-gray-900 tracking-tight tabular-nums">{value}</span>
+      <span className={`text-[12px] font-semibold tabular-nums ${trend === 'up' ? color : 'text-red-500'}`}>
         {change}
       </span>
     </div>
@@ -424,11 +424,11 @@ function StatBox({ label, value, change, trend, color = "text-emerald-500" }: { 
 
 function AllocationRow({ name, before, after, change, trend }: { name: string, before: string, after: string, change: string, trend: 'up' | 'down' }) {
   return (
-    <div className="flex items-center justify-between group cursor-default hover:bg-gray-50 -mx-2 px-2 py-1 rounded-lg transition-colors">
+    <div className="flex items-center justify-between group cursor-default hover:bg-gray-50 -mx-2 px-2 py-1.5 rounded-lg transition-colors">
       <span className="text-[13px] font-medium text-gray-700">{name}</span>
-      <div className="flex items-center gap-4 text-[13px] font-medium">
+      <div className="flex items-center gap-4 text-[13px] font-medium tabular-nums">
         <span className="text-gray-500 w-12 text-right">{before}</span>
-        <span className="text-gray-300">→</span>
+        <span className="text-gray-300 group-hover:text-gray-400 transition-colors">→</span>
         <span className="text-gray-900 w-12">{after}</span>
         <span className={`w-10 text-right font-bold ${trend === 'up' ? 'text-emerald-500' : 'text-red-500'}`}>{change}</span>
       </div>
