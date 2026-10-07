@@ -52,13 +52,15 @@ export default function AgentChatUI() {
         
         {/* Sidebar Header */}
         <div className="px-4 pt-4 pb-2 flex items-center justify-between">
-          <button className="flex items-center gap-2 hover:bg-gray-100 p-1.5 -ml-1.5 rounded-lg transition-colors">
-            <div className="w-5 h-5 bg-[#111827] rounded-full flex items-center justify-center">
-              <div className="w-2.5 h-0.5 bg-white rounded-full translate-y-[1px] rotate-45" />
-              <div className="w-2.5 h-0.5 bg-white rounded-full -translate-y-[1px] -rotate-45" />
+          <button className="flex items-center gap-2 hover:bg-gray-100 p-1.5 -ml-1.5 rounded-lg transition-colors group">
+            <div className="w-5 h-5 rounded-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform shadow-sm border border-gray-700">
+              {/* Better Acme Logo (Abstract lines) */}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round">
+                <path d="M4 8h16M4 16h10" />
+              </svg>
             </div>
             <span className="font-semibold text-[14px]">Acme Inc.</span>
-            <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+            <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600 transition-colors" />
           </button>
           
           <button className="text-gray-400 hover:text-gray-700 transition-colors p-1 rounded-md hover:bg-gray-100">
@@ -111,12 +113,12 @@ export default function AgentChatUI() {
             <NavAccordion label="Marketing" />
             <NavAccordion label="Automation" />
             <NavAccordion label="Integrations" open items={[
-              { icon: <IntegrationIcon color="text-yellow-500" letter="G" />, label: "Google Analytics" },
-              { icon: <IntegrationIcon color="text-blue-500" letter="M" />, label: "Meta Ads" },
-              { icon: <IntegrationIcon color="text-blue-400" letter="G" />, label: "Google Ads" },
-              { icon: <IntegrationIcon color="text-gray-700" letter="W" />, label: "Wordpress" },
-              { icon: <IntegrationIcon color="text-yellow-600" letter="M" />, label: "Mailchimp" },
-              { icon: <IntegrationIcon color="text-purple-500" letter="C" />, label: "Canva" },
+              { icon: <BrandIcon name="google-analytics" />, label: "Google Analytics" },
+              { icon: <BrandIcon name="meta" />, label: "Meta Ads" },
+              { icon: <BrandIcon name="google-ads" />, label: "Google Ads" },
+              { icon: <BrandIcon name="wordpress" />, label: "Wordpress" },
+              { icon: <BrandIcon name="mailchimp" />, label: "Mailchimp" },
+              { icon: <BrandIcon name="canva" />, label: "Canva" },
             ]} />
           </div>
         </div>
@@ -199,7 +201,7 @@ export default function AgentChatUI() {
                 {/* Meta Indicator */}
                 <div className="flex items-center gap-1.5 text-[12px] text-gray-500 font-medium mb-1">
                   <div className="w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center">
-                    <span className="text-blue-600 text-[10px] font-bold font-serif">M</span>
+                    <BrandIcon name="meta" size={10} />
                   </div>
                   Connected to Meta Ads · Analyzed 12 campaigns
                 </div>
@@ -296,13 +298,13 @@ export default function AgentChatUI() {
 
           {/* Chat Input Floating */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center px-6 pointer-events-none z-20">
-            <div className="w-full max-w-[640px] bg-white border border-gray-200 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-transform hover:-translate-y-0.5 duration-300">
+            <div className="w-full max-w-[640px] bg-white border border-gray-200 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-transform hover:-translate-y-0.5 duration-300 group focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-400">
               <input 
                 type="text" 
                 placeholder="Ask SEO Specialist..."
                 className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-2 text-[14px] placeholder:text-gray-400 outline-none"
               />
-              <button className="w-8 h-8 rounded-xl bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center transition-colors shadow-sm shadow-blue-500/20">
+              <button className="w-8 h-8 rounded-xl bg-[#0f62fe] hover:bg-blue-600 text-white flex items-center justify-center transition-colors shadow-sm shadow-blue-500/20 group-focus-within:bg-blue-600">
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
@@ -359,10 +361,53 @@ function NavAccordion({ label, open = false, items = [] }: { label: string, open
   );
 }
 
-function IntegrationIcon({ letter, color }: { letter: string, color: string }) {
-  return (
-    <span className={`text-[12px] font-bold font-serif ${color}`}>{letter}</span>
-  );
+function BrandIcon({ name, size = 16 }: { name: string, size?: number }) {
+  const s = size;
+  switch (name) {
+    case 'meta':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#1877f2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 0c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z" />
+          <path d="M7 12c-2.76 0-5-2.24-5-5s2.24-5 5-5M17 12c2.76 0 5 2.24 5 5s-2.24 5-5 5" />
+        </svg>
+      );
+    case 'google-analytics':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 20V10M12 20V4M6 20v-6" />
+        </svg>
+      );
+    case 'google-ads':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 3l9 16H3L12 3z" />
+          <path d="M12 9v6" />
+        </svg>
+      );
+    case 'wordpress':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 12l2 5 2-5 2 5 2-5" />
+        </svg>
+      );
+    case 'mailchimp':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#ca8a04" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+          <path d="M7 16c0-2.5 2-4.5 4.5-4.5h1c2.5 0 4.5 2 4.5 4.5V20H7v-4z" />
+        </svg>
+      );
+    case 'canva':
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M15 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+        </svg>
+      );
+    default:
+      return <div className={`w-${s/4} h-${s/4} bg-gray-400 rounded-full`} />;
+  }
 }
 
 function StatBox({ label, value, change, trend, color = "text-emerald-500" }: { label: string, value: string, change: string, trend: 'up' | 'down', color?: string }) {
