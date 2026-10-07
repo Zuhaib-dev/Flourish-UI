@@ -53,17 +53,23 @@ export default function PromaWorkspace() {
       <aside className="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#fcfcfc] border-r border-gray-100/60">
         
         {/* Logo */}
-        <div className="px-5 pt-5 pb-4 flex items-center justify-between">
+        <div className="px-5 pt-6 pb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-[22px] h-[22px] bg-[#1a1a1a] rounded-[6px] flex items-center justify-center shadow-sm">
+            <motion.div 
+              whileHover={{ rotate: 180, scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              className="w-[22px] h-[22px] bg-gradient-to-tr from-gray-900 to-gray-800 rounded-[6px] flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.12)] cursor-pointer"
+            >
               {/* Proma stylized logo */}
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 14c2-4 6-4 8 0s6 4 8 0" />
               </svg>
-            </div>
-            <span className="font-bold text-[15px] tracking-tight text-gray-800">Proma</span>
+            </motion.div>
+            <span className="font-bold text-[16px] tracking-tight text-gray-800">Proma</span>
           </div>
-          <ChevronDown className="w-4 h-4 text-gray-400" strokeWidth={2} />
+          <motion.div whileHover={{ y: 2 }} className="cursor-pointer">
+            <ChevronDown className="w-4 h-4 text-gray-400" strokeWidth={2} />
+          </motion.div>
         </div>
 
         {/* Main Nav */}
@@ -130,10 +136,10 @@ export default function PromaWorkspace() {
       <main className="flex-1 flex flex-col h-full overflow-hidden">
         
         {/* Top Header */}
-        <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100/60 shrink-0">
+        <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100/60 shrink-0 bg-white/50 backdrop-blur-sm">
           <div className="flex items-center gap-2 text-[13px] font-medium text-gray-400">
-            <div className="flex items-center gap-1.5 text-gray-800">
-              <div className="w-[18px] h-[18px] bg-[#22c55e] rounded-full flex items-center justify-center text-white">
+            <div className="flex items-center gap-1.5 text-gray-800 hover:text-gray-900 cursor-pointer transition-colors">
+              <div className="w-[18px] h-[18px] bg-gradient-to-tr from-emerald-500 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-sm">
                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <span className="font-semibold tracking-tight">House Cleaning BC</span>
@@ -148,15 +154,19 @@ export default function PromaWorkspace() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center p-0.5 bg-white border border-gray-200 rounded-lg shadow-sm">
-              <button className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-50 rounded-md transition-colors"><PanelRight className="w-4 h-4 rotate-180" strokeWidth={1.5} /></button>
-              <button className="p-1.5 text-gray-700 bg-gray-100 rounded-md shadow-sm transition-colors"><AlignLeft className="w-4 h-4" strokeWidth={1.5} /></button>
-              <button className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-50 rounded-md transition-colors"><Layout className="w-4 h-4" strokeWidth={1.5} /></button>
+            <div className="flex items-center p-0.5 bg-gray-50/80 border border-gray-200/60 rounded-lg shadow-sm">
+              <button className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-white hover:shadow-sm rounded-md transition-all"><PanelRight className="w-4 h-4 rotate-180" strokeWidth={1.5} /></button>
+              <button className="p-1.5 text-gray-700 bg-white rounded-md shadow-sm border border-gray-200/50 transition-all"><AlignLeft className="w-4 h-4" strokeWidth={1.5} /></button>
+              <button className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-white hover:shadow-sm rounded-md transition-all"><Layout className="w-4 h-4" strokeWidth={1.5} /></button>
             </div>
             
-            <button className="flex items-center gap-1.5 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-[13px] font-semibold px-3 py-1.5 rounded-lg shadow-sm transition-colors">
+            <motion.button 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-1.5 bg-white border border-gray-200 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[13px] font-semibold px-3 py-1.5 rounded-lg shadow-sm transition-all"
+            >
               <Edit3 className="w-3.5 h-3.5 text-gray-500" strokeWidth={1.5} /> Edit recording
-            </button>
+            </motion.button>
           </div>
         </header>
 
@@ -203,27 +213,27 @@ export default function PromaWorkspace() {
                 </motion.div>
 
                 {/* User Prompt */}
-                <motion.div variants={itemVars} className="flex justify-end">
-                  <div className="bg-[#f3f4f6] text-gray-800 text-[13.5px] font-medium leading-[1.6] px-4 py-3.5 rounded-[12px] rounded-tr-[4px] max-w-[85%] shadow-sm">
+                <motion.div variants={itemVars} className="flex justify-end mt-4">
+                  <div className="bg-[#f3f4f6] text-gray-800 text-[13.5px] font-medium leading-[1.6] px-4 py-3.5 rounded-[12px] rounded-tr-[4px] max-w-[85%] shadow-sm hover:shadow-md transition-shadow">
                     Summarize the meeting conversation and provide a bullet list of the key takeaways.
                   </div>
                 </motion.div>
 
                 {/* AI Processing Steps */}
-                <motion.div variants={itemVars} className="flex flex-col gap-2.5 mt-2">
+                <motion.div variants={itemVars} className="flex flex-col gap-2 mt-4">
                   <ProcessingStep icon={<Lightbulb className="w-3.5 h-3.5" strokeWidth={2} />} text="Thought for 4 second" />
                   <ProcessingStep icon={<Link2 className="w-3.5 h-3.5" strokeWidth={2} />} text="Let me fetch the data into the memories..." />
                   
-                  <div className="flex items-center justify-between text-[13px] font-medium text-gray-500 py-1 group cursor-pointer hover:text-gray-700 transition-colors w-fit gap-2">
+                  <div className="flex items-center justify-between text-[13px] font-medium text-gray-500 py-1.5 group cursor-pointer hover:text-gray-700 transition-colors w-fit gap-2">
                     <div className="flex items-center gap-2.5">
                       <Search className="w-3.5 h-3.5" strokeWidth={2} />
                       <span>Searching for 5 resources</span>
                       <div className="flex items-center gap-1.5 text-gray-400 ml-1">
-                        <span className="text-emerald-500 text-[14px]">🍀</span>
-                        <span className="text-orange-400 text-[14px]">❊</span>
-                        <span className="text-orange-600 font-bold font-serif text-[12px]">N</span>
-                        <span className="text-blue-500 text-[14px]">✦</span>
-                        <span className="text-blue-600 text-[14px]">🔷</span>
+                        <motion.span whileHover={{ scale: 1.2, rotate: 180 }} className="text-emerald-500 text-[14px]">🍀</motion.span>
+                        <motion.span whileHover={{ scale: 1.2, rotate: 90 }} className="text-orange-400 text-[14px]">❊</motion.span>
+                        <motion.span whileHover={{ scale: 1.2 }} className="text-orange-600 font-bold font-serif text-[12px]">N</motion.span>
+                        <motion.span whileHover={{ scale: 1.2, rotate: -45 }} className="text-blue-500 text-[14px]">✦</motion.span>
+                        <motion.span whileHover={{ scale: 1.2 }} className="text-blue-600 text-[14px]">🔷</motion.span>
                       </div>
                     </div>
                     <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-1 group-hover:opacity-100 transition-all translate-x-[-4px] group-hover:translate-x-0" strokeWidth={2} />
@@ -233,7 +243,7 @@ export default function PromaWorkspace() {
                 </motion.div>
 
                 {/* AI Text Response */}
-                <motion.div variants={itemVars} className="text-[13.5px] leading-[1.7] text-gray-800 font-medium tracking-tight mt-1">
+                <motion.div variants={itemVars} className="text-[13.5px] leading-[1.7] text-gray-800 font-medium tracking-tight mt-3">
                   AI is not replacing creativity — it is changing the role of the creator. In the future, creative professionals will spend less time on repetitive execution and more time on direction, taste, storytelling, and decision-making. Tools powered by AI can already generate images, music, videos, and written content within seconds, making production faster and more accessible than ever before.
                 </motion.div>
 
@@ -342,27 +352,44 @@ export default function PromaWorkspace() {
               </div>
 
               {/* Video Thumbnail */}
-              <div className="w-full aspect-video rounded-xl overflow-hidden bg-gray-100 relative group cursor-pointer border border-gray-200 mt-2">
-                <img 
+              <motion.div 
+                whileHover="hover"
+                className="w-full aspect-video rounded-xl overflow-hidden bg-gray-100 relative group cursor-pointer border border-gray-200 mt-2 shadow-sm"
+              >
+                <motion.img 
+                  variants={{ hover: { scale: 1.05 } }}
+                  transition={{ duration: 0.4 }}
                   src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=600&auto=format&fit=crop" 
                   alt="Podcast Speaker"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-2 right-2 flex items-center gap-1">
-                   <div className="w-6 h-6 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white">
-                      <MonitorPlay className="w-3 h-3" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300" />
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <motion.div 
+                    variants={{ hover: { scale: 1.1, backgroundColor: "rgba(255,255,255,0.95)" } }}
+                    className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-800 shadow-lg"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </motion.div>
+                </div>
+
+                <div className="absolute bottom-3 right-3 flex items-center gap-1">
+                   <div className="w-auto h-6 px-2 rounded-md bg-black/60 backdrop-blur-md flex items-center justify-center text-white text-[11px] font-bold">
+                      45:20
                    </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Video Actions */}
               <div className="flex items-center gap-2 mt-1">
-                <button className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 text-gray-600 text-[12px] font-semibold px-3 py-1.5 rounded-[8px] shadow-sm transition-colors">
+                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-[8px] shadow-sm transition-all flex-1 justify-center">
                   <Edit3 className="w-3.5 h-3.5 text-gray-400" strokeWidth={2} /> Edit Transcriptions
-                </button>
-                <button className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 text-gray-600 text-[12px] font-semibold px-3 py-1.5 rounded-[8px] shadow-sm transition-colors">
+                </motion.button>
+                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-[8px] shadow-sm transition-all flex-1 justify-center">
                   <Users className="w-3.5 h-3.5 text-gray-400" strokeWidth={2} /> Speakers <ChevronDown className="w-3.5 h-3.5 ml-0.5 text-gray-400" strokeWidth={2} />
-                </button>
+                </motion.button>
               </div>
 
               {/* Transcript Feed */}
@@ -424,7 +451,10 @@ function VerticalDivider() {
 
 function FileBadge({ color, iconColor, text, type }: { color: string, iconColor: string, text: string, type: 'pdf' | 'audio' | 'video' }) {
   return (
-    <div className="flex items-center gap-2 bg-white border border-gray-200/80 pl-1.5 pr-2.5 py-1.5 rounded-[12px] shadow-sm hover:bg-gray-50 transition-colors cursor-pointer group">
+    <motion.div 
+      whileHover={{ y: -2 }}
+      className="flex items-center gap-2 bg-white border border-gray-200/80 pl-1.5 pr-2.5 py-1.5 rounded-[12px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
+    >
       <div className={`w-[22px] h-[22px] rounded-[6px] ${color} flex items-center justify-center`}>
         {type === 'pdf' ? <FileText className={`w-3.5 h-3.5 ${iconColor}`} strokeWidth={2} /> : 
          type === 'audio' ? <Mic className={`w-3.5 h-3.5 ${iconColor}`} strokeWidth={2} /> : 
@@ -434,25 +464,30 @@ function FileBadge({ color, iconColor, text, type }: { color: string, iconColor:
       <button className="text-gray-300 hover:text-gray-600 p-0.5 ml-0.5 group-hover:bg-gray-200/50 rounded-md transition-colors">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-    </div>
+    </motion.div>
   );
 }
 
 function TranscriptBlock({ name, time, text, avatarSeed }: { name: string, time: string, text: string, avatarSeed: string }) {
   return (
-    <div className="flex flex-col gap-1.5 group">
+    <motion.div 
+      initial={{ opacity: 0, y: 5 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col gap-1.5 group cursor-pointer"
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-gray-200">
+          <motion.div whileHover={{ scale: 1.1 }} className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-gray-200 shadow-sm">
             <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${avatarSeed}&backgroundColor=e5e7eb`} alt={name} />
-          </div>
+          </motion.div>
           <span className="text-[13px] font-bold tracking-tight">{name}</span>
-          <span className="text-[11px] font-medium text-gray-400">{time}</span>
+          <span className="text-[11px] font-medium text-gray-400 group-hover:text-gray-600 transition-colors">{time}</span>
         </div>
       </div>
       <p className="text-[13px] leading-relaxed text-gray-700 group-hover:text-gray-900 transition-colors pl-7">
         {text}
       </p>
-    </div>
+    </motion.div>
   );
 }
