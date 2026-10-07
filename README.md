@@ -98,4 +98,12 @@ An ultra-premium, dark-mode command center designed for monitoring and deploying
 </div>
 
 ---
+
+### 📅 [Post Planner Calendar](./post-planner-calendar)
+A pristine, minimalist SaaS dashboard component designed for planning and organizing content posts. Features a comprehensive calendar grid and colored data summary cards.
+<div align="center">
+  <div style="width: 100%; height: 300px; background: #f8f9fb; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #6b7280; font-weight: bold;">Preview coming soon</div>
+</div>
+
+---
 *Built with room to grow. 🌱*
