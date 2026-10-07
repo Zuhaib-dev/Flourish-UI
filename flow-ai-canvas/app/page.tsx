@@ -211,101 +211,136 @@ export default function FlowCanvas() {
           </div>
 
           {/* SVG Edges Layer */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))' }}>
              {/* Webhook -> AI Agent */}
-             <path d="M 458 110 C 490 110, 480 110, 520 110" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             <path d="M 500 178 C 530 178, 530 178, 560 178" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             
              {/* AI Agent -> Route by Type */}
-             <path d="M 680 110 C 720 110, 720 220, 680 220 C 620 220, 360 220, 360 260 C 360 280, 380 280, 410 280" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             {/* Path: out of AI Agent (820, 178), down and left, into Route by Type (390, 335) */}
+             <path d="M 820 178 C 880 178, 880 250, 600 250 C 320 250, 320 335, 390 335" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             
              {/* Route (Urgent) -> Slack Alert */}
-             <path d="M 590 270 C 610 270, 610 220, 640 220" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             {/* Route out (650, 310) -> Slack in (680, 275) */}
+             <path d="M 650 310 C 665 310, 665 275, 680 275" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             
              {/* Route (Billing) -> Draft Reply */}
-             <path d="M 590 290 C 610 290, 610 320, 640 320" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             {/* Route out (650, 335) -> Draft in (710, 365) */}
+             <path d="M 650 335 C 680 335, 680 365, 710 365" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             
              {/* Route (Other) -> Update Contact */}
-             <path d="M 590 310 C 610 310, 610 420, 640 420" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             {/* Route out (650, 360) -> Contact in (680, 455) */}
+             <path d="M 650 360 C 665 360, 665 455, 680 455" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             
              {/* Draft Reply -> Send Reply */}
-             <path d="M 800 320 C 820 320, 820 280, 850 280" fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+             {/* Draft out (970, 365) -> Send in (1010, 355) */}
+             <path d="M 970 365 C 990 365, 990 355, 1010 355" fill="none" stroke="#cbd5e1" strokeWidth="2" />
           </svg>
 
           {/* Nodes Layer */}
           <div className="absolute inset-0 w-full h-full z-10">
              
-             <div className="absolute left-[290px] top-[75px]">
+             <div className="absolute left-[240px] top-[140px]">
                <WorkflowNode 
-                 icon={<Globe className="w-3.5 h-3.5 text-blue-500" strokeWidth={2.5} />} 
+                 icon={<Globe className="w-4 h-4 text-blue-500" strokeWidth={2} />} 
                  title="Webhook Trigger" 
                  subtitle="Triggered by HTTP requests"
                  outputs={[{ label: 'Trigger', color: 'bg-blue-500' }]}
-                 width="w-[168px]"
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[520px] top-[75px]">
+             <div className="absolute left-[560px] top-[140px]">
                <WorkflowNode 
-                 icon={<div className="w-3.5 h-3.5 bg-gray-700 rounded-sm flex items-center justify-center"><svg width="8" height="8" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/></svg></div>} 
+                 icon={
+                   <div className="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
+                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="10" rx="2" ry="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                   </div>
+                 } 
                  title="AI Agent" 
                  subtitle="OpenAI GPT- 5.5 2 tools"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Output', color: 'bg-blue-500' }]}
-                 width="w-[160px]"
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[410px] top-[245px]">
+             <div className="absolute left-[390px] top-[280px]">
                <WorkflowNode 
-                 icon={<Shuffle className="w-3.5 h-3.5 text-orange-500" strokeWidth={2.5} />} 
+                 icon={<Shuffle className="w-4 h-4 text-orange-500" strokeWidth={2} />} 
                  title="Route by Type" 
                  subtitle="Multi-way branch by value"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[
                    { label: 'Urgent', color: 'bg-blue-500' },
                    { label: 'Billing', color: 'bg-blue-500' },
-                   { label: 'Other', color: 'bg-gray-300' }
+                   { label: 'Other', color: 'bg-gray-400' }
                  ]}
-                 width="w-[180px]"
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[640px] top-[185px]">
+             <div className="absolute left-[680px] top-[230px]">
                <WorkflowNode 
-                 icon={<div className="w-3.5 h-3.5 rounded-sm flex items-center justify-center"><svg viewBox="0 0 24 24" className="w-full h-full"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52-2.523A2.528 2.528 0 0 1 5.042 10.12a2.528 2.528 0 0 1 2.52 2.523v2.522H5.042zM8.2 15.165a2.528 2.528 0 0 1 2.52-2.523 2.528 2.528 0 0 1 2.52 2.523v6.306a2.528 2.528 0 1 1-5.04 0v-6.306zM8.835 5.042a2.528 2.528 0 0 1 2.523-2.52A2.528 2.528 0 0 1 13.88 5.042a2.528 2.528 0 0 1-2.523 2.52H8.835zM8.835 8.2a2.528 2.528 0 0 1 2.523 2.52 2.528 2.528 0 0 1-2.523 2.52H2.53a2.528 2.528 0 1 1 0-5.04h6.306zM18.958 8.835a2.528 2.528 0 0 1 2.52 2.523 2.528 2.528 0 0 1-2.52 2.523h-2.52V11.36a2.528 2.528 0 0 1 2.52-2.523zM15.8 8.835a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.52-2.523V2.53a2.528 2.528 0 1 1 5.04 0v6.306zM15.165 18.958a2.528 2.528 0 0 1-2.523 2.52 2.528 2.528 0 0 1-2.523-2.52v-2.52h2.523a2.528 2.528 0 0 1 2.523 2.52zM15.165 15.8a2.528 2.528 0 0 1-2.523-2.52 2.528 2.528 0 0 1 2.523-2.52h6.306a2.528 2.528 0 1 1 0 5.04h-6.306z" fill="#E01E5A"/></svg></div>} 
+                 icon={
+                   <div className="w-5 h-5 rounded flex items-center justify-center">
+                     <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+                        <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52-2.523A2.528 2.528 0 0 1 5.042 10.12a2.528 2.528 0 0 1 2.52 2.523v2.522H5.042zM8.2 15.165a2.528 2.528 0 0 1 2.52-2.523 2.528 2.528 0 0 1 2.52 2.523v6.306a2.528 2.528 0 1 1-5.04 0v-6.306z" fill="#36C5F0"/>
+                        <path d="M8.835 5.042a2.528 2.528 0 0 1 2.523-2.52A2.528 2.528 0 0 1 13.88 5.042a2.528 2.528 0 0 1-2.523 2.52H8.835zM8.835 8.2a2.528 2.528 0 0 1 2.523 2.52 2.528 2.528 0 0 1-2.523 2.52H2.53a2.528 2.528 0 1 1 0-5.04h6.306z" fill="#2EB67D"/>
+                        <path d="M18.958 8.835a2.528 2.528 0 0 1 2.52 2.523 2.528 2.528 0 0 1-2.52 2.523h-2.52V11.36a2.528 2.528 0 0 1 2.52-2.523zM15.8 8.835a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.52-2.523V2.53a2.528 2.528 0 1 1 5.04 0v6.306z" fill="#E01E5A"/>
+                        <path d="M15.165 18.958a2.528 2.528 0 0 1-2.523 2.52 2.528 2.528 0 0 1-2.523-2.52v-2.52h2.523a2.528 2.528 0 0 1 2.523 2.52zM15.165 15.8a2.528 2.528 0 0 1-2.523-2.52 2.528 2.528 0 0 1 2.523-2.52h6.306a2.528 2.528 0 1 1 0 5.04h-6.306z" fill="#ECB22E"/>
+                     </svg>
+                   </div>
+                 } 
                  title="Slack Alert" 
                  subtitle="Send Slack messages"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
-                 outputs={[{ label: 'Sent', color: 'bg-gray-300' }]}
-                 width="w-[160px]"
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
+                 outputs={[{ label: 'Sent', color: 'bg-gray-400' }]}
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[640px] top-[285px]">
+             <div className="absolute left-[710px] top-[320px]">
                <WorkflowNode 
-                 icon={<Star className="w-3.5 h-3.5 text-orange-500 fill-orange-500" />} 
+                 icon={
+                   <div className="w-5 h-5 rounded flex items-center justify-center">
+                     <svg width="18" height="18" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2l2.4 7.6H22l-6.2 4.5 2.4 7.6-6.2-4.5-6.2 4.5 2.4-7.6L2 9.6h7.6z"/></svg>
+                   </div>
+                 } 
                  title="Draft Reply" 
                  subtitle="Anthropic Claude completion"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Output', color: 'bg-blue-500' }]}
-                 width="w-[160px]"
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[640px] top-[385px]">
+             <div className="absolute left-[680px] top-[410px]">
                <WorkflowNode 
-                 icon={<div className="w-3.5 h-3.5 rounded-sm flex items-center justify-center text-red-500"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/></svg></div>} 
+                 icon={
+                   <div className="w-5 h-5 rounded flex items-center justify-center">
+                     <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444"><circle cx="12" cy="4" r="3"/><circle cx="4" cy="18" r="3"/><circle cx="20" cy="18" r="3"/><path d="M10.5 6.5l-5 9M13.5 6.5l5 9M6.5 18h11" stroke="#ef4444" strokeWidth="2"/></svg>
+                   </div>
+                 } 
                  title="Update Contact" 
                  subtitle="Read/write HubSpot CRM data"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
-                 outputs={[{ label: 'Output', color: 'bg-gray-300' }]}
-                 width="w-[160px]"
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
+                 outputs={[{ label: 'Output', color: 'bg-gray-400' }]}
+                 width="w-[260px]"
                />
              </div>
 
-             <div className="absolute left-[850px] top-[245px]">
+             <div className="absolute left-[1010px] top-[310px]">
                <WorkflowNode 
-                 icon={<Mail className="w-3.5 h-3.5 text-red-500" strokeWidth={2.5} />} 
+                 icon={
+                   <div className="w-5 h-5 rounded flex items-center justify-center">
+                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                   </div>
+                 } 
                  title="Send Reply" 
                  subtitle="Send or read Gmail emails"
-                 inputs={[{ label: 'Input', color: 'bg-gray-300' }]}
-                 outputs={[{ label: 'Send', color: 'bg-gray-300' }]}
-                 width="w-[160px]"
+                 inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
+                 outputs={[{ label: 'Send', color: 'bg-gray-400' }]}
+                 width="w-[260px]"
                />
              </div>
           </div>
@@ -432,7 +467,7 @@ function ControlButton({ icon, active = false }: { icon: React.ReactNode, active
   );
 }
 
-function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width = 'w-[160px]' }: { 
+function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width = 'w-[260px]' }: { 
   icon: React.ReactNode, 
   title: string, 
   subtitle: string, 
@@ -441,34 +476,34 @@ function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width 
   width?: string
 }) {
   return (
-    <div className={`bg-white rounded-[10px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-200/80 p-2.5 flex flex-col gap-2.5 ${width} cursor-grab active:cursor-grabbing`}>
-      <div className="flex items-center gap-2">
-        <div className="w-5 h-5 rounded-[4px] bg-gray-50/80 border border-gray-100 flex items-center justify-center shrink-0">
+    <div className={`bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-3 flex flex-col gap-3 ${width} cursor-grab active:cursor-grabbing hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-shadow`}>
+      <div className="flex items-center gap-3">
+        <div className="w-7 h-7 rounded-md bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
           {icon}
         </div>
         <div className="flex flex-col">
-          <span className="text-[12px] font-bold text-gray-800 leading-tight tracking-tight">{title}</span>
-          <span className="text-[9px] text-gray-400 font-semibold leading-tight truncate mt-0.5">{subtitle}</span>
+          <span className="text-[13px] font-bold text-gray-900 leading-tight tracking-tight">{title}</span>
+          <span className="text-[11px] text-gray-400 font-medium leading-tight truncate mt-0.5">{subtitle}</span>
         </div>
       </div>
       
       {(inputs.length > 0 || outputs.length > 0) && (
         <div className="flex flex-col gap-2 mt-1 relative">
-          <div className="absolute top-0 left-[-10px] right-[-10px] h-px bg-gray-100" />
-          <div className="flex justify-between w-full pt-1">
-            <div className="flex flex-col gap-1.5">
+          <div className="absolute top-0 left-[-12px] right-[-12px] h-px bg-gray-100" />
+          <div className="flex justify-between w-full pt-2">
+            <div className="flex flex-col gap-2">
               {inputs.map((input, i) => (
-                <div key={i} className="flex items-center gap-1.5 text-[9px] font-bold text-gray-400 relative h-3">
-                  <div className={`absolute top-1/2 -translate-y-1/2 -left-[14px] w-2 h-2 rounded-full border-[1.5px] border-white ring-1 ring-gray-200 ${input.color} shadow-sm z-10`} />
+                <div key={i} className="flex items-center gap-2 text-[11px] font-semibold text-gray-500 relative h-3">
+                  <div className={`absolute top-1/2 -translate-y-1/2 -left-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${input.color} shadow-sm z-10`} />
                   <span>{input.label}</span>
                 </div>
               ))}
             </div>
-            <div className="flex flex-col gap-1.5 items-end text-right">
+            <div className="flex flex-col gap-2 items-end text-right">
               {outputs.map((output, i) => (
-                <div key={i} className="flex items-center justify-end gap-1.5 text-[9px] font-bold text-gray-400 relative h-3">
+                <div key={i} className="flex items-center justify-end gap-2 text-[11px] font-semibold text-gray-500 relative h-3">
                   <span>{output.label}</span>
-                  <div className={`absolute top-1/2 -translate-y-1/2 -right-[14px] w-2 h-2 rounded-full border-[1.5px] border-white ring-1 ring-gray-200 ${output.color} shadow-sm z-10`} />
+                  <div className={`absolute top-1/2 -translate-y-1/2 -right-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${output.color} shadow-sm z-10`} />
                 </div>
               ))}
             </div>
