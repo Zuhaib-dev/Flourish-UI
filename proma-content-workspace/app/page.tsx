@@ -178,25 +178,25 @@ export default function PromaWorkspace() {
               <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-5 w-full max-w-[620px] mx-auto">
                 
                 {/* File Attachments Block */}
-                <motion.div variants={itemVars} className="flex flex-col items-end w-full pt-4">
-                  <div className="relative w-64 h-14 z-10 -mb-2">
+                <motion.div variants={itemVars} className="flex flex-col items-end w-full pt-2">
+                  <div className="relative w-[260px] h-16 z-10 -mb-3 mr-4">
                     {/* Background card (Project v2) */}
-                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white border border-gray-200/80 rounded-xl shadow-sm -translate-y-[8px] translate-x-[4px] flex items-center gap-3 px-3">
-                      <div className="w-7 h-7 bg-[#ffedd5] rounded-md flex items-center justify-center">
-                        <File className="w-3.5 h-3.5 text-orange-500" strokeWidth={2} />
+                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white/60 backdrop-blur border border-gray-200/50 rounded-[12px] shadow-sm -translate-y-[10px] translate-x-[16px] flex items-center gap-3 px-3 z-0">
+                      <div className="w-7 h-7 bg-[#fff7ed] rounded-md flex items-center justify-center">
+                        <File className="w-3.5 h-3.5 text-orange-400" strokeWidth={2} />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[13px] font-semibold text-gray-800">Project v2</span>
                       </div>
                     </div>
                     {/* Foreground card (The Future of AI) */}
-                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white border border-gray-200 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] flex items-center gap-3 px-3 z-10">
+                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center gap-3 px-3 z-10">
                       <div className="w-7 h-7 bg-[#f3e8ff] rounded-md flex items-center justify-center">
                         <span className="text-[#a855f7] font-serif font-bold text-[13px]">B</span>
                       </div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col gap-0">
                         <span className="text-[13px] font-semibold text-gray-800">The Future of AI</span>
-                        <span className="text-[11px] text-gray-400 mt-0.5">blogspot.com/project...</span>
+                        <span className="text-[11px] text-gray-400">blogspot.com/project...</span>
                       </div>
                     </div>
                   </div>
@@ -204,7 +204,7 @@ export default function PromaWorkspace() {
 
                 {/* User Prompt */}
                 <motion.div variants={itemVars} className="flex justify-end">
-                  <div className="bg-[#f4f4f5] text-gray-800 text-[13.5px] font-medium leading-relaxed px-4 py-3 rounded-[16px] rounded-tr-[4px] max-w-[85%]">
+                  <div className="bg-[#f3f4f6] text-gray-800 text-[13.5px] font-medium leading-[1.6] px-4 py-3.5 rounded-[12px] rounded-tr-[4px] max-w-[85%] shadow-sm">
                     Summarize the meeting conversation and provide a bullet list of the key takeaways.
                   </div>
                 </motion.div>
@@ -238,26 +238,67 @@ export default function PromaWorkspace() {
                 </motion.div>
 
                 {/* AI Generated File Card */}
-                <motion.div variants={itemVars} className="w-[90%] bg-[#fcfcfc] border border-gray-200/80 rounded-2xl p-3.5 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer group mt-2">
+                <motion.div variants={itemVars} className="w-[96%] bg-[#f9fafb] rounded-[16px] p-4 flex items-center justify-between group mt-2 mx-auto shadow-sm">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-white rounded-xl border border-gray-200 shadow-sm flex items-center justify-center">
+                    <div className="w-10 h-10 bg-white rounded-[10px] border border-gray-200/60 shadow-sm flex items-center justify-center">
                       <FileText className="w-5 h-5 text-gray-400" strokeWidth={1.5} />
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[13.5px] font-semibold text-gray-800 line-clamp-1 pr-4">Summary of the future of AI and its impact on the c...</span>
+                      <span className="text-[13.5px] font-semibold text-gray-800">Summary of the future of AI and its impact on the c...</span>
                       <span className="text-[12px] text-gray-400 font-medium">Text file.txt</span>
                     </div>
                   </div>
-                  <div className="w-7 h-7 rounded-full border border-gray-200 bg-white flex items-center justify-center mr-1">
-                    <ArrowUpRight className="w-3.5 h-3.5 text-gray-400" strokeWidth={2} />
+                  <div className="w-8 h-8 flex items-center justify-center mr-1">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
                   </div>
                 </motion.div>
 
-                {/* Grid Action Cards */}
-                <motion.div variants={itemVars} className="grid grid-cols-3 gap-3 mt-1">
-                  <GridActionCard icon={<Database className="w-4 h-4 text-blue-500" strokeWidth={2} />} title="Pipelines" subtitle="Link your min" />
-                  <GridActionCard icon={<Sparkles className="w-4 h-4 text-purple-500" strokeWidth={2} />} title="Magic Chat" subtitle="Link your min" />
-                  <GridActionCard icon={<MonitorPlay className="w-4 h-4 text-blue-400" strokeWidth={2} />} title="Studio" subtitle="Link your min" />
+                {/* Grid Action Items (Row with dividers) */}
+                <motion.div variants={itemVars} className="flex items-center justify-between w-full mt-4 pb-2 px-2">
+                  
+                  <div className="flex flex-col gap-4 flex-1">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50/50">
+                      <Database className="w-4 h-4 text-blue-500" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[14px] font-bold text-gray-800 tracking-tight">Pipelines</span>
+                      <span className="text-[12px] font-medium text-gray-400">Link your min</span>
+                    </div>
+                    <div className="w-7 h-7 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 shadow-sm mt-2">
+                      <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                    </div>
+                  </div>
+
+                  <VerticalDivider />
+
+                  <div className="flex flex-col gap-4 flex-1 pl-6">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-50/50">
+                      <Sparkles className="w-4 h-4 text-purple-500" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[14px] font-bold text-gray-800 tracking-tight">Magic Chat</span>
+                      <span className="text-[12px] font-medium text-gray-400">Link your min</span>
+                    </div>
+                    <div className="w-7 h-7 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 shadow-sm mt-2">
+                      <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                    </div>
+                  </div>
+
+                  <VerticalDivider />
+
+                  <div className="flex flex-col gap-4 flex-1 pl-6">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50/50">
+                      <svg className="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m14 7-6.5 6.5a2.12 2.12 0 0 0 0 3v0a2.12 2.12 0 0 0 3 0l6.5-6.5a2.12 2.12 0 0 0 0-3v0a2.12 2.12 0 0 0-3 0z"/><path d="M12 18h10"/><path d="m3 3 5 5"/></svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[14px] font-bold text-gray-800 tracking-tight">Studio</span>
+                      <span className="text-[12px] font-medium text-gray-400">Link your min</span>
+                    </div>
+                    <div className="w-7 h-7 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 shadow-sm mt-2">
+                      <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                    </div>
+                  </div>
+                  
                 </motion.div>
 
               </motion.div>
@@ -361,31 +402,22 @@ function NavItem({ icon, label, right, active = false }: { icon: React.ReactNode
 
 function ProcessingStep({ icon, text }: { icon: React.ReactNode, text: string }) {
   return (
-    <div className="flex items-center justify-between text-[13px] font-medium text-gray-500 py-1 group cursor-pointer hover:text-gray-700 transition-colors w-fit gap-2">
-      <div className="flex items-center gap-2.5 text-gray-400 group-hover:text-gray-600">
+    <div className="flex items-center justify-between text-[13px] font-medium text-gray-500 py-1 cursor-default w-fit gap-2">
+      <div className="flex items-center gap-2.5 text-gray-400">
         {icon}
         <span className="text-gray-500">{text}</span>
       </div>
-      <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-1 group-hover:opacity-100 transition-all translate-x-[-4px] group-hover:translate-x-0" strokeWidth={2} />
+      <ChevronRight className="w-3.5 h-3.5 text-gray-300" strokeWidth={2} />
     </div>
   );
 }
 
-function GridActionCard({ icon, title, subtitle }: { icon: React.ReactNode, title: string, subtitle: string }) {
+function VerticalDivider() {
   return (
-    <div className="bg-white border border-gray-200 rounded-[14px] p-4 flex flex-col justify-between h-32 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all cursor-pointer group relative">
-      <div className="flex flex-col gap-2">
-        <div className="w-7 h-7 rounded-[8px] bg-gray-50/50 flex items-center justify-center border border-gray-100/80">
-          {icon}
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[14px] font-semibold text-gray-800 tracking-tight">{title}</span>
-          <span className="text-[12px] font-medium text-gray-400 mt-0.5">{subtitle}</span>
-        </div>
-      </div>
-      <div className="w-6 h-6 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 group-hover:text-gray-800 group-hover:bg-gray-50 transition-colors shadow-sm self-start">
-        <ArrowUpRight className="w-3 h-3" strokeWidth={2} />
-      </div>
+    <div className="flex flex-col items-center self-stretch py-2 opacity-60">
+      <div className="w-1 h-1 rounded-full bg-gray-300" />
+      <div className="w-px flex-1 border-l border-dashed border-gray-300 my-1" />
+      <div className="w-1 h-1 rounded-full bg-gray-300" />
     </div>
   );
 }
