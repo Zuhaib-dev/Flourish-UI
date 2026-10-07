@@ -39,7 +39,7 @@ export default function AgentDashboard() {
       </div>
 
       {/* Main App Window Container (Simulating a desktop window) */}
-      <div className="w-full h-screen flex flex-col relative z-10 max-w-[1600px] border-x border-[#1e1e20]/50">
+      <div className="w-full h-screen flex flex-col relative z-10 max-w-[1600px]">
         
         {/* Top Navbar */}
         <header className="flex justify-between items-center px-6 py-4 w-full">
