@@ -126,7 +126,7 @@ A high-fidelity, 3-column workspace dashboard designed for podcast and content s
 ### 🕸️ [FlowAI Canvas](./flow-ai-canvas)
 An ultra-premium node-based visual workflow editor interface. Built with an intricate left sidebar, an interactive node library panel, and a beautifully designed dot-grid canvas with floating toolbars and a minimap.
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #f8f9fb; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #6b7280; font-weight: bold;">Preview coming soon</div>
+  <img src="./flow-ai-canvas/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.05);" alt="FlowAI Canvas Preview" />
 </div>
 
 ---
