@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html, body {
+  background-color: #111113;
+  color: #ededed;
+}
