@@ -1,7 +1,10 @@
 {
   "name": "agent-orchestration-dashboard",
   "version": "0.1.0",
+  "description": "A dark mode orchestrator dashboard for AI agents.",
+  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
   "private": true,
+  "keywords": ["react", "nextjs", "dashboard", "agents", "ai", "dark-mode", "flourish-ui"],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

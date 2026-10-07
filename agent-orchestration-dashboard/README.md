@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 Agent Orchestration Dashboard
 
-## Getting Started
+<div align="center">
+  <div style="width: 100%; height: 300px; background: #111113; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #27272a; display: flex; align-items: center; justify-content: center; font-family: monospace; color: #a1a1aa; font-weight: bold;">Preview coming soon</div>
+</div>
 
-First, run the development server:
+An ultra-premium, dark-mode orchestration dashboard designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate widget layouts.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The **Agent Orchestration Dashboard** is a highly detailed recreation of a macOS-style command center. It leverages a flat, shadowless aesthetic over a cinematic background, demonstrating complex layout masonry and data-dense widget rendering.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Cinematic Pixel-Art Integration**: Uses layered CSS gradients to seamlessly blend a cinematic pixel-art background image into the deep `#111113` dark mode canvas.
+- **Flat, Shadowless Design**: Uses strict border styling (`#27272a`) and background contrast instead of drop shadows to achieve a highly technical, modern look.
+- **Complex Agent Input Field**: A beautifully structured, multi-row input container featuring tabs (`New task`, `Running agents`), utility buttons (`evals`, `gpu`), and a distinctive red asterisk `Claude Code` badge.
+- **Data-Dense Widgets**: Includes handcrafted representations of Git activity (with a custom blue bar chart), box resource monitoring (with micro progress bars for CPU/Mem), and detailed Pull Request status lists.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 14 (App Router)
+- React 18
+- Tailwind CSS v4
+- Lucide React (Icons)

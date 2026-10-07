@@ -90,4 +90,12 @@ A hyper-minimal SaaS dashboard exploring architectural wireframe aesthetics, cus
 </div>
 
 ---
+
+### 🤖 [Agent Orchestration Dashboard](./agent-orchestration-dashboard)
+An ultra-premium, dark-mode command center designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate, flat widget layouts.
+<div align="center">
+  <div style="width: 100%; height: 300px; background: #111113; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #27272a; display: flex; align-items: center; justify-content: center; font-family: monospace; color: #a1a1aa; font-weight: bold;">Preview coming soon</div>
+</div>
+
+---
 *Built with room to grow. 🌱*

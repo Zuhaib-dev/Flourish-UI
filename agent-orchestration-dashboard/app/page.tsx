@@ -29,12 +29,13 @@ export default function AgentDashboard() {
           style={{ backgroundImage: "url('/background.jpg')" }}
         />
         {/* Gradients to blend the image into the dark background and darken the top */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#111113]/40 via-[#111113]/60 to-[#111113]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-transparent to-transparent h-[600px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#111113]/60 via-[#111113]/60 to-[#111113]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-[#111113]/50 to-transparent h-[600px]" />
+        <div className="absolute top-0 w-full h-[100px] bg-gradient-to-b from-[#111113]/90 to-transparent" />
       </div>
 
       {/* Main App Window Container (Simulating a desktop window) */}
-      <div className="w-full h-screen flex flex-col relative z-10 max-w-[1600px] border-x border-[#1e1e20]/50 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
+      <div className="w-full h-screen flex flex-col relative z-10 max-w-[1600px] border-x border-[#1e1e20]/50">
         
         {/* Top Navbar */}
         <header className="flex justify-between items-center px-6 py-4 w-full">
@@ -64,7 +65,7 @@ export default function AgentDashboard() {
           <h1 className="text-[20px] font-bold text-white mb-6 tracking-tight drop-shadow-md">What should your agents work on?</h1>
           
           {/* Complex Input Container */}
-          <div className="w-full max-w-[640px] bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] rounded-xl overflow-hidden shadow-2xl flex flex-col">
+          <div className="w-full max-w-[640px] bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] rounded-xl overflow-hidden flex flex-col">
             
             {/* Tabs Row */}
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#121214]/50">
@@ -331,7 +332,7 @@ export default function AgentDashboard() {
 
 function WidgetContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-full bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] rounded-[14px] p-5 shadow-lg">
+    <div className="w-full bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] rounded-[14px] p-5">
       {children}
     </div>
   );
