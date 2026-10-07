@@ -213,33 +213,28 @@ export default function FlowCanvas() {
           {/* SVG Edges Layer */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))' }}>
              {/* Webhook -> AI Agent */}
-             <path d="M 430 220 C 500 220, 500 220, 600 220" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 600 220 C 680 220, 680 220, 770 220" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* AI Agent -> Route by Type */}
-             {/* Out of AI Agent (880, 220) -> down and backward -> Route by Type (300, 470) */}
-             <path d="M 880 220 C 950 220, 950 340, 600 340 C 200 340, 200 470, 300 470" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 1050 220 C 1120 220, 1120 340, 770 340 C 370 340, 370 470, 470 470" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Urgent) -> Slack Alert */}
-             {/* Route out 1 (580, 470) -> Slack in (800, 370) */}
-             <path d="M 580 470 C 680 470, 700 370, 800 370" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 750 470 C 850 470, 870 370, 970 370" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Billing) -> Draft Reply */}
-             {/* Route out 2 (580, 494) -> Draft in (850, 520) */}
-             <path d="M 580 494 C 700 494, 700 520, 850 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 750 494 C 870 494, 870 520, 1020 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Other) -> Update Contact */}
-             {/* Route out 3 (580, 518) -> Contact in (800, 670) */}
-             <path d="M 580 518 C 680 518, 700 670, 800 670" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 750 518 C 850 518, 870 670, 970 670" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Draft Reply -> Send Reply */}
-             {/* Draft out (1130, 520) -> Send in (1250, 520) */}
-             <path d="M 1130 520 C 1180 520, 1180 520, 1250 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 1300 520 C 1360 520, 1360 520, 1420 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
           </svg>
 
           {/* Nodes Layer */}
           <div className="absolute inset-0 w-full h-full z-10">
              
-             <div className="absolute left-[150px] top-[150px]">
+             <div className="absolute left-[320px] top-[150px]">
                <WorkflowNode 
                  icon={<Globe className="w-4 h-4 text-blue-500" strokeWidth={2} />} 
                  title="Webhook Trigger" 
@@ -249,7 +244,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[600px] top-[150px]">
+             <div className="absolute left-[770px] top-[150px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
@@ -264,7 +259,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[300px] top-[400px]">
+             <div className="absolute left-[470px] top-[400px]">
                <WorkflowNode 
                  icon={<Shuffle className="w-4 h-4 text-orange-500" strokeWidth={2} />} 
                  title="Route by Type" 
@@ -279,7 +274,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[800px] top-[300px]">
+             <div className="absolute left-[970px] top-[300px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -299,7 +294,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[850px] top-[450px]">
+             <div className="absolute left-[1020px] top-[450px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -314,7 +309,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[800px] top-[600px]">
+             <div className="absolute left-[970px] top-[600px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -329,7 +324,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[1250px] top-[450px]">
+             <div className="absolute left-[1420px] top-[450px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
