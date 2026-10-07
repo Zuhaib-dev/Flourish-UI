@@ -188,27 +188,33 @@ export default function PromaWorkspace() {
               <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-5 w-full max-w-[620px] mx-auto">
                 
                 {/* File Attachments Block */}
-                <motion.div variants={itemVars} className="flex flex-col items-end w-full pt-2">
-                  <div className="relative w-[260px] h-16 z-10 -mb-3 mr-4">
+                <motion.div variants={itemVars} className="flex flex-col items-end w-full pt-4 pr-1">
+                  <div className="relative w-[240px] h-[52px] z-10 mb-2 mt-2 flex flex-col items-center">
+                    
                     {/* Background card (Project v2) */}
-                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white/60 backdrop-blur border border-gray-200/50 rounded-[12px] shadow-sm -translate-y-[10px] translate-x-[16px] flex items-center gap-3 px-3 z-0">
-                      <div className="w-7 h-7 bg-[#fff7ed] rounded-md flex items-center justify-center">
-                        <File className="w-3.5 h-3.5 text-orange-400" strokeWidth={2} />
+                    <div className="absolute top-0 w-[220px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-sm -translate-y-[10px] flex items-center gap-3 px-3 z-0">
+                      <div className="w-7 h-7 bg-[#fff7ed] rounded-[8px] flex items-center justify-center">
+                        <File className="w-3.5 h-3.5 text-orange-400" strokeWidth={2.5} />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[13px] font-semibold text-gray-800">Project v2</span>
                       </div>
                     </div>
+
                     {/* Foreground card (The Future of AI) */}
-                    <div className="absolute top-0 right-0 w-[240px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center gap-3 px-3 z-10">
-                      <div className="w-7 h-7 bg-[#f3e8ff] rounded-md flex items-center justify-center">
-                        <span className="text-[#a855f7] font-serif font-bold text-[13px]">B</span>
+                    <motion.div 
+                      whileHover={{ y: -2 }}
+                      className="relative w-[240px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center gap-3 px-3 z-10 cursor-pointer"
+                    >
+                      <div className="w-7 h-7 bg-[#f3e8ff] rounded-[8px] flex items-center justify-center">
+                        <span className="text-[#a855f7] font-serif font-bold text-[14px]">B</span>
                       </div>
-                      <div className="flex flex-col gap-0">
-                        <span className="text-[13px] font-semibold text-gray-800">The Future of AI</span>
-                        <span className="text-[11px] text-gray-400">blogspot.com/project...</span>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[13px] font-semibold text-gray-800 leading-none">The Future of AI</span>
+                        <span className="text-[11px] text-gray-400 leading-none mt-0.5">blogspot.com/project...</span>
                       </div>
-                    </div>
+                    </motion.div>
+                    
                   </div>
                 </motion.div>
 
