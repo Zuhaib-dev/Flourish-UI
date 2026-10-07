@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Search, 
   Bell, 
@@ -19,6 +20,9 @@ import {
 } from "lucide-react";
 
 export default function AgentDashboard() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   return (
     <div className="min-h-screen bg-[#111113] text-zinc-300 font-sans selection:bg-blue-500/30 overflow-hidden relative flex flex-col items-center">
       
@@ -61,11 +65,16 @@ export default function AgentDashboard() {
         </header>
 
         {/* Hero Area: Search / Input Box */}
-        <div className="flex flex-col items-center mt-[120px] mb-[60px] w-full px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center mt-[120px] mb-[60px] w-full px-4"
+        >
           <h1 className="text-[20px] font-bold text-white mb-6 tracking-tight drop-shadow-md">What should your agents work on?</h1>
           
           {/* Complex Input Container */}
-          <div className="w-full max-w-[640px] bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] rounded-xl overflow-hidden flex flex-col">
+          <div className="w-full max-w-[640px] bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] hover:border-[#3f3f46] transition-colors duration-500 rounded-xl overflow-hidden flex flex-col group">
             
             {/* Tabs Row */}
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#121214]/50">
@@ -102,8 +111,12 @@ export default function AgentDashboard() {
               </div>
               
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1.5 text-[12px] font-medium text-red-400 px-2">
-                  <span className="text-[16px] leading-none mb-1">*</span> Claude Code
+                <div className="flex items-center gap-1.5 text-[12px] font-medium text-red-400 px-2 group-hover:text-red-300 transition-colors">
+                  <motion.span 
+                    animate={{ opacity: [1, 0.4, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-[16px] leading-none mb-1"
+                  >*</motion.span> Claude Code
                 </div>
                 <button className="w-7 h-7 rounded-md bg-[#27272a] hover:bg-[#3f3f46] text-white flex items-center justify-center transition-colors">
                   <ArrowUp className="w-4 h-4" />
@@ -111,7 +124,7 @@ export default function AgentDashboard() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Widgets Grid Area */}
         <div className="flex-1 w-full max-w-[1200px] mx-auto px-6 overflow-y-auto no-scrollbar pb-10">
@@ -128,16 +141,20 @@ export default function AgentDashboard() {
             <div className="flex flex-col gap-4">
               
               {/* Working Now */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.1}>
                 <WidgetHeader icon={<Activity className="w-3.5 h-3.5 text-blue-400" />} title="Working now" count={1} />
-                <div className="mt-4 flex flex-col gap-1">
+                <div className="mt-4 flex flex-col gap-1 group">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-[14px] font-bold text-white flex items-center gap-2">
+                    <h3 className="text-[14px] font-bold text-white flex items-center gap-2 group-hover:text-blue-100 transition-colors">
                       <div className="w-3.5 h-3.5 border-2 border-blue-500 rounded-full border-t-transparent animate-spin" />
                       Tune the judge prompt
                     </h3>
                     <div className="flex items-center gap-1.5 text-[12px] text-zinc-400 font-mono">
-                      <span className="text-red-500">*</span> 2m 13s
+                      <motion.span 
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                        className="text-red-500"
+                      >*</motion.span> 2m 13s
                     </div>
                   </div>
                   <div className="pl-5 text-[11px] font-mono text-zinc-500 truncate mt-1">
@@ -147,7 +164,7 @@ export default function AgentDashboard() {
               </WidgetContainer>
 
               {/* Git Activity */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.2}>
                 <WidgetHeader icon={<BarChart2 className="w-3.5 h-3.5 text-zinc-400" />} title="Git activity" />
                 <div className="mt-4 flex items-end justify-between">
                   <div>
@@ -165,9 +182,16 @@ export default function AgentDashboard() {
                 {/* Bar Chart Recreation */}
                 <div className="mt-6 w-full h-[60px] flex items-end gap-[3px]">
                   {[3, 4, 3, 2, 10, 10, 9, 2, 4, 12, 14, 15, 12, 6].map((h, i) => (
-                    <div key={i} className="flex-1 flex flex-col justify-end items-center gap-2 h-full">
-                      <div className="w-full bg-blue-600 rounded-sm hover:bg-blue-400 transition-colors cursor-pointer" style={{ height: `${(h/15)*100}%` }} />
-                      <span className="text-[8px] font-mono text-zinc-600 uppercase">
+                    <div key={i} className="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
+                      <motion.div 
+                        initial={{ height: 0 }}
+                        animate={{ height: mounted ? `${(h/15)*100}%` : 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 + (i * 0.03), ease: [0.16, 1, 0.3, 1] }}
+                        className="w-full bg-[#2563eb] rounded-[2px] group-hover:bg-[#60a5fa] transition-colors cursor-pointer relative"
+                      >
+                        <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 blur-[4px] transition-opacity" />
+                      </motion.div>
+                      <span className="text-[8px] font-mono text-zinc-600 uppercase group-hover:text-zinc-300 transition-colors">
                         {['W','T','F','S','S','S','M','T','W','T','F','S','S','M'][i]}
                       </span>
                     </div>
@@ -176,7 +200,7 @@ export default function AgentDashboard() {
               </WidgetContainer>
 
               {/* Boxes */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.3}>
                 <WidgetHeader icon={<Server className="w-3.5 h-3.5 text-zinc-400" />} title="Boxes" />
                 <div className="mt-4 flex flex-col gap-3">
                   
@@ -232,16 +256,20 @@ export default function AgentDashboard() {
               </WidgetContainer>
 
               {/* Recent Areas */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.4}>
                 <WidgetHeader icon={<Zap className="w-3.5 h-3.5 text-zinc-400" />} title="Recent areas" />
-                <div className="mt-4 flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a]/50 transition-colors cursor-pointer group">
+                <div className="mt-4 flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a] transition-all cursor-pointer group hover:scale-[1.02]">
                   <div className="flex items-center gap-2 text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors">
-                    <GitBranch className="w-3.5 h-3.5 text-zinc-500" />
+                    <GitBranch className="w-3.5 h-3.5 text-zinc-500 group-hover:text-blue-400 transition-colors" />
                     shop / qa-deck
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] font-medium text-zinc-500">
-                    <div className="w-1.5 h-1.5 rounded-full bg-yellow-600" />
-                    devl <span className="opacity-50">now</span>
+                    <motion.div 
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-1.5 h-1.5 rounded-full bg-yellow-600" 
+                    />
+                    devl <span className="opacity-50 group-hover:opacity-100 transition-opacity">now</span>
                   </div>
                 </div>
               </WidgetContainer>
@@ -251,7 +279,7 @@ export default function AgentDashboard() {
             <div className="flex flex-col gap-4">
               
               {/* Pull Requests */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.15}>
                 <WidgetHeader icon={<GitPullRequest className="w-3.5 h-3.5 text-zinc-400" />} title="Pull requests" count={2} />
                 
                 <div className="mt-4 flex flex-col gap-5">
@@ -282,29 +310,29 @@ export default function AgentDashboard() {
               </WidgetContainer>
 
               {/* Running Services */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.25}>
                 <WidgetHeader icon={<Activity className="w-3.5 h-3.5 text-zinc-400" />} title="Running services" />
                 <div className="mt-4 flex flex-col gap-1.5">
                   <ServiceItem port=":3000" name="shop" type="node" />
                   <ServiceItem port=":3001" name="shop / checkout-fix" type="next dev" />
                   <ServiceItem port=":3002" name="shop / order-export" type="vite" />
-                  <div className="text-[12px] text-zinc-500 font-medium pl-2 pt-1 mt-1 cursor-pointer hover:text-zinc-300 transition-colors">
+                  <div className="text-[12px] text-zinc-500 font-medium pl-2 pt-1 mt-1 cursor-pointer hover:text-white transition-colors">
                     +5 more listening
                   </div>
                 </div>
               </WidgetContainer>
 
               {/* CI Failures */}
-              <WidgetContainer>
+              <WidgetContainer delay={0.35}>
                 <WidgetHeader icon={<XCircle className="w-3.5 h-3.5 text-zinc-400" />} title="CI failures" />
-                <div className="mt-4 flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a]/50 transition-colors cursor-pointer group">
+                <div className="mt-4 flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a] transition-all cursor-pointer group hover:scale-[1.02]">
                   <div className="flex items-center gap-2 text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                    <span className="font-bold text-white">e2e (chromium)</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-500 group-hover:shadow-[0_0_8px_rgba(239,68,68,0.6)] transition-shadow" />
+                    <span className="font-bold text-white group-hover:text-red-400 transition-colors">e2e (chromium)</span>
                     <span className="text-zinc-500 mx-1">·</span>
                     shop / me/ci-flake
                   </div>
-                  <div className="text-[11px] font-medium text-zinc-500">
+                  <div className="text-[11px] font-medium text-zinc-500 group-hover:text-red-400 transition-colors">
                     12m
                   </div>
                 </div>
@@ -330,11 +358,17 @@ export default function AgentDashboard() {
 // Helper Components
 // -------------------------------------------------------------
 
-function WidgetContainer({ children }: { children: React.ReactNode }) {
+function WidgetContainer({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) {
   return (
-    <div className="w-full bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] rounded-[14px] p-5">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: delay, ease: [0.16, 1, 0.3, 1] }}
+      className="w-full bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] hover:border-[#3f3f46] hover:bg-[#18181b] transition-all duration-300 rounded-[14px] p-5 relative group"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent rounded-[14px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       {children}
-    </div>
+    </motion.div>
   );
 }
 
@@ -352,13 +386,13 @@ function WidgetHeader({ icon, title, count }: { icon: React.ReactNode, title: st
 
 function PRItem({ icon, title, id, author, authorColor = "text-zinc-300" }: any) {
   return (
-    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a]/50 transition-colors cursor-pointer group">
+    <div className="flex items-center justify-between p-2 -mx-2 rounded-lg hover:bg-[#27272a] hover:px-3 transition-all duration-300 cursor-pointer group">
       <div className="flex items-center gap-3 overflow-hidden">
-        <div className="flex-shrink-0 w-4 flex justify-center">{icon}</div>
+        <div className="flex-shrink-0 w-4 flex justify-center group-hover:scale-110 transition-transform">{icon}</div>
         <span className="text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors truncate">{title}</span>
       </div>
       <div className="flex items-center gap-4 flex-shrink-0 ml-4">
-        <span className="text-[11px] font-mono text-zinc-500">{id}</span>
+        <span className="text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">{id}</span>
         <span className={`text-[12px] font-medium w-16 text-right truncate ${authorColor}`}>{author}</span>
       </div>
     </div>
@@ -367,12 +401,12 @@ function PRItem({ icon, title, id, author, authorColor = "text-zinc-300" }: any)
 
 function ServiceItem({ port, name, type }: any) {
   return (
-    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-[#27272a]/50 transition-colors cursor-pointer group">
+    <div className="flex items-center justify-between p-2 -mx-2 rounded-lg hover:bg-[#27272a] hover:px-3 transition-all duration-300 cursor-pointer group">
       <div className="flex items-center gap-4">
-        <span className="text-[13px] font-bold text-white font-mono w-12">{port}</span>
+        <span className="text-[13px] font-bold text-white font-mono w-12 group-hover:text-blue-400 transition-colors">{port}</span>
         <span className="text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors">{name}</span>
       </div>
-      <span className="text-[11px] font-medium text-zinc-500">{type}</span>
+      <span className="text-[11px] font-medium text-zinc-500 group-hover:text-zinc-400 transition-colors">{type}</span>
     </div>
   );
 }
