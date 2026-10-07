@@ -467,7 +467,7 @@ function ControlButton({ icon, active = false }: { icon: React.ReactNode, active
   );
 }
 
-function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width = 'w-[260px]' }: { 
+function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width = 'w-[280px]' }: { 
   icon: React.ReactNode, 
   title: string, 
   subtitle: string, 
@@ -476,7 +476,7 @@ function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width 
   width?: string
 }) {
   return (
-    <div className={`bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-3 flex flex-col gap-3 ${width} cursor-grab active:cursor-grabbing hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-shadow`}>
+    <div className={`bg-white/95 backdrop-blur-xl rounded-[14px] shadow-[0_8px_32px_rgba(0,0,0,0.06)] border border-white ring-1 ring-gray-200/50 p-3.5 flex flex-col gap-3.5 ${width} cursor-grab active:cursor-grabbing hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-shadow`}>
       <div className="flex items-center gap-3">
         <div className="w-7 h-7 rounded-md bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
           {icon}
