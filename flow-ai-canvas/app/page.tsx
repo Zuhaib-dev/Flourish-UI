@@ -213,43 +213,43 @@ export default function FlowCanvas() {
           {/* SVG Edges Layer */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))' }}>
              {/* Webhook -> AI Agent */}
-             <path d="M 500 210 C 530 210, 530 210, 560 210" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             <path d="M 430 220 C 500 220, 500 220, 600 220" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* AI Agent -> Route by Type */}
-             {/* Out of AI Agent (820, 210) -> down and backward -> Route by Type (390, 350) */}
-             <path d="M 820 210 C 880 210, 880 280, 600 280 C 320 280, 320 350, 390 350" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             {/* Out of AI Agent (880, 220) -> down and backward -> Route by Type (300, 470) */}
+             <path d="M 880 220 C 950 220, 950 340, 600 340 C 200 340, 200 470, 300 470" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Urgent) -> Slack Alert */}
-             {/* Route out 1 (650, 350) -> Slack in (680, 300) */}
-             <path d="M 650 350 C 665 350, 665 300, 680 300" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             {/* Route out 1 (580, 470) -> Slack in (800, 370) */}
+             <path d="M 580 470 C 680 470, 700 370, 800 370" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Billing) -> Draft Reply */}
-             {/* Route out 2 (650, 370) -> Draft in (710, 390) */}
-             <path d="M 650 374 C 680 374, 680 390, 710 390" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             {/* Route out 2 (580, 494) -> Draft in (850, 520) */}
+             <path d="M 580 494 C 700 494, 700 520, 850 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Other) -> Update Contact */}
-             {/* Route out 3 (650, 390) -> Contact in (680, 480) */}
-             <path d="M 650 398 C 665 398, 665 480, 680 480" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             {/* Route out 3 (580, 518) -> Contact in (800, 670) */}
+             <path d="M 580 518 C 680 518, 700 670, 800 670" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Draft Reply -> Send Reply */}
-             {/* Draft out (970, 390) -> Send in (1010, 380) */}
-             <path d="M 970 390 C 990 390, 990 380, 1010 380" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
+             {/* Draft out (1130, 520) -> Send in (1250, 520) */}
+             <path d="M 1130 520 C 1180 520, 1180 520, 1250 520" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
           </svg>
 
           {/* Nodes Layer */}
           <div className="absolute inset-0 w-full h-full z-10">
              
-             <div className="absolute left-[240px] top-[140px]">
+             <div className="absolute left-[150px] top-[150px]">
                <WorkflowNode 
                  icon={<Globe className="w-4 h-4 text-blue-500" strokeWidth={2} />} 
                  title="Webhook Trigger" 
                  subtitle="Triggered by HTTP requests"
                  outputs={[{ label: 'Trigger', color: 'bg-blue-500' }]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
 
-             <div className="absolute left-[560px] top-[140px]">
+             <div className="absolute left-[600px] top-[150px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
@@ -260,11 +260,11 @@ export default function FlowCanvas() {
                  subtitle="OpenAI GPT- 5.5 2 tools"
                  inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Output', color: 'bg-blue-500' }]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
 
-             <div className="absolute left-[390px] top-[280px]">
+             <div className="absolute left-[300px] top-[400px]">
                <WorkflowNode 
                  icon={<Shuffle className="w-4 h-4 text-orange-500" strokeWidth={2} />} 
                  title="Route by Type" 
@@ -275,11 +275,11 @@ export default function FlowCanvas() {
                    { label: 'Billing', color: 'bg-blue-500' },
                    { label: 'Other', color: 'bg-gray-400' }
                  ]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
 
-             <div className="absolute left-[680px] top-[230px]">
+             <div className="absolute left-[800px] top-[300px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -299,7 +299,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[710px] top-[320px]">
+             <div className="absolute left-[850px] top-[450px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -310,11 +310,11 @@ export default function FlowCanvas() {
                  subtitle="Anthropic Claude completion"
                  inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Output', color: 'bg-blue-500' }]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
 
-             <div className="absolute left-[680px] top-[410px]">
+             <div className="absolute left-[800px] top-[600px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -325,11 +325,11 @@ export default function FlowCanvas() {
                  subtitle="Read/write HubSpot CRM data"
                  inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Output', color: 'bg-gray-400' }]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
 
-             <div className="absolute left-[1010px] top-[310px]">
+             <div className="absolute left-[1250px] top-[450px]">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -340,7 +340,7 @@ export default function FlowCanvas() {
                  subtitle="Send or read Gmail emails"
                  inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Send', color: 'bg-gray-400' }]}
-                 width="w-[260px]"
+                 width="w-[280px]"
                />
              </div>
           </div>
