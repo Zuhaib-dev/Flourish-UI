@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { 
   Sun, 
   Calendar, 
@@ -17,6 +18,23 @@ import {
 } from "lucide-react";
 
 export default function PostPlanner() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  // Animation variants
+  const containerVars = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVars = {
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
+
   return (
     <div className="min-h-screen bg-[#f8f9fb] text-[#111827] font-sans selection:bg-black selection:text-white pb-20">
       
@@ -24,16 +42,16 @@ export default function PostPlanner() {
       <header className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
         
         {/* Logo area */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-[#111827] rounded-[8px] flex items-center justify-center">
-            {/* Tulip / Leaf Logo Mock */}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 22c0-5-5-8-5-12a5 5 0 0 1 10 0c0 4-5 7-5 12Z"/>
-              <path d="M12 22V10"/>
-              <path d="M7 10h10"/>
+        <div className="flex items-center gap-3 group cursor-pointer">
+          <div className="w-8 h-8 bg-[#111827] rounded-[8px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
+            {/* Custom elegant solid lotus logo */}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+              <path d="M12 22C12 22 17 18 17 11C17 6 12 2 12 2C12 2 7 6 7 11C7 18 12 22 12 22Z" />
+              <path d="M10 19C10 19 3 16 3 10C3 5 7 3 7 3C7 3 9 7 9 12C9 15 10 19 10 19Z" />
+              <path d="M14 19C14 19 21 16 21 10C21 5 17 3 17 3C17 3 15 7 15 12C15 15 14 19 14 19Z" />
             </svg>
           </div>
-          <span className="font-bold text-[15px] tracking-tight">Post planner</span>
+          <span className="font-bold text-[15px] tracking-tight group-hover:text-gray-600 transition-colors">Post planner</span>
         </div>
 
         {/* Center Tabs */}
@@ -60,8 +78,10 @@ export default function PostPlanner() {
 
       <main className="max-w-[1200px] mx-auto px-8 pt-8">
         
-        {/* Header Section */}
-        <div className="flex flex-col gap-4 mb-8">
+        <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"}>
+          
+          {/* Header Section */}
+          <motion.div variants={itemVars} className="flex flex-col gap-4 mb-8">
           <div className="flex items-center gap-2">
             <span className="bg-gray-100 text-gray-600 text-[12px] font-medium px-3 py-1 rounded-full">October 2026</span>
             <span className="bg-gray-100 text-gray-600 text-[12px] font-medium px-3 py-1 rounded-full">This month</span>
@@ -91,62 +111,60 @@ export default function PostPlanner() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Dashboard Cards Row */}
-        <div className="grid grid-cols-2 gap-6 mb-8">
-          
-          {/* Card 1: Slots filled */}
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
-            <div>
+          {/* Dashboard Cards Row */}
+          <motion.div variants={itemVars} className="grid grid-cols-2 gap-6 mb-8">
+            
+            {/* Card 1: Slots filled */}
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-gray-50 rounded-md">
+                      <FileText className="w-4 h-4 text-gray-400" />
+                    </div>
+                    <h2 className="text-[14px] font-semibold text-gray-800">Slots filled</h2>
+                  </div>
+                  <span className="text-[13px] text-gray-400">this month</span>
+                </div>
+
+                <div className="flex items-baseline justify-between mb-4">
+                  <div className="flex items-baseline">
+                    <span className="text-[36px] font-semibold leading-none">7</span>
+                    <span className="text-[28px] text-gray-400 font-medium leading-none">/62</span>
+                  </div>
+                  <span className="text-[12px] font-medium text-gray-400">11% of your rhythm</span>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="h-[22px] w-full bg-gray-100 rounded-md flex gap-[2px] mb-6 overflow-hidden p-[2px]">
+                  <motion.div initial={{ width: 0 }} animate={{ width: '4%' }} transition={{ duration: 1, delay: 0.5 }} className="h-full bg-emerald-500 rounded-sm" />
+                  <motion.div initial={{ width: 0 }} animate={{ width: '5%' }} transition={{ duration: 1, delay: 0.6 }} className="h-full bg-[#111827] rounded-sm" />
+                  <motion.div initial={{ width: 0 }} animate={{ width: '2%' }} transition={{ duration: 1, delay: 0.7 }} className="h-full bg-orange-400 rounded-sm" />
+                </div>
+              </div>
+
+              {/* Legend */}
+              <div className="grid grid-cols-2 gap-y-3">
+                <LegendItem color="bg-emerald-500" label="Posted" value="2" />
+                <LegendItem color="bg-[#111827]" label="Ready" value="4" />
+                <LegendItem color="bg-orange-400" label="Draft" value="1" />
+                <LegendItem color="bg-gray-300" label="Idea" value="0" />
+              </div>
+            </div>
+
+            {/* Card 2: Open slots */}
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow duration-300">
               <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-2">
                   <div className="p-1.5 bg-gray-50 rounded-md">
-                    <FileText className="w-4 h-4 text-gray-400" />
+                    <CalendarDays className="w-4 h-4 text-gray-400" />
                   </div>
-                  <h2 className="text-[14px] font-semibold">Slots filled</h2>
+                  <h2 className="text-[14px] font-semibold text-gray-800">Open slots</h2>
                 </div>
-                <span className="text-[13px] text-gray-400">this month</span>
+                <span className="text-[13px] text-gray-400">49 to plan</span>
               </div>
-
-              <div className="flex items-baseline justify-between mb-4">
-                <div className="flex items-baseline">
-                  <span className="text-[36px] font-semibold leading-none">7</span>
-                  <span className="text-[28px] text-gray-400 font-medium leading-none">/62</span>
-                </div>
-                <span className="text-[12px] font-medium text-gray-400">11% of your rhythm</span>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="h-[22px] w-full bg-gray-100 rounded-md overflow-hidden flex mb-6 p-1">
-                <div className="h-full bg-emerald-500 rounded-sm" style={{ width: '4%' }} />
-                <div className="h-full bg-emerald-500 opacity-0" style={{ width: '0.5%' }} /> {/* gap */}
-                <div className="h-full bg-[#111827] rounded-sm" style={{ width: '5%' }} />
-                <div className="h-full bg-[#111827] opacity-0" style={{ width: '0.5%' }} /> {/* gap */}
-                <div className="h-full bg-orange-400 rounded-sm" style={{ width: '2%' }} />
-              </div>
-            </div>
-
-            {/* Legend */}
-            <div className="grid grid-cols-2 gap-y-3">
-              <LegendItem color="bg-emerald-500" label="Posted" value="2" />
-              <LegendItem color="bg-[#111827]" label="Ready" value="4" />
-              <LegendItem color="bg-orange-400" label="Draft" value="1" />
-              <LegendItem color="bg-gray-300" label="Idea" value="0" />
-            </div>
-          </div>
-
-          {/* Card 2: Open slots */}
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col">
-            <div className="flex justify-between items-center mb-6">
-              <div className="flex items-center gap-2">
-                <div className="p-1.5 bg-gray-50 rounded-md">
-                  <CalendarDays className="w-4 h-4 text-gray-400" />
-                </div>
-                <h2 className="text-[14px] font-semibold">Open slots</h2>
-              </div>
-              <span className="text-[13px] text-gray-400">49 to plan</span>
-            </div>
 
             <div className="flex flex-col">
               <OpenSlotRow date="Tue, Oct 6" tags={[{ color: "bg-blue-500", label: "Visual" }]} />
@@ -155,25 +173,25 @@ export default function PostPlanner() {
               <OpenSlotRow date="Fri, Oct 9" tags={[{ color: "bg-blue-500", label: "Visual" }, { color: "bg-orange-400", label: "Business" }]} border={false} />
             </div>
             
-            <div className="mt-4 pt-4 border-t border-gray-50">
-              <span className="text-[12px] font-medium text-gray-400 bg-gray-50 px-2 py-1 rounded-md">+22 more days</span>
+              <div className="mt-4 pt-4 border-t border-gray-50">
+                <span className="text-[12px] font-medium text-gray-400 bg-gray-50 px-2 py-1 rounded-md cursor-pointer hover:bg-gray-100 transition-colors">+22 more days</span>
+              </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Pillars Row */}
-        <div className="flex items-center gap-4 mb-4 px-2">
-          <PillarBadge color="bg-blue-500" label="Visual" fraction="2/31" />
-          <PillarBadge color="bg-purple-500" label="Educational" fraction="2/17" />
-          <PillarBadge color="bg-orange-400" label="Business" fraction="1/9" />
-          <PillarBadge color="bg-pink-500" label="Personal" fraction="1/5" />
-          <PillarBadge color="bg-gray-300" label="No pillar" fraction="1" />
-        </div>
+          {/* Pillars Row */}
+          <motion.div variants={itemVars} className="flex items-center gap-4 mb-4 px-2">
+            <PillarBadge color="bg-blue-500" label="Visual" fraction="2/31" />
+            <PillarBadge color="bg-purple-500" label="Educational" fraction="2/17" />
+            <PillarBadge color="bg-orange-400" label="Business" fraction="1/9" />
+            <PillarBadge color="bg-pink-500" label="Personal" fraction="1/5" />
+            <PillarBadge color="bg-gray-300" label="No pillar" fraction="1" />
+          </motion.div>
 
-        {/* Calendar Grid */}
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
-          {/* Days Header */}
-          <div className="grid grid-cols-7 border-b border-gray-100">
+          {/* Calendar Grid */}
+          <motion.div variants={itemVars} className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300">
+            {/* Days Header */}
+            <div className="grid grid-cols-7 border-b border-gray-100 bg-gray-50/50">
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
               <div key={day} className="px-4 py-3 text-[12px] font-semibold text-gray-400 border-r border-gray-100 last:border-0">
                 {day}
@@ -222,8 +240,9 @@ export default function PostPlanner() {
             <CalendarCell date="17" rings={['border-pink-500', 'border-blue-500']} />
             <CalendarCell date="18" rings={['border-purple-500', 'border-blue-500']} />
             
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
       </main>
     </div>
@@ -245,20 +264,20 @@ function NavTab({ icon, label, active = false }: { icon: React.ReactNode, label:
 
 function LegendItem({ color, label, value }: { color: string, label: string, value: string }) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between group cursor-default">
       <div className="flex items-center gap-2">
-        <div className={`w-1.5 h-1.5 rounded-full ${color}`} />
-        <span className="text-[13px] text-gray-500 font-medium">{label}</span>
+        <div className={`w-1.5 h-1.5 rounded-full ${color} group-hover:scale-150 transition-transform`} />
+        <span className="text-[13px] text-gray-500 font-medium group-hover:text-gray-800 transition-colors">{label}</span>
       </div>
-      <span className="text-[13px] font-bold">{value}</span>
+      <span className="text-[13px] font-bold group-hover:text-gray-900 transition-colors">{value}</span>
     </div>
   );
 }
 
 function OpenSlotRow({ date, tags, border = true }: { date: string, tags: { color: string, label: string }[], border?: boolean }) {
   return (
-    <div className={`flex items-center justify-between py-3 ${border ? 'border-b border-gray-100' : ''}`}>
-      <span className="text-[13px] font-bold w-24">{date}</span>
+    <div className={`flex items-center justify-between py-3 group cursor-pointer hover:px-2 -mx-2 transition-all duration-300 ${border ? 'border-b border-gray-50' : ''}`}>
+      <span className="text-[13px] font-bold w-24 group-hover:text-gray-600 transition-colors">{date}</span>
       <div className="flex items-center gap-3 flex-1 px-4">
         {tags.map((tag, i) => (
           <div key={i} className="flex items-center gap-1.5">
@@ -267,16 +286,16 @@ function OpenSlotRow({ date, tags, border = true }: { date: string, tags: { colo
           </div>
         ))}
       </div>
-      <ChevronRightSmall className="w-4 h-4 text-gray-300" />
+      <ChevronRightSmall className="w-4 h-4 text-gray-300 group-hover:text-gray-800 group-hover:translate-x-1 transition-all" />
     </div>
   );
 }
 
 function PillarBadge({ color, label, fraction }: { color: string, label: string, fraction: string }) {
   return (
-    <div className="flex items-center gap-1.5 text-[12px] font-semibold">
-      <div className={`w-1.5 h-1.5 rounded-full ${color}`} />
-      <span className="text-gray-600">{label}</span>
+    <div className="flex items-center gap-1.5 text-[12px] font-semibold cursor-pointer group hover:bg-white hover:shadow-sm px-2 py-1 -mx-2 rounded-md transition-all">
+      <div className={`w-1.5 h-1.5 rounded-full ${color} group-hover:scale-125 transition-transform`} />
+      <span className="text-gray-600 group-hover:text-gray-900 transition-colors">{label}</span>
       <span className="text-gray-400">{fraction}</span>
     </div>
   );
@@ -305,7 +324,7 @@ function CalendarCell({
   bars?: string[];
 }) {
   return (
-    <div className="border-r border-b border-gray-100 min-h-[140px] p-3 flex flex-col justify-between hover:bg-gray-50 transition-colors cursor-pointer group">
+    <div className="border-r border-b border-gray-100/80 min-h-[140px] p-3 flex flex-col justify-between hover:bg-gray-50/80 hover:shadow-[inset_0_0_0_1px_rgba(229,231,235,1)] transition-all cursor-pointer group">
       
       {/* Date & Rings */}
       <div className="flex flex-col gap-2">
