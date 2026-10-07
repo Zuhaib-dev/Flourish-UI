@@ -99,8 +99,8 @@ export default function FlowCanvas() {
              <div className="flex items-center gap-2.5">
                 <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Tanjim&backgroundColor=f3f4f6" alt="User" className="w-8 h-8 rounded-full border border-gray-200" />
                 <div className="flex flex-col">
-                  <span className="text-[12px] font-bold text-gray-900 leading-tight">Tanjim Islam</span>
-                  <span className="text-[10px] font-medium text-gray-500">tanjim@gr8rstudio.com</span>
+                  <span className="text-[12px] font-bold text-gray-900 leading-tight">Zuhaib Rashid</span>
+                  <span className="text-[10px] font-medium text-gray-500">zuhaibrashid01@gmail.com</span>
                 </div>
              </div>
              <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-700" strokeWidth={2} />
