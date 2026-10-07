@@ -1,7 +1,7 @@
 # 🤖 Agent Orchestration Dashboard
 
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #111113; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #27272a; display: flex; align-items: center; justify-content: center; font-family: monospace; color: #a1a1aa; font-weight: bold;">Preview coming soon</div>
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" alt="Agent Orchestration Dashboard" />
 </div>
 
 An ultra-premium, dark-mode orchestration dashboard designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate widget layouts.
