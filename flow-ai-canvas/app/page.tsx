@@ -213,27 +213,27 @@ export default function FlowCanvas() {
           {/* SVG Edges Layer */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))' }}>
              {/* Webhook -> AI Agent */}
-             <path d="M 500 178 C 530 178, 530 178, 560 178" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             <path d="M 500 210 C 530 210, 530 210, 560 210" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* AI Agent -> Route by Type */}
-             {/* Path: out of AI Agent (820, 178), down and left, into Route by Type (390, 335) */}
-             <path d="M 820 178 C 880 178, 880 250, 600 250 C 320 250, 320 335, 390 335" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             {/* Out of AI Agent (820, 210) -> down and backward -> Route by Type (390, 350) */}
+             <path d="M 820 210 C 880 210, 880 280, 600 280 C 320 280, 320 350, 390 350" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Urgent) -> Slack Alert */}
-             {/* Route out (650, 310) -> Slack in (680, 275) */}
-             <path d="M 650 310 C 665 310, 665 275, 680 275" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             {/* Route out 1 (650, 350) -> Slack in (680, 300) */}
+             <path d="M 650 350 C 665 350, 665 300, 680 300" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Billing) -> Draft Reply */}
-             {/* Route out (650, 335) -> Draft in (710, 365) */}
-             <path d="M 650 335 C 680 335, 680 365, 710 365" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             {/* Route out 2 (650, 370) -> Draft in (710, 390) */}
+             <path d="M 650 374 C 680 374, 680 390, 710 390" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Route (Other) -> Update Contact */}
-             {/* Route out (650, 360) -> Contact in (680, 455) */}
-             <path d="M 650 360 C 665 360, 665 455, 680 455" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             {/* Route out 3 (650, 390) -> Contact in (680, 480) */}
+             <path d="M 650 398 C 665 398, 665 480, 680 480" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
              
              {/* Draft Reply -> Send Reply */}
-             {/* Draft out (970, 365) -> Send in (1010, 355) */}
-             <path d="M 970 365 C 990 365, 990 355, 1010 355" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+             {/* Draft out (970, 390) -> Send in (1010, 380) */}
+             <path d="M 970 390 C 990 390, 990 380, 1010 380" fill="none" stroke="#cbd5e1" strokeWidth="2.5" />
           </svg>
 
           {/* Nodes Layer */}
@@ -493,7 +493,7 @@ function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width 
           <div className="flex justify-between w-full pt-2">
             <div className="flex flex-col gap-2">
               {inputs.map((input, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] font-semibold text-gray-500 relative h-3">
+                <div key={i} className="flex items-center gap-2 text-[11px] font-semibold text-gray-500 relative min-h-[16px]">
                   <div className={`absolute top-1/2 -translate-y-1/2 -left-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${input.color} shadow-sm z-10`} />
                   <span>{input.label}</span>
                 </div>
@@ -501,7 +501,7 @@ function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width 
             </div>
             <div className="flex flex-col gap-2 items-end text-right">
               {outputs.map((output, i) => (
-                <div key={i} className="flex items-center justify-end gap-2 text-[11px] font-semibold text-gray-500 relative h-3">
+                <div key={i} className="flex items-center justify-end gap-2 text-[11px] font-semibold text-gray-500 relative min-h-[16px]">
                   <span>{output.label}</span>
                   <div className={`absolute top-1/2 -translate-y-1/2 -right-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${output.color} shadow-sm z-10`} />
                 </div>
