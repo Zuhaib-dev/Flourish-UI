@@ -1,7 +1,7 @@
 # 🪐 Ink Orbit Hero
 
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #e2e3df; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #6b7280; font-weight: bold;">Preview coming soon</div>
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ink Orbit Hero Preview" />
 </div>
 
 A stunning hero section featuring a generative 3D ink sculpture that responds to drag, tilt, and click gestures. Built entirely using HTML5 Canvas and React with zero external dependencies.
