@@ -44,11 +44,20 @@ async function getContributions(username: string) {
 export default async function Demo() {
   const data = await getContributions("zuhaib-dev");
   const endDate = data && data.length > 0 ? data[data.length - 1].date : undefined;
+  const total = data ? data.reduce((sum, day) => sum + day.count, 0) : 0;
 
   return (
     <div className="min-h-screen w-full bg-background px-4 py-10 sm:px-8 flex items-center justify-center">
       <div className="mx-auto w-full max-w-[980px]">
-        <ContributionSkyline data={data} endDate={endDate} />
+        <ContributionSkyline 
+          data={data} 
+          endDate={endDate}
+          title={
+            <>
+              <span className="font-semibold tabular-nums">{total.toLocaleString()}</span> contributions in the last year by <span className="font-semibold">Zuhaib Rashid</span>
+            </>
+          }
+        />
       </div>
     </div>
   );

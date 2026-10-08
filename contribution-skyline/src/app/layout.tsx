@@ -13,9 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Contribution Skyline - UIMIX",
-  description: "A GitHub-style contribution heat map that seamlessly transforms into an isometric 3D skyline via HTML5 Canvas.",
-  authors: [{ name: "UIMIX" }],
+  title: "Zuhaib Rashid's GitHub Skyline",
+  description: "A gorgeous 3D isometric GitHub contribution skyline for Zuhaib Rashid (@zuhaib-dev).",
+  keywords: ["GitHub", "Contributions", "Skyline", "3D", "Canvas", "React", "Zuhaib Rashid", "zuhaib-dev"],
+  authors: [{ name: "Zuhaib Rashid" }],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
