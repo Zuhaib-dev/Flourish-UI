@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Info, ArrowLeft, X } from "lucide-react";
+import { Check, Info, ArrowLeft, X, Layers, Globe, Zap, Hexagon, Sparkles, Brain, Bot } from "lucide-react";
 
 export default function QuadrantSetup() {
   return (
@@ -15,7 +15,8 @@ export default function QuadrantSetup() {
 
       {/* Header */}
       <header className="relative z-10 flex justify-between items-center w-full max-w-[900px] mx-auto mb-10 px-2 mt-2">
-        <div className="text-[26px] font-bold text-gray-800 tracking-tight">
+        <div className="text-[24px] font-extrabold text-gray-900 tracking-tight flex items-center gap-2">
+          <Layers className="w-6 h-6 text-indigo-600" />
           Quadrant
         </div>
         <button className="bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-[6px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] text-[13px] font-semibold text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors">
@@ -106,12 +107,12 @@ export default function QuadrantSetup() {
                <p className="text-[13px] text-[#71717a] mb-4">Choose which AI models to use for your prompts. You can select multiple models.</p>
                
                <div className="grid grid-cols-2 gap-3">
-                 <ModelCard name="Wordpress" active={false} icon={<span className="w-[22px] h-[22px] bg-blue-600 text-white flex items-center justify-center rounded-full text-[11px] font-bold">W</span>} />
-                 <ModelCard name="OpenAI" active={true} icon={<span className="w-5 h-5 flex items-center justify-center text-black"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10H12V2z"/></svg></span>} />
-                 <ModelCard name="Claude" active={true} icon={<span className="w-5 h-5 text-[#d97757] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z"/></svg></span>} />
-                 <ModelCard name="Perplexity" active={true} icon={<span className="w-5 h-5 text-teal-500 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="4" y="4" width="16" height="16" rx="2"/></svg></span>} />
-                 <ModelCard name="Gemini" active={true} icon={<span className="w-5 h-5 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="#4285F4"/></svg></span>} />
-                 <ModelCard name="LLaMA" active={false} icon={<span className="w-5 h-5 text-blue-600 flex items-center justify-center font-bold text-[18px]">∞</span>} />
+                 <ModelCard name="Wordpress" active={false} icon={<Globe className="w-4 h-4 text-gray-500" />} />
+                 <ModelCard name="OpenAI" active={true} icon={<Bot className="w-4 h-4 text-black" />} />
+                 <ModelCard name="Claude" active={true} icon={<Zap className="w-4 h-4 text-[#d97757]" />} />
+                 <ModelCard name="Perplexity" active={true} icon={<Hexagon className="w-4 h-4 text-teal-500" />} />
+                 <ModelCard name="Gemini" active={true} icon={<Sparkles className="w-4 h-4 text-indigo-500" />} />
+                 <ModelCard name="LLaMA" active={false} icon={<Brain className="w-4 h-4 text-blue-600" />} />
                </div>
              </div>
 
