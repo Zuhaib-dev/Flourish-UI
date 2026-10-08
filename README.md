@@ -161,5 +161,5 @@ A dark, cyber-themed animated hero component featuring Unicorn Studio background
 ### 🎬 [Prisma Hero](./prisma-hero)
 A dark, atmospheric hero component featuring a full-bleed background video and framer-motion text pull-up effects.
 <div align="center">
-  <div style="width: 100%; height: 300px; background: #e2e3df; border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #6b7280; font-weight: bold;">Preview coming soon</div>
+  <img src="./prisma-hero/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Prisma Hero" />
 </div>
