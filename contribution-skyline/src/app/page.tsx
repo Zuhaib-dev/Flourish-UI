@@ -48,7 +48,7 @@ export default async function Demo() {
 
   return (
     <div className="min-h-screen w-full bg-background px-4 py-10 sm:px-8 flex items-center justify-center">
-      <div className="mx-auto w-full max-w-[980px]">
+      <div className="mx-auto w-full max-w-245">
         <ContributionSkyline 
           data={data} 
           endDate={endDate}

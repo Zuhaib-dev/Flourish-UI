@@ -14,22 +14,22 @@ export default function QuadrantSetup() {
       <div className="absolute inset-0 bg-[#e4dfd2]/30 backdrop-blur-[1px]" />
 
       {/* Header */}
-      <header className="relative z-10 flex justify-between items-center w-full max-w-[900px] mx-auto mb-10 px-2 mt-2">
-        <div className="text-[28px] font-extrabold tracking-tight font-[family-name:var(--font-outfit)] bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+      <header className="relative z-10 flex justify-between items-center w-full max-w-225 mx-auto mb-10 px-2 mt-2">
+        <div className="text-[28px] font-extrabold tracking-tight font-(family-name:--font-outfit) bg-clip-text text-transparent bg-linear-to-r from-gray-900 to-gray-600">
           Quadrant
         </div>
-        <button className="bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-[6px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] text-[13px] font-semibold text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors">
+        <button className="bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-md shadow-[0_2px_4px_rgba(0,0,0,0.05)] text-[13px] font-semibold text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors">
           Discard
         </button>
       </header>
 
       {/* Main Card */}
-      <main className="relative z-10 flex-1 w-full max-w-[900px] mx-auto bg-white rounded-[12px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-[600px] mb-8">
+      <main className="relative z-10 flex-1 w-full max-w-225 mx-auto bg-white rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-150 mb-8">
         
         {/* Left Sidebar */}
-        <div className="w-[280px] bg-[#f1f0ec] p-8 pr-6 shrink-0 flex flex-col">
+        <div className="w-70 bg-[#f1f0ec] p-8 pr-6 shrink-0 flex flex-col">
            <h2 className="text-[#a1a1aa] text-[14px] font-medium mb-1">Create new workspace,</h2>
-           <h1 className="text-[20px] font-medium text-gray-800 leading-[1.25] mb-10 pr-2">
+           <h1 className="text-[20px] font-medium text-gray-800 leading-tight mb-10 pr-2">
              Tell us about your brand and website
            </h1>
            
@@ -67,7 +67,7 @@ export default function QuadrantSetup() {
 
         {/* Right Content */}
         <div className="flex-1 px-10 py-8 overflow-y-auto bg-white border-l border-gray-100">
-           <div className="max-w-[500px]">
+           <div className="max-w-125">
              
              {/* Add Topics */}
              <div className="mb-7">
@@ -95,7 +95,7 @@ export default function QuadrantSetup() {
                <h3 className="text-[14px] font-semibold text-gray-900 mb-0.5 flex gap-1">Select Regions <span className="text-gray-500">*</span></h3>
                <p className="text-[13px] text-[#71717a] mb-3">Choose target regions for your prompts. You can select multiple countries or global.</p>
                
-               <div className="border border-[#e4e4e7] rounded-lg p-2 flex items-center min-h-[46px] shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+               <div className="border border-[#e4e4e7] rounded-lg p-2 flex items-center min-h-11.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
                  <Chip text="Worldwide" />
                </div>
              </div>
@@ -123,7 +123,7 @@ export default function QuadrantSetup() {
                <div className="flex items-center gap-2 mb-5">
                  <span className="text-[13px] text-gray-700 font-medium">Advanced options</span>
                  <Info className="w-3.5 h-3.5 text-gray-400" />
-                 <div className="w-8 h-4.5 bg-[#1e1e1e] rounded-full p-[2px] flex justify-end cursor-pointer ml-1 shadow-inner">
+                 <div className="w-8 h-4.5 bg-[#1e1e1e] rounded-full p-0.5 flex justify-end cursor-pointer ml-1 shadow-inner">
                    <div className="w-3.5 h-3.5 bg-white rounded-full shadow-sm" />
                  </div>
                </div>
@@ -135,7 +135,7 @@ export default function QuadrantSetup() {
                </div>
 
                {/* Info Box */}
-               <div className="bg-[#f6f7f5] rounded-[8px] p-5 text-[12px] text-[#52525b] leading-[1.6]">
+               <div className="bg-[#f6f7f5] rounded-lg p-5 text-[12px] text-[#52525b] leading-[1.6]">
                  <p className="mb-3">
                    Total prompts to generate: 1 regions × 5 topics × 20 prompts per topic-region = 100 prompts.
                  </p>
@@ -196,7 +196,7 @@ function ModelCard({ name, active, icon }: { name: string, active: boolean, icon
   return (
     <div 
       className={`
-        flex items-center gap-3 px-3.5 py-2.5 rounded-[8px] border transition-all cursor-pointer
+        flex items-center gap-3 px-3.5 py-2.5 rounded-lg border transition-all cursor-pointer
         ${active 
           ? 'bg-white border-[#e4e4e7] shadow-[0_1px_3px_rgba(0,0,0,0.04)]' 
           : 'bg-[#f4f4f5] border-transparent text-[#71717a]'

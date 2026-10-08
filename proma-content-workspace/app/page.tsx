@@ -50,7 +50,7 @@ export default function PromaWorkspace() {
     <div className="flex h-screen w-full bg-white text-[#111827] font-sans overflow-hidden selection:bg-emerald-100">
       
       {/* Sidebar */}
-      <aside className="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#fcfcfc] border-r border-gray-100/60">
+      <aside className="w-60 shrink-0 flex flex-col h-full bg-[#fcfcfc] border-r border-gray-100/60">
         
         {/* Logo */}
         <div className="px-5 pt-6 pb-4 flex items-center justify-between">
@@ -58,7 +58,7 @@ export default function PromaWorkspace() {
             <motion.div 
               whileHover={{ rotate: 180, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="w-[22px] h-[22px] bg-gradient-to-tr from-gray-900 to-gray-800 rounded-[6px] flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.12)] cursor-pointer"
+              className="w-5.5 h-5.5 bg-linear-to-tr from-gray-900 to-gray-800 rounded-md flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.12)] cursor-pointer"
             >
               {/* Proma stylized logo */}
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -74,11 +74,11 @@ export default function PromaWorkspace() {
 
         {/* Main Nav */}
         <div className="px-3 py-2 flex flex-col gap-0.5">
-          <NavItem icon={<Search className="w-[16px] h-[16px]" strokeWidth={1.5} />} label="Search" />
-          <NavItem icon={<Home className="w-[16px] h-[16px]" strokeWidth={1.5} />} label="Home" />
-          <NavItem icon={<LayoutTemplate className="w-[16px] h-[16px]" strokeWidth={1.5} />} label="Content Pipeline" right={<span className="text-[10px] font-bold text-[#0ea5e9] bg-[#e0f2fe] px-1.5 py-0.5 rounded uppercase tracking-wide">New</span>} />
-          <NavItem icon={<MonitorPlay className="w-[16px] h-[16px]" strokeWidth={1.5} />} label="Studio" />
-          <NavItem icon={<Sparkles className="w-[16px] h-[16px]" strokeWidth={1.5} />} label="Magic Chat" />
+          <NavItem icon={<Search className="w-4 h-4" strokeWidth={1.5} />} label="Search" />
+          <NavItem icon={<Home className="w-4 h-4" strokeWidth={1.5} />} label="Home" />
+          <NavItem icon={<LayoutTemplate className="w-4 h-4" strokeWidth={1.5} />} label="Content Pipeline" right={<span className="text-[10px] font-bold text-[#0ea5e9] bg-[#e0f2fe] px-1.5 py-0.5 rounded uppercase tracking-wide">New</span>} />
+          <NavItem icon={<MonitorPlay className="w-4 h-4" strokeWidth={1.5} />} label="Studio" />
+          <NavItem icon={<Sparkles className="w-4 h-4" strokeWidth={1.5} />} label="Magic Chat" />
         </div>
 
         {/* Workspaces Scroll Area */}
@@ -95,7 +95,7 @@ export default function PromaWorkspace() {
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between px-2 py-1 group cursor-pointer">
               <div className="flex items-center gap-2.5">
-                <div className="w-[18px] h-[18px] bg-[#22c55e] rounded-md flex items-center justify-center text-white">
+                <div className="w-4.5 h-4.5 bg-[#22c55e] rounded-md flex items-center justify-center text-white">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <span className="text-[13px] font-semibold text-gray-800">House Cleaning BC</span>
@@ -120,7 +120,7 @@ export default function PromaWorkspace() {
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between px-2 py-1 group cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
               <div className="flex items-center gap-2.5">
-                <div className="w-[18px] h-[18px] bg-[#a855f7] rounded-md flex items-center justify-center text-white">
+                <div className="w-4.5 h-4.5 bg-[#a855f7] rounded-md flex items-center justify-center text-white">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <span className="text-[13px] font-semibold text-gray-800">Baked Design</span>
@@ -139,7 +139,7 @@ export default function PromaWorkspace() {
         <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100/60 shrink-0 bg-white/50 backdrop-blur-sm">
           <div className="flex items-center gap-2 text-[13px] font-medium text-gray-400">
             <div className="flex items-center gap-1.5 text-gray-800 hover:text-gray-900 cursor-pointer transition-colors">
-              <div className="w-[18px] h-[18px] bg-gradient-to-tr from-emerald-500 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-sm">
+              <div className="w-4.5 h-4.5 bg-linear-to-tr from-emerald-500 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-sm">
                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <span className="font-semibold tracking-tight">House Cleaning BC</span>
@@ -178,22 +178,22 @@ export default function PromaWorkspace() {
             <div className="px-8 py-5 flex items-center justify-between shrink-0">
               <h2 className="text-[17px] font-bold tracking-tight text-gray-800">Create Content</h2>
               <div className="flex items-center gap-1.5 text-gray-400">
-                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><Star className="w-[16px] h-[16px]" strokeWidth={1.5} /></button>
-                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><Plus className="w-[16px] h-[16px]" strokeWidth={1.5} /></button>
-                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><PanelRight className="w-[16px] h-[16px] rotate-180" strokeWidth={1.5} /></button>
+                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><Star className="w-4 h-4" strokeWidth={1.5} /></button>
+                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><Plus className="w-4 h-4" strokeWidth={1.5} /></button>
+                <button className="p-1.5 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-50"><PanelRight className="w-4 h-4 rotate-180" strokeWidth={1.5} /></button>
               </div>
             </div>
 
             <div className="flex-1 overflow-y-auto px-8 py-2 flex flex-col gap-6 no-scrollbar pb-32">
-              <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-5 w-full max-w-[620px] mx-auto">
+              <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-5 w-full max-w-155 mx-auto">
                 
                 {/* File Attachments Block */}
                 <motion.div variants={itemVars} className="flex flex-col items-end w-full pt-4 pr-1">
-                  <div className="relative w-[240px] h-[52px] z-10 mb-2 mt-2 flex flex-col items-center">
+                  <div className="relative w-60 h-13 z-10 mb-2 mt-2 flex flex-col items-center">
                     
                     {/* Background card (Project v2) */}
-                    <div className="absolute top-0 w-[220px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-sm -translate-y-[10px] flex items-center gap-3 px-3 z-0">
-                      <div className="w-7 h-7 bg-[#fff7ed] rounded-[8px] flex items-center justify-center">
+                    <div className="absolute top-0 w-55 h-13 bg-white border border-gray-200/80 rounded-xl shadow-sm -translate-y-2.5 flex items-center gap-3 px-3 z-0">
+                      <div className="w-7 h-7 bg-[#fff7ed] rounded-lg flex items-center justify-center">
                         <File className="w-3.5 h-3.5 text-orange-400" strokeWidth={2.5} />
                       </div>
                       <div className="flex flex-col">
@@ -204,9 +204,9 @@ export default function PromaWorkspace() {
                     {/* Foreground card (The Future of AI) */}
                     <motion.div 
                       whileHover={{ y: -2 }}
-                      className="relative w-[240px] h-[52px] bg-white border border-gray-200/80 rounded-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center gap-3 px-3 z-10 cursor-pointer"
+                      className="relative w-60 h-13 bg-white border border-gray-200/80 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center gap-3 px-3 z-10 cursor-pointer"
                     >
-                      <div className="w-7 h-7 bg-[#f3e8ff] rounded-[8px] flex items-center justify-center">
+                      <div className="w-7 h-7 bg-[#f3e8ff] rounded-lg flex items-center justify-center">
                         <span className="text-[#a855f7] font-serif font-bold text-[14px]">B</span>
                       </div>
                       <div className="flex flex-col gap-0.5">
@@ -220,7 +220,7 @@ export default function PromaWorkspace() {
 
                 {/* User Prompt */}
                 <motion.div variants={itemVars} className="flex justify-end mt-4">
-                  <div className="bg-[#f3f4f6] text-gray-800 text-[13.5px] font-medium leading-[1.6] px-4 py-3.5 rounded-[12px] rounded-tr-[4px] max-w-[85%] shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-[#f3f4f6] text-gray-800 text-[13.5px] font-medium leading-[1.6] px-4 py-3.5 rounded-xl rounded-tr-sm max-w-[85%] shadow-sm hover:shadow-md transition-shadow">
                     Summarize the meeting conversation and provide a bullet list of the key takeaways.
                   </div>
                 </motion.div>
@@ -242,7 +242,7 @@ export default function PromaWorkspace() {
                         <motion.span whileHover={{ scale: 1.2 }} className="text-blue-600 text-[14px]">🔷</motion.span>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-1 group-hover:opacity-100 transition-all translate-x-[-4px] group-hover:translate-x-0" strokeWidth={2} />
+                    <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-1 group-hover:opacity-100 transition-all -translate-x-1 group-hover:translate-x-0" strokeWidth={2} />
                   </div>
                   
                   <ProcessingStep icon={<FileText className="w-3.5 h-3.5" strokeWidth={2} />} text="Contextualizing the data collected from the resources" />
@@ -254,7 +254,7 @@ export default function PromaWorkspace() {
                 </motion.div>
 
                 {/* AI Generated File Card */}
-                <motion.div variants={itemVars} className="w-[96%] bg-[#f9fafb] rounded-[16px] p-4 flex items-center justify-between group mt-2 mx-auto shadow-sm">
+                <motion.div variants={itemVars} className="w-[96%] bg-[#f9fafb] rounded-2xl p-4 flex items-center justify-between group mt-2 mx-auto shadow-sm">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 bg-white rounded-[10px] border border-gray-200/60 shadow-sm flex items-center justify-center">
                       <FileText className="w-5 h-5 text-gray-400" strokeWidth={1.5} />
@@ -332,7 +332,7 @@ export default function PromaWorkspace() {
           </div>
 
           {/* Right Column (Transcript) */}
-          <aside className="w-[380px] shrink-0 bg-white flex flex-col h-full overflow-hidden">
+          <aside className="w-95 shrink-0 bg-white flex flex-col h-full overflow-hidden">
             
             {/* Tabs */}
             <div className="px-5 pt-5 pb-3">
@@ -390,10 +390,10 @@ export default function PromaWorkspace() {
 
               {/* Video Actions */}
               <div className="flex items-center gap-2 mt-1">
-                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-[8px] shadow-sm transition-all flex-1 justify-center">
+                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-lg shadow-sm transition-all flex-1 justify-center">
                   <Edit3 className="w-3.5 h-3.5 text-gray-400" strokeWidth={2} /> Edit Transcriptions
                 </motion.button>
-                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-[8px] shadow-sm transition-all flex-1 justify-center">
+                <motion.button whileHover={{ y: -1 }} className="flex items-center gap-1.5 bg-white border border-gray-200/80 hover:bg-gray-50 hover:shadow-md text-gray-700 text-[12px] font-semibold px-3 py-2 rounded-lg shadow-sm transition-all flex-1 justify-center">
                   <Users className="w-3.5 h-3.5 text-gray-400" strokeWidth={2} /> Speakers <ChevronDown className="w-3.5 h-3.5 ml-0.5 text-gray-400" strokeWidth={2} />
                 </motion.button>
               </div>
@@ -421,9 +421,9 @@ export default function PromaWorkspace() {
 
 function NavItem({ icon, label, right, active = false }: { icon: React.ReactNode, label: string, right?: React.ReactNode, active?: boolean }) {
   return (
-    <button className={`w-full flex items-center justify-between px-2.5 py-[7px] rounded-lg text-[13px] font-medium transition-colors group ${active ? 'bg-white shadow-sm border border-gray-200/60 text-gray-800' : 'text-gray-500 hover:bg-gray-100/60 hover:text-gray-900 border border-transparent'}`}>
+    <button className={`w-full flex items-center justify-between px-2.5 py-1.75 rounded-lg text-[13px] font-medium transition-colors group ${active ? 'bg-white shadow-sm border border-gray-200/60 text-gray-800' : 'text-gray-500 hover:bg-gray-100/60 hover:text-gray-900 border border-transparent'}`}>
       <div className="flex items-center gap-2.5">
-        <div className={`flex-shrink-0 ${active ? 'text-gray-800' : 'text-gray-400 group-hover:text-gray-600'}`}>
+        <div className={`shrink-0 ${active ? 'text-gray-800' : 'text-gray-400 group-hover:text-gray-600'}`}>
           {icon}
         </div>
         <span>{label}</span>
@@ -459,14 +459,14 @@ function FileBadge({ color, iconColor, text, type }: { color: string, iconColor:
   return (
     <motion.div 
       whileHover={{ y: -2 }}
-      className="flex items-center gap-2 bg-white border border-gray-200/80 pl-1.5 pr-2.5 py-1.5 rounded-[12px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
+      className="flex items-center gap-2 bg-white border border-gray-200/80 pl-1.5 pr-2.5 py-1.5 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
     >
-      <div className={`w-[22px] h-[22px] rounded-[6px] ${color} flex items-center justify-center`}>
+      <div className={`w-5.5 h-5.5 rounded-md ${color} flex items-center justify-center`}>
         {type === 'pdf' ? <FileText className={`w-3.5 h-3.5 ${iconColor}`} strokeWidth={2} /> : 
          type === 'audio' ? <Mic className={`w-3.5 h-3.5 ${iconColor}`} strokeWidth={2} /> : 
          <MonitorPlay className={`w-3.5 h-3.5 ${iconColor}`} strokeWidth={2} />}
       </div>
-      <span className="text-[12px] font-semibold text-gray-800 truncate max-w-[110px]">{text}</span>
+      <span className="text-[12px] font-semibold text-gray-800 truncate max-w-27.5">{text}</span>
       <button className="text-gray-300 hover:text-gray-600 p-0.5 ml-0.5 group-hover:bg-gray-200/50 rounded-md transition-colors">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>

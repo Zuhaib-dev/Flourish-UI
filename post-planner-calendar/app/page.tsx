@@ -43,7 +43,7 @@ export default function PostPlanner() {
         
         {/* Logo area */}
         <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="w-8 h-8 bg-[#111827] rounded-[8px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
+          <div className="w-8 h-8 bg-[#111827] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
             {/* Custom elegant solid lotus logo */}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
               <path d="M12 22C12 22 17 18 17 11C17 6 12 2 12 2C12 2 7 6 7 11C7 18 12 22 12 22Z" />
@@ -56,10 +56,10 @@ export default function PostPlanner() {
 
         {/* Center Tabs */}
         <div className="flex items-center gap-1">
-          <NavTab icon={<Sun className="w-[15px] h-[15px]" />} label="Today" />
-          <NavTab icon={<Calendar className="w-[15px] h-[15px]" />} label="Calendar" active />
-          <NavTab icon={<Library className="w-[15px] h-[15px]" />} label="Library" />
-          <NavTab icon={<BookOpen className="w-[15px] h-[15px]" />} label="Playbook" />
+          <NavTab icon={<Sun className="w-3.75 h-3.75" />} label="Today" />
+          <NavTab icon={<Calendar className="w-3.75 h-3.75" />} label="Calendar" active />
+          <NavTab icon={<Library className="w-3.75 h-3.75" />} label="Library" />
+          <NavTab icon={<BookOpen className="w-3.75 h-3.75" />} label="Playbook" />
         </div>
 
         {/* Right Tools */}
@@ -76,7 +76,7 @@ export default function PostPlanner() {
         </div>
       </header>
 
-      <main className="max-w-[1200px] mx-auto px-8 pt-8">
+      <main className="max-w-300 mx-auto px-8 pt-8">
         
         <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"}>
           
@@ -104,7 +104,7 @@ export default function PostPlanner() {
                 <button className="p-1.5 text-gray-400 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-50">
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <div className="w-[1px] h-4 bg-gray-200 mx-0.5" />
+                <div className="w-px h-4 bg-gray-200 mx-0.5" />
                 <button className="p-1.5 text-gray-400 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-50">
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -138,7 +138,7 @@ export default function PostPlanner() {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="h-[22px] w-full bg-gray-100 rounded-md flex gap-[2px] mb-6 overflow-hidden p-[2px]">
+                <div className="h-5.5 w-full bg-gray-100 rounded-md flex gap-0.5 mb-6 overflow-hidden p-0.5">
                   <motion.div initial={{ width: 0 }} animate={{ width: '4%' }} transition={{ duration: 1, delay: 0.5 }} className="h-full bg-emerald-500 rounded-sm" />
                   <motion.div initial={{ width: 0 }} animate={{ width: '5%' }} transition={{ duration: 1, delay: 0.6 }} className="h-full bg-[#111827] rounded-sm" />
                   <motion.div initial={{ width: 0 }} animate={{ width: '2%' }} transition={{ duration: 1, delay: 0.7 }} className="h-full bg-orange-400 rounded-sm" />
@@ -324,7 +324,7 @@ function CalendarCell({
   bars?: string[];
 }) {
   return (
-    <div className="border-r border-b border-gray-100/80 min-h-[140px] p-3 flex flex-col justify-between hover:bg-gray-50/80 hover:shadow-[inset_0_0_0_1px_rgba(229,231,235,1)] transition-all cursor-pointer group">
+    <div className="border-r border-b border-gray-100/80 min-h-35 p-3 flex flex-col justify-between hover:bg-gray-50/80 hover:shadow-[inset_0_0_0_1px_rgba(229,231,235,1)] transition-all cursor-pointer group">
       
       {/* Date & Rings */}
       <div className="flex flex-col gap-2">
@@ -339,7 +339,7 @@ function CalendarCell({
           
           {/* Ring indicators */}
           {rings && rings.length > 0 && (
-            <div className="flex items-center gap-0.5 mt-[1px]">
+            <div className="flex items-center gap-0.5 mt-px">
               {rings.map((r, i) => (
                 <div key={i} className={`w-1.5 h-1.5 rounded-full border-[1.5px] ${r} bg-transparent`} />
               ))}
@@ -351,7 +351,7 @@ function CalendarCell({
         <div className="flex flex-col gap-1.5 mt-1">
           {items.map((item, i) => (
             <div key={i} className="flex items-start gap-1.5">
-              <div className={`w-1.5 h-1.5 rounded-full ${item.color} flex-shrink-0 mt-1.5`} />
+              <div className={`w-1.5 h-1.5 rounded-full ${item.color} shrink-0 mt-1.5`} />
               <div className="flex flex-wrap items-center gap-1">
                 <span className="text-[11px] font-medium text-gray-600 line-clamp-1 break-all leading-relaxed">
                   {item.text}
@@ -371,12 +371,12 @@ function CalendarCell({
       <div className="flex gap-1 mt-4">
         {bars.length > 0 ? (
           bars.map((b, i) => (
-            <div key={i} className={`h-[3px] rounded-full flex-1 ${b}`} />
+            <div key={i} className={`h-0.75 rounded-full flex-1 ${b}`} />
           ))
         ) : (
           <>
-            <div className={`h-[3px] rounded-full flex-1 bg-gray-100`} />
-            <div className={`h-[3px] rounded-full flex-1 bg-gray-100`} />
+            <div className={`h-0.75 rounded-full flex-1 bg-gray-100`} />
+            <div className={`h-0.75 rounded-full flex-1 bg-gray-100`} />
           </>
         )}
       </div>

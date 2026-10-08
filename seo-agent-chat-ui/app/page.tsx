@@ -48,12 +48,12 @@ export default function AgentChatUI() {
     <div className="flex h-screen w-full bg-[#f9fafb] text-[#111827] font-sans overflow-hidden selection:bg-blue-100">
       
       {/* Sidebar */}
-      <aside className="w-[260px] flex-shrink-0 flex flex-col h-full bg-[#f9fafb] border-r border-transparent">
+      <aside className="w-65 shrink-0 flex flex-col h-full bg-[#f9fafb] border-r border-transparent">
         
         {/* Sidebar Header */}
         <div className="px-4 pt-4 pb-2 flex items-center justify-between">
           <button className="flex items-center gap-2 hover:bg-gray-100 p-1.5 -ml-1.5 rounded-lg transition-colors group">
-            <div className="w-5 h-5 rounded-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform shadow-sm border border-gray-700">
+            <div className="w-5 h-5 rounded-full flex items-center justify-center overflow-hidden bg-linear-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform shadow-sm border border-gray-700">
               {/* Better Acme Logo (Abstract lines) */}
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round">
                 <path d="M4 8h16M4 16h10" />
@@ -64,7 +64,7 @@ export default function AgentChatUI() {
           </button>
           
           <button className="text-gray-400 hover:text-gray-700 transition-colors p-1 rounded-md hover:bg-gray-100">
-            <PanelLeftClose className="w-[18px] h-[18px]" />
+            <PanelLeftClose className="w-4.5 h-4.5" />
           </button>
         </div>
 
@@ -143,7 +143,7 @@ export default function AgentChatUI() {
 
       {/* Main Content Area */}
       <main className="flex-1 h-full p-4 pl-0">
-        <div className="bg-white w-full h-full rounded-[24px] border border-gray-100 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_8px_40px_rgba(0,0,0,0.04)] flex flex-col overflow-hidden relative">
+        <div className="bg-white w-full h-full rounded-3xl border border-gray-100 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_8px_40px_rgba(0,0,0,0.04)] flex flex-col overflow-hidden relative">
           
           {/* Chat Header */}
           <header className="px-6 py-4 flex items-center justify-between z-10 bg-white/90 backdrop-blur-md border-b border-gray-50/50">
@@ -185,7 +185,7 @@ export default function AgentChatUI() {
 
           {/* Chat Feed */}
           <div className="flex-1 overflow-y-auto px-6 py-6 pb-32 flex flex-col gap-6">
-            <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-6 max-w-[800px] mx-auto w-full">
+            <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-6 max-w-200 mx-auto w-full">
               
               {/* User Message 1 */}
               <motion.div variants={itemVars} className="flex flex-col items-end gap-1">
@@ -289,7 +289,7 @@ export default function AgentChatUI() {
                 {/* Fade out text to show it continues */}
                 <div className="text-[14px] leading-relaxed text-gray-400 mt-2 relative">
                   <p>They're already proven, so increasing their budgets is lower risk than testing a new audience right now.</p>
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-white via-white/80 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
 
@@ -298,20 +298,20 @@ export default function AgentChatUI() {
 
           {/* Chat Input Floating */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center px-6 pointer-events-none z-20">
-            <div className="w-full max-w-[640px] bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-all hover:-translate-y-0.5 duration-300 group focus-within:ring-4 focus-within:ring-blue-50 focus-within:border-blue-200 focus-within:shadow-[0_8px_40px_rgba(15,98,254,0.1)]">
+            <div className="w-full max-w-160 bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex items-center p-1.5 pointer-events-auto transition-all hover:-translate-y-0.5 duration-300 group focus-within:ring-4 focus-within:ring-blue-50 focus-within:border-blue-200 focus-within:shadow-[0_8px_40px_rgba(15,98,254,0.1)]">
               <input 
                 type="text" 
                 placeholder="Ask SEO Specialist..."
                 className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-2 text-[14px] placeholder:text-gray-400 outline-none"
               />
-              <button className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0f62fe] to-[#3b82f6] hover:from-[#0353e9] hover:to-[#2563eb] text-white flex items-center justify-center transition-all shadow-sm shadow-blue-500/30 group-focus-within:scale-105 active:scale-95">
+              <button className="w-8 h-8 rounded-xl bg-linear-to-tr from-[#0f62fe] to-[#3b82f6] hover:from-[#0353e9] hover:to-[#2563eb] text-white flex items-center justify-center transition-all shadow-sm shadow-blue-500/30 group-focus-within:scale-105 active:scale-95">
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
           
           {/* Subtle gradient to fade out messages behind input */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
         </div>
       </main>
 
@@ -327,7 +327,7 @@ function NavItem({ icon, label, right, active = false }: { icon: React.ReactNode
   return (
     <button className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[13px] font-medium transition-colors group ${active ? 'bg-gray-200/50 text-[#111827]' : 'text-gray-500 hover:bg-gray-100/60 hover:text-gray-900'}`}>
       <div className="flex items-center gap-2.5">
-        <div className={`flex-shrink-0 ${active ? 'text-gray-700' : 'text-gray-400 group-hover:text-gray-600'} [&>svg]:w-[16px] [&>svg]:h-[16px]`}>
+        <div className={`shrink-0 ${active ? 'text-gray-700' : 'text-gray-400 group-hover:text-gray-600'} [&>svg]:w-4 [&>svg]:h-4`}>
           {icon}
         </div>
         <span>{label}</span>
@@ -349,7 +349,7 @@ function NavAccordion({ label, open = false, items = [] }: { label: string, open
         <div className="flex flex-col gap-0.5 mt-0.5 ml-2">
           {items.map((item, i) => (
             <button key={i} className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-[13px] font-medium text-gray-500 hover:bg-gray-100/60 hover:text-gray-900 transition-colors group">
-              <div className="w-[16px] flex justify-center">
+              <div className="w-4 flex justify-center">
                 {item.icon}
               </div>
               <span>{item.label}</span>

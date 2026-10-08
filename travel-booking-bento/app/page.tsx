@@ -35,15 +35,15 @@ export default function TravelDashboard() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="w-full max-w-[1240px] flex flex-col gap-6"
+        className="w-full max-w-310 flex flex-col gap-6"
       >
         
         {/* TOP NAVBAR */}
         <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-6 w-full">
           {/* Left Nav */}
-          <div className="flex-1 bg-[#f8f8f6] rounded-[24px] p-2 pr-8 flex items-center justify-between shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
+          <div className="flex-1 bg-[#f8f8f6] rounded-3xl p-2 pr-8 flex items-center justify-between shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
             <div className="flex items-center gap-6">
-              <div className="w-[52px] h-[52px] bg-[#1a1a1a] rounded-[16px] flex items-center justify-center text-white shrink-0 shadow-lg">
+              <div className="w-13 h-13 bg-[#1a1a1a] rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-45">
                   <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                 </svg>
@@ -60,29 +60,29 @@ export default function TravelDashboard() {
           </div>
 
           {/* Right Nav */}
-          <div className="w-full md:w-[380px] bg-[#f8f8f6] rounded-[24px] p-2 px-6 flex items-center justify-between shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] h-[68px]">
+          <div className="w-full md:w-95 bg-[#f8f8f6] rounded-3xl p-2 px-6 flex items-center justify-between shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] h-17">
             <div className="flex items-center gap-8">
               <button className="text-black hover:bg-gray-100 p-2 rounded-full transition-colors">
-                <Menu className="w-[22px] h-[22px]" strokeWidth={2.5} />
+                <Menu className="w-5.5 h-5.5" strokeWidth={2.5} />
               </button>
               <div className="relative cursor-pointer hover:bg-gray-100 p-2 rounded-full transition-colors">
-                <Bell className="w-[22px] h-[22px] text-black" strokeWidth={2.5} />
+                <Bell className="w-5.5 h-5.5 text-black" strokeWidth={2.5} />
                 <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-[#ef4444] rounded-full border-2 border-[#f8f8f6]" />
               </div>
             </div>
-            <div className="w-[46px] h-[46px] bg-linear-to-tr from-blue-600 to-indigo-400 rounded-2xl shadow-inner cursor-pointer flex items-center justify-center text-white/90">
+            <div className="w-11.5 h-11.5 bg-linear-to-tr from-blue-600 to-indigo-400 rounded-2xl shadow-inner cursor-pointer flex items-center justify-center text-white/90">
               <Leaf className="w-5 h-5" fill="currentColor" />
             </div>
           </div>
         </motion.div>
 
         {/* MAIN BENTO GRID */}
-        <div className="flex flex-col lg:flex-row gap-6 h-[720px]">
+        <div className="flex flex-col lg:flex-row gap-6 h-180">
           
           {/* Left Column: Switzerland Card */}
           <motion.div 
             variants={itemVariants}
-            className="flex-1 rounded-[32px] relative overflow-hidden flex flex-col justify-between p-8 bg-black shadow-2xl group"
+            className="flex-1 rounded-4xl relative overflow-hidden flex flex-col justify-between p-8 bg-black shadow-2xl group"
           >
             {/* Background Image */}
             <div 
@@ -92,7 +92,7 @@ export default function TravelDashboard() {
               }}
             />
             {/* Gradient Overlay for bottom text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
             {/* Card Header */}
             <div className="relative z-10 flex items-center gap-6 w-full">
@@ -111,7 +111,7 @@ export default function TravelDashboard() {
               </div>
 
               {/* Stretching progress line */}
-              <div className="h-[1px] bg-black/20 flex-1 relative hidden sm:block mt-1">
+              <div className="h-px bg-black/20 flex-1 relative hidden sm:block mt-1">
                 <div className="absolute top-0 left-0 h-full bg-[#1a1a1a] w-1/3" />
               </div>
               
@@ -139,7 +139,7 @@ export default function TravelDashboard() {
                   Airbnb's reviewers
                 </div>
                 
-                <div className="w-full h-[2px] bg-white/20 rounded-full mb-6">
+                <div className="w-full h-0.5 bg-white/20 rounded-full mb-6">
                   <div className="w-[70%] h-full bg-white rounded-full" />
                 </div>
 
@@ -184,13 +184,13 @@ export default function TravelDashboard() {
           </motion.div>
 
           {/* Right Column: Two stacked cards */}
-          <motion.div variants={itemVariants} className="w-full lg:w-[380px] flex flex-col gap-6">
+          <motion.div variants={itemVariants} className="w-full lg:w-95 flex flex-col gap-6">
             
             {/* Take a Break Card */}
-            <div className="flex-[1.4] bg-[#eef3ea] rounded-[32px] p-8 relative overflow-hidden flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-white/50 group">
+            <div className="flex-[1.4] bg-[#eef3ea] rounded-4xl p-8 relative overflow-hidden flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-white/50 group">
               {/* Decorative shapes */}
-              <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-[#bceda1] rounded-full opacity-70 mix-blend-multiply blur-[1px] group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute top-1/2 right-12 w-[18px] h-[18px] bg-white rounded-full shadow-sm" />
+              <div className="absolute -bottom-20 -right-20 w-75 h-75 bg-[#bceda1] rounded-full opacity-70 mix-blend-multiply blur-[1px] group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute top-1/2 right-12 w-4.5 h-4.5 bg-white rounded-full shadow-sm" />
               <div className="absolute bottom-24 -right-2 w-2 h-2 bg-white rounded-full opacity-60" />
               
               <h2 className="relative z-10 text-[76px] leading-[0.9] font-(family-name:--font-poppins) font-black tracking-tighter text-[#1a1a1a] mb-5 mt-2">
@@ -202,14 +202,14 @@ export default function TravelDashboard() {
               </p>
               
               <button className="relative z-10 mt-auto self-start border-2 border-[#1a1a1a] rounded-full px-6 py-2.5 text-[15px] font-bold text-[#1a1a1a] flex items-center gap-2 hover:bg-[#1a1a1a] hover:text-white transition-all">
-                Explore new places <ArrowRight className="w-[18px] h-[18px]" strokeWidth={2.5} />
+                Explore new places <ArrowRight className="w-4.5 h-4.5" strokeWidth={2.5} />
               </button>
             </div>
 
             {/* Search Destination Card */}
-            <div className="flex-1 bg-white rounded-[32px] p-8 relative flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-gray-100/50">
+            <div className="flex-1 bg-white rounded-4xl p-8 relative flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-gray-100/50">
               <button className="absolute top-6 right-6 w-10 h-10 bg-white shadow-[0_4px_12px_rgba(0,0,0,0.06)] rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                <Maximize2 className="w-[18px] h-[18px] text-gray-700" strokeWidth={2.5} />
+                <Maximize2 className="w-4.5 h-4.5 text-gray-700" strokeWidth={2.5} />
               </button>
               
               <div className="mt-6 mb-8">
@@ -223,8 +223,8 @@ export default function TravelDashboard() {
                 />
               </div>
 
-              <button className="w-full bg-[#1c1c1c] hover:bg-black text-white rounded-[24px] py-4 flex items-center justify-center gap-2.5 text-[15px] font-bold transition-all shadow-[0_8px_20px_rgba(0,0,0,0.15)] mt-auto">
-                Start your search <Search className="w-[18px] h-[18px]" strokeWidth={3} />
+              <button className="w-full bg-[#1c1c1c] hover:bg-black text-white rounded-3xl py-4 flex items-center justify-center gap-2.5 text-[15px] font-bold transition-all shadow-[0_8px_20px_rgba(0,0,0,0.15)] mt-auto">
+                Start your search <Search className="w-4.5 h-4.5" strokeWidth={3} />
               </button>
             </div>
           </motion.div>

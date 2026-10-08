@@ -27,15 +27,15 @@ export default function AgentDashboard() {
     <div className="min-h-screen bg-[#111113] text-zinc-300 font-sans selection:bg-blue-500/30 overflow-hidden relative flex flex-col items-center">
       
       {/* Background Image with Gradient Fade */}
-      <div className="absolute top-0 left-0 w-full h-[600px] pointer-events-none z-0">
+      <div className="absolute top-0 left-0 w-full h-150 pointer-events-none z-0">
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/background.jpg')" }}
         />
         {/* Gradients to blend the image into the dark background and darken the top */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#111113]/60 via-[#111113]/60 to-[#111113]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-[#111113]/50 to-transparent h-[600px]" />
-        <div className="absolute top-0 w-full h-[100px] bg-gradient-to-b from-[#111113]/90 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#111113]/60 via-[#111113]/60 to-[#111113]" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#111113] via-[#111113]/50 to-transparent h-150" />
+        <div className="absolute top-0 w-full h-25 bg-linear-to-b from-[#111113]/90 to-transparent" />
       </div>
 
       {/* Main App Window Container (Simulating a desktop window) */}
@@ -57,7 +57,7 @@ export default function AgentDashboard() {
               <span>Search</span>
               <span className="text-[10px] opacity-60">⌘K</span>
             </button>
-            <button className="relative bg-[#18181b]/80 backdrop-blur-md border border-[#27272a] hover:bg-[#27272a] transition-colors rounded-full w-[34px] h-[34px] flex items-center justify-center text-zinc-400">
+            <button className="relative bg-[#18181b]/80 backdrop-blur-md border border-[#27272a] hover:bg-[#27272a] transition-colors rounded-full w-8.5 h-8.5 flex items-center justify-center text-zinc-400">
               <Bell className="w-4 h-4" />
               <span className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 bg-yellow-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#111113]">1</span>
             </button>
@@ -69,12 +69,12 @@ export default function AgentDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center mt-[120px] mb-[60px] w-full px-4"
+          className="flex flex-col items-center mt-30 mb-15 w-full px-4"
         >
           <h1 className="text-[20px] font-bold text-white mb-6 tracking-tight drop-shadow-md">What should your agents work on?</h1>
           
           {/* Complex Input Container */}
-          <div className="w-full max-w-[640px] bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] hover:border-[#3f3f46] transition-colors duration-500 rounded-xl overflow-hidden flex flex-col group">
+          <div className="w-full max-w-160 bg-[#18181b]/90 backdrop-blur-xl border border-[#27272a] hover:border-[#3f3f46] transition-colors duration-500 rounded-xl overflow-hidden flex flex-col group">
             
             {/* Tabs Row */}
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#121214]/50">
@@ -89,10 +89,10 @@ export default function AgentDashboard() {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-[#121214] min-h-[100px]">
+            <div className="p-4 bg-[#121214] min-h-25">
               <textarea 
                 placeholder="Describe a task, a bug to fix, an idea to try..."
-                className="w-full bg-transparent text-[14px] text-white placeholder-zinc-600 outline-none resize-none h-[40px]"
+                className="w-full bg-transparent text-[14px] text-white placeholder-zinc-600 outline-none resize-none h-10"
               />
             </div>
 
@@ -127,7 +127,7 @@ export default function AgentDashboard() {
         </motion.div>
 
         {/* Widgets Grid Area */}
-        <div className="flex-1 w-full max-w-[1200px] mx-auto px-6 overflow-y-auto no-scrollbar pb-10">
+        <div className="flex-1 w-full max-w-300 mx-auto px-6 overflow-y-auto no-scrollbar pb-10">
           
           <div className="flex justify-end mb-4 w-full">
             <button className="flex items-center gap-1.5 text-[12px] font-medium text-zinc-400 hover:text-white transition-colors">
@@ -180,16 +180,16 @@ export default function AgentDashboard() {
                 </div>
                 
                 {/* Bar Chart Recreation */}
-                <div className="mt-6 w-full h-[60px] flex items-end gap-[3px]">
+                <div className="mt-6 w-full h-15 flex items-end gap-0.75">
                   {[3, 4, 3, 2, 10, 10, 9, 2, 4, 12, 14, 15, 12, 6].map((h, i) => (
                     <div key={i} className="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
                       <motion.div 
                         initial={{ height: 0 }}
                         animate={{ height: mounted ? `${(h/15)*100}%` : 0 }}
                         transition={{ duration: 0.8, delay: 0.3 + (i * 0.03), ease: [0.16, 1, 0.3, 1] }}
-                        className="w-full bg-[#2563eb] rounded-[2px] group-hover:bg-[#60a5fa] transition-colors cursor-pointer relative"
+                        className="w-full bg-[#2563eb] rounded-xs group-hover:bg-[#60a5fa] transition-colors cursor-pointer relative"
                       >
-                        <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 blur-[4px] transition-opacity" />
+                        <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 blur-xs transition-opacity" />
                       </motion.div>
                       <span className="text-[8px] font-mono text-zinc-600 uppercase group-hover:text-zinc-300 transition-colors">
                         {['W','T','F','S','S','S','M','T','W','T','F','S','S','M'][i]}
@@ -219,7 +219,7 @@ export default function AgentDashboard() {
                       <span>Disk <span className="text-zinc-400">44%</span></span>
                     </div>
                     {/* Tiny Progress Bars */}
-                    <div className="flex items-center gap-1 h-[2px] mt-0.5">
+                    <div className="flex items-center gap-1 h-0.5 mt-0.5">
                       <div className="h-full bg-emerald-500/80 rounded-full" style={{ width: '15%' }} />
                       <div className="h-full bg-[#27272a] rounded-full flex-1" />
                     </div>
@@ -243,7 +243,7 @@ export default function AgentDashboard() {
                       <span>Mem <span className="text-zinc-400">32%</span></span>
                       <span>Disk <span className="text-zinc-400">42%</span></span>
                     </div>
-                    <div className="flex items-center gap-1 h-[2px] mt-0.5">
+                    <div className="flex items-center gap-1 h-0.5 mt-0.5">
                       <div className="h-full bg-emerald-500/80 rounded-full" style={{ width: '13%' }} />
                       <div className="h-full bg-[#27272a] rounded-full flex-1" />
                     </div>
@@ -366,7 +366,7 @@ function WidgetContainer({ children, delay = 0 }: { children: React.ReactNode, d
       transition={{ duration: 0.6, delay: delay, ease: [0.16, 1, 0.3, 1] }}
       className="w-full bg-[#18181b]/95 backdrop-blur-md border border-[#27272a] hover:border-[#3f3f46] hover:bg-[#18181b] transition-all duration-300 rounded-[14px] p-5 relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent rounded-[14px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-linear-to-br from-white/2 to-transparent rounded-[14px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       {children}
     </motion.div>
   );
@@ -388,10 +388,10 @@ function PRItem({ icon, title, id, author, authorColor = "text-zinc-300" }: any)
   return (
     <div className="flex items-center justify-between p-2 -mx-2 rounded-lg hover:bg-[#27272a] hover:px-3 transition-all duration-300 cursor-pointer group">
       <div className="flex items-center gap-3 overflow-hidden">
-        <div className="flex-shrink-0 w-4 flex justify-center group-hover:scale-110 transition-transform">{icon}</div>
+        <div className="shrink-0 w-4 flex justify-center group-hover:scale-110 transition-transform">{icon}</div>
         <span className="text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors truncate">{title}</span>
       </div>
-      <div className="flex items-center gap-4 flex-shrink-0 ml-4">
+      <div className="flex items-center gap-4 shrink-0 ml-4">
         <span className="text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">{id}</span>
         <span className={`text-[12px] font-medium w-16 text-right truncate ${authorColor}`}>{author}</span>
       </div>

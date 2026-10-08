@@ -32,7 +32,7 @@ export const WordsPullUp = ({ text, className = "", showAsterisk = false, style 
           >
             {word}
             {showAsterisk && isLast && (
-              <span className="absolute top-[0.65em] -right-[0.3em] text-[0.31em]">*</span>
+              <span className="absolute top-[0.65em] right-[-0.3em] text-[0.31em]">*</span>
             )}
           </motion.span>
         );
@@ -88,7 +88,7 @@ const navItems = ["Our story", "Collective", "Workshops", "Programs", "Inquiries
 const PrismaHero = () => {
   return (
     <section className="h-screen w-full">
-      <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-[2rem]">
+      <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-4xl">
         
         {/* Background video */}
         <video
@@ -104,11 +104,11 @@ const PrismaHero = () => {
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.7] mix-blend-overlay" />
 
         {/* Gradient overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/60" />
 
         {/* Navbar */}
         <nav className="absolute left-1/2 top-0 z-20 -translate-x-1/2">
-          <div className="flex items-center gap-6 rounded-b-[24px] bg-[#0A0A0A] px-8 py-4 sm:gap-10 md:gap-16 md:px-12 lg:gap-20">
+          <div className="flex items-center gap-6 rounded-b-3xl bg-[#0A0A0A] px-8 py-4 sm:gap-10 md:gap-16 md:px-12 lg:gap-20">
             {navItems.map((item) => (
               <a
                 key={item}

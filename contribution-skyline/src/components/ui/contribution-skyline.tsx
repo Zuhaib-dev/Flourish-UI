@@ -1234,7 +1234,7 @@ export default function ContributionSkyline({
         <div className="relative px-3 pt-3 sm:px-4 sm:pt-4">
           <div
             ref={stageRef}
-            className="relative w-full overflow-hidden rounded-md outline-offset-4 has-[:focus-visible]:outline-2"
+            className="relative w-full overflow-hidden rounded-md outline-offset-4 has-focus-visible:outline-2"
             style={{ height: 150, outlineColor: "var(--color-foreground, #171717)" }}
           >
             <canvas
@@ -1370,7 +1370,7 @@ export default function ContributionSkyline({
                   onFocus={() => setLegendLevel(i)}
                   onBlur={() => setLegendLevel(-1)}
                   onClick={() => setLegendLevel((l) => (l === i ? -1 : i))}
-                  className="h-[11px] w-[11px] cursor-pointer rounded-[2px] border-0 p-0 transition-[background-color,transform] duration-500 hover:scale-125 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none"
+                  className="h-2.75 w-2.75 cursor-pointer rounded-xs border-0 p-0 transition-[background-color,transform] duration-500 hover:scale-125 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none"
                   style={{
                     background: c,
                     outlineColor: "var(--color-foreground, #171717)",

@@ -16,10 +16,10 @@ export default function FlowCanvas() {
     <div className="flex h-screen w-full bg-white text-[#111827] font-sans overflow-hidden">
       
       {/* LEFT SIDEBAR */}
-      <aside className="w-[240px] flex-shrink-0 border-r border-gray-100 bg-[#fefefe] flex flex-col h-full overflow-y-auto no-scrollbar z-30">
+      <aside className="w-60 shrink-0 border-r border-gray-100 bg-[#fefefe] flex flex-col h-full overflow-y-auto no-scrollbar z-30">
         
         {/* Header */}
-        <div className="px-5 h-[56px] flex items-center justify-between shrink-0">
+        <div className="px-5 h-14 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 bg-[#1a1a1a] rounded flex items-center justify-center shadow-sm">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round">
@@ -30,7 +30,7 @@ export default function FlowCanvas() {
             </div>
             <span className="font-bold text-[14px] tracking-tight">FlowAI</span>
           </div>
-          <button className="w-[18px] h-[18px] border border-gray-200 rounded flex items-center justify-center text-gray-400 hover:text-gray-700 transition-colors">
+          <button className="w-4.5 h-4.5 border border-gray-200 rounded flex items-center justify-center text-gray-400 hover:text-gray-700 transition-colors">
              <LayoutGrid className="w-2.5 h-2.5" />
           </button>
         </div>
@@ -112,7 +112,7 @@ export default function FlowCanvas() {
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
         
         {/* Top App Header */}
-        <header className="h-[56px] border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20">
+        <header className="h-14 border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20">
           <div className="flex items-center gap-2 text-[13px] font-medium text-gray-500">
             <div className="w-4 h-4 border border-gray-300 rounded-sm flex items-center justify-center">
               <LayoutGrid className="w-2.5 h-2.5 text-gray-400" strokeWidth={2.5} />
@@ -123,7 +123,7 @@ export default function FlowCanvas() {
              <button className="flex items-center gap-1.5 border border-gray-200 rounded-full px-3 py-1.5 text-[12px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors shadow-sm">
                 <Star className="w-3.5 h-3.5" strokeWidth={2} /> Ask AI
              </button>
-             <button className="w-[30px] h-[30px] flex items-center justify-center border border-gray-200 rounded-full text-gray-600 hover:bg-gray-50 transition-colors shadow-sm relative">
+             <button className="w-7.5 h-7.5 flex items-center justify-center border border-gray-200 rounded-full text-gray-600 hover:bg-gray-50 transition-colors shadow-sm relative">
                 <Bell className="w-3.5 h-3.5" strokeWidth={2} />
                 <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-red-500 rounded-full border border-white" />
              </button>
@@ -131,7 +131,7 @@ export default function FlowCanvas() {
         </header>
 
         {/* Canvas Toolbar */}
-        <div className="h-[56px] border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20 relative">
+        <div className="h-14 border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20 relative">
           <div className="flex items-center gap-2.5 text-[13px]">
              <div className="flex items-center gap-2 text-gray-400 font-medium">
                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3"><circle cx="12" cy="12" r="10"/></svg>
@@ -165,7 +165,7 @@ export default function FlowCanvas() {
         <div className="flex-1 w-full h-full relative overflow-hidden dot-grid z-0 cursor-grab active:cursor-grabbing">
           
           {/* Node Library Floating Panel */}
-          <div className="absolute top-4 left-4 bottom-4 w-[260px] bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col z-20 overflow-hidden cursor-default">
+          <div className="absolute top-4 left-4 bottom-4 w-65 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col z-20 overflow-hidden cursor-default">
              
              <div className="p-4 shrink-0">
                 <span className="text-[13px] font-bold text-gray-700">Nodes</span>
@@ -234,7 +234,7 @@ export default function FlowCanvas() {
           {/* Nodes Layer */}
           <div className="absolute inset-0 w-full h-full z-10">
              
-             <div className="absolute left-[320px] top-[150px]">
+             <div className="absolute left-80 top-37.5">
                <WorkflowNode 
                  icon={<Globe className="w-4 h-4 text-blue-500" strokeWidth={2} />} 
                  title="Webhook Trigger" 
@@ -244,7 +244,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[770px] top-[150px]">
+             <div className="absolute left-192.5 top-37.5">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
@@ -259,7 +259,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[470px] top-[400px]">
+             <div className="absolute left-117.5 top-100">
                <WorkflowNode 
                  icon={<Shuffle className="w-4 h-4 text-orange-500" strokeWidth={2} />} 
                  title="Route by Type" 
@@ -274,7 +274,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[970px] top-[300px]">
+             <div className="absolute left-242.5 top-75">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -290,11 +290,11 @@ export default function FlowCanvas() {
                  subtitle="Send Slack messages"
                  inputs={[{ label: 'Input', color: 'bg-gray-400' }]}
                  outputs={[{ label: 'Sent', color: 'bg-gray-400' }]}
-                 width="w-[260px]"
+                 width="w-65"
                />
              </div>
 
-             <div className="absolute left-[1020px] top-[450px]">
+             <div className="absolute left-255 top-112.5">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -309,7 +309,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[970px] top-[600px]">
+             <div className="absolute left-242.5 top-150">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -324,7 +324,7 @@ export default function FlowCanvas() {
                />
              </div>
 
-             <div className="absolute left-[1420px] top-[450px]">
+             <div className="absolute left-355 top-112.5">
                <WorkflowNode 
                  icon={
                    <div className="w-5 h-5 rounded flex items-center justify-center">
@@ -341,7 +341,7 @@ export default function FlowCanvas() {
           </div>
 
           {/* Canvas Controls (Bottom Center) */}
-          <div className="absolute bottom-6 left-[50%] -translate-x-1/2 bg-white border border-gray-100 rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center px-1.5 py-1.5 z-20 cursor-default">
+          <div className="absolute bottom-6 left-[50%] -translate-x-1/2 bg-white border border-gray-100 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center px-1.5 py-1.5 z-20 cursor-default">
              <div className="flex items-center gap-1">
                <ControlButton icon={<MousePointer2 className="w-3.5 h-3.5" strokeWidth={2} />} active />
                <ControlButton icon={<Hand className="w-3.5 h-3.5" strokeWidth={2} />} />
@@ -398,7 +398,7 @@ function SidebarItem({ icon, label, right, active = false }: { icon: React.React
   return (
     <button className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[12px] font-semibold transition-colors group ${active ? 'bg-gray-100/80 text-gray-900 shadow-sm' : 'text-gray-500 hover:bg-gray-100/50 hover:text-gray-800'}`}>
       <div className="flex items-center gap-2.5">
-        <div className={`flex-shrink-0 ${active ? 'text-gray-700' : 'text-gray-400 group-hover:text-gray-600'} [&>svg]:w-[14px] [&>svg]:h-[14px] [&>svg]:stroke-[2.5]`}>
+        <div className={`shrink-0 ${active ? 'text-gray-700' : 'text-gray-400 group-hover:text-gray-600'} [&>svg]:w-3.5 [&>svg]:h-3.5 [&>svg]:stroke-[2.5]`}>
           {icon}
         </div>
         <span>{label}</span>
@@ -415,7 +415,7 @@ function WorkflowRunItem({ color, label }: { color: string, label: string }) {
         <div className={`w-3 h-3 rounded-sm ${color} flex items-center justify-center shrink-0`}>
           <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14c2-4 6-4 8 0s6 4 8 0" /></svg>
         </div>
-        <span className="truncate max-w-[130px]">{label}</span>
+        <span className="truncate max-w-32.5">{label}</span>
       </div>
       <Star className="w-3.5 h-3.5 text-gray-300 group-hover:text-gray-400" strokeWidth={2.5} />
     </button>
@@ -484,21 +484,21 @@ function WorkflowNode({ icon, title, subtitle, inputs = [], outputs = [], width 
       
       {(inputs.length > 0 || outputs.length > 0) && (
         <div className="flex flex-col gap-2 mt-1 relative">
-          <div className="absolute top-0 left-[-12px] right-[-12px] h-px bg-gray-100" />
+          <div className="absolute top-0 -left-3 -right-3 h-px bg-gray-100" />
           <div className="flex justify-between w-full pt-2">
             <div className="flex flex-col gap-2">
               {inputs.map((input, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] font-semibold text-gray-500 relative min-h-[16px]">
-                  <div className={`absolute top-1/2 -translate-y-1/2 -left-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${input.color} shadow-sm z-10`} />
+                <div key={i} className="flex items-center gap-2 text-[11px] font-semibold text-gray-500 relative min-h-4">
+                  <div className={`absolute top-1/2 -translate-y-1/2 -left-4.25 w-2.5 h-2.5 rounded-full border-2 border-white ring-1 ring-gray-200 ${input.color} shadow-sm z-10`} />
                   <span>{input.label}</span>
                 </div>
               ))}
             </div>
             <div className="flex flex-col gap-2 items-end text-right">
               {outputs.map((output, i) => (
-                <div key={i} className="flex items-center justify-end gap-2 text-[11px] font-semibold text-gray-500 relative min-h-[16px]">
+                <div key={i} className="flex items-center justify-end gap-2 text-[11px] font-semibold text-gray-500 relative min-h-4">
                   <span>{output.label}</span>
-                  <div className={`absolute top-1/2 -translate-y-1/2 -right-[17px] w-2.5 h-2.5 rounded-full border-[2px] border-white ring-1 ring-gray-200 ${output.color} shadow-sm z-10`} />
+                  <div className={`absolute top-1/2 -translate-y-1/2 -right-4.25 w-2.5 h-2.5 rounded-full border-2 border-white ring-1 ring-gray-200 ${output.color} shadow-sm z-10`} />
                 </div>
               ))}
             </div>
