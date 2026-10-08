@@ -107,13 +107,13 @@ const PrismaHero = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
 
         {/* Navbar */}
-        <nav className="absolute left-1/2 top-0 z-20 -translate-x-1/2">
-          <div className="flex items-center gap-3 rounded-b-2xl bg-black px-4 py-2 sm:gap-6 md:gap-12 md:rounded-b-3xl md:px-8 lg:gap-14">
+        <nav className="absolute left-1/2 top-0 z-20 -translate-x-1/2 mt-4 sm:mt-6">
+          <div className="flex items-center gap-4 rounded-full bg-black/40 backdrop-blur-md px-6 py-3 sm:gap-8 md:gap-14 md:px-10 lg:gap-16 border border-white/10">
             {navItems.map((item) => (
               <a
                 key={item}
                 href="#"
-                className="text-[10px] transition-colors sm:text-xs md:text-sm"
+                className="text-xs font-medium transition-colors sm:text-sm md:text-base tracking-wide uppercase"
                 style={{ color: "rgba(225, 224, 204, 0.8)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}
@@ -153,7 +153,7 @@ const PrismaHero = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="group inline-flex items-center gap-2 self-start rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
+                className="group inline-flex items-center gap-3 self-start rounded-full bg-[#E1E0CC] py-2 pl-6 pr-2 text-sm font-semibold text-black transition-all hover:gap-4 hover:bg-white sm:text-base shadow-lg"
               >
                 Join the lab
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
