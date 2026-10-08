@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Info, ArrowLeft, X, Layers, Globe, Zap, Hexagon, Sparkles, Brain, Bot } from "lucide-react";
+import { Check, Info, ArrowLeft, X, Globe, Zap, Hexagon, Sparkles, Brain, Bot } from "lucide-react";
 
 export default function QuadrantSetup() {
   return (
@@ -15,8 +15,7 @@ export default function QuadrantSetup() {
 
       {/* Header */}
       <header className="relative z-10 flex justify-between items-center w-full max-w-[900px] mx-auto mb-10 px-2 mt-2">
-        <div className="text-[24px] font-extrabold text-gray-900 tracking-tight flex items-center gap-2">
-          <Layers className="w-6 h-6 text-indigo-600" />
+        <div className="text-[28px] font-extrabold tracking-tight font-[family-name:var(--font-outfit)] bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
           Quadrant
         </div>
         <button className="bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-[6px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] text-[13px] font-semibold text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors">
