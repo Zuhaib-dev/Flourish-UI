@@ -13,9 +13,9 @@ import {
   Zap,
   Leaf
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -23,14 +23,14 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
 
 export default function TravelDashboard() {
   return (
-    <div className="min-h-screen bg-[#e6e7e4] p-6 md:p-8 flex items-center justify-center font-[family-name:var(--font-inter)] text-[#1a1a1a]">
+    <div className="min-h-screen bg-[#e6e7e4] p-6 md:p-8 flex items-center justify-center font-(family-name:--font-inter) text-[#1a1a1a]">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -70,7 +70,7 @@ export default function TravelDashboard() {
                 <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-[#ef4444] rounded-full border-2 border-[#f8f8f6]" />
               </div>
             </div>
-            <div className="w-[46px] h-[46px] bg-gradient-to-tr from-blue-600 to-indigo-400 rounded-2xl shadow-inner cursor-pointer flex items-center justify-center text-white/90">
+            <div className="w-[46px] h-[46px] bg-linear-to-tr from-blue-600 to-indigo-400 rounded-2xl shadow-inner cursor-pointer flex items-center justify-center text-white/90">
               <Leaf className="w-5 h-5" fill="currentColor" />
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function TravelDashboard() {
                 <div className="absolute top-0 left-0 h-full bg-[#1a1a1a] w-1/3" />
               </div>
               
-              <div className="flex items-baseline font-[family-name:var(--font-outfit)] shrink-0">
+              <div className="flex items-baseline font-(family-name:--font-outfit) shrink-0">
                 <span className="text-[26px] font-bold text-[#1a1a1a] leading-none">01</span>
                 <span className="text-[14px] font-bold text-black/30 ml-0.5">/03</span>
               </div>
@@ -128,7 +128,7 @@ export default function TravelDashboard() {
               <div className="flex-1 md:border-r border-white/20 pr-8 pb-4 md:pb-0">
                 <div className="flex items-center gap-2 mb-1">
                   <Star className="w-5 h-5 text-white" fill="currentColor" />
-                  <div className="text-[28px] font-[family-name:var(--font-poppins)] font-bold tracking-tight text-white">
+                  <div className="text-[28px] font-(family-name:--font-poppins) font-bold tracking-tight text-white">
                     4.86 <span className="text-white/60 text-[20px]">/ 5.00</span>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default function TravelDashboard() {
 
               {/* Right Info */}
               <div className="flex-[1.5] md:pl-10 pt-4 md:pt-0">
-                <h2 className="text-[32px] font-[family-name:var(--font-poppins)] font-bold tracking-tight mb-4 text-white">
+                <h2 className="text-[32px] font-(family-name:--font-poppins) font-bold tracking-tight mb-4 text-white">
                   Places in Switzerland
                 </h2>
                 
@@ -193,11 +193,11 @@ export default function TravelDashboard() {
               <div className="absolute top-1/2 right-12 w-[18px] h-[18px] bg-white rounded-full shadow-sm" />
               <div className="absolute bottom-24 -right-2 w-2 h-2 bg-white rounded-full opacity-60" />
               
-              <h2 className="relative z-10 text-[76px] leading-[0.9] font-[family-name:var(--font-poppins)] font-black tracking-[-0.05em] text-[#1a1a1a] mb-5 mt-2">
+              <h2 className="relative z-10 text-[76px] leading-[0.9] font-(family-name:--font-poppins) font-black tracking-tighter text-[#1a1a1a] mb-5 mt-2">
                 Take a<br />Break
               </h2>
               
-              <p className="relative z-10 text-[16px] leading-[1.5] text-[#333333] font-medium max-w-[95%] mb-10">
+              <p className="relative z-10 text-[16px] leading-normal text-[#333333] font-medium max-w-[95%] mb-10">
                 Indulge in the freedom of <br/>exploration with effortless <br/>booking platform.
               </p>
               
@@ -213,7 +213,7 @@ export default function TravelDashboard() {
               </button>
               
               <div className="mt-6 mb-8">
-                <h3 className="text-[24px] font-[family-name:var(--font-outfit)] font-bold text-[#1c1c1c] mb-1">
+                <h3 className="text-[24px] font-(family-name:--font-outfit) font-bold text-[#1c1c1c] mb-1">
                   Where
                 </h3>
                 <input 
