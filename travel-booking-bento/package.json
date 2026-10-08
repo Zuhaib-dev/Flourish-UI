@@ -4,7 +4,15 @@
   "description": "A beautiful travel booking bento dashboard.",
   "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
   "private": true,
-  "keywords": ["react", "nextjs", "dashboard", "travel", "booking", "bento", "ui"],
+  "keywords": [
+    "react",
+    "nextjs",
+    "dashboard",
+    "travel",
+    "booking",
+    "bento",
+    "ui"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +20,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "framer-motion": "^14.0.0",
     "lucide-react": "^1.52.0",
     "next": "16.4.0",
     "react": "19.3.0",

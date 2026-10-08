@@ -13,14 +13,33 @@ import {
   Zap,
   Leaf
 } from "lucide-react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+};
 
 export default function TravelDashboard() {
   return (
     <div className="min-h-screen bg-[#e6e7e4] p-6 md:p-8 flex items-center justify-center font-[family-name:var(--font-inter)] text-[#1a1a1a]">
-      <div className="w-full max-w-[1240px] flex flex-col gap-6">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="w-full max-w-[1240px] flex flex-col gap-6"
+      >
         
         {/* TOP NAVBAR */}
-        <div className="flex flex-col md:flex-row gap-6 w-full">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-6 w-full">
           {/* Left Nav */}
           <div className="flex-1 bg-[#f8f8f6] rounded-[24px] p-2 pr-8 flex items-center justify-between shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
             <div className="flex items-center gap-6">
@@ -55,13 +74,14 @@ export default function TravelDashboard() {
               <Leaf className="w-5 h-5" fill="currentColor" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* MAIN BENTO GRID */}
         <div className="flex flex-col lg:flex-row gap-6 h-[720px]">
           
           {/* Left Column: Switzerland Card */}
-          <div 
+          <motion.div 
+            variants={itemVariants}
             className="flex-1 rounded-[32px] relative overflow-hidden flex flex-col justify-between p-8 bg-black shadow-2xl group"
           >
             {/* Background Image */}
@@ -137,7 +157,7 @@ export default function TravelDashboard() {
 
               {/* Right Info */}
               <div className="flex-[1.5]">
-                <h2 className="text-[28px] font-[family-name:var(--font-jakarta)] font-bold tracking-tight mb-3">
+                <h2 className="text-[32px] font-[family-name:var(--font-poppins)] font-bold tracking-tight mb-4 text-white">
                   Places in Switzerland
                 </h2>
                 
@@ -161,19 +181,19 @@ export default function TravelDashboard() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Two stacked cards */}
-          <div className="w-full lg:w-[380px] flex flex-col gap-6">
+          <motion.div variants={itemVariants} className="w-full lg:w-[380px] flex flex-col gap-6">
             
             {/* Take a Break Card */}
-            <div className="flex-[1.4] bg-[#eef3ea] rounded-[32px] p-8 relative overflow-hidden flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-white/50">
+            <div className="flex-[1.4] bg-[#eef3ea] rounded-[32px] p-8 relative overflow-hidden flex flex-col shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-white/50 group">
               {/* Decorative shapes */}
-              <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-[#bceda1] rounded-full opacity-70 mix-blend-multiply blur-[1px]" />
+              <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-[#bceda1] rounded-full opacity-70 mix-blend-multiply blur-[1px] group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute top-1/2 right-12 w-[18px] h-[18px] bg-white rounded-full shadow-sm" />
               <div className="absolute bottom-24 -right-2 w-2 h-2 bg-white rounded-full opacity-60" />
               
-              <h2 className="relative z-10 text-[76px] leading-[0.9] font-[family-name:var(--font-outfit)] font-black tracking-[-0.05em] text-[#1a1a1a] mb-5 mt-2">
+              <h2 className="relative z-10 text-[76px] leading-[0.9] font-[family-name:var(--font-poppins)] font-black tracking-[-0.05em] text-[#1a1a1a] mb-5 mt-2">
                 Take a<br />Break
               </h2>
               
@@ -207,10 +227,9 @@ export default function TravelDashboard() {
                 Start your search <Search className="w-[18px] h-[18px]" strokeWidth={3} />
               </button>
             </div>
-
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
@@ -221,7 +240,9 @@ export default function TravelDashboard() {
 
 function Chip({ text, active = false }: { text: string, active?: boolean }) {
   return (
-    <div 
+    <motion.div 
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       className={`
         px-5 py-2.5 rounded-full text-[13px] font-semibold transition-colors cursor-pointer border
         ${active 
@@ -231,6 +252,6 @@ function Chip({ text, active = false }: { text: string, active?: boolean }) {
       `}
     >
       {text}
-    </div>
+    </motion.div>
   );
 }
