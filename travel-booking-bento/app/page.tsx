@@ -95,40 +95,40 @@ export default function TravelDashboard() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
             {/* Card Header */}
-            <div className="relative z-10 flex items-center justify-between">
-              <div className="flex items-center gap-6 text-[#1a1a1a]">
+            <div className="relative z-10 flex items-center gap-6 w-full">
+              <div className="flex items-center gap-4 md:gap-6 text-[#1a1a1a] shrink-0">
                 <div className="flex items-center gap-2.5 font-bold text-[18px]">
                   <span className="text-[20px]">🇨🇭</span> Switzerland
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center hover:bg-black/5 transition-colors">
+                  <button className="w-9 h-9 rounded-full border border-black/30 flex items-center justify-center hover:bg-black/5 transition-colors">
                     <ArrowLeft className="w-4 h-4" strokeWidth={2} />
                   </button>
-                  <button className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity">
+                  <button className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors">
                     <ArrowRight className="w-4 h-4" strokeWidth={2} />
                   </button>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 w-[280px]">
-                <div className="h-[1px] bg-black/20 flex-1 relative">
-                  <div className="absolute top-0 left-0 h-full bg-[#1a1a1a] w-1/3" />
-                </div>
-                <div className="flex items-baseline font-[family-name:var(--font-outfit)]">
-                  <span className="text-[26px] font-bold text-[#1a1a1a] leading-none">01</span>
-                  <span className="text-[14px] font-bold text-black/30 ml-0.5">/03</span>
-                </div>
+              {/* Stretching progress line */}
+              <div className="h-[1px] bg-black/20 flex-1 relative hidden sm:block mt-1">
+                <div className="absolute top-0 left-0 h-full bg-[#1a1a1a] w-1/3" />
+              </div>
+              
+              <div className="flex items-baseline font-[family-name:var(--font-outfit)] shrink-0">
+                <span className="text-[26px] font-bold text-[#1a1a1a] leading-none">01</span>
+                <span className="text-[14px] font-bold text-black/30 ml-0.5">/03</span>
               </div>
             </div>
 
-            {/* Card Footer Content */}
-            <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 text-white mt-auto pt-20">
+            {/* Card Footer Content with Glass Grid */}
+            <div className="relative z-10 flex flex-col md:flex-row mt-auto pt-8 border-t border-white/20">
               
               {/* Left Info */}
-              <div className="flex-1 border-r border-white/10 pr-8">
+              <div className="flex-1 md:border-r border-white/20 pr-8 pb-4 md:pb-0">
                 <div className="flex items-center gap-2 mb-1">
                   <Star className="w-5 h-5 text-white" fill="currentColor" />
-                  <div className="text-[28px] font-[family-name:var(--font-jakarta)] font-bold tracking-tight">
+                  <div className="text-[28px] font-[family-name:var(--font-poppins)] font-bold tracking-tight text-white">
                     4.86 <span className="text-white/60 text-[20px]">/ 5.00</span>
                   </div>
                 </div>
@@ -139,24 +139,24 @@ export default function TravelDashboard() {
                   Airbnb's reviewers
                 </div>
                 
-                <div className="w-full h-[3px] bg-white/20 rounded-full mb-6">
+                <div className="w-full h-[2px] bg-white/20 rounded-full mb-6">
                   <div className="w-[70%] h-full bg-white rounded-full" />
                 </div>
 
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
-                    <img src="https://i.pravatar.cc/100?img=11" className="w-10 h-10 rounded-full border-2 border-black/40" alt="avatar" />
-                    <img src="https://i.pravatar.cc/100?img=12" className="w-10 h-10 rounded-full border-2 border-black/40" alt="avatar" />
-                    <img src="https://i.pravatar.cc/100?img=13" className="w-10 h-10 rounded-full border-2 border-black/40" alt="avatar" />
+                    <img src="https://i.pravatar.cc/100?img=11" className="w-9 h-9 rounded-full border-2 border-[#3c3c3a]" alt="avatar" />
+                    <img src="https://i.pravatar.cc/100?img=12" className="w-9 h-9 rounded-full border-2 border-[#3c3c3a]" alt="avatar" />
+                    <img src="https://i.pravatar.cc/100?img=13" className="w-9 h-9 rounded-full border-2 border-[#3c3c3a]" alt="avatar" />
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-[#a78bfa] border-2 border-black/40 flex items-center justify-center text-white shadow-lg">
+                  <div className="w-9 h-9 rounded-full bg-[#c084fc] border-2 border-[#3c3c3a] flex items-center justify-center text-white shadow-lg">
                     <Zap className="w-4 h-4" fill="currentColor" />
                   </div>
                 </div>
               </div>
 
               {/* Right Info */}
-              <div className="flex-[1.5]">
+              <div className="flex-[1.5] md:pl-10 pt-4 md:pt-0">
                 <h2 className="text-[32px] font-[family-name:var(--font-poppins)] font-bold tracking-tight mb-4 text-white">
                   Places in Switzerland
                 </h2>
