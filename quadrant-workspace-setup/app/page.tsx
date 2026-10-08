@@ -14,7 +14,7 @@ export default function QuadrantSetup() {
       <div className="absolute inset-0 bg-[#e4dfd2]/30 backdrop-blur-[1px]" />
 
       {/* Header */}
-      <header className="relative z-10 flex justify-between items-center w-full max-w-[1050px] mx-auto mb-10 px-4 mt-2">
+      <header className="relative z-10 flex justify-between items-center w-full max-w-[900px] mx-auto mb-10 px-2 mt-2">
         <div className="text-[26px] font-bold text-gray-800 tracking-tight">
           Quadrant
         </div>
@@ -24,12 +24,12 @@ export default function QuadrantSetup() {
       </header>
 
       {/* Main Card */}
-      <main className="relative z-10 flex-1 w-full max-w-[1050px] mx-auto bg-white rounded-[12px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-[700px] mb-8">
+      <main className="relative z-10 flex-1 w-full max-w-[900px] mx-auto bg-white rounded-[12px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-[600px] mb-8">
         
         {/* Left Sidebar */}
-        <div className="w-[330px] bg-[#f1f0ec] p-10 pr-8 shrink-0 flex flex-col">
-           <h2 className="text-[#a1a1aa] text-[15px] font-medium mb-1">Create new workspace,</h2>
-           <h1 className="text-[22px] font-medium text-gray-800 leading-[1.2] mb-12 pr-6">
+        <div className="w-[280px] bg-[#f1f0ec] p-8 pr-6 shrink-0 flex flex-col">
+           <h2 className="text-[#a1a1aa] text-[14px] font-medium mb-1">Create new workspace,</h2>
+           <h1 className="text-[20px] font-medium text-gray-800 leading-[1.25] mb-10 pr-2">
              Tell us about your brand and website
            </h1>
            
@@ -66,11 +66,11 @@ export default function QuadrantSetup() {
         </div>
 
         {/* Right Content */}
-        <div className="flex-1 px-10 py-10 overflow-y-auto bg-white border-l border-gray-100">
-           <div className="max-w-[540px]">
+        <div className="flex-1 px-10 py-8 overflow-y-auto bg-white border-l border-gray-100">
+           <div className="max-w-[500px]">
              
              {/* Add Topics */}
-             <div className="mb-9">
+             <div className="mb-7">
                <h3 className="text-[14px] font-semibold text-gray-900 mb-0.5 flex gap-1">Add Topics <span className="text-gray-500">*</span></h3>
                <p className="text-[13px] text-[#71717a] mb-3">Choose focus areas for your prompts. You can add multiple topics</p>
                
@@ -91,7 +91,7 @@ export default function QuadrantSetup() {
              </div>
 
              {/* Select Regions */}
-             <div className="mb-9">
+             <div className="mb-7">
                <h3 className="text-[14px] font-semibold text-gray-900 mb-0.5 flex gap-1">Select Regions <span className="text-gray-500">*</span></h3>
                <p className="text-[13px] text-[#71717a] mb-3">Choose target regions for your prompts. You can select multiple countries or global.</p>
                
@@ -101,7 +101,7 @@ export default function QuadrantSetup() {
              </div>
 
              {/* Select AI Models */}
-             <div className="mb-9">
+             <div className="mb-7">
                <h3 className="text-[14px] font-semibold text-gray-900 mb-0.5 flex gap-1">Select AI Models <span className="text-gray-500">*</span></h3>
                <p className="text-[13px] text-[#71717a] mb-4">Choose which AI models to use for your prompts. You can select multiple models.</p>
                
@@ -116,7 +116,7 @@ export default function QuadrantSetup() {
              </div>
 
              {/* Number of prompts */}
-             <div className="mb-4">
+             <div className="mb-2">
                <h3 className="text-[14px] font-semibold text-gray-900 mb-0.5">Number of prompts</h3>
                <p className="text-[13px] text-[#71717a] mb-5">Total number of prompts to generate per topic and region.</p>
                
@@ -150,7 +150,7 @@ export default function QuadrantSetup() {
              </div>
 
              {/* Buttons */}
-             <div className="flex justify-between items-center mt-12 pt-6 border-t border-[#f4f4f5]">
+             <div className="flex justify-between items-center mt-10 pt-5 border-t border-[#f4f4f5]">
                <button className="flex items-center gap-1.5 text-[14px] font-medium text-[#52525b] hover:text-black transition-colors bg-[#f4f4f5] px-4 py-2 rounded-md">
                  <ArrowLeft className="w-4 h-4" /> Back
                </button>
