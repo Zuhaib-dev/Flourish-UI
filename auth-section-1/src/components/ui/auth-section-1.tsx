@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 
 const formFields = [
   { label: "First Name", value: "Zuhaib", type: "text" },
-  { label: "Last Name", value: "Sharma", type: "text" },
+  { label: "Last Name", value: "Rashid", type: "text" },
 ];
 
 const termsText = (
