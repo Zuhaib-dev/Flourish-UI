@@ -187,3 +187,11 @@ A dark, hairline-ruled closing section for an ops product, with the brand printe
 <div align="center">
   <img src="./ticket-stub-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ticket Stub Footer Preview" />
 </div>
+
+---
+
+### ✨ [Particle Wordmark](./particle-wordmark)
+A gorgeous, interactive particle-based wordmark component rendered entirely through HTML5 Canvas mathematics without relying on heavy external assets.
+<div align="center">
+  <img src="./particle-wordmark/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Particle Wordmark Preview" />
+</div>
