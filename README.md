@@ -195,3 +195,8 @@ A gorgeous, interactive particle-based wordmark component rendered entirely thro
 <div align="center">
   <img src="./particle-wordmark/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Particle Wordmark Preview" />
 </div>
+
+---
+
+### 🔲 [Draggable Widget Grid](./draggable-widget-grid)
+A beautiful, draggable grid of widgets that can be rearranged seamlessly using `motion/react`. It features a gap-free rectangle tiling algorithm and supports mouse, touch (long press), and keyboard (Alt + arrow keys) inputs natively.
