@@ -646,7 +646,7 @@ function NeuformIsolatedEffect({
   const filter =
     safeHue === 0 && safeSaturation === 1 && safeBrightness === 1
       ? undefined
-      : \`hue-rotate(\${safeHue}deg) saturate(\${safeSaturation}) brightness(\${safeBrightness})\`;
+      : `hue-rotate(${safeHue}deg) saturate(${safeSaturation}) brightness(${safeBrightness})`;
 
   return (
     <iframe
