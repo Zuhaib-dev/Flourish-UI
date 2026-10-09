@@ -179,3 +179,11 @@ A stunning hero section featuring a generative 3D ink sculpture that responds to
 <div align="center">
   <img src="./ink-orbit-hero/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ink Orbit Hero Preview" />
 </div>
+
+---
+
+### 🎟️ [Ticket Stub Footer](./ticket-stub-footer)
+A dark, hairline-ruled closing section for an ops product, with the brand printed on an orange ticket. It features a slowly turning 3D SVG globe, a punchable stub, and a full-width serif canvas wordmark whose foot dissolves into a halftone.
+<div align="center">
+  <img src="./ticket-stub-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ticket Stub Footer Preview" />
+</div>
