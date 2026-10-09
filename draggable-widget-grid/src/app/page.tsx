@@ -139,9 +139,9 @@ function Shell({
 	children: ReactNode
 }) {
 	return (
-		<section className="@container flex h-full flex-col gap-4 p-4 sm:p-[22px]">
+		<section className="@container flex h-full flex-col gap-4 p-4 sm:p-5.5">
 			<header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[14px] leading-none">
-				<h3 className="truncate text-[12px] tracking-[0.1em] text-muted-foreground uppercase">
+				<h3 className="truncate text-[12px] tracking-widest text-muted-foreground uppercase">
 					{title}
 				</h3>
 				{meta && <span className="shrink-0 text-muted-foreground">{meta}</span>}
@@ -301,7 +301,7 @@ function Runs() {
 				<div
 					role="img"
 					aria-label={`Runs per 45 minutes over the last 5 days. ${fmt(total)} runs so far today, busiest in the afternoon, quieter at the weekend.`}
-					className="grid grid-cols-1 items-center gap-x-3 gap-y-[3px] @[480px]:grid-cols-[auto_minmax(0,1fr)]">
+					className="grid grid-cols-1 items-center gap-x-3 gap-y-0.75 @[480px]:grid-cols-[auto_minmax(0,1fr)]">
 					{grid.map((row, d) => (
 						<Fragment key={DAYS[d]}>
 							<span
@@ -311,7 +311,7 @@ function Runs() {
 								}`}>
 								{DAYS[d]}
 							</span>
-							<span className="grid grid-cols-[repeat(32,minmax(0,1fr))] gap-[3px]">
+							<span className="grid grid-cols-32 gap-0.75">
 								{row.map((v, s) => {
 									const level =
 										v === null || v === 0
@@ -379,7 +379,7 @@ function Health() {
 				<div
 					role="img"
 					aria-label="Uptime over the last 30 days: 28 days operational, 2 days with degraded performance."
-					className="flex h-5 gap-[2px] @[240px]:h-6">
+					className="flex h-5 gap-0.5 @[240px]:h-6">
 					{Array.from({ length: 30 }, (_, i) => (
 						<span
 							key={i}
@@ -422,7 +422,7 @@ function Cost() {
 			<div
 				role="img"
 				aria-label={`Daily cost over the last 14 days, between $${Math.min(...days)} and $${max}. Today $${days[13]}.`}
-				className="mt-auto flex h-10 items-end gap-[3px]">
+				className="mt-auto flex h-10 items-end gap-0.75">
 				{days.map((d, i) => (
 					<span
 						key={i}
@@ -539,7 +539,7 @@ function Traces() {
 						</span>
 						<span
 							aria-hidden="true"
-							className="hidden h-[3px] rounded-full bg-foreground/10 @[440px]:block">
+							className="hidden h-0.75 rounded-full bg-foreground/10 @[440px]:block">
 							<span
 								className={`block h-full rounded-full ${i === 0 ? ACCENT : 'bg-foreground/25'}`}
 								style={{ width: `${(r.ms / longest) * 100}%` }}
@@ -630,15 +630,15 @@ function Tools() {
 							}>
 							<th
 								scope="row"
-								className={`w-[140px] truncate py-[6px] pr-3 font-normal ${
+								className={`w-35 truncate py-1.5 pr-3 font-normal ${
 									i === 0 ? 'text-foreground' : 'text-muted-foreground'
 								}`}>
 								{r.name}
 							</th>
-							<td className="py-[6px]">
+							<td className="py-1.5">
 								<span
 									aria-hidden="true"
-									className="block h-[3px] rounded-full bg-foreground/10">
+									className="block h-0.75 rounded-full bg-foreground/10">
 									<span
 										className={`block h-full rounded-full transition-[width] duration-700 motion-reduce:transition-none ${
 											i === 0 ? ACCENT : 'bg-foreground/25'
@@ -647,7 +647,7 @@ function Tools() {
 									/>
 								</span>
 							</td>
-							<td className="w-[56px] py-[6px] text-right text-muted-foreground tabular-nums">
+							<td className="w-14 py-1.5 text-right text-muted-foreground tabular-nums">
 								{r.calls}
 							</td>
 						</tr>
@@ -695,7 +695,7 @@ function Models() {
 			<div
 				role="img"
 				aria-label={`Share of tokens: ${MODELS.map((m) => `${m.name} ${Math.round(m.share * 100)}%`).join(', ')}.`}
-				className="mt-4 flex h-[3px] gap-[3px]">
+				className="mt-4 flex h-0.75 gap-0.75">
 				{MODELS.map((m) => (
 					<span
 						key={m.name}
@@ -741,12 +741,12 @@ export default function Demo() {
 			className={`flex min-h-screen w-full items-center justify-center bg-background px-4 py-12 text-foreground antialiased ${PALETTE}`}
 			style={{ fontFamily: FONT }}>
 			<link rel="stylesheet" href={FONT_URL} />
-			<div className="w-full max-w-[1180px]">
+			<div className="w-full max-w-295">
 				<p className="mb-4 text-[14px] text-muted-foreground">
-					<span className="[@media(pointer:coarse)]:hidden">
+					<span className="pointer-coarse:hidden">
 						Drag and rearrange widgets to customize the layout.
 					</span>
-					<span className="hidden [@media(pointer:coarse)]:inline">
+					<span className="hidden pointer-coarse:inline">
 						Press and hold a widget, then drag to rearrange the layout.
 					</span>
 				</p>
