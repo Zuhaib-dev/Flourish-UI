@@ -572,7 +572,7 @@ const Widget = memo(function Widget({
 			data-slot="widget"
 			data-widget-id={item.id}
 			tabIndex={editable ? 0 : undefined}
-			aria-label={item.label ?? \`\${SIZE_LABELS[item.size]} widget\`}
+			aria-label={item.label ?? `${SIZE_LABELS[item.size]} widget`}
 			aria-describedby={editable ? hintId : undefined}
 			aria-posinset={position}
 			aria-setsize={count}
@@ -612,14 +612,14 @@ const Widget = memo(function Widget({
 				transition: LIFT,
 			}}
 			transition={SPRING}
-			className={\`relative min-w-0 rounded-[var(--widget-radius)] outline-none focus-visible:ring-2 focus-visible:ring-ring [&_a]:[-webkit-user-drag:none] [&_img]:[-webkit-user-drag:none] \${
+			className={`relative min-w-0 rounded-[var(--widget-radius)] outline-none focus-visible:ring-2 focus-visible:ring-ring [&_a]:[-webkit-user-drag:none] [&_img]:[-webkit-user-drag:none] ${
 				editable
 					? 'cursor-grab touch-pan-y touch-pinch-zoom select-none [-webkit-touch-callout:none] active:cursor-grabbing'
 					: ''
-			}\`}
+			}`}
 			style={{
-				gridColumn: \`\${col + 1} / span \${w}\`,
-				gridRow: \`\${row + 1} / span \${h}\`,
+				gridColumn: `${col + 1} / span ${w}`,
+				gridRow: `${row + 1} / span ${h}`,
 				zIndex: held ? 20 : raised ? 10 : 0,
 			}}>
 			<motion.div
@@ -631,9 +631,9 @@ const Widget = memo(function Widget({
 					bounce: 0.12,
 					delay,
 				}}
-				className={\`relative isolate flex h-full w-full flex-col overflow-hidden rounded-[var(--widget-radius)] bg-card text-card-foreground ring-inset transition-shadow duration-300 [clip-path:inset(0_round_var(--widget-radius))] \${
+				className={`relative isolate flex h-full w-full flex-col overflow-hidden rounded-[var(--widget-radius)] bg-card text-card-foreground ring-inset transition-shadow duration-300 [clip-path:inset(0_round_var(--widget-radius))] ${
 					landed ? 'ring-2 ring-foreground/40' : 'ring-1 ring-border'
-				}\`}>
+				}`}>
 				{renderItem?.(item as never, sizeOf(w, h))}
 			</motion.div>
 		</motion.div>
@@ -739,7 +739,7 @@ export function DraggableWidgetGrid({
 			const { items: current, metrics: m } = latest.current
 			const el = id
 				? (grid.current?.querySelector(
-						\`[data-widget-id="\${CSS.escape(id)}"]\`,
+						`[data-widget-id="${CSS.escape(id)}"]`,
 					) as HTMLElement | null)
 				: null
 			if (!id || !el || !m.columns) return
@@ -779,7 +779,7 @@ export function DraggableWidgetGrid({
 		if (!id) return
 		refocus.current = null
 		const el = grid.current?.querySelector(
-			\`[data-widget-id="\${CSS.escape(id)}"]\`,
+			`[data-widget-id="${CSS.escape(id)}"]`,
 		) as HTMLElement | null
 		el?.focus()
 	}, [items])
@@ -882,8 +882,8 @@ export function DraggableWidgetGrid({
 	return (
 		<MotionConfig reducedMotion="user">
 			<div
-				className={\`relative w-full \${className}\`}
-				style={{ '--widget-radius': \`\${radius}px\` } as CSSProperties}>
+				className={`relative w-full ${className}`}
+				style={{ '--widget-radius': `${radius}px` } as CSSProperties}>
 				{editable && (
 					<p id={hintId} className="sr-only">
 						Drag to rearrange. On touch screens, press and hold first. With a
@@ -897,11 +897,11 @@ export function DraggableWidgetGrid({
 					className="grid w-full"
 					style={{
 						gap,
-						gridTemplateColumns: \`repeat(\${columns}, minmax(0, 1fr))\`,
+						gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
 						// Square cells: row height equals column width.
 						gridAutoRows: metrics.unit
-							? \`\${Math.round(metrics.unit)}px\`
-							: \`minmax(\${cellSize * 0.75}px, auto)\`,
+							? `${Math.round(metrics.unit)}px`
+							: `minmax(${cellSize * 0.75}px, auto)`,
 					}}>
 					{domOrder.current.map((id) => {
 						const item = byId.get(id)
