@@ -65,7 +65,7 @@ export default function AuthSectionOne() {
 
               <FieldBox
                 label="Email"
-                value="harshitlog@gmail.com"
+                value="zuhaibrashid01@gmail.com"
                 type="email"
               />
               <FieldBox
