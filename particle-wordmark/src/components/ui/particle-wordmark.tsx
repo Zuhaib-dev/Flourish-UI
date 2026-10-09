@@ -557,14 +557,14 @@ function buildFocusedDocument(definition: EffectDefinition, mode: EffectMode) {
   const backgroundFilter = invertBackground
     ? "filter: invert(1) hue-rotate(180deg) saturate(.92) brightness(1.02) !important;"
     : "";
-  const focusStyle = \`<style data-threeui-focus>
-html, body { width: 100% !important; height: 100% !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background: \${background} !important; color-scheme: \${mode} !important; }
+  const focusStyle = `<style data-threeui-focus>
+html, body { width: 100% !important; height: 100% !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background: ${background} !important; color-scheme: ${mode} !important; }
 body { position: relative !important; display: flex !important; align-items: center !important; justify-content: center !important; }
 body > * { visibility: hidden !important; }
 body[data-threeui-ready] > [data-threeui-role] { visibility: visible !important; }
 [data-threeui-residual] { display: none !important; }
 [data-threeui-hidden] { display: none !important; }
-[data-threeui-role="background"] { position: fixed !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; z-index: 0 !important; opacity: 1 !important; pointer-events: none !important; \${backgroundFilter} }
+[data-threeui-role="background"] { position: fixed !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; z-index: 0 !important; opacity: 1 !important; pointer-events: none !important; ${backgroundFilter} }
 [data-threeui-role="background"][data-threeui-fit="contain-square"] { position: absolute !important; top: 50% !important; right: auto !important; bottom: auto !important; left: 50% !important; width: min(100vw, 100vh) !important; height: min(100vw, 100vh) !important; aspect-ratio: 1 / 1 !important; transform: translate(-50%, -50%) !important; }
 [data-threeui-role="button"] { position: relative !important; z-index: 2 !important; opacity: 1 !important; flex: none !important; }
 [data-threeui-role="button"]:not([data-threeui-preserve-transform]) { transform: none !important; }
@@ -573,15 +573,15 @@ body[data-threeui-ready] > [data-threeui-role] { visibility: visible !important;
 [data-threeui-role="visual"][data-threeui-fit="contain-square"] { flex: none !important; width: min(calc(100vw - 32px), calc(100vh - 32px)) !important; max-width: none !important; height: min(calc(100vw - 32px), calc(100vh - 32px)) !important; max-height: none !important; aspect-ratio: 1 / 1 !important; padding: 0 !important; overflow: hidden !important; }
 [data-threeui-role="visual"][data-threeui-fit="wide-wordmark"] { width: min(calc(100vw - 48px), 1180px) !important; max-width: calc(100vw - 48px) !important; height: auto !important; max-height: none !important; aspect-ratio: 16 / 3 !important; padding: 0 !important; overflow: hidden !important; }
 [data-threeui-role="visual"][data-threeui-fit="portrait-stage"] { position: absolute !important; top: 50% !important; right: auto !important; bottom: auto !important; left: 50% !important; width: 1080px !important; max-width: none !important; height: 1350px !important; max-height: none !important; padding: 0 !important; overflow: hidden !important; transform-origin: center !important; }
-</style>\`;
-  const focusScript = \`<script data-threeui-focus>
+</style>`;
+  const focusScript = `<script data-threeui-focus>
 (function () {
-  document.documentElement.dataset.sfMode = \${modeJson};
+  document.documentElement.dataset.sfMode = ${modeJson};
   var isolated = false;
   function isolate() {
     if (isolated) return;
-    var specs = \${targetJson};
-    var hiddenSelectors = \${hiddenTargetJson};
+    var specs = ${targetJson};
+    var hiddenSelectors = ${hiddenTargetJson};
     var roots = [];
     hiddenSelectors.forEach(function (selector) {
       document.querySelectorAll(selector).forEach(function (element) {
@@ -619,10 +619,10 @@ body[data-threeui-ready] > [data-threeui-role] { visibility: visible !important;
   else scheduleIsolation();
   window.addEventListener("load", isolate, { once: true });
 })();
-</script>\`;
+</script>`;
   return source
-    .replace(/<\\/head>/i, \`\${focusStyle}</head>\`)
-    .replace(/<\\/body>/i, \`\${focusScript}</body>\`);
+    .replace(/<\/head>/i, `${focusStyle}</head>`)
+    .replace(/<\/body>/i, `${focusScript}</body>`);
 }
 
 function NeuformIsolatedEffect({
