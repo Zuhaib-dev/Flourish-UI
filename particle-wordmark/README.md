@@ -1,5 +1,9 @@
 # Particle Wordmark
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Particle Wordmark Preview" />
+</div>
+
 A gorgeous, interactive particle-based wordmark component.
 
 ## Features
