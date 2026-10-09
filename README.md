@@ -217,5 +217,5 @@ A highly interactive animated crowd rendering component using HTML5 Canvas and G
 ### 🔐 [Auth Section 1](./auth-section-1)
 A gorgeous, highly-converting split-screen authentication component layout featuring a minimal form block on one side and an animated grain gradient mesh on the other.
 <div align="center">
-  <img src="./auth-section-1/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Auth Section 1 Preview" />
+  <img src="./auth-section-1/public/Previeww.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Auth Section 1 Preview" />
 </div>

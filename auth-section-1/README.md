@@ -1,7 +1,7 @@
 # Auth Section 1
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Auth Section 1 Preview" />
+  <img src="./public/Previeww.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Auth Section 1 Preview" />
 </div>
 
 A gorgeous, highly-converting split-screen authentication component layout built for Next.js.
