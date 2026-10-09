@@ -203,3 +203,8 @@ A beautiful, draggable grid of widgets that can be rearranged seamlessly using `
 <div align="center">
   <img src="./draggable-widget-grid/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Draggable Widget Grid Preview" />
 </div>
+
+---
+
+### 🚶‍♂️ [Skiper39 - Crowd Canvas](./skiper39)
+A highly interactive animated crowd rendering component using HTML5 Canvas and GSAP. It draws custom sprites walking in random animated paths simulating a lively crowd, utilizing requestAnimationFrame.
