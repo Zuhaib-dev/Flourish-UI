@@ -211,3 +211,8 @@ A highly interactive animated crowd rendering component using HTML5 Canvas and G
 <div align="center">
   <img src="./skiper39/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Skiper39 Preview" />
 </div>
+
+---
+
+### 🔐 [Auth Section 1](./auth-section-1)
+A gorgeous, highly-converting split-screen authentication component layout featuring a minimal form block on one side and an animated grain gradient mesh on the other.
