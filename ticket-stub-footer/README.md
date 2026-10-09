@@ -1,5 +1,9 @@
 # Ticket Stub Footer
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ticket Stub Footer Preview" />
+</div>
+
 A dark, hairline-ruled closing section for an ops product, with the brand printed on an orange ticket.
 
 ## Features
