@@ -687,9 +687,9 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
         aria-label={title}
         style={{ "--share-font": FONT_STACK, fontFamily: "var(--share-font)", ...style } as React.CSSProperties}
         className={cn(
-          "w-full max-w-[520px] overflow-hidden rounded-[18px] border text-neutral-950 antialiased",
+          "w-full max-w-130 overflow-hidden rounded-[18px] border text-neutral-950 antialiased",
           "border-black/[0.07] bg-white shadow-[0_1px_2px_rgb(0_0_0/0.05)]",
-          "dark:border-white/[0.08] dark:bg-neutral-900 dark:text-neutral-50",
+          "dark:border-white/8 dark:bg-neutral-900 dark:text-neutral-50",
           SQUIRCLE,
           className,
         )}
@@ -711,8 +711,8 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
             aria-label="Close"
             className={cn(
               "-mr-1 grid h-7 w-7 shrink-0 place-items-center rounded-lg text-neutral-400 transition-colors",
-              "hover:bg-black/[0.06] hover:text-neutral-800",
-              "dark:text-neutral-500 dark:hover:bg-white/[0.1] dark:hover:text-neutral-100",
+              "hover:bg-black/6 hover:text-neutral-800",
+              "dark:text-neutral-500 dark:hover:bg-white/10 dark:hover:text-neutral-100",
               SQUIRCLE,
             )}
           >
@@ -744,7 +744,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
             disabled={!validCount}
             whileTap={validCount && !reduceMotion ? { scale: 0.97 } : undefined}
             className={cn(
-              "inline-flex h-[38px] shrink-0 items-center gap-1.5 rounded-[10px] px-3 text-[13px] font-medium",
+              "inline-flex h-9.5 shrink-0 items-center gap-1.5 rounded-[10px] px-3 text-[13px] font-medium",
               "bg-neutral-900 text-white transition-colors hover:bg-neutral-800",
               "dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-white",
               "disabled:pointer-events-none disabled:opacity-35",
@@ -759,7 +759,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
         {/* people */}
         <div className="mt-4 px-4">
           <div className="flex items-center justify-between gap-3">
-            <p className="m-0 text-[11.5px] font-medium uppercase tracking-[0.05em] text-neutral-400 dark:text-neutral-500">
+            <p className="m-0 text-[11.5px] font-medium uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
               Who has access
             </p>
             {showSearch && (
@@ -774,9 +774,9 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
                   placeholder="Filter people"
                   aria-label="Filter people"
                   className={cn(
-                    "h-8 w-[150px] rounded-[9px] border bg-transparent pl-7 pr-2 text-[12.5px] outline-none",
-                    "border-black/[0.08] placeholder:text-neutral-400 focus:border-neutral-400",
-                    "dark:border-white/[0.12] dark:placeholder:text-neutral-500 dark:focus:border-white/30",
+                    "h-8 w-37.5 rounded-[9px] border bg-transparent pl-7 pr-2 text-[12.5px] outline-none",
+                    "border-black/8 placeholder:text-neutral-400 focus:border-neutral-400",
+                    "dark:border-white/12 dark:placeholder:text-neutral-500 dark:focus:border-white/30",
                     SQUIRCLE,
                   )}
                 />
@@ -784,7 +784,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
             )}
           </div>
 
-          <div className="mt-1.5 max-h-[268px] overflow-y-auto pr-0.5">
+          <div className="mt-1.5 max-h-67 overflow-y-auto pr-0.5">
             <AnimatePresence initial={false}>
               {shown.map((person) => (
                 <motion.div
@@ -809,7 +809,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
                       {person.pending && (
                         <span
                           className={cn(
-                            "inline-flex h-[18px] shrink-0 items-center rounded-[7px] px-1.5 text-[10.5px] font-medium",
+                            "inline-flex h-4.5 shrink-0 items-center rounded-[7px] px-1.5 text-[10.5px] font-medium",
                             "bg-amber-50 text-amber-700 dark:bg-amber-500/12 dark:text-amber-300",
                             SQUIRCLE,
                           )}
@@ -856,7 +856,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
           </div>
         </div>
 
-        <div className="mt-3 h-px bg-black/[0.06] dark:bg-white/[0.08]" />
+        <div className="mt-3 h-px bg-black/6 dark:bg-white/8" />
 
         {/* general access */}
         <div className="flex items-center gap-2.5 px-4 py-3">
@@ -916,7 +916,7 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
           )}
         </div>
 
-        <div className="h-px bg-black/[0.06] dark:bg-white/[0.08]" />
+        <div className="h-px bg-black/6 dark:bg-white/8" />
 
         {/* footer */}
         <div className="flex items-center justify-between gap-3 px-4 py-3">
@@ -932,8 +932,8 @@ export const ShareDialog = React.forwardRef<HTMLDivElement, ShareDialogProps>(
             whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             className={cn(
               "inline-flex h-9 items-center gap-1.5 rounded-[10px] border px-3 text-[13px] font-medium",
-              "border-black/[0.1] text-neutral-800 transition-colors hover:bg-black/[0.04]",
-              "dark:border-white/[0.14] dark:text-neutral-100 dark:hover:bg-white/[0.08]",
+              "border-black/10 text-neutral-800 transition-colors hover:bg-black/4",
+              "dark:border-white/14 dark:text-neutral-100 dark:hover:bg-white/8",
               SQUIRCLE,
             )}
           >
