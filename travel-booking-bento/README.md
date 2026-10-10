@@ -1,7 +1,7 @@
 # 🌴 Travel Booking Bento
 
 <div align="center">
-  <img src="./public/Preview.png" alt="Travel Booking Bento Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb;" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/travel-booking-bento/public/Preview.png" alt="Travel Booking Bento Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb;" />
 </div>
 
 A beautiful, highly complex travel booking dashboard featuring a modern bento-box grid layout, glassmorphism overlays, and stunning typography.

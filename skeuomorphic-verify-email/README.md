@@ -1,7 +1,7 @@
 # 📬 Skeuomorphic Verify Email
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Skeuomorphic Verify Email Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/skeuomorphic-verify-email/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Skeuomorphic Verify Email Preview" />
 </div>
 
 A beautifully crafted, physically inspired email verification component featuring a 3D rendered mailbox, deep inset shadows, and tactile button interactions.

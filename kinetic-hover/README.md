@@ -1,7 +1,7 @@
 # Kinetic Hover ✨
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Kinetic Hover Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/kinetic-hover/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Kinetic Hover Preview" />
 </div>
 
 A high-fidelity, interactive hover layout component designed for editorial portfolios and creative agencies. 

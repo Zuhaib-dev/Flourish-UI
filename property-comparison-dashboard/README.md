@@ -1,7 +1,7 @@
 # 🏡 Property Comparison Dashboard
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Property Comparison Dashboard Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/property-comparison-dashboard/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Property Comparison Dashboard Preview" />
 </div>
 
 A highly interactive, fluid property comparison dashboard featuring soft skeuomorphic design and smooth `framer-motion` state transitions, built for the Flourish UI component library.

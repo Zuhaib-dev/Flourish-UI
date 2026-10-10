@@ -1,7 +1,7 @@
 # Daybreak Editorial
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Daybreak Editorial Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/daybreak-editorial/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Daybreak Editorial Preview" />
 </div>
 
 A premium, interactive Neo-Classical design system and UI shell for long-form narrative, reading, and writing experiences. Built with Next.js 15, Tailwind CSS v4, and Framer Motion.

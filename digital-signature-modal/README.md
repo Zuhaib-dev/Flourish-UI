@@ -1,7 +1,7 @@
 # Digital Signature Modal ✍️
 
 <div align="center">
-  <img src="./public/Preview.jpeg" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Digital Signature Modal Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/digital-signature-modal/public/Preview.jpeg" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Digital Signature Modal Preview" />
 </div>
 
 A premium, highly interactive, and functionally complete React component for capturing digital signatures in web applications. It provides a polished and legally compliant-looking interface for users to sign documents.

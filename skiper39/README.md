@@ -1,7 +1,7 @@
 # Skiper39 - Crowd Canvas
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Skiper39 Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/skiper39/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Skiper39 Preview" />
 </div>
 
 A highly interactive and animated crowd rendering component using HTML5 Canvas and `gsap` (GreenSock Animation Platform).

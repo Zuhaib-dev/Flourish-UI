@@ -1,7 +1,7 @@
 # 🤖 Agent Orchestration Dashboard
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" alt="Agent Orchestration Dashboard" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/agent-orchestration-dashboard/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" alt="Agent Orchestration Dashboard" />
 </div>
 
 An ultra-premium, dark-mode orchestration dashboard designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate widget layouts.

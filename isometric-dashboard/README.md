@@ -1,7 +1,7 @@
 # Isometric Dashboard 📊
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Isometric Dashboard Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/isometric-dashboard/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Isometric Dashboard Preview" />
 </div>
 
 A premium, high-fidelity dark-mode dashboard component featuring a true 3D isometric stacked bar chart and a highly detailed interactive heatmap calendar. 

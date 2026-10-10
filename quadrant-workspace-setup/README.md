@@ -1,7 +1,7 @@
 # 🎨 Quadrant Workspace Setup
 
 <div align="center">
-  <img src="./public/Preview.png" alt="Quadrant Workspace Setup Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb;" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/quadrant-workspace-setup/public/Preview.png" alt="Quadrant Workspace Setup Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb;" />
 </div>
 
 A premium, highly polished workspace setup and configuration modal. It features a stunning split-layout design with a picturesque background, meticulous form elements, and smooth interactions.

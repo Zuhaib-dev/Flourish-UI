@@ -1,7 +1,7 @@
 # 📈 Dashboard May Look Minimal
 
 <div align="center">
-  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Dashboard May Look Minimal" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/dashboard-may-look-minimal/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Dashboard May Look Minimal" />
 </div>
 
 A stunning, hyper-minimal SaaS dashboard UI featuring bespoke handcrafted SVG charts, wireframe-style crop marks, and perfect technical typography.
