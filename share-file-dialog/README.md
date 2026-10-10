@@ -1,5 +1,9 @@
 # Share File Dialog
 
+<div align="center">
+  <img src="./public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Share File Dialog Preview" />
+</div>
+
 A highly-detailed, highly-polished share file dialog modal built for Next.js, featuring smooth Framer Motion animations.
 
 ## Features
