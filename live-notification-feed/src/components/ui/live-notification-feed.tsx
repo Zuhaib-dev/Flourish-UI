@@ -509,7 +509,7 @@ function DateSheet({ day, locale }: { day: Date; locale: string }) {
   return (
     <div className={cx("absolute inset-0 overflow-hidden rounded-lg border border-border bg-card shadow-sm", SQUIRCLE)} style={{ transformOrigin: "50% 0%", backfaceVisibility: "hidden" }}>
       <div style={{ background: "currentColor" }}>
-        <span className="block text-center text-[9px] font-semibold uppercase leading-[15px] tracking-wide text-white">{day.toLocaleDateString(locale, { month: "short" })}</span>
+        <span className="block text-center text-[9px] font-semibold uppercase leading-3.75 tracking-wide text-white">{day.toLocaleDateString(locale, { month: "short" })}</span>
       </div>
       <div className="flex flex-col items-center pt-1">
         <span className="text-lg font-semibold leading-none text-foreground tabular-nums">{day.getDate()}</span>
@@ -558,7 +558,7 @@ function CalendarDetail({ item, play, delay, reduced }: StoryProps & { item: Cal
 
   return (
     <div data-detail="calendar" className="flex items-center gap-3">
-      <div className="relative h-14 w-12 shrink-0 [perspective:420px]">
+      <div className="relative h-14 w-12 shrink-0 perspective-[420px]">
         <DateSheet day={event} locale={locale} />
         {animate && (
           <div ref={sheetsRef} data-sheets className="absolute inset-0">
@@ -674,7 +674,7 @@ function CodeDetail({ item, play, delay, reduced }: StoryProps & { item: CodeNot
           type="button"
           data-copy={copy}
           onClick={copyCode}
-          className="relative z-[1] ml-auto h-7 shrink-0 rounded-full border border-border bg-background px-2.5 text-xs font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="relative z-1 ml-auto h-7 shrink-0 rounded-full border border-border bg-background px-2.5 text-xs font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {copy === "done" ? "Copied" : copy === "blocked" ? "Copy blocked" : "Copy"}
         </button>
@@ -746,9 +746,9 @@ function FlightDetail({ item, play, delay, reduced }: StoryProps & { item: Fligh
       </div>
       <div className="flex items-center gap-1.5">
         <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Gate</span>
-        <span ref={flapsRef} data-gate={item.gate} className="flex gap-0.5 [perspective:200px]">
+        <span ref={flapsRef} data-gate={item.gate} className="flex gap-0.5 perspective-[200px]">
           {Array.from(target).map((ch, i) => (
-            <span key={i} className={cx("relative grid h-7 w-5 place-items-center overflow-hidden rounded-[4px] bg-foreground font-mono text-sm font-bold text-background", SQUIRCLE)}>
+            <span key={i} className={cx("relative grid h-7 w-5 place-items-center overflow-hidden rounded-sm bg-foreground font-mono text-sm font-bold text-background", SQUIRCLE)}>
               <span data-flap className="block">
                 {ch}
               </span>
@@ -968,7 +968,7 @@ function NotificationCard({
                 <div className={cx("mt-2.5", accentClass)} style={accentScope}>
                   <Detail item={item} play={entry.play} delay={storyDelay} reduced={reduced} />
                   {item.actions && item.actions.length > 0 && (
-                    <div className="relative z-[1] mt-2.5 flex flex-wrap items-center gap-2">
+                    <div className="relative z-1 mt-2.5 flex flex-wrap items-center gap-2">
                       {done ? (
                         <span data-done className="inline-flex h-7 items-center gap-1.5 rounded-full px-2.5 text-xs font-medium" style={{ background: TINT }}>
                           <Icon d={CHECK} className="size-3.5" />
@@ -1014,7 +1014,7 @@ function NotificationCard({
                 event.stopPropagation();
                 onDismiss();
               }}
-              className="absolute right-2 top-2 z-[2] grid size-6 place-items-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:bg-muted hover:text-foreground focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:opacity-100"
+              className="absolute right-2 top-2 z-2 grid size-6 place-items-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:bg-muted hover:text-foreground focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:opacity-100"
             >
               <Icon d={CLOSE} className="size-3.5" />
             </button>
@@ -1289,7 +1289,7 @@ export function LiveNotificationFeed({
         <div
           role="list"
           aria-label={title}
-          className="overflow-y-auto overscroll-contain px-0.5 pb-6 [scrollbar-width:thin]"
+          className="overflow-y-auto overscroll-contain px-0.5 pb-6 scrollbar-thin"
           style={{
             height,
             maskImage: "linear-gradient(to bottom, black calc(100% - 28px), transparent)",
