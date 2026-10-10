@@ -97,6 +97,7 @@ const SETTLE = "cubic-bezier(0.2, 0.8, 0.2, 1)";
 const EXIT = "cubic-bezier(0.4, 0, 0.2, 1)";
 const DEFAULT_HEIGHT = "min(440px, calc(100svh - 12rem))";
 const TINT = "color-mix(in oklab, currentColor 15%, transparent)";
+const SQUIRCLE = "[corner-shape:squircle]";
 const REEL = Array.from({ length: 20 }, (_, i) => i % 10);
 const FLAP_CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const ROUTE = "M12 44 C 44 44, 54 14, 98 17 S 158 46, 198 35 S 248 13, 284 16";
@@ -178,9 +179,9 @@ function AppTile({ kind, accent, play, delay, reduced }: { kind: NotificationKin
     return () => animation?.cancel();
   }, [play, delay, reduced]);
   return (
-    <span data-tile className={cx("relative grid size-9 shrink-0 place-items-center rounded-xl", !accent && "text-primary")} style={{ color: accent, background: TINT }}>
+    <span data-tile className={cx("relative grid size-9 shrink-0 place-items-center rounded-xl", SQUIRCLE, !accent && "text-primary")} style={{ color: accent, background: TINT }}>
       <Icon d={ICONS[kind]} className="size-4.5" />
-      <span ref={ringRef} aria-hidden className="pointer-events-none absolute inset-0 rounded-xl border-2 border-current opacity-0" />
+      <span ref={ringRef} aria-hidden className={cx("pointer-events-none absolute inset-0 rounded-xl border-2 border-current opacity-0", SQUIRCLE)} />
     </span>
   );
 }
@@ -233,10 +234,10 @@ function MessageDetail({ item, play, delay, reduced }: StoryProps & { item: Mess
   const words = item.text.split(/\s+/).filter(Boolean);
   return (
     <div data-detail="message" className="flex items-end gap-2">
-      <span aria-hidden className="grid size-7 shrink-0 place-items-center rounded-full text-[10px] font-semibold" style={{ background: TINT }}>
+      <span aria-hidden className={cx("grid size-7 shrink-0 place-items-center rounded-full text-[10px] font-semibold", SQUIRCLE)} style={{ background: TINT }}>
         {initialsOf(item.from)}
       </span>
-      <div className="min-w-0 rounded-2xl rounded-bl-md bg-muted px-3 py-2 text-[13px] leading-snug text-foreground">
+      <div className={cx("min-w-0 rounded-2xl rounded-bl-md bg-muted px-3 py-2 text-[13px] leading-snug text-foreground", SQUIRCLE)}>
         {typing ? (
           <span ref={dotsRef} aria-hidden data-typing className="flex h-4.5 items-center gap-1">
             <span className="size-1.5 rounded-full bg-muted-foreground" />
@@ -403,7 +404,7 @@ function RideDetail({ item, play, delay, reduced }: StoryProps & { item: RideNot
 
   return (
     <div data-detail="ride" data-eta={eta}>
-      <div className="relative overflow-hidden rounded-xl border border-border bg-muted/60">
+      <div className={cx("relative overflow-hidden rounded-xl border border-border bg-muted/60", SQUIRCLE)}>
         <svg viewBox="0 0 300 60" aria-hidden className="block h-auto w-full">
           <g className="text-border" stroke="currentColor" strokeWidth={6} strokeLinecap="round" fill="none">
             <path d="M-10 30 H 310" />
@@ -506,7 +507,7 @@ function PaymentDetail({ item, play, delay, reduced }: StoryProps & { item: Paym
 
 function DateSheet({ day, locale }: { day: Date; locale: string }) {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-lg border border-border bg-card shadow-sm" style={{ transformOrigin: "50% 0%", backfaceVisibility: "hidden" }}>
+    <div className={cx("absolute inset-0 overflow-hidden rounded-lg border border-border bg-card shadow-sm", SQUIRCLE)} style={{ transformOrigin: "50% 0%", backfaceVisibility: "hidden" }}>
       <div style={{ background: "currentColor" }}>
         <span className="block text-center text-[9px] font-semibold uppercase leading-[15px] tracking-wide text-white">{day.toLocaleDateString(locale, { month: "short" })}</span>
       </div>
@@ -663,7 +664,7 @@ function CodeDetail({ item, play, delay, reduced }: StoryProps & { item: CodeNot
           {digits.map((digit, i) => (
             <React.Fragment key={i}>
               {i === half && <span aria-hidden className="mx-0.5 h-px w-2 bg-border" />}
-              <span className={cx("grid h-8 w-6 place-items-center rounded-md border border-border bg-background font-mono text-base font-semibold text-foreground", expired && "opacity-40")}>
+              <span className={cx("grid h-8 w-6 place-items-center rounded-md border border-border bg-background font-mono text-base font-semibold text-foreground", SQUIRCLE, expired && "opacity-40")}>
                 <span data-digit>{digit}</span>
               </span>
             </React.Fragment>
@@ -747,7 +748,7 @@ function FlightDetail({ item, play, delay, reduced }: StoryProps & { item: Fligh
         <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Gate</span>
         <span ref={flapsRef} data-gate={item.gate} className="flex gap-0.5 [perspective:200px]">
           {Array.from(target).map((ch, i) => (
-            <span key={i} className="relative grid h-7 w-5 place-items-center overflow-hidden rounded-[4px] bg-foreground font-mono text-sm font-bold text-background">
+            <span key={i} className={cx("relative grid h-7 w-5 place-items-center overflow-hidden rounded-[4px] bg-foreground font-mono text-sm font-bold text-background", SQUIRCLE)}>
               <span data-flap className="block">
                 {ch}
               </span>
@@ -937,7 +938,7 @@ function NotificationCard({
         <div className="px-1 pb-2 pt-0.5">
           <article
             aria-label={`${item.app}: ${item.title}`}
-            className="group relative rounded-2xl border border-border bg-card p-3 text-card-foreground shadow-sm"
+            className={cx("group relative rounded-2xl border border-border bg-card p-3 text-card-foreground shadow-sm", SQUIRCLE)}
             style={{ transform: shown ? "none" : entry.leaving ? "translateX(18%) scale(0.98)" : "translateY(-16px) scale(0.96)", opacity: shown ? 1 : 0, transition: cardTransition }}
           >
             <div className="flex gap-3">
@@ -1221,7 +1222,7 @@ export function LiveNotificationFeed({
       ref={ref}
       data-slot="live-notification-feed"
       data-unread={unread}
-      className={cx("w-full rounded-7 border border-border bg-muted/60 p-2 text-foreground shadow-sm backdrop-blur-xl", className)}
+      className={cx("w-full rounded-7 border border-border bg-muted/60 p-2 text-foreground shadow-sm backdrop-blur-xl", SQUIRCLE, className)}
       onPointerEnter={(event) => {
         pause(true);
         onPointerEnter?.(event);
