@@ -36,9 +36,9 @@ export default function ShareDemo() {
 
   return (
     <div className="w-full bg-background px-6 py-8">
-      <div className="mx-auto w-full max-w-[880px] overflow-visible rounded-[18px] border border-black/[0.07] bg-white shadow-[0_1px_2px_rgb(0_0_0/0.05)] [corner-shape:squircle] dark:border-white/[0.08] dark:bg-neutral-900">
+      <div className="mx-auto w-full max-w-220 overflow-visible rounded-[18px] border border-black/[0.07] bg-white shadow-[0_1px_2px_rgb(0_0_0/0.05)] [corner-shape:squircle] dark:border-white/8 dark:bg-neutral-900">
         {/* the app's top bar */}
-        <div className="flex h-14 items-center justify-between gap-4 border-b border-black/[0.06] px-4 dark:border-white/[0.08]">
+        <div className="flex h-14 items-center justify-between gap-4 border-b border-black/6 px-4 dark:border-white/8">
           <div className="flex min-w-0 items-center gap-2">
             <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-neutral-900 text-white [corner-shape:squircle] dark:bg-neutral-50 dark:text-neutral-900">
               <Sparkles aria-hidden className="h-3.5 w-3.5" />
@@ -61,16 +61,16 @@ export default function ShareDemo() {
                   className="h-7 w-7 rounded-full object-cover ring-2 ring-white dark:ring-neutral-900"
                 />
               ))}
-              <span className="ml-[-8px] grid h-7 w-7 place-items-center rounded-full bg-neutral-100 text-[10.5px] font-semibold text-neutral-600 ring-2 ring-white dark:bg-white/[0.12] dark:text-neutral-200 dark:ring-neutral-900">
+              <span className="-ml-2 grid h-7 w-7 place-items-center rounded-full bg-neutral-100 text-[10.5px] font-semibold text-neutral-600 ring-2 ring-white dark:bg-white/12 dark:text-neutral-200 dark:ring-neutral-900">
                 +3
               </span>
             </div>
 
-            <span className="hidden h-5 w-px bg-black/[0.08] sm:block dark:bg-white/[0.12]" />
+            <span className="hidden h-5 w-px bg-black/8 sm:block dark:bg-white/12" />
 
             <button
               type="button"
-              className="hidden h-9 items-center gap-1.5 rounded-[10px] px-2.5 text-[13px] font-medium text-neutral-600 transition-colors hover:bg-black/[0.05] hover:text-neutral-900 sm:inline-flex [corner-shape:squircle] dark:text-neutral-300 dark:hover:bg-white/[0.08] dark:hover:text-neutral-50"
+              className="hidden h-9 items-center gap-1.5 rounded-[10px] px-2.5 text-[13px] font-medium text-neutral-600 transition-colors hover:bg-black/5 hover:text-neutral-900 sm:inline-flex [corner-shape:squircle] dark:text-neutral-300 dark:hover:bg-white/8 dark:hover:text-neutral-50"
             >
               <Play aria-hidden className="h-3.5 w-3.5" />
               Present
@@ -92,24 +92,24 @@ export default function ShareDemo() {
 
         {/* the document under it, so the bar has something to belong to */}
         <div className="px-8 py-10">
-          <div className="mx-auto w-full max-w-[560px]">
-            <div className="h-3 w-[42%] rounded-full bg-neutral-200/80 dark:bg-white/[0.1]" />
+          <div className="mx-auto w-full max-w-140">
+            <div className="h-3 w-[42%] rounded-full bg-neutral-200/80 dark:bg-white/10" />
             <div className="mt-5 space-y-2.5">
-              <div className="h-2 w-full rounded-full bg-neutral-100 dark:bg-white/[0.06]" />
-              <div className="h-2 w-[94%] rounded-full bg-neutral-100 dark:bg-white/[0.06]" />
-              <div className="h-2 w-[88%] rounded-full bg-neutral-100 dark:bg-white/[0.06]" />
+              <div className="h-2 w-full rounded-full bg-neutral-100 dark:bg-white/6" />
+              <div className="h-2 w-[94%] rounded-full bg-neutral-100 dark:bg-white/6" />
+              <div className="h-2 w-[88%] rounded-full bg-neutral-100 dark:bg-white/6" />
             </div>
             <div className="mt-6 grid grid-cols-3 gap-3">
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="h-[68px] rounded-xl bg-neutral-100 [corner-shape:squircle] dark:bg-white/[0.05]"
+                  className="h-17 rounded-xl bg-neutral-100 [corner-shape:squircle] dark:bg-white/5"
                 />
               ))}
             </div>
             <div className="mt-6 space-y-2.5">
-              <div className="h-2 w-full rounded-full bg-neutral-100 dark:bg-white/[0.06]" />
-              <div className="h-2 w-[72%] rounded-full bg-neutral-100 dark:bg-white/[0.06]" />
+              <div className="h-2 w-full rounded-full bg-neutral-100 dark:bg-white/6" />
+              <div className="h-2 w-[72%] rounded-full bg-neutral-100 dark:bg-white/6" />
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function ShareDemo() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.98 }}
               transition={{ type: "spring", stiffness: 420, damping: 34 }}
-              className="w-full max-w-[520px]"
+              className="w-full max-w-130"
             >
               <ShareDialog
                 fileName="Q3 product roadmap"

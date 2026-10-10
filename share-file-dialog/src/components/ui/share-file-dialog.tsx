@@ -274,9 +274,9 @@ function Menu({
           exit={{ opacity: 0, y: box.above ? 4 : -4, scale: 0.98 }}
           transition={SOFT}
           className={cn(
-            "z-[60] overflow-hidden p-1",
+            "z-60 overflow-hidden p-1",
             "rounded-xl border border-black/[0.07] bg-white shadow-[0_16px_36px_-14px_rgb(0_0_0/0.28)]",
-            "dark:border-white/[0.09] dark:bg-neutral-900",
+            "dark:border-white/9 dark:bg-neutral-900",
             SQUIRCLE,
           )}
         >
@@ -296,7 +296,7 @@ function Menu({
                   "flex w-full items-start gap-2 rounded-lg px-2.5 py-1.5 text-left transition-colors",
                   opt.danger
                     ? "text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/12"
-                    : "text-neutral-800 hover:bg-black/[0.05] dark:text-neutral-100 dark:hover:bg-white/[0.07]",
+                    : "text-neutral-800 hover:bg-black/5 dark:text-neutral-100 dark:hover:bg-white/[0.07]",
                   SQUIRCLE,
                 )}
               >
@@ -334,13 +334,13 @@ function Menu({
           tone === "field"
             ? cn(
                 // the same height as the email field and the invite button
-                "h-[38px] rounded-[10px] border px-3",
-                "border-black/[0.1] bg-white text-neutral-700 hover:bg-neutral-50",
-                "dark:border-white/[0.12] dark:bg-white/[0.04] dark:text-neutral-200 dark:hover:bg-white/[0.08]",
+                "h-9.5 rounded-[10px] border px-3",
+                "border-black/10 bg-white text-neutral-700 hover:bg-neutral-50",
+                "dark:border-white/12 dark:bg-white/4 dark:text-neutral-200 dark:hover:bg-white/8",
               )
             : cn(
-                "h-8 rounded-[9px] px-2 text-neutral-500 hover:bg-black/[0.05] hover:text-neutral-900",
-                "dark:text-neutral-400 dark:hover:bg-white/[0.08] dark:hover:text-neutral-50",
+                "h-8 rounded-[9px] px-2 text-neutral-500 hover:bg-black/5 hover:text-neutral-900",
+                "dark:text-neutral-400 dark:hover:bg-white/8 dark:hover:text-neutral-50",
               ),
           "disabled:pointer-events-none disabled:opacity-60",
           SQUIRCLE,
@@ -405,9 +405,9 @@ function EmailField({
     <div
       onClick={() => inputRef.current?.focus()}
       className={cn(
-        "flex min-h-[38px] w-full flex-wrap items-center gap-1.5 rounded-[10px] border px-2 py-1.5",
-        "border-black/[0.1] bg-white transition-colors",
-        "focus-within:border-neutral-400 dark:border-white/[0.12] dark:bg-white/[0.04]",
+        "flex min-h-9.5 w-full flex-wrap items-center gap-1.5 rounded-[10px] border px-2 py-1.5",
+        "border-black/10 bg-white transition-colors",
+        "focus-within:border-neutral-400 dark:border-white/12 dark:bg-white/4",
         "dark:focus-within:border-white/30",
         SQUIRCLE,
       )}
@@ -424,7 +424,7 @@ function EmailField({
             className={cn(
               "inline-flex h-6 items-center gap-1 rounded-[7px] pl-2 pr-1 text-[12px] font-medium",
               chip.valid
-                ? "bg-neutral-100 text-neutral-700 dark:bg-white/[0.09] dark:text-neutral-200"
+                ? "bg-neutral-100 text-neutral-700 dark:bg-white/9 dark:text-neutral-200"
                 : "bg-red-50 text-red-600 dark:bg-red-500/12 dark:text-red-300",
               SQUIRCLE,
             )}
@@ -437,7 +437,7 @@ function EmailField({
                 e.stopPropagation();
                 setChips((list) => list.filter((c) => c.id !== chip.id));
               }}
-              className="grid h-4 w-4 place-items-center rounded-[6px] hover:bg-black/[0.08] dark:hover:bg-white/[0.14]"
+              className="grid h-4 w-4 place-items-center rounded-md hover:bg-black/8 dark:hover:bg-white/[0.14]"
             >
               <X aria-hidden className="h-3 w-3" />
             </button>
@@ -476,7 +476,7 @@ function EmailField({
         placeholder={chips.length ? "" : "Add people by email"}
         aria-label="Invite people by email"
         className={cn(
-          "h-6 min-w-[120px] flex-1 bg-transparent text-[13px] outline-none",
+          "h-6 min-w-30 flex-1 bg-transparent text-[13px] outline-none",
           "placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
         )}
       />
@@ -531,14 +531,14 @@ function Toast({
           exit={{ opacity: 0, y: 8, scale: 0.98 }}
           transition={SPRING}
           style={{ fontFamily: FONT_STACK }}
-          className="pointer-events-none fixed inset-x-0 bottom-6 z-[70] flex justify-center px-4"
+          className="pointer-events-none fixed inset-x-0 bottom-6 z-70 flex justify-center px-4"
         >
           <span
             className={cn(
               "inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[12.5px] font-medium",
               // the same surface as every other raised thing in the set
               "border-black/[0.07] bg-white text-neutral-900",
-              "dark:border-white/[0.1] dark:bg-neutral-800 dark:text-neutral-50",
+              "dark:border-white/10 dark:bg-neutral-800 dark:text-neutral-50",
               "shadow-[0_16px_36px_-14px_rgb(0_0_0/0.28)]",
               SQUIRCLE,
             )}
