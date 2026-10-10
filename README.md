@@ -224,3 +224,6 @@ A gorgeous, highly-converting split-screen authentication component layout featu
 
 ### 🔗 [Share File Dialog](./share-file-dialog)
 A highly-polished share file dialog modal built with Framer Motion and Lucide icons, featuring squircle continuous corners and tokenized email fields.
+<div align="center">
+  <img src="./share-file-dialog/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Share File Dialog Preview" />
+</div>
