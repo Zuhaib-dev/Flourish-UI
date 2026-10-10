@@ -245,6 +245,12 @@ A highly-polished share file dialog modal built with Framer Motion and Lucide ic
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/share-file-dialog/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Share File Dialog Preview" />
 </div>
 
+### 🔔 [Live Notification Feed](./live-notification-feed)
+A premium, highly interactive live notification feed designed for real-time dashboards. Features native Web Animations API orchestration for staggering, interactive micro-interactions like typing dots, ringing bells, and flight board flips.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/live-notification-feed/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Live Notification Feed Preview" />
+</div>
+
 <br />
 
 ---
