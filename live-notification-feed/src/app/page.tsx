@@ -1,69 +1,135 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { LiveNotificationFeed } from "@/components/ui/live-notification-feed";
+import type { LiveNotification } from "@/components/ui/live-notification-feed";
+
+const settings = {
+  autoplay: true,
+  interval: 1500,
+  initial: 3,
+  loop: true,
+};
+
+const NOTIFICATIONS: LiveNotification[] = [
+  {
+    id: "payment",
+    kind: "payment",
+    app: "Wallet",
+    title: "Money received",
+    body: "Mina Park sent you her half of dinner.",
+    time: "18m",
+    accent: "#10b981",
+    read: true,
+    amount: 48.5,
+    currency: "USD",
+  },
+  {
+    id: "calendar",
+    kind: "calendar",
+    app: "Calendar",
+    title: "Design review",
+    body: "Thursday · 10:00 – 10:30 · Room 4B",
+    time: "9m",
+    accent: "#ef4444",
+    date: "2026-10-15",
+    attendees: ["Ava Chen", "Noah Kim", "Mia Lopez", "Leo Park", "Zoe Adams"],
+    actions: [
+      { label: "Accept", done: "Accepted" },
+      { label: "Decline", done: "Declined" },
+    ],
+  },
+  {
+    id: "fitness",
+    kind: "fitness",
+    app: "Health",
+    title: "Move goal closed",
+    body: "Six days in a row. Keep the streak going.",
+    time: "2m",
+    accent: "#ec4899",
+    value: 620,
+    goal: 600,
+    unit: "kcal",
+    streak: 6,
+  },
+  {
+    id: "parcel",
+    kind: "delivery",
+    app: "Parcel",
+    title: "Out for delivery",
+    body: "Order #4821 arrives today by 6 PM.",
+    accent: "#f59e0b",
+    steps: ["Packed", "Shipped", "On the way", "Delivered"],
+    step: 2,
+  },
+  {
+    id: "message",
+    kind: "message",
+    app: "Messages",
+    title: "Jules Moreau",
+    accent: "#3b82f6",
+    from: "Jules Moreau",
+    text: "Running five minutes late. Grab us a table by the window?",
+  },
+  {
+    id: "code",
+    kind: "code",
+    app: "Account",
+    title: "Your sign-in code",
+    body: "Never share it, not even with support.",
+    accent: "#6366f1",
+    code: "482913",
+    expiresIn: 300,
+  },
+  {
+    id: "ride",
+    kind: "ride",
+    app: "Ride",
+    title: "Your driver is almost here",
+    body: "Meet them at the north entrance.",
+    accent: "#a855f7",
+    minutes: 2,
+    vehicle: "White sedan",
+    plate: "7KX 204",
+  },
+  {
+    id: "flight",
+    kind: "flight",
+    app: "Airline",
+    title: "Gate changed",
+    body: "KE 703 to Tokyo · Boarding 14:20",
+    accent: "#0ea5e9",
+    from: "ICN",
+    to: "NRT",
+    gate: "C4",
+    previousGate: "B12",
+  },
+];
+
+const GLOWS = [
+  { className: "left-[8%] top-[10%] size-72", color: "#f59e0b" },
+  { className: "right-[6%] top-[22%] size-80", color: "#6366f1" },
+  { className: "bottom-[6%] left-[18%] size-72", color: "#ec4899" },
+  { className: "bottom-[14%] right-[16%] size-64", color: "#0ea5e9" },
+];
+
+const CCGATHER_URL = "https://ccgather.com/?utm_source=21st&utm_medium=component&utm_campaign=live_notification_feed";
+
+export default function Demo(props: Partial<typeof settings>) {
+  const s = { ...settings, ...props };
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center gap-5 overflow-hidden bg-background p-6 text-foreground">
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-25">
+        {GLOWS.map((glow) => (
+          <span key={glow.color} className={`absolute rounded-full blur-3xl ${glow.className}`} style={{ background: glow.color }} />
+        ))}
+      </div>
+      <LiveNotificationFeed items={NOTIFICATIONS} autoplay={s.autoplay} interval={s.interval} initial={s.initial} loop={s.loop} className="relative max-w-md" />
+      <p className="relative max-w-md text-center text-xs text-muted-foreground">
+        Each notification acts out its news as it lands. Hover to pause, click a card to replay it.{" "}
+        <a href={CCGATHER_URL} target="_blank" rel="noreferrer" className="underline underline-offset-4 transition-colors hover:text-foreground">
+          By the CCgather team
+        </a>
+      </p>
     </div>
   );
 }
