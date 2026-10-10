@@ -219,3 +219,8 @@ A gorgeous, highly-converting split-screen authentication component layout featu
 <div align="center">
   <img src="./auth-section-1/public/Previeww.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Auth Section 1 Preview" />
 </div>
+
+---
+
+### 🔗 [Share File Dialog](./share-file-dialog)
+A highly-polished share file dialog modal built with Framer Motion and Lucide icons, featuring squircle continuous corners and tokenized email fields.
