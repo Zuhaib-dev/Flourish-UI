@@ -112,7 +112,7 @@ const GLOWS = [
   { className: "bottom-[14%] right-[16%] size-64", color: "#0ea5e9" },
 ];
 
-const CCGATHER_URL = "https://ccgather.com/?utm_source=21st&utm_medium=component&utm_campaign=live_notification_feed";
+const CCGATHER_URL = "https://zuhaibrashid.com";
 
 export default function Demo(props: Partial<typeof settings>) {
   const s = { ...settings, ...props };
@@ -127,7 +127,7 @@ export default function Demo(props: Partial<typeof settings>) {
       <p className="relative max-w-md text-center text-xs text-muted-foreground">
         Each notification acts out its news as it lands. Hover to pause, click a card to replay it.{" "}
         <a href={CCGATHER_URL} target="_blank" rel="noreferrer" className="underline underline-offset-4 transition-colors hover:text-foreground">
-          By the CCgather team
+          By the Zuhaib
         </a>
       </p>
     </div>
