@@ -1,9 +1,26 @@
-# Flourish UI ✨
+<div align="center">
+  <h1 align="center">✨ Flourish UI</h1>
+  <p align="center">
+    <strong>A premium, highly interactive UI component library crafted for modern web applications.</strong>
+    <br />
+    An artisanal collection of high-fidelity components and design experiments built with React, Next.js, Framer Motion, and Tailwind CSS.
+  </p>
+  
+  <p align="center">
+    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
+    <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" /></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
+    <a href="https://www.framer.com/motion/"><img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" /></a>
+  </p>
+  
+  <p align="center">
+    Crafted with 🖤 by <a href="https://github.com/Zuhaib-dev">Zuhaib Rashid</a>
+  </p>
+</div>
 
-A premium, highly interactive UI component library crafted for modern web applications. This repository serves as a growing collection of artisan, high-fidelity components and design experiments built with React, Next.js, Framer Motion, and Tailwind CSS.
+<br />
 
-**Author:** Zuhaib Rashid (@Zuhaib-dev)  
-**Tags:** `#react` `#ui-library` `#framer-motion` `#tailwind` `#components` `#design-system`
+> **Welcome to Flourish UI.** This repository is an ongoing exploration of digital craftsmanship. Each component here is designed to be physically grounded, viscerally satisfying, and meticulously optimized for production. Feel free to explore, clone, and integrate these into your own masterpieces.
 
 ---
 
@@ -226,4 +243,19 @@ A gorgeous, highly-converting split-screen authentication component layout featu
 A highly-polished share file dialog modal built with Framer Motion and Lucide icons, featuring squircle continuous corners and tokenized email fields.
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/share-file-dialog/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Share File Dialog Preview" />
+</div>
+
+<br />
+
+---
+
+<div align="center">
+  <h3>✨ Keep Flourishing</h3>
+  <p>If you found value in these components, consider starring the repository or sharing it with others.</p>
+  <p>
+    <a href="https://github.com/Zuhaib-dev">GitHub</a> • 
+    <a href="https://twitter.com/ZuhaibRashid">Twitter</a> • 
+    <a href="https://www.linkedin.com/in/zuhaibrashid/">LinkedIn</a>
+  </p>
+  <p><sub>© 2026 Zuhaib Rashid. All rights reserved.</sub></p>
 </div>
