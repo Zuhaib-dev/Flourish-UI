@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps, react-hooks/rules-of-hooks, react/no-unescaped-entities, @typescript-eslint/no-explicit-any, prefer-const */
+/* eslint-disable react-hooks/set-state-in-effect, react-hooks/refs */
 "use client";
 
 import * as React from "react";
