@@ -14,10 +14,8 @@ import {
   Check,
   Github,
   ArrowRight,
-  ShieldAlert,
   Flame,
   Award,
-  CircleDot,
 } from "lucide-react"
 
 export default function Home() {
