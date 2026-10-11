@@ -1,69 +1,331 @@
-import Image from "next/image";
+"use client"
+
+import * as React from "react"
+import {
+  LiquidButton,
+  MetalButton,
+  Button,
+} from "@/components/ui/liquid-glass-button"
+import {
+  Sparkles,
+  Layers,
+  Droplets,
+  Copy,
+  Check,
+  Github,
+  ArrowRight,
+  ShieldAlert,
+  Flame,
+  Award,
+  CircleDot,
+} from "lucide-react"
 
 export default function Home() {
+  const [copied, setCopied] = React.useState(false)
+  const [activeTab, setActiveTab] = React.useState<"liquid" | "metal" | "standard">("liquid")
+
+  const copyCode = () => {
+    navigator.clipboard.writeText(
+      `import { LiquidButton, MetalButton } from "@/components/ui/liquid-glass-button"`
+    )
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative min-h-screen overflow-hidden bg-neutral-950 text-neutral-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
+      {/* Dynamic Background Glows */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-gradient-to-b from-cyan-500/15 via-indigo-600/10 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute top-1/3 -left-32 h-96 w-96 rounded-full bg-violet-600/10 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-emerald-600/10 blur-[120px]" />
+
+      {/* Grid Pattern Overlay */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
+          backgroundSize: "32px 32px",
+        }}
+      />
+
+      <main className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-4 py-16 sm:px-6 lg:px-8">
+        {/* Navigation / Header Badges */}
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+            <Sparkles className="size-3.5 text-cyan-400" />
+            <span>Flourish UI — Component Series</span>
+          </div>
+          <a
+            href="https://github.com/Zuhaib-dev/Flourish-UI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-medium text-neutral-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+          >
+            <Github className="size-3.5" />
+            <span>Zuhaib-dev/Flourish-UI</span>
+          </a>
+        </div>
+
+        {/* Hero Title */}
+        <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+          <span className="bg-gradient-to-b from-white via-neutral-100 to-neutral-400 bg-clip-text text-transparent">
+            Liquid Glass &
+          </span>{" "}
+          <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+            Metal Buttons
+          </span>
+        </h1>
+
+        <p className="mt-4 max-w-2xl text-center text-base text-neutral-400 sm:text-lg">
+          Realistic refractive SVG glass turbulence distortion, tactile skeuomorphic 
+          metallic depth, responsive bevels, and silky micro-interactions built for modern React.
+        </p>
+
+        {/* Action / Install Pill */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="flex items-center gap-3 rounded-full border border-white/10 bg-neutral-900/80 px-4 py-2 font-mono text-xs text-neutral-300 backdrop-blur-md shadow-inner shadow-white/5">
+            <span className="text-neutral-500">$</span>
+            <span>npx shadcn@latest add @flourish/liquid-glass-button</span>
+            <button
+              onClick={copyCode}
+              className="ml-2 inline-flex size-6 items-center justify-center rounded-md text-neutral-400 hover:text-white transition"
+              title="Copy snippet"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              {copied ? <Check className="size-3.5 text-emerald-400" /> : <Copy className="size-3.5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mt-12 flex rounded-xl border border-white/10 bg-neutral-900/60 p-1 backdrop-blur-md">
+          <button
+            onClick={() => setActiveTab("liquid")}
+            className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition ${
+              activeTab === "liquid"
+                ? "bg-cyan-500/20 text-cyan-300 shadow-sm shadow-cyan-500/10 border border-cyan-500/30"
+                : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            <Droplets className="size-3.5" />
+            Liquid Glass
+          </button>
+          <button
+            onClick={() => setActiveTab("metal")}
+            className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition ${
+              activeTab === "metal"
+                ? "bg-amber-500/20 text-amber-300 shadow-sm shadow-amber-500/10 border border-amber-500/30"
+                : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            <Award className="size-3.5" />
+            Tactile Metal
+          </button>
+          <button
+            onClick={() => setActiveTab("standard")}
+            className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition ${
+              activeTab === "standard"
+                ? "bg-indigo-500/20 text-indigo-300 shadow-sm shadow-indigo-500/10 border border-indigo-500/30"
+                : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            <Layers className="size-3.5" />
+            Standard & Cool
+          </button>
+        </div>
+
+        {/* Interactive Hero Preview Stage */}
+        <div className="relative mt-8 w-full max-w-4xl overflow-hidden rounded-3xl border border-white/15 bg-neutral-900/30 p-8 shadow-2xl backdrop-blur-xl md:p-12">
+          {/* Vibrantly patterned refraction backdrop for Liquid distortion test */}
+          <div className="absolute inset-0 -z-10 opacity-70">
+            <div className="absolute top-1/4 left-1/4 size-72 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 blur-3xl opacity-40 animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 size-72 rounded-full bg-gradient-to-tr from-fuchsia-500 to-rose-500 blur-3xl opacity-30" />
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px]" />
+          </div>
+
+          {activeTab === "liquid" && (
+            <div className="flex flex-col items-center space-y-10">
+              <div className="text-center">
+                <span className="text-xs uppercase tracking-widest text-cyan-400 font-semibold">
+                  Featured Interactive Element
+                </span>
+                <h3 className="mt-1 text-2xl font-bold text-white">Liquid Glass Refraction</h3>
+                <p className="mt-1 text-xs text-neutral-400 max-w-md mx-auto">
+                  Powered by turbulent SVG filters (`feDisplacementMap` + `feTurbulence`) with multi-layered specular borders and soft inner highlights.
+                </p>
+              </div>
+
+              {/* Main Demo Button */}
+              <div className="relative flex min-h-[180px] w-full max-w-xl items-center justify-center rounded-2xl border border-white/10 bg-neutral-950/40 p-6 backdrop-blur-sm">
+                <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+                  <div className="h-24 w-72 bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 rounded-full blur-xl" />
+                </div>
+                <LiquidButton size="xxl" className="z-10 font-medium tracking-wide">
+                  <span className="flex items-center gap-2">
+                    <Droplets className="size-5 text-cyan-400 animate-pulse" />
+                    Liquid Glass Button
+                    <ArrowRight className="size-4 opacity-70" />
+                  </span>
+                </LiquidButton>
+              </div>
+
+              {/* Size Variations */}
+              <div className="w-full">
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-400 text-center">
+                  Size Variations
+                </h4>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <LiquidButton size="sm">Small Glass</LiquidButton>
+                  <LiquidButton size="default">Default Glass</LiquidButton>
+                  <LiquidButton size="lg">Large Glass</LiquidButton>
+                  <LiquidButton size="xl">Extra Large</LiquidButton>
+                </div>
+              </div>
+
+              {/* Variant Variations */}
+              <div className="w-full">
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-400 text-center">
+                  Variant Palettes
+                </h4>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <LiquidButton variant="default">Default</LiquidButton>
+                  <LiquidButton variant="secondary">Secondary</LiquidButton>
+                  <LiquidButton variant="destructive">Destructive</LiquidButton>
+                  <LiquidButton variant="outline">Outline</LiquidButton>
+                  <LiquidButton variant="ghost">Ghost</LiquidButton>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "metal" && (
+            <div className="flex flex-col items-center space-y-10">
+              <div className="text-center">
+                <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold">
+                  Skeuomorphic Craft
+                </span>
+                <h3 className="mt-1 text-2xl font-bold text-white">Tactile Metal Buttons</h3>
+                <p className="mt-1 text-xs text-neutral-400 max-w-md mx-auto">
+                  Dynamic bevel highlights, pressed spring translation, custom text shadows, and responsive touch feedback.
+                </p>
+              </div>
+
+              {/* Main Metal Showcase */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-3xl">
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">Titanium Default</span>
+                  <MetalButton variant="default">Default Metal</MetalButton>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">Midnight Primary</span>
+                  <MetalButton variant="primary">Primary Cobalt</MetalButton>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">Emerald Mint</span>
+                  <MetalButton variant="success">Success Jade</MetalButton>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">Ruby Crimson</span>
+                  <MetalButton variant="error">Error Crimson</MetalButton>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">24K Bullion</span>
+                  <MetalButton variant="gold">Gold Lustre</MetalButton>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-neutral-950/40 p-6 text-center">
+                  <span className="mb-3 text-xs font-medium text-neutral-400">Antique Bronze</span>
+                  <MetalButton variant="bronze">Antique Bronze</MetalButton>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "standard" && (
+            <div className="flex flex-col items-center space-y-10">
+              <div className="text-center">
+                <span className="text-xs uppercase tracking-widest text-indigo-400 font-semibold">
+                  Standard Extensions
+                </span>
+                <h3 className="mt-1 text-2xl font-bold text-white">Enhanced Standard Buttons</h3>
+                <p className="mt-1 text-xs text-neutral-400 max-w-md mx-auto">
+                  Shadcn-compatible standard Button with extended `cool` elevation styling and dark inset shadows.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 py-8">
+                <Button variant="cool" size="lg">
+                  <Flame className="size-4 text-amber-400" />
+                  Cool Variant
+                </Button>
+                <Button variant="default" size="lg">
+                  Default Button
+                </Button>
+                <Button variant="secondary" size="lg">
+                  Secondary
+                </Button>
+                <Button variant="destructive" size="lg">
+                  Destructive
+                </Button>
+                <Button variant="outline" size="lg">
+                  Outline
+                </Button>
+                <Button variant="ghost" size="lg">
+                  Ghost
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Feature Highlights Grid */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+          <div className="rounded-2xl border border-white/10 bg-neutral-900/40 p-6 backdrop-blur-md">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-4">
+              <Droplets className="size-5" />
+            </div>
+            <h4 className="text-base font-semibold text-white">SVG Turbulence Filter</h4>
+            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
+              Dynamically generates fluid refraction and organic ripples using native `feTurbulence` and `feDisplacementMap` filters.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-neutral-900/40 p-6 backdrop-blur-md">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">
+              <Award className="size-5" />
+            </div>
+            <h4 className="text-base font-semibold text-white">Tactile Skeuomorphism</h4>
+            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
+              Calculates hardware-accelerated 3D transforms, double-ring border gradients, and shine sweeps for an ultra-realistic metallic feel.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-neutral-900/40 p-6 backdrop-blur-md">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">
+              <Layers className="size-5" />
+            </div>
+            <h4 className="text-base font-semibold text-white">Shadcn & Tailwind v4</h4>
+            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
+              Fully compliant with modern `@theme inline` variables, `@radix-ui/react-slot`, `asChild` composition, and strict TypeScript.
+            </p>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-20 flex flex-col items-center justify-center gap-2 border-t border-white/5 pt-8 text-center text-xs text-neutral-500">
+          <p>
+            Crafted with precision by{" "}
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://github.com/Zuhaib-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-white transition font-medium"
             >
-              Learning
+              Zuhaib Rashid (@Zuhaib-dev)
             </a>{" "}
-            center.
+            for Flourish UI.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <p>Distributed under the MIT License.</p>
+        </footer>
       </main>
     </div>
-  );
+  )
 }
