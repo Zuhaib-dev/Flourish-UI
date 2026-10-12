@@ -8,7 +8,7 @@ export default function AdmitOneTicketDemo() {
     <div className="flex min-h-[500px] w-full items-center justify-center bg-zinc-950 p-8">
       <div className="flex flex-col items-center gap-4">
         <AdmitOneTicket
-          name="ALEXANDER VANCE"
+          name="Zuhaib Rashid"
           presenter="CYBERSPACE 2026"
           event="TECH INNOVATION SUMMIT"
           venue="SECTOR 07 • MAINFRAME AUDITORIUM"
