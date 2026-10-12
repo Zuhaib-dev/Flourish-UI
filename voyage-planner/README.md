@@ -1,5 +1,7 @@
 # ✈️ Voyage Planner
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/voyage-planner)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/voyage-planner/public/Preview.jpeg" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Voyage Planner Preview" />
 </div>

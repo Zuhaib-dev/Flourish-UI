@@ -1,5 +1,7 @@
 # Ticket Stub Footer
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/ticket-stub-footer)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/ticket-stub-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Ticket Stub Footer Preview" />
 </div>

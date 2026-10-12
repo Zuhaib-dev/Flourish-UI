@@ -1,5 +1,7 @@
 # 🏡 Property Comparison Dashboard
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/property-comparison-dashboard)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/property-comparison-dashboard/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Property Comparison Dashboard Preview" />
 </div>

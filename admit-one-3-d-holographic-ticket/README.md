@@ -1,5 +1,7 @@
 # 🎟️ Admit One 3D Holographic Ticket
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/admit-one-3-d-holographic-ticket/public/Preview.png" alt="Admit One 3D Holographic Ticket Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
 </div>

@@ -32,5 +32,5 @@
     "typescript": "^5"
   },
   "packageManager": "pnpm@12.6.0",
-  "homepage": "https://www.zuhaibrashid.com"
+  "homepage": "https://flourish-ui.vercel.app/components/digital-journal-album"
 }

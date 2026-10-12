@@ -1,5 +1,7 @@
 # 🦄 Hero ASCII One
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/hero-ascii-one)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/hero-ascii-one/public/Preview.png" alt="Hero ASCII One Preview" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
 </div>

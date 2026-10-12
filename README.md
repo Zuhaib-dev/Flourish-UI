@@ -20,6 +20,8 @@
 
 <br />
 
+<p align="center"><a href="https://flourish-ui.vercel.app/">Explore the live component library →</a></p>
+
 > **Welcome to Flourish UI.** This repository is an ongoing exploration of digital craftsmanship. Each component here is designed to be physically grounded, viscerally satisfying, and meticulously optimized for production. Feel free to explore, clone, and integrate these into your own masterpieces.
 
 ---

@@ -1,5 +1,7 @@
 # 🎙️ Proma Content Workspace
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/proma-content-workspace)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/proma-content-workspace/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.05);" alt="Proma Content Workspace Preview" />
 </div>

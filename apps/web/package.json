@@ -7,7 +7,7 @@
     "email": "zuhaibrashid01@gmail.com",
     "url": "https://www.zuhaibrashid.com"
   },
-  "homepage": "https://www.zuhaibrashid.com",
+  "homepage": "https://flourish-ui.vercel.app/",
   "private": true,
   "packageManager": "pnpm@12.3.4",
   "scripts": {

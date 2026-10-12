@@ -1,5 +1,7 @@
 # Live Notification Feed
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/live-notification-feed)
+
 A premium, interactive live notification feed designed for real-time dashboards and product demos. Built with Next.js, Framer Motion (conceptually adapted via native animations), and Tailwind CSS. 
 
 Features native Web Animations API orchestration for staggering, interactive micro-interactions (like typing dots, ringing bells, and flight board flips), and fully responsive, fluid layouts.

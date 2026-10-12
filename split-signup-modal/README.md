@@ -1,5 +1,7 @@
 # ☁️ Split Sign Up Modal
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/split-signup-modal)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/split-signup-modal/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Split Sign Up Modal Preview" />
 </div>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { components } from '@/config/components'
 
-const siteUrl = 'https://flourish-ui.dev'
+const siteUrl = 'https://flourish-ui.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

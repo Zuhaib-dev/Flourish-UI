@@ -1,5 +1,7 @@
 # 📬 Skeuomorphic Verify Email
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/skeuomorphic-verify-email)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/skeuomorphic-verify-email/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Skeuomorphic Verify Email Preview" />
 </div>

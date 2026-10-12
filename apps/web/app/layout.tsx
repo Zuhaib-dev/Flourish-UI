@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://flourish-ui.dev'),
+  metadataBase: new URL('https://flourish-ui.vercel.app'),
   title: {
     default: 'Flourish UI — Expressive React Components',
     template: '%s | Flourish UI',
@@ -108,20 +108,20 @@ export default function RootLayout({
                 },
                 {
                   '@type': 'WebSite',
-                  '@id': 'https://flourish-ui.dev/#website',
-                  url: 'https://flourish-ui.dev/',
+                  '@id': 'https://flourish-ui.vercel.app/#website',
+                  url: 'https://flourish-ui.vercel.app/',
                   name: 'Flourish UI',
                   description: 'An open collection of expressive, interactive React components with live previews and copyable source.',
                   inLanguage: 'en',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
-                  publisher: { '@id': 'https://flourish-ui.dev/#organization' },
+                  publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
                 },
                 {
                   '@type': 'Organization',
-                  '@id': 'https://flourish-ui.dev/#organization',
+                  '@id': 'https://flourish-ui.vercel.app/#organization',
                   name: 'Flourish UI',
-                  url: 'https://flourish-ui.dev/',
-                  logo: 'https://flourish-ui.dev/icon.svg',
+                  url: 'https://flourish-ui.vercel.app/',
+                  logo: 'https://flourish-ui.vercel.app/icon.svg',
                   founder: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   sameAs: ['https://github.com/Zuhaib-dev/Flourish-UI'],
                 },

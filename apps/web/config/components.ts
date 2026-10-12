@@ -553,7 +553,7 @@ export const stats = {
 }
 
 export const installCommand = (slug: string, manager = 'pnpm') =>
-  `${manager} dlx shadcn@latest add https://flourish-ui.dev/r/${slug}.json`
+  `${manager} dlx shadcn@latest add https://flourish-ui.vercel.app/r/${slug}.json`
 
 export const registryItem = (component: ComponentEntry) => ({
   $schema: 'https://ui.shadcn.com/schema/registry-item.json',

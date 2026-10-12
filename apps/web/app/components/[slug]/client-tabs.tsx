@@ -12,10 +12,10 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
   const [copied, setCopied] = useState<'command' | 'dependencies' | 'source' | null>(null)
 
   const commands: Record<PackageManager, string> = {
-    pnpm: `pnpm dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
-    npm: `npx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
-    bun: `bunx --bun shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
-    yarn: `yarn dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
+    pnpm: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/${component.slug}.json`,
+    npm: `npx shadcn@latest add https://flourish-ui.vercel.app/r/${component.slug}.json`,
+    bun: `bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/${component.slug}.json`,
+    yarn: `yarn dlx shadcn@latest add https://flourish-ui.vercel.app/r/${component.slug}.json`,
   }
   const dependencyCommands: Record<PackageManager, string> = {
     pnpm: `pnpm add ${component.dependencies.join(' ')}`,

@@ -185,7 +185,7 @@ export default function LandingPage() {
         <div className="install-copy"><span className="section-kicker">YOURS TO SHAPE</span><h2>Start with the good part.</h2><p>Each component comes as source code. Bring it into your project, tune the details, and make it feel like yours.</p><a href="/components" className="install-link">Browse all {stats.components} components <ArrowRight size={15} /></a></div>
         <div className="terminal-card">
           <div className="terminal-top"><div className="terminal-lights"><i /><i /><i /></div><span>YOUR TERMINAL</span><button onClick={() => copyCommand(installCommand('admit-one-3-d-holographic-ticket'))} aria-label="Copy install command">{copied ? <Check size={14} /> : <Copy size={14} />}</button></div>
-          <div className="terminal-command"><span className="terminal-prompt">$</span><code>pnpm dlx shadcn@latest add<br /><span>https://flourish-ui.dev/r/admit-one-3-d-holographic-ticket.json</span></code></div>
+          <div className="terminal-command"><span className="terminal-prompt">$</span><code>pnpm dlx shadcn@latest add<br /><span>https://flourish-ui.vercel.app/r/admit-one-3-d-holographic-ticket.json</span></code></div>
           <div className="terminal-bottom"><Terminal size={13} /> One command. Full source. <span>{copied ? 'Copied' : 'Ready when you are'}</span></div>
         </div>
       </section>

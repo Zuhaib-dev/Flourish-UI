@@ -1,5 +1,7 @@
 # Flourish UI ✨
 
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/bloom-select)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/bloom-select/public/Preview.png" width="100%" style="border-radius: 12px; margin-bottom: 24px;" alt="Bloom Select Preview" />
 </div>
