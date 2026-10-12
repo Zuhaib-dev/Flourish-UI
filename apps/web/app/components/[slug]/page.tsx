@@ -56,13 +56,13 @@ export default async function ComponentPage({
   const component = getComponent(slug)
   if (!component) notFound()
 
-  // Find related specimens (same category or next ones)
+  // Find related specimens in the same category
   const relatedComponents = components
     .filter((c) => c.slug !== component.slug && c.category === component.category)
     .slice(0, 3)
 
   return (
-    <div className="relative min-h-screen bg-[#09090b] text-[#f4f4f5] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#fafafa] text-[#09090b] overflow-x-hidden">
       <div className="noise-overlay" />
       <div className="blueprint-grid" />
       <div className="radial-glow glow-primary" />
@@ -72,25 +72,25 @@ export default async function ComponentPage({
       <header className="site-header">
         <div className="detail-container h-full flex items-center justify-between">
           <a href="/" className="flex items-center gap-3 font-semibold text-base tracking-tight group">
-            <div className="w-8 h-8 rounded-lg border border-white/20 bg-zinc-900 grid place-items-center group-hover:border-violet-500/60 transition-all">
-              <span className="w-2.5 h-2.5 rounded bg-violet-400 group-hover:scale-110 transition-transform" />
+            <div className="w-8 h-8 rounded-lg border border-zinc-200 bg-white grid place-items-center group-hover:border-violet-500/60 transition-all shadow-xs">
+              <span className="w-2.5 h-2.5 rounded bg-violet-600 group-hover:scale-110 transition-transform" />
             </div>
-            <div className="flex items-center gap-1.5 font-bold tracking-tight">
+            <div className="flex items-center gap-1.5 font-bold tracking-tight text-zinc-950">
               <span>Flourish</span>
-              <span className="text-violet-400">/</span>
-              <span className="text-zinc-300">UI</span>
+              <span className="text-violet-600">/</span>
+              <span className="text-zinc-600">UI</span>
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200">
               Registry 2.0
             </span>
           </a>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
+          <div className="flex items-center gap-4 text-xs font-mono text-zinc-600">
             <a
               href="https://github.com/Zuhaib-dev/Flourish-UI"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-zinc-900/80 hover:bg-zinc-800"
+              className="hover:text-zinc-950 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50 shadow-2xs"
             >
               <GithubIcon size={14} /> <span>Monorepo</span> <ExternalLink size={11} className="opacity-50" />
             </a>
@@ -98,7 +98,7 @@ export default async function ComponentPage({
               href="https://www.zuhaibrashid.com"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/5 hover:border-white/20"
+              className="hover:text-zinc-950 transition-colors hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200/80 hover:bg-zinc-50 shadow-2xs"
             >
               <span>Zuhaib Rashid</span> <ArrowUpRight size={11} className="opacity-50" />
             </a>
@@ -109,30 +109,30 @@ export default async function ComponentPage({
       {/* Main Specimen Wrap */}
       <main className="detail-container pt-8 pb-24">
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-8 flex-wrap">
-          <a href="/" className="hover:text-white transition-colors flex items-center gap-1">
+        <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 mb-8 flex-wrap">
+          <a href="/" className="hover:text-zinc-950 transition-colors flex items-center gap-1 font-medium">
             <ArrowLeft size={13} />
             <span>Registry</span>
           </a>
-          <ChevronRight size={12} className="text-zinc-600" />
-          <span className="text-zinc-400">{component.category}</span>
-          <ChevronRight size={12} className="text-zinc-600" />
-          <span className="text-violet-400 font-semibold">{component.title}</span>
+          <ChevronRight size={12} className="text-zinc-300" />
+          <span className="text-zinc-500">{component.category}</span>
+          <ChevronRight size={12} className="text-zinc-300" />
+          <span className="text-violet-700 font-semibold">{component.title}</span>
         </div>
 
         {/* Specimen Header & Title */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-white/10 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-zinc-200 mb-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-500/25 bg-violet-500/10 text-violet-300 text-xs font-mono mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-200 bg-violet-50 text-violet-700 text-xs font-mono mb-4 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
               <span>{component.category.toUpperCase()}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950 leading-tight">
               {component.title}
             </h1>
 
-            <p className="text-base text-zinc-400 mt-3 leading-relaxed max-w-2xl">
+            <p className="text-base text-zinc-600 mt-3 leading-relaxed max-w-2xl">
               {component.description}
             </p>
 
@@ -140,7 +140,7 @@ export default async function ComponentPage({
               {component.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-900 border border-white/10 text-zinc-400"
+                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white border border-zinc-200 text-zinc-600 shadow-2xs"
                 >
                   #{tag}
                 </span>
@@ -153,7 +153,7 @@ export default async function ComponentPage({
               href={`https://github.com/Zuhaib-dev/Flourish-UI/tree/main/${component.slug}`}
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2.5 rounded-xl border border-white/10 bg-zinc-900/90 hover:bg-zinc-800 text-xs font-mono text-zinc-200 hover:text-white transition-all flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl border border-zinc-200 bg-white hover:bg-zinc-50 text-xs font-mono text-zinc-800 hover:text-zinc-950 transition-all flex items-center gap-2 shadow-2xs"
             >
               <GithubIcon size={14} />
               <span>Source on GitHub</span>
@@ -163,26 +163,26 @@ export default async function ComponentPage({
         </div>
 
         {/* Specimen Showcase Stage Canvas */}
-        <section className="rounded-2xl border border-white/15 bg-zinc-900/90 shadow-2xl backdrop-blur-2xl overflow-hidden mb-12">
+        <section className="rounded-2xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/60 overflow-hidden mb-12">
           {/* macOS Titlebar */}
-          <div className="px-4 py-3 border-b border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400 bg-zinc-950/60">
+          <div className="px-4 py-3 border-b border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-500 bg-zinc-50/80">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-              <span className="ml-3 text-zinc-400 text-[11px]">
+              <span className="ml-3 text-zinc-500 text-[11px]">
                 components/ui/{component.slug}.tsx
               </span>
             </div>
-            <div className="flex items-center gap-2 text-[11px] text-emerald-400 font-medium">
-              <Sparkles size={12} className="text-amber-400" />
+            <div className="flex items-center gap-2 text-[11px] text-emerald-700 font-medium">
+              <Sparkles size={12} className="text-amber-500" />
               <span>READY FOR REGISTRY CLI</span>
             </div>
           </div>
 
           {/* Canvas Preview Area */}
-          <div className="relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-[#09090c] p-4 sm:p-8">
-            <div className="relative w-full h-full max-w-4xl max-h-[500px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex items-center justify-center">
+          <div className="relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
+            <div className="relative w-full h-full max-w-4xl max-h-[500px] rounded-xl overflow-hidden border border-zinc-200 shadow-md bg-white flex items-center justify-center">
               <img
                 src={component.previewImage}
                 alt={component.title}
@@ -192,22 +192,22 @@ export default async function ComponentPage({
           </div>
 
           {/* Specimen Specification Footer Strip */}
-          <div className="border-t border-white/10 bg-zinc-950/80 px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+          <div className="border-t border-zinc-100 bg-zinc-50/80 px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-600">
             <div className="flex items-center gap-4 flex-wrap">
-              <span className="flex items-center gap-1.5 text-zinc-300">
-                <Cpu size={13} className="text-violet-400" />
+              <span className="flex items-center gap-1.5 text-zinc-800">
+                <Cpu size={13} className="text-violet-600" />
                 <span>Next.js 16 • React 19 • TypeScript</span>
               </span>
-              <span className="text-zinc-600">•</span>
-              <span className="flex items-center gap-1.5 text-zinc-300">
-                <Layers size={13} className="text-emerald-400" />
+              <span className="text-zinc-300">•</span>
+              <span className="flex items-center gap-1.5 text-zinc-800">
+                <Layers size={13} className="text-emerald-600" />
                 <span>Tailwind CSS v4</span>
               </span>
             </div>
 
             <div className="flex items-center gap-2">
               <span className="text-zinc-500">Registry Slug:</span>
-              <code className="text-violet-300 bg-zinc-900 px-2 py-0.5 rounded border border-white/5">
+              <code className="text-violet-700 bg-violet-50 px-2 py-0.5 rounded border border-violet-100 font-semibold">
                 {component.slug}
               </code>
             </div>
@@ -219,19 +219,19 @@ export default async function ComponentPage({
 
         {/* Related Specimens in Same Category */}
         {relatedComponents.length > 0 && (
-          <section className="mt-20 pt-12 border-t border-white/10">
+          <section className="mt-20 pt-12 border-t border-zinc-200">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <div className="text-xs font-mono text-violet-400 uppercase tracking-wider font-semibold">
+                <div className="text-xs font-mono text-violet-600 uppercase tracking-wider font-semibold">
                   EXPLORE MORE
                 </div>
-                <h3 className="text-2xl font-bold text-white tracking-tight mt-1">
+                <h3 className="text-2xl font-bold text-zinc-950 tracking-tight mt-1">
                   More in {component.category}
                 </h3>
               </div>
               <a
                 href="/#catalog"
-                className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center gap-1"
+                className="text-xs font-mono text-zinc-500 hover:text-zinc-950 transition-colors flex items-center gap-1"
               >
                 <span>View all 35</span> <ArrowUpRight size={13} />
               </a>
@@ -242,19 +242,19 @@ export default async function ComponentPage({
                 <a
                   key={rel.slug}
                   href={`/components/${rel.slug}`}
-                  className="group p-4 rounded-xl border border-white/10 bg-zinc-900/50 hover:bg-zinc-900/90 hover:border-violet-500/40 transition-all flex flex-col overflow-hidden"
+                  className="group p-4 rounded-xl border border-zinc-200 bg-white hover:border-violet-300 hover:shadow-md transition-all flex flex-col overflow-hidden shadow-2xs"
                 >
-                  <div className="aspect-[16/10] rounded-lg overflow-hidden bg-zinc-950 border border-white/10 mb-3">
+                  <div className="aspect-[16/10] rounded-lg overflow-hidden bg-zinc-50 border border-zinc-100 mb-3">
                     <img
                       src={rel.previewImage}
                       alt={rel.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="text-sm font-bold text-white group-hover:text-violet-300 transition-colors">
+                  <div className="text-sm font-bold text-zinc-950 group-hover:text-violet-600 transition-colors">
                     {rel.title}
                   </div>
-                  <p className="text-xs text-zinc-400 line-clamp-2 mt-1">
+                  <p className="text-xs text-zinc-500 line-clamp-2 mt-1">
                     {rel.description}
                   </p>
                 </a>
@@ -265,12 +265,12 @@ export default async function ComponentPage({
       </main>
 
       {/* Global Footer */}
-      <footer className="border-t border-white/10 py-12 bg-zinc-950/60">
-        <div className="detail-container flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-zinc-400 font-mono">
+      <footer className="border-t border-zinc-200 py-12 bg-white">
+        <div className="detail-container flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-zinc-500 font-mono">
           <div className="flex items-center gap-3">
-            <a href="/" className="font-bold text-white text-sm tracking-tight flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded bg-violet-400" />
-              <span>Flourish<span className="text-violet-400">/</span>UI</span>
+            <a href="/" className="font-bold text-zinc-950 text-sm tracking-tight flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded bg-violet-600" />
+              <span>Flourish<span className="text-violet-600">/</span>UI</span>
             </a>
             <span>•</span>
             <span>Crafted by Zuhaib Rashid</span>
@@ -281,7 +281,7 @@ export default async function ComponentPage({
               href="https://github.com/Zuhaib-dev/Flourish-UI"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5"
+              className="hover:text-zinc-950 transition-colors flex items-center gap-1.5"
             >
               <GithubIcon size={14} /> GitHub
             </a>
@@ -289,7 +289,7 @@ export default async function ComponentPage({
               href="https://x.com/xuhaib_x9"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5"
+              className="hover:text-zinc-950 transition-colors flex items-center gap-1.5"
             >
               <XIcon size={13} /> X
             </a>
@@ -297,7 +297,7 @@ export default async function ComponentPage({
               href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5"
+              className="hover:text-zinc-950 transition-colors flex items-center gap-1.5"
             >
               <LinkedinIcon size={14} /> LinkedIn
             </a>

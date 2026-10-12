@@ -4,7 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Flourish UI — Interfaces with character.',
-  description: 'An open-source component registry for expressive, production-ready interfaces.',
+  description: 'An open-source component registry for expressive, production-ready interfaces by Zuhaib Rashid.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -26,11 +26,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -39,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className="antialiased bg-[#09090b] text-[#f4f4f5] min-h-screen selection:bg-violet-500/30 selection:text-white">
+    <html lang="en" className="light" suppressHydrationWarning>
+      <body className="antialiased bg-[#fafafa] text-[#09090b] min-h-screen selection:bg-violet-600/20 selection:text-violet-950">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
