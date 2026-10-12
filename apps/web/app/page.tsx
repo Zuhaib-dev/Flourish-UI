@@ -11,9 +11,11 @@ import {
   Copy,
   Code2,
   Layers3,
+  MousePointer2,
   Search,
   Sparkles,
   Terminal,
+  WandSparkles,
   X,
 } from 'lucide-react'
 import { components, installCommand, stats } from '@/config/components'
@@ -115,6 +117,43 @@ export default function LandingPage() {
         <div className="strip-item"><span className="strip-number">{String(stats.categories).padStart(2, '0')}</span><span>creative directions</span></div>
         <span className="strip-separator">✳</span>
         <div className="strip-item"><Layers3 size={16} strokeWidth={1.6} /><span>Copy the source. Make it yours.</span></div>
+      </section>
+
+      <section className="home-bento" aria-labelledby="bento-title">
+        <div className="bento-heading">
+          <div><span className="section-kicker">PICK A DIRECTION</span><h2 id="bento-title">A better place to begin.</h2></div>
+          <a href="/components" className="bento-all-link">Explore all {stats.components} <ArrowRight size={14} /></a>
+        </div>
+        <div className="bento-grid">
+          <article className="bento-tile bento-play">
+            <div className="bento-play-head"><span className="bento-live"><i /> LIVE COMPONENT</span><a href="/previews/bloom-select" target="_blank" rel="noreferrer" aria-label="Open Bloom Select live preview in a new tab"><ArrowUpRight size={15} /></a></div>
+            <div className="bento-interaction">
+              <iframe src="/previews/bloom-select" title="Interactive Bloom Select component preview" loading="lazy" />
+              <span className="bento-play-overlay"><MousePointer2 size={14} /> Try it, right here</span>
+            </div>
+            <div className="bento-tile-copy"><span>01 / PLAY</span><h3>Feel the details.</h3><p>Interact with a real component before you bring it into your project.</p><a className="bento-card-link" href="/components/bloom-select">Explore Bloom Select <ArrowUpRight size={13} /></a></div>
+          </article>
+
+          <a className="bento-tile bento-motion" href="/components/cold-flame-drift">
+            <img src={components.find((item) => item.slug === 'cold-flame-drift')?.previewImage} alt="Cold Flame Drift component" loading="lazy" />
+            <div className="bento-image-shade" />
+            <span className="bento-corner-icon"><WandSparkles size={15} /></span>
+            <div className="bento-tile-copy"><span>02 / MOTION & EFFECTS</span><h3>Make the quiet parts move.</h3><p>Shaders, physics, and expressive motion.</p><span className="bento-card-link">Explore the live demo <ArrowUpRight size={13} /></span></div>
+          </a>
+
+          <a className="bento-tile bento-work" href="/components/property-comparison-dashboard">
+            <img src={components.find((item) => item.slug === 'property-comparison-dashboard')?.previewImage} alt="Property Comparison Dashboard component" loading="lazy" />
+            <div className="bento-work-copy"><span>03 / TOOLS THAT WORK</span><h3>Useful can be beautiful.</h3><span>Dashboards, editors, and workflows <ArrowUpRight size={13} /></span></div>
+          </a>
+
+          <div className="bento-tile bento-index">
+            <div className="bento-index-top"><span>04 / THE COLLECTION</span><Layers3 size={16} /></div>
+            <strong>{String(stats.components).padStart(2, '0')}</strong>
+            <p>components. Many points of view. All ready to explore and make your own.</p>
+            <a href="/components" className="bento-index-link">Find your starting point <ArrowRight size={14} /></a>
+            <span className="bento-index-flower" aria-hidden="true">✳</span>
+          </div>
+        </div>
       </section>
 
       <section className="selected-section" id="selected">
