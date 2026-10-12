@@ -751,7 +751,10 @@ button { cursor: pointer; }
   .premium-detail .detail-heading { align-items: start; }
   .premium-detail .detail-heading h1 { font-size: 42px; }
   .premium-detail .detail-preview-stage { aspect-ratio: 4 / 3; padding: 10px; }
-  .premium-detail .detail-preview > div:first-child > div:last-child { display: none; }
+  .premium-detail .detail-preview > div:first-child { flex-wrap: wrap; gap: 8px; }
+  .premium-detail .detail-preview > div:first-child > div:last-child { display: flex; margin-left: auto; }
+  .premium-detail .detail-preview > div:first-child > div:first-child > span:last-child { display: none; }
+  .premium-detail .live-preview-new-tab { min-height: 34px; margin-left: 4px; padding: 7px 9px; font-size: 9px; }
   .premium-detail .detail-preview > div:last-child { padding: 9px 10px; }
   .premium-detail .detail-preview > div:last-child > div { gap: 7px; }
   .detail-install-content { padding: 11px; }
