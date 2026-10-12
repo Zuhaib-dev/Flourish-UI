@@ -251,6 +251,12 @@ A premium, highly interactive live notification feed designed for real-time dash
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/live-notification-feed/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Live Notification Feed Preview" />
 </div>
 
+### 💳 [Credit Card Form](./credit-card-form)
+A tactile, interactive 3D flippable credit card form component with dynamic input focus highlighting, number slot slide animations, Luhn validation, and smooth dual-sided flip transitions.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/credit-card-form/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Credit Card Form Preview" />
+</div>
+
 <br />
 
 ---
