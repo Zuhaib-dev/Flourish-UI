@@ -1,277 +1,68 @@
 'use client'
 
-import React, { useState } from 'react'
-import {
-  Check,
-  Copy,
-  Terminal,
-  Code2,
-  Package,
-  Layers,
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-} from 'lucide-react'
-import { ComponentEntry } from '@/config/components'
+import { useState } from 'react'
+import { Check, ChevronDown, Clipboard, Code2, Copy, Terminal } from 'lucide-react'
+import type { ComponentEntry } from '@/config/components'
 
-export default function ClientDetailTabs({
-  component,
-}: {
-  component: ComponentEntry
-}) {
-  const [activeTab, setActiveTab] = useState<'cli' | 'code'>('cli')
-  const [packageManager, setPackageManager] = useState<'pnpm' | 'npm' | 'bun' | 'yarn'>('pnpm')
-  const [copiedType, setCopiedType] = useState<string | null>(null)
+type PackageManager = 'pnpm' | 'npm' | 'bun' | 'yarn'
 
-  const getCmd = (pm: string) => {
-    switch (pm) {
-      case 'npm':
-        return `npx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`
-      case 'bun':
-        return `bunx --bun shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`
-      case 'yarn':
-        return `yarn dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`
-      case 'pnpm':
-      default:
-        return `pnpm dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`
-    }
+export default function ClientDetailTabs({ component }: { component: ComponentEntry }) {
+  const [activeTab, setActiveTab] = useState<'install' | 'source'>('install')
+  const [packageManager, setPackageManager] = useState<PackageManager>('pnpm')
+  const [copied, setCopied] = useState<'command' | 'dependencies' | 'source' | null>(null)
+
+  const commands: Record<PackageManager, string> = {
+    pnpm: `pnpm dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
+    npm: `npx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
+    bun: `bunx --bun shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
+    yarn: `yarn dlx shadcn@latest add https://flourish-ui.dev/r/${component.slug}.json`,
   }
-
-  const getDepCmd = (pm: string) => {
-    if (component.dependencies.length === 0) return ''
-    const deps = component.dependencies.join(' ')
-    switch (pm) {
-      case 'npm':
-        return `npm install ${deps}`
-      case 'bun':
-        return `bun add ${deps}`
-      case 'yarn':
-        return `yarn add ${deps}`
-      case 'pnpm':
-      default:
-        return `pnpm add ${deps}`
-    }
+  const dependencyCommands: Record<PackageManager, string> = {
+    pnpm: `pnpm add ${component.dependencies.join(' ')}`,
+    npm: `npm install ${component.dependencies.join(' ')}`,
+    bun: `bun add ${component.dependencies.join(' ')}`,
+    yarn: `yarn add ${component.dependencies.join(' ')}`,
   }
+  const usage = `import Component from "@/components/flourish/${component.slug}"\n\nexport default function Page() {\n  return <Component />\n}`
 
-  const copy = async (text: string, type: string) => {
+  async function copy(text: string, type: NonNullable<typeof copied>) {
     try {
       await navigator.clipboard.writeText(text)
-      setCopiedType(type)
-      setTimeout(() => setCopiedType(null), 2000)
-    } catch (e) {
-      console.error(e)
+      setCopied(type)
+      window.setTimeout(() => setCopied(null), 1800)
+    } catch {
+      setCopied(null)
     }
   }
 
-  const currentCommand = getCmd(packageManager)
-  const depCommand = getDepCmd(packageManager)
-
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white shadow-xl shadow-zinc-200/50 overflow-hidden">
-      {/* Top Tab Switcher */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 bg-zinc-50/70">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setActiveTab('cli')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all ${
-              activeTab === 'cli'
-                ? 'bg-zinc-950 text-white shadow-sm'
-                : 'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100'
-            }`}
-          >
-            <Terminal size={14} />
-            <span>CLI Quickstart</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('code')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all ${
-              activeTab === 'code'
-                ? 'bg-zinc-950 text-white shadow-sm'
-                : 'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100'
-            }`}
-          >
-            <Code2 size={14} />
-            <span>Full Source Code (.tsx)</span>
-          </button>
-        </div>
-
-        <span className="hidden sm:inline text-[11px] font-mono text-zinc-400">
-          COMPATIBLE WITH SHADCN CLI
-        </span>
+    <section className="detail-tabs" aria-label="Install or inspect component source">
+      <div className="detail-tabs-header" role="tablist" aria-label="Component resources">
+        <button role="tab" aria-selected={activeTab === 'install'} onClick={() => setActiveTab('install')} className={activeTab === 'install' ? 'active' : ''}><Terminal size={14} /> Install</button>
+        <button role="tab" aria-selected={activeTab === 'source'} onClick={() => setActiveTab('source')} className={activeTab === 'source' ? 'active' : ''}><Code2 size={14} /> Source</button>
+        <span>REGISTRY ITEM</span>
       </div>
 
-      {/* Tab Content: CLI Quickstart */}
-      {activeTab === 'cli' && (
-        <div className="p-6 sm:p-8 flex flex-col gap-8">
-          {/* Step 1: Package Manager Selection & Command */}
-          <div>
-            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-              <span className="text-xs font-mono text-violet-600 uppercase tracking-wider font-semibold">
-                STEP 01 // INSTALL VIA SHADCN CLI
-              </span>
+      {activeTab === 'install' ? (
+        <div className="detail-install-content" role="tabpanel">
+          <div className="manager-row"><span>PACKAGE MANAGER</span><div>{(['pnpm', 'npm', 'bun', 'yarn'] as const).map((manager) => <button key={manager} onClick={() => setPackageManager(manager)} className={packageManager === manager ? 'active' : ''} aria-pressed={packageManager === manager}>{manager}</button>)}</div></div>
 
-              {/* Package Manager Selector */}
-              <div className="flex gap-1 p-1 rounded-xl bg-zinc-100 border border-zinc-200">
-                {(['pnpm', 'npm', 'bun', 'yarn'] as const).map((pm) => (
-                  <button
-                    key={pm}
-                    onClick={() => setPackageManager(pm)}
-                    className={`px-3 py-1 rounded-lg text-xs font-mono transition-all ${
-                      packageManager === pm
-                        ? 'bg-white text-zinc-950 font-semibold shadow-2xs'
-                        : 'text-zinc-500 hover:text-zinc-900'
-                    }`}
-                  >
-                    {pm}
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="install-command-box"><div><Terminal size={13} /><code>{commands[packageManager]}</code></div><button onClick={() => copy(commands[packageManager], 'command')} aria-label="Copy install command">{copied === 'command' ? <Check size={14} /> : <Copy size={14} />}<span>{copied === 'command' ? 'Copied' : 'Copy command'}</span></button></div>
+          <p className="install-destination"><Check size={12} /> Adds source to <code>components/flourish/</code></p>
 
-            {/* Terminal Command Bar */}
-            <div className="relative p-4 rounded-xl border border-zinc-900 bg-zinc-950 font-mono text-xs flex items-center justify-between gap-4 group shadow-sm">
-              <div className="flex items-center gap-3 overflow-hidden text-zinc-300">
-                <span className="text-zinc-600 select-none">$</span>
-                <span className="truncate text-violet-300 selection:bg-violet-500 selection:text-white">
-                  {currentCommand}
-                </span>
-              </div>
+          {component.dependencies.length > 0 && <details className="install-disclosure"><summary><span><span className="disclosure-index">01</span>Dependencies <small>{component.dependencies.length} packages</small></span><ChevronDown size={14} /></summary><div className="disclosure-content"><div className="dependency-tags">{component.dependencies.map((dependency) => <code key={dependency}>{dependency}</code>)}</div><button className="copy-subcommand" onClick={() => copy(dependencyCommands[packageManager], 'dependencies')}>{copied === 'dependencies' ? <Check size={13} /> : <Clipboard size={13} />}{copied === 'dependencies' ? 'Copied' : 'Copy install command'}</button></div></details>}
 
-              <button
-                onClick={() => copy(currentCommand, 'cli')}
-                className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white transition-all text-xs font-mono"
-              >
-                {copiedType === 'cli' ? (
-                  <>
-                    <Check size={13} className="text-emerald-400" />
-                    <span className="text-emerald-400 font-semibold">Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} />
-                    <span>Copy Command</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Step 2: Dependencies */}
-          {component.dependencies.length > 0 && (
-            <div>
-              <span className="text-xs font-mono text-violet-600 uppercase tracking-wider font-semibold block mb-3">
-                STEP 02 // REQUIRED PACKAGES ({component.dependencies.length})
-              </span>
-
-              <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-2 flex-wrap">
-                  {component.dependencies.map((dep) => (
-                    <span
-                      key={dep}
-                      className="px-2.5 py-1 rounded-md text-xs font-mono bg-white border border-zinc-200 text-zinc-800 shadow-2xs"
-                    >
-                      {dep}
-                    </span>
-                  ))}
-                </div>
-
-                {depCommand && (
-                  <button
-                    onClick={() => copy(depCommand, 'dep')}
-                    className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-100 text-xs font-mono text-zinc-700 hover:text-zinc-950 transition-all self-start sm:self-auto shadow-2xs"
-                  >
-                    {copiedType === 'dep' ? (
-                      <>
-                        <Check size={12} className="text-emerald-600" />
-                        <span className="text-emerald-600 font-medium">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={12} />
-                        <span>Copy Install Deps</span>
-                      </>
-                    )}
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: Usage Snippet */}
-          <div>
-            <span className="text-xs font-mono text-violet-600 uppercase tracking-wider font-semibold block mb-3">
-              STEP 03 // USAGE IN YOUR NEXT.JS APP
-            </span>
-
-            <div className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 font-mono text-xs text-zinc-300 leading-relaxed overflow-x-auto shadow-sm">
-              <pre className="text-zinc-400">
-                <span className="text-violet-400">import</span> React <span className="text-violet-400">from</span> <span className="text-emerald-400">&apos;react&apos;</span>{'\n'}
-                <span className="text-violet-400">import</span> Component <span className="text-violet-400">from</span> <span className="text-emerald-400">&apos;@/components/ui/{component.slug}&apos;</span>{'\n\n'}
-                <span className="text-violet-400">export default function</span> <span className="text-amber-300">MyPage</span>() {'{\n'}
-                {'  '}<span className="text-violet-400">return</span> ({'\n'}
-                {'    '}&lt;<span className="text-blue-400">main</span> className=&quot;min-h-screen p-8 bg-zinc-50&quot;&gt;{'\n'}
-                {'      '}&lt;<span className="text-amber-300">Component</span> /&gt;{'\n'}
-                {'    '}&lt;/<span className="text-blue-400">main</span>&gt;{'\n'}
-                {'  '})\n{'}'}
-              </pre>
-            </div>
-          </div>
-
-          {/* Value Props & Assurances */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-100 text-xs font-mono text-zinc-600">
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-emerald-600 shrink-0" />
-              <span>Full source code ownership</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Zap size={16} className="text-amber-500 shrink-0" />
-              <span>Zero external bundle bloat</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check size={16} className="text-violet-600 shrink-0" />
-              <span>MIT License — free for commercial use</span>
-            </div>
-          </div>
+          <details className="install-disclosure"><summary><span><span className="disclosure-index">02</span>Usage example <small>Next.js / React</small></span><ChevronDown size={14} /></summary><div className="disclosure-content"><pre className="usage-example"><code>{usage}</code></pre><button className="copy-subcommand" onClick={() => copy(usage, 'source')}>{copied === 'source' ? <Check size={13} /> : <Clipboard size={13} />}{copied === 'source' ? 'Copied' : 'Copy example'}</button></div></details>
+          <p className="install-note">Full source ownership · MIT licensed</p>
+          <span className="sr-only" aria-live="polite">{copied ? 'Copied to clipboard' : ''}</span>
+        </div>
+      ) : (
+        <div className="detail-source-content" role="tabpanel">
+          <div className="source-filebar"><span><Code2 size={13} /> components/flourish/{component.slug}.tsx</span><span>{component.code.split('\n').length.toLocaleString()} lines</span><button onClick={() => copy(component.code, 'source')}>{copied === 'source' ? <Check size={13} /> : <Copy size={13} />}{copied === 'source' ? 'Copied' : 'Copy source'}</button></div>
+          <pre className="source-code"><code>{component.code}</code></pre>
+          <span className="sr-only" aria-live="polite">{copied === 'source' ? 'Source copied to clipboard' : ''}</span>
         </div>
       )}
-
-      {/* Tab Content: Full Source Code */}
-      {activeTab === 'code' && (
-        <div className="p-6 flex flex-col gap-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-600">
-            <div className="flex items-center gap-2">
-              <Code2 size={14} className="text-violet-600" />
-              <span>components/ui/{component.slug}.tsx</span>
-              <span className="text-zinc-300">•</span>
-              <span>{component.code.split('\n').length} lines</span>
-            </div>
-
-            <button
-              onClick={() => copy(component.code, 'fullcode')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-100 text-xs font-mono text-zinc-800 transition-all shadow-2xs font-medium"
-            >
-              {copiedType === 'fullcode' ? (
-                <>
-                  <Check size={13} className="text-emerald-600" />
-                  <span className="text-emerald-600 font-semibold">Copied Source</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={13} />
-                  <span>Copy Full Code</span>
-                </>
-              )}
-            </button>
-          </div>
-
-          <div className="code-scroll-container">
-            <pre>
-              <code>{component.code}</code>
-            </pre>
-          </div>
-        </div>
-      )}
-    </div>
+    </section>
   )
 }

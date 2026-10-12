@@ -70,7 +70,7 @@ export default function LandingPage() {
       <header className="home-nav">
         <div className="home-nav-inner">
           <a href="/" className="brand" aria-label="Flourish UI home">
-            <span className="brand-mark"><span /></span>
+            <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span>
             <span>flourish<span className="brand-dot">.</span></span>
           </a>
           <nav className="nav-links" aria-label="Main navigation">
@@ -152,7 +152,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="home-footer">
-        <a href="/" className="brand"><span className="brand-mark"><span /></span><span>flourish<span className="brand-dot">.</span></span></a>
+        <a href="/" className="brand"><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span><span>flourish<span className="brand-dot">.</span></span></a>
         <span>A collection by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
         <a className="footer-github" href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer"><Code2 size={15} /> GitHub <ArrowUpRight size={12} /></a>
         <span>© 2026</span>

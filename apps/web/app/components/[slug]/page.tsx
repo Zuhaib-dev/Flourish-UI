@@ -71,14 +71,10 @@ export default async function ComponentPage({
       {/* Global Header */}
       <header className="site-header">
         <div className="detail-container h-full flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 font-semibold text-base tracking-tight group">
-            <div className="w-8 h-8 rounded-lg border border-zinc-200 bg-white grid place-items-center group-hover:border-violet-500/60 transition-all shadow-xs">
-              <span className="w-2.5 h-2.5 rounded bg-violet-600 group-hover:scale-110 transition-transform" />
-            </div>
+          <a href="/" className="detail-brand flex items-center gap-3 font-semibold text-base tracking-tight group">
+            <span className="detail-brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span>
             <div className="flex items-center gap-1.5 font-bold tracking-tight text-zinc-950">
-              <span>Flourish</span>
-              <span className="text-violet-600">/</span>
-              <span className="text-zinc-600">UI</span>
+              <span>Flourish</span><span className="text-violet-600">/</span><span className="text-zinc-600">UI</span>
             </div>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200">
               Registry 2.0
@@ -116,9 +112,9 @@ export default async function ComponentPage({
       </header>
 
       {/* Main Specimen Wrap */}
-      <main className="detail-container pt-8 pb-24">
+      <main className="detail-container premium-detail-container pt-8 pb-24">
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 mb-8 flex-wrap">
+        <div className="detail-breadcrumb flex items-center gap-2 text-xs font-mono text-zinc-500 mb-8 flex-wrap">
           <a href="/" className="hover:text-zinc-950 transition-colors flex items-center gap-1 font-medium">
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -132,7 +128,7 @@ export default async function ComponentPage({
         </div>
 
         {/* Specimen Header & Title */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-zinc-200 mb-8">
+        <div className="detail-heading flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-zinc-200 mb-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-200 bg-violet-50 text-violet-700 text-xs font-mono mb-4 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
@@ -173,8 +169,8 @@ export default async function ComponentPage({
           </div>
         </div>
 
-        {/* Specimen Showcase Stage Canvas */}
-        <section className="rounded-2xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/60 overflow-hidden mb-12">
+        <div className="detail-workspace">
+        <section className="detail-preview rounded-2xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/60 overflow-hidden">
           {/* macOS Titlebar */}
           <div className="px-4 py-3 border-b border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-500 bg-zinc-50/80">
             <div className="flex items-center gap-2">
@@ -182,7 +178,7 @@ export default async function ComponentPage({
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
               <span className="ml-3 text-zinc-500 text-[11px]">
-                components/ui/{component.slug}.tsx
+                components/flourish/{component.slug}.tsx
               </span>
             </div>
             <div className="flex items-center gap-2 text-[11px] text-emerald-700 font-medium">
@@ -192,7 +188,7 @@ export default async function ComponentPage({
           </div>
 
           {/* Canvas Preview Area */}
-          <div className="relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
+          <div className="detail-preview-stage relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
             <div className="relative w-full h-full max-w-4xl max-h-[500px] rounded-xl overflow-hidden border border-zinc-200 shadow-md bg-white flex items-center justify-center">
               <img
                 src={component.previewImage}
@@ -225,8 +221,11 @@ export default async function ComponentPage({
           </div>
         </section>
 
-        {/* Client Tabs: CLI Installation & Source Code */}
-        <ClientDetailTabs component={component} />
+        <aside className="detail-install-panel">
+          <div className="detail-install-heading"><span>QUICKSTART</span><h2>Make it yours.</h2><p>Install the source, then customize it in your project.</p></div>
+          <ClientDetailTabs component={component} />
+        </aside>
+        </div>
 
         {/* Related Specimens in Same Category */}
         {relatedComponents.length > 0 && (
@@ -241,7 +240,7 @@ export default async function ComponentPage({
                 </h3>
               </div>
               <a
-                href="/#catalog"
+                href="/components"
                 className="text-xs font-mono text-zinc-500 hover:text-zinc-950 transition-colors flex items-center gap-1"
               >
                 <span>View all {stats.components}</span> <ArrowUpRight size={13} />
@@ -280,7 +279,7 @@ export default async function ComponentPage({
         <div className="detail-container flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-zinc-500 font-mono">
           <div className="flex items-center gap-3">
             <a href="/" className="font-bold text-zinc-950 text-sm tracking-tight flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded bg-violet-600" />
+              <span className="detail-brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span>
               <span>Flourish<span className="text-violet-600">/</span>UI</span>
             </a>
             <span>•</span>
