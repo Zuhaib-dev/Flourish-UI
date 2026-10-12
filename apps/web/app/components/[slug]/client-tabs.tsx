@@ -23,7 +23,24 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
     bun: `bun add ${component.dependencies.join(' ')}`,
     yarn: `yarn add ${component.dependencies.join(' ')}`,
   }
-  const usage = `import Component from "@/components/flourish/${component.slug}"\n\nexport default function Page() {\n  return <Component />\n}`
+  const namedExports: Record<string, string> = {
+    'credit-card-form': 'CreditCardForm',
+    'kinetic-hover': 'KineticHover',
+    'prisma-hero': 'PrismaHero',
+    'waves-shaders-homlu-ui': 'ShaderBackground',
+  }
+  const exportName = namedExports[component.slug]
+  const componentName = exportName ?? 'Component'
+  const importLine = exportName
+    ? `import { ${exportName} } from "@/components/flourish/${component.slug}"`
+    : `import ${componentName} from "@/components/flourish/${component.slug}"`
+  const usage = component.slug === 'skiper39'
+    ? `${importLine}\n\nexport default function Page() {\n  return <Component src="/images/your-image.jpg" />\n}`
+    : component.slug === 'kinetic-hover'
+          ? `${importLine}\n\n// Add this image to public/images/project.jpg.\nconst items = [{\n  id: "project-1", number: "01", title: "A project",\n  category: "Web", description: "A short project description.",\n  image: "/images/project.jpg", color: "#d86b43",\n}]\n\nexport default function Page() {\n  return <KineticHover items={items} />\n}`
+      : component.slug === 'waves-shaders-homlu-ui'
+        ? `${importLine}\n\nexport default function Page() {\n  return <div className="h-96"><ShaderBackground /></div>\n}`
+        : `${importLine}\n\nexport default function Page() {\n  return <${componentName} />\n}`
 
   async function copy(text: string, type: NonNullable<typeof copied>) {
     try {
@@ -53,7 +70,7 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
           {component.dependencies.length > 0 && <details className="install-disclosure"><summary><span><span className="disclosure-index">01</span>Dependencies <small>{component.dependencies.length} packages</small></span><ChevronDown size={14} /></summary><div className="disclosure-content"><div className="dependency-tags">{component.dependencies.map((dependency) => <code key={dependency}>{dependency}</code>)}</div><button className="copy-subcommand" onClick={() => copy(dependencyCommands[packageManager], 'dependencies')}>{copied === 'dependencies' ? <Check size={13} /> : <Clipboard size={13} />}{copied === 'dependencies' ? 'Copied' : 'Copy install command'}</button></div></details>}
 
           <details className="install-disclosure"><summary><span><span className="disclosure-index">02</span>Usage example <small>Next.js / React</small></span><ChevronDown size={14} /></summary><div className="disclosure-content"><pre className="usage-example"><code>{usage}</code></pre><button className="copy-subcommand" onClick={() => copy(usage, 'source')}>{copied === 'source' ? <Check size={13} /> : <Clipboard size={13} />}{copied === 'source' ? 'Copied' : 'Copy example'}</button></div></details>
-          <p className="install-note">Full source ownership · MIT licensed</p>
+          <p className="install-note">First install? Run <code>pnpm dlx shadcn@latest init</code> once, then add this component. You get editable source code in your project.</p>
           <span className="sr-only" aria-live="polite">{copied ? 'Copied to clipboard' : ''}</span>
         </div>
       ) : (
