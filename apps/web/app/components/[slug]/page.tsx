@@ -341,7 +341,14 @@ export async function generateMetadata({
   const { slug } = await params
   const component = getComponent(slug)
   return {
-    title: component ? `${component.title} — Flourish UI` : 'Component not found',
+    title: component ? component.title : 'Component not found',
     description: component?.description,
+    alternates: { canonical: `/components/${slug}` },
+    openGraph: component ? {
+      title: `${component.title} | Flourish UI`,
+      description: component.description,
+      url: `/components/${slug}`,
+      images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
+    } : undefined,
   }
 }
