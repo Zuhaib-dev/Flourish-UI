@@ -29,7 +29,7 @@ import AdmitOneTicket from "@/components/ui/admit-one-3-d-holographic-ticket";
 export default function TicketPage() {
   return (
     <AdmitOneTicket
-      name="ALEXANDER VANCE"
+      name="Zuhaib Rashid"
       presenter="CYBERSPACE 2026"
       event="TECH INNOVATION SUMMIT"
       venue="SECTOR 07 • MAINFRAME AUDITORIUM"
