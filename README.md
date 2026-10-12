@@ -269,6 +269,12 @@ A field of grainy, hand-printed risograph flames sliding along a diagonal with n
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/cold-flame-drift/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Cold Flame Drift Preview" />
 </div>
 
+### 🌊 [Waves Shaders](./waves-shaders-homlu-ui)
+An interactive organic wave field shader background featuring perceptual OKLab color transitions, 5-tap blur, film grain, and dynamic pointer displacement effects.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/waves-shaders-homlu-ui/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Waves Shaders Preview" />
+</div>
+
 <br />
 
 ---
