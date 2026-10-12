@@ -9,6 +9,7 @@ import {
   Command,
   Copy,
   ExternalLink,
+  Heart,
   LayoutGrid,
   List,
   Search,
@@ -23,12 +24,32 @@ export default function ComponentsArchivePage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null)
   const [paletteOpen, setPaletteOpen] = useState(false)
+  const [savedSlugs, setSavedSlugs] = useState<string[]>([])
+  const [savedReady, setSavedReady] = useState(false)
+  const [savedOnly, setSavedOnly] = useState(false)
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem('flourish:saved-components') ?? '[]')
+      if (Array.isArray(saved)) {
+        const available = new Set(components.map((item) => item.slug))
+        setSavedSlugs([...new Set(saved.filter((slug): slug is string => typeof slug === 'string' && available.has(slug)))])
+      }
+    } catch { /* Keep the catalog usable when storage is unavailable. */ }
+    setSavedReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!savedReady) return
+    try { window.localStorage.setItem('flourish:saved-components', JSON.stringify(savedSlugs)) } catch { /* Saving is optional when storage is unavailable. */ }
+  }, [savedSlugs, savedReady])
 
   const filteredComponents = useMemo(() => components.filter((item) => {
     const matchesCategory = selectedCategory === 'All components' || item.category === selectedCategory
     const matchesQuery = !searchQuery.trim() || `${item.title} ${item.description} ${item.category} ${item.tags.join(' ')}`.toLowerCase().includes(searchQuery.trim().toLowerCase())
-    return matchesCategory && matchesQuery
-  }), [selectedCategory, searchQuery])
+    const matchesSaved = !savedOnly || savedSlugs.includes(item.slug)
+    return matchesCategory && matchesQuery && matchesSaved
+  }), [selectedCategory, searchQuery, savedOnly, savedSlugs])
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { 'All components': components.length }
@@ -54,6 +75,10 @@ export default function ComponentsArchivePage() {
       setCopiedSlug(slug)
       window.setTimeout(() => setCopiedSlug(null), 1800)
     } catch { setCopiedSlug(null) }
+  }
+
+  function toggleSaved(slug: string) {
+    setSavedSlugs((current) => current.includes(slug) ? current.filter((saved) => saved !== slug) : [...current, slug])
   }
 
   const visibleSearchResults = useMemo(() => {
@@ -83,6 +108,7 @@ export default function ComponentsArchivePage() {
             <div className="catalog-toolbar-title"><span>01</span><div><strong>Browse the collection</strong><small>{filteredComponents.length} {filteredComponents.length === 1 ? 'result' : 'results'}</small></div></div>
             <div className="catalog-controls">
               <label className="catalog-search"><Search size={14} /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search components" aria-label="Search components" />{searchQuery && <button onClick={() => setSearchQuery('')} aria-label="Clear search"><X size={13} /></button>}</label>
+              <button className={`saved-filter${savedOnly ? ' selected' : ''}`} onClick={() => setSavedOnly((active) => !active)} aria-pressed={savedOnly}><Heart size={13} fill={savedOnly ? 'currentColor' : 'none'} /><span>Saved</span><span>{savedSlugs.length}</span></button>
               <div className="catalog-view-switch" aria-label="View mode"><button onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'selected' : ''} aria-label="Grid view"><LayoutGrid size={15} /></button><button onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'selected' : ''} aria-label="List view"><List size={15} /></button></div>
             </div>
           </div>
@@ -94,15 +120,15 @@ export default function ComponentsArchivePage() {
               <AnimatePresence mode="popLayout">
                 {filteredComponents.map((item, index) => (
                   <motion.article key={item.slug} className="premium-component-card" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: .98 }} transition={{ duration: .24, delay: Math.min(index * .015, .14) }}>
-                    <a href={`/components/${item.slug}`} className="premium-card-image"><img src={item.previewImage} alt={item.title} loading="lazy" /><span className="card-image-index">{String(index + 1).padStart(2, '0')} <ArrowUpRight size={13} /></span></a>
+                    <div className="premium-card-visual"><a href={`/components/${item.slug}`} className="premium-card-image"><img src={item.previewImage} alt={item.title} loading="lazy" /><span className="card-image-index">{String(index + 1).padStart(2, '0')} <ArrowUpRight size={13} /></span></a><button className={`save-component${savedSlugs.includes(item.slug) ? ' is-saved' : ''}`} onClick={() => toggleSaved(item.slug)} aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`} aria-pressed={savedSlugs.includes(item.slug)} title={savedSlugs.includes(item.slug) ? 'Remove from saved' : 'Save component'}><Heart size={15} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} /></button></div>
                     <div className="premium-card-content"><div className="premium-card-category"><span>{item.category}</span><span>{item.dependencies.length ? `${item.dependencies.length} packages` : 'No dependencies'}</span></div><a href={`/components/${item.slug}`} className="premium-card-title">{item.title}</a><p>{item.description}</p><div className="premium-card-footer"><a href={`/components/${item.slug}`}>Explore component <ArrowRight size={13} /></a><button onClick={() => copyCommand(item.slug)} aria-label={`Copy install command for ${item.title}`}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button></div></div>
                   </motion.article>
                 ))}
               </AnimatePresence>
             </div>
           ) : (
-            <div className="premium-list">{filteredComponents.map((item, index) => <article key={item.slug} className="premium-list-row"><span className="list-index">{String(index + 1).padStart(2, '0')}</span><a href={`/components/${item.slug}`} className="list-thumb"><img src={item.previewImage} alt="" loading="lazy" /></a><div className="list-copy"><a href={`/components/${item.slug}`}>{item.title}</a><p>{item.description}</p></div><span className="list-category">{item.category}</span><button onClick={() => copyCommand(item.slug)}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button><a className="list-open" href={`/components/${item.slug}`} aria-label={`Open ${item.title}`}><ArrowUpRight size={15} /></a></article>)}</div>
-          ) : <div className="catalog-empty"><span>NO MATCHES</span><strong>Nothing here just yet.</strong><p>Try a different search or clear the selected category.</p><button onClick={() => { setSearchQuery(''); setSelectedCategory('All components') }}>Reset filters <ArrowRight size={13} /></button></div>}
+            <div className="premium-list">{filteredComponents.map((item, index) => <article key={item.slug} className="premium-list-row"><span className="list-index">{String(index + 1).padStart(2, '0')}</span><a href={`/components/${item.slug}`} className="list-thumb"><img src={item.previewImage} alt="" loading="lazy" /></a><div className="list-copy"><a href={`/components/${item.slug}`}>{item.title}</a><p>{item.description}</p></div><span className="list-category">{item.category}</span><button className="list-save" onClick={() => toggleSaved(item.slug)} aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`} aria-pressed={savedSlugs.includes(item.slug)}><Heart size={14} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} /></button><button className="list-copy-command" onClick={() => copyCommand(item.slug)} aria-label={`Copy install command for ${item.title}`}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button><a className="list-open" href={`/components/${item.slug}`} aria-label={`Open ${item.title}`}><ArrowUpRight size={15} /></a></article>)}</div>
+          ) : <div className="catalog-empty"><span>{savedOnly ? 'YOUR SHORTLIST' : 'NO MATCHES'}</span><strong>{savedOnly && savedSlugs.length === 0 ? 'Save a few to start.' : 'Nothing here just yet.'}</strong><p>{savedOnly && savedSlugs.length === 0 ? 'Tap the heart on any component and it will be waiting here.' : 'Try a different search or clear the selected filters.'}</p><button onClick={() => { setSearchQuery(''); setSelectedCategory('All components'); setSavedOnly(false) }}>{savedOnly && savedSlugs.length === 0 ? 'Browse all components' : 'Reset filters'} <ArrowRight size={13} /></button></div>}
         </section>
 
         <section className="catalog-endcap"><span className="section-kicker">OPEN SOURCE, FULLY YOURS</span><p>Every piece is a starting point.<br /><em>Take it somewhere new.</em></p><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">Explore the repository <ArrowUpRight size={14} /></a></section>
