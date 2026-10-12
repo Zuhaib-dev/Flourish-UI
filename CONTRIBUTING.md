@@ -25,7 +25,8 @@ This section guides you through submitting an enhancement suggestion.
 - **Include previews:** If you are adding a new component, please include a `Preview.png` in its `public` folder and update the `README.md` files accordingly.
 
 ## Project Structure
-Each component lives in its own standalone directory (e.g., `bloom-select/`) containing a Next.js setup with Tailwind and Framer Motion. This ensures each component is isolated, easily previewable, and has its own dependencies mapped out.
+- **Showcase & Registry (`apps/web/`)**: The official documentation, interactive showcase platform, and shadcn-compatible registry API.
+- **Components (`[component-name]/`)**: Each individual component lives in its own standalone directory (e.g., `bloom-select/`) containing a Next.js setup with Tailwind and Framer Motion. This ensures each component is isolated, easily previewable, and has its own dependencies mapped out.
 
 ## Questions?
 If you have questions about how to use the library or how to contribute, feel free to open an issue or reach out via X ([@xuhaib_x9](https://x.com/xuhaib_x9)), LinkedIn ([Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)), or email [zuhaibrashid01@gmail.com](mailto:zuhaibrashid01@gmail.com).
