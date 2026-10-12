@@ -345,6 +345,8 @@ export async function generateMetadata({
     description: component?.description,
     alternates: { canonical: `/components/${slug}` },
     openGraph: component ? {
+      type: 'website',
+      siteName: 'Flourish UI',
       title: `${component.title} | Flourish UI`,
       description: component.description,
       url: `/components/${slug}`,
