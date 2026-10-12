@@ -6,7 +6,7 @@ export default function DemoOne() {
   return (
     <main style={{ minHeight: "100vh", display: "grid", placeItems: "center" }}>
       <CreditCardForm
-        defaultHolder="Rahil Vahora"
+        defaultHolder="Zuhaib Rashid"
         maskMiddle
         onChange={(state: CardState, validity: CardValidity) => {
           // live form output here (analytics, preview, etc.)
