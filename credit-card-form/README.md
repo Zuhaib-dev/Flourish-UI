@@ -43,3 +43,7 @@ export default function CheckoutPage() {
   );
 }
 ```
+
+## Author
+Zuhaib Rashid ([@Zuhaib-dev](https://github.com/Zuhaib-dev))
+
