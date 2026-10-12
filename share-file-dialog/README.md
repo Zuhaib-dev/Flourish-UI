@@ -13,4 +13,9 @@ A highly-detailed, highly-polished share file dialog modal built for Next.js, fe
 - **Framer Motion**: Delightful, physics-based spring animations for opening menus, removing users, and displaying toasts.
 
 ## Author
-Zuhaib Rashid (@zuhaib-dev)
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

@@ -41,3 +41,11 @@ Navigate to [http://localhost:3000](http://localhost:3000) (or the active port) 
 ## 🎨 Design Notes
 
 The aesthetic aims for a "Calm, immersive, nostalgic mood," using large negative space, heavy decorative serif typography for the branding, and minimalist tracking for metadata. The component heavily features physical cues (like the subtle `#d8d5cd` hardcover background sticking out underneath the white pages) to bridge the gap between digital interfaces and physical objects.
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

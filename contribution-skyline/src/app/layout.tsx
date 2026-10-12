@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   title: "Zuhaib Rashid's GitHub Skyline",
   description: "A gorgeous 3D isometric GitHub contribution skyline for Zuhaib Rashid (@zuhaib-dev).",
   keywords: ["GitHub", "Contributions", "Skyline", "3D", "Canvas", "React", "Zuhaib Rashid", "zuhaib-dev"],
-  authors: [{ name: "Zuhaib Rashid" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

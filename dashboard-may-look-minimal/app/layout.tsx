@@ -15,6 +15,8 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Minimal Dashboard",
   description: "A minimal SaaS dashboard design",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

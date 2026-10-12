@@ -41,3 +41,11 @@ Navigate to [http://localhost:3000](http://localhost:3000) to view the component
 ## 🎨 Design Philosophy
 
 This component leans heavily into "Soft Skeuomorphism"—a design trend that moves away from pure flat design by incorporating physical depth cues (like inset shadows, layered lighting, and frosted glass) without the heavy, outdated textures of early 2010s design.
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

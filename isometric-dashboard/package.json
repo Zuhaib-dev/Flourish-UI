@@ -2,7 +2,11 @@
   "name": "isometric-dashboard",
   "version": "0.1.0",
   "description": "A premium dark-mode dashboard component featuring a true 3D isometric stacked bar chart and interactive heatmap calendar.",
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -27,5 +31,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

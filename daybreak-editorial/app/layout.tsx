@@ -16,6 +16,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'Daybreak Editorial',
   description: 'Sanctuary for Classical Narrative & Prose',
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

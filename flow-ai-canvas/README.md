@@ -6,7 +6,7 @@
 
 An ultra-premium node-based visual workflow editor interface. Built with an intricate left sidebar, an interactive node library panel, and a beautifully designed dot-grid canvas with floating toolbars and a minimap.
 
-**Author**: Zuhaib Rashid Dev and adventrer github/zuhaib-dev
+**Author:** [Zuhaib Rashid](https://www.zuhaibrashid.com)
 
 ## 🌟 Overview
 
@@ -27,3 +27,11 @@ The **FlowAI Canvas** perfectly captures the aesthetic of modern node-based auto
 - Tailwind CSS v4
 - Framer Motion
 - Lucide React (Icons)
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

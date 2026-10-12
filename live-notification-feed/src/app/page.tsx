@@ -112,7 +112,7 @@ const GLOWS = [
   { className: "bottom-[14%] right-[16%] size-64", color: "#0ea5e9" },
 ];
 
-const CCGATHER_URL = "https://zuhaibrashid.com";
+const CCGATHER_URL = "https://www.zuhaibrashid.com";
 
 export default function Demo(props: Partial<typeof settings>) {
   const s = { ...settings, ...props };
@@ -127,7 +127,7 @@ export default function Demo(props: Partial<typeof settings>) {
       <p className="relative max-w-md text-center text-xs text-muted-foreground">
         Each notification acts out its news as it lands. Hover to pause, click a card to replay it.{" "}
         <a href={CCGATHER_URL} target="_blank" rel="noreferrer" className="underline underline-offset-4 transition-colors hover:text-foreground">
-          By the Zuhaib
+          By Zuhaib Rashid
         </a>
       </p>
     </div>

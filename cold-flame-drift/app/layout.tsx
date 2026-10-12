@@ -4,6 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Cold Flame Drift - Flourish UI",
   description: "A field of grainy, hand-printed risograph flames sliding along a diagonal with interactive mouse curl and flare rings.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

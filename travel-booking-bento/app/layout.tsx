@@ -10,6 +10,8 @@ const poppins = Poppins({ weight: ["400", "500", "600", "700", "800", "900"], su
 export const metadata: Metadata = {
   title: "Travel Booking Bento",
   description: "A beautiful travel booking bento dashboard",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

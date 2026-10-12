@@ -10,7 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Property Dashboard | Flourish UI",
   description: "A highly interactive, fluid property comparison dashboard with framer-motion animations.",
-  authors: [{ name: "Zuhaib Rashid" }]
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Share File Dialog",
   description: "A comprehensive share file dialog built with Framer Motion.",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/zuhaib-dev" }],
   keywords: ["Share Dialog", "UI Component", "React", "Next.js", "Zuhaib Rashid", "Framer Motion"],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -2,9 +2,22 @@
   "name": "dashboard-may-look-minimal",
   "version": "0.1.0",
   "description": "A stunning, minimal SaaS dashboard UI with bespoke charts and wireframe crop marks.",
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
-  "keywords": ["react", "nextjs", "dashboard", "minimal", "saas", "charts", "ui-component", "flourish-ui"],
+  "keywords": [
+    "react",
+    "nextjs",
+    "dashboard",
+    "minimal",
+    "saas",
+    "charts",
+    "ui-component",
+    "flourish-ui"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -28,5 +41,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

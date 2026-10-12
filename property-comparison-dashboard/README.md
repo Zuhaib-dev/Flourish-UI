@@ -43,3 +43,11 @@ Navigate to [http://localhost:3000](http://localhost:3000) (or the active port) 
 ## 🎨 Design Notes
 
 The interface uses standard `Inter` typography but relies heavily on spacing, subtle borders (`border-black/[0.03]`), and colored background pills (`bg-blue-50`, `bg-[#fff5e6]`) to create visual hierarchy. The elimination of dark-mode boilerplate ensures the soft cream palette renders consistently.
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

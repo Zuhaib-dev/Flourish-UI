@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 }
 
 export const viewport: Viewport = {

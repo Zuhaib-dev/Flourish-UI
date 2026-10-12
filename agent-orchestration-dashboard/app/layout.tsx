@@ -10,6 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Agent Orchestration Dashboard",
   description: "A dark mode orchestrator for AI agents",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

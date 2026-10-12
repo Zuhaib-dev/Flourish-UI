@@ -6,7 +6,7 @@
 
 A premium, highly polished workspace setup and configuration modal. It features a stunning split-layout design with a picturesque background, meticulous form elements, and smooth interactions.
 
-**Author**: Zuhaib Rashid Dev and adventrer github/zuhaib-dev
+**Author:** [Zuhaib Rashid](https://www.zuhaibrashid.com)
 
 ## 🌟 Overview
 
@@ -26,3 +26,11 @@ The **Quadrant Workspace Setup** UI captures the aesthetic of modern, high-end S
 - Tailwind CSS v4
 - Framer Motion
 - Lucide React (Icons)
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

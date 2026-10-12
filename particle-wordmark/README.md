@@ -12,4 +12,9 @@ A gorgeous, interactive particle-based wordmark component.
 - **IFrame Isolation**: Safely sandboxed so complex styles and document assumptions don't leak into the host page.
 
 ## Author
-Zuhaib Rashid (@zuhaib-dev)
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

@@ -11,7 +11,7 @@ Currently, the following components and versions are supported with security upd
 
 ## Reporting a Vulnerability
 
-Security is a top priority for Flourish UI. If you discover a security vulnerability within Flourish UI, please send an e-mail to Zuhaib Rashid via [zuhaib.dev@example.com](mailto:zuhaib.dev@example.com) (or contact via Twitter @ZuhaibRashid).
+Security is a top priority for Flourish UI. If you discover a security vulnerability within Flourish UI, please send an e-mail to Zuhaib Rashid via [zuhaibrashid01@gmail.com](mailto:zuhaibrashid01@gmail.com) (or contact via X [@xuhaib_x9](https://x.com/xuhaib_x9) / LinkedIn [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)).
 
 Please do not report security vulnerabilities through public GitHub issues. 
 

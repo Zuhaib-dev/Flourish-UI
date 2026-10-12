@@ -10,6 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Proma Workspace",
   description: "Podcast Studio Workspace.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

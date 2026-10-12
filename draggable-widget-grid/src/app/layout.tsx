@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Draggable Widget Grid",
   description: "A draggable widget grid observability dashboard component",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/zuhaib-dev" }],
   keywords: ["Draggable", "Widget", "Grid", "UI Component", "React", "Next.js", "Zuhaib Rashid"],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

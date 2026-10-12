@@ -12,4 +12,9 @@ A dark, hairline-ruled closing section for an ops product, with the brand printe
 - **Wordmark**: A full-width serif wordmark whose foot dissolves into a halftone. Point at the wordmark and it breaks into dots under the pointer; click and a ripple runs through it.
 
 ## Author
-Zuhaib Rashid (@zuhaib-dev)
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

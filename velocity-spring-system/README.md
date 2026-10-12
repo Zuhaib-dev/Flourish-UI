@@ -25,3 +25,11 @@ The **Velocity Spring System** pushes Framer Motion to its absolute limit using 
 - Tailwind CSS v4
 - Framer Motion (Advanced Layout animations)
 - Lucide React (Icons)
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

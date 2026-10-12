@@ -9,6 +9,8 @@ const dancingScript = Dancing_Script({ subsets: ['latin'], variable: '--font-dan
 export const metadata: Metadata = {
   title: 'Digital Signature Modal',
   description: 'Premium digital signature capture modal component.',
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

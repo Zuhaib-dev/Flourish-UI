@@ -10,6 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Verify Email",
   description: "Skeuomorphic email verification component.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

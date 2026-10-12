@@ -2,7 +2,11 @@
   "name": "admit-one-3-d-holographic-ticket",
   "version": "0.1.0",
   "description": "A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL shaders and interactive physical tilt.",
-  "author": "Zuhaib Rashid Dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
   "keywords": [
     "react",
@@ -38,5 +42,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

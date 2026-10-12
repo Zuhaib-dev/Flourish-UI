@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   title: "Voyage Planner | Flourish UI",
   description: "A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts and glassmorphic folders.",
   keywords: ["react", "nextjs", "voyage", "travel", "skeuomorphic", "glassmorphism", "tailwind", "framer-motion"],
-  authors: [{ name: "Zuhaib Rashid" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

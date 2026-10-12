@@ -2,9 +2,21 @@
   "name": "agent-orchestration-dashboard",
   "version": "0.1.0",
   "description": "A dark mode orchestrator dashboard for AI agents.",
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
-  "keywords": ["react", "nextjs", "dashboard", "agents", "ai", "dark-mode", "flourish-ui"],
+  "keywords": [
+    "react",
+    "nextjs",
+    "dashboard",
+    "agents",
+    "ai",
+    "dark-mode",
+    "flourish-ui"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -28,5 +40,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

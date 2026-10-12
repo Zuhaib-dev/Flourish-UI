@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   title: "Ink Orbit Hero - Zuhaib Rashid",
   description: "A stunning hero section featuring a generative 3D ink sculpture that responds to drag, tilt, and click gestures.",
   keywords: ["Hero", "Ink Orbit", "3D", "Canvas", "React", "Zuhaib Rashid", "zuhaib-dev"],
-  authors: [{ name: "Zuhaib Rashid" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

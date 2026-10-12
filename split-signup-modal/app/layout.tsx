@@ -10,6 +10,8 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Sign Up Modal | Flourish UI",
   description: "A premium split-layout sign up modal with glassmorphism.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

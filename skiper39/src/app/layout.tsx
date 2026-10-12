@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Skiper39 - Crowd Canvas",
   description: "A generative canvas crowd rendering component",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/zuhaib-dev" }],
   keywords: ["Canvas", "GSAP", "Generative", "UI Component", "React", "Next.js", "Zuhaib Rashid"],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

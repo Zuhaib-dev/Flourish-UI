@@ -10,6 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AI SEO Agent",
   description: "An advanced agent chat interface for SEO analysis.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

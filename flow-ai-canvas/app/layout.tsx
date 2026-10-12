@@ -15,6 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FlowAI Canvas | Premium Visual Workflow Editor",
   description: "An ultra-premium node-based visual workflow editor interface built with Next.js, Framer Motion, and Tailwind CSS.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

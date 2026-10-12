@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ticket Stub Footer | Zuhaib Rashid",
   description: "A dark, hairline-ruled closing section for an ops product.",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/zuhaib-dev" }],
   keywords: ["ticket", "stub", "footer", "ui", "component", "ops", "brand", "zuhaib-dev"],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

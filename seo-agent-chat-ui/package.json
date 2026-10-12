@@ -2,9 +2,20 @@
   "name": "seo-agent-chat-ui",
   "version": "0.1.0",
   "description": "An ultra-premium AI agent chat interface for workflow automation.",
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
-  "keywords": ["react", "nextjs", "agent", "chat", "dashboard", "light-mode"],
+  "keywords": [
+    "react",
+    "nextjs",
+    "agent",
+    "chat",
+    "dashboard",
+    "light-mode"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -28,5 +39,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

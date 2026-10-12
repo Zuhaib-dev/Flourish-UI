@@ -4,6 +4,8 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Folio Guestbook',
   description: 'A skeuomorphic digital guestbook',
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

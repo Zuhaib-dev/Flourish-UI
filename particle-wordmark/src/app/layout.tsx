@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Particle Wordmark | Zuhaib Rashid",
   description: "A gorgeous, particle-based interactive wordmark component using HTML5 canvas.",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/zuhaib-dev" }],
   keywords: ["particle", "wordmark", "canvas", "interactive", "ui", "zuhaib-dev"],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

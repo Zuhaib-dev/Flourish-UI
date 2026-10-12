@@ -2,7 +2,11 @@
   "name": "digital-journal-album",
   "version": "0.1.0",
   "description": "A photorealistic 3D digital journal with interactive flipbook mechanics and cinematic visuals.",
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -27,5 +31,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

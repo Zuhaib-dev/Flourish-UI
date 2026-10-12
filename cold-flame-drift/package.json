@@ -2,7 +2,11 @@
   "name": "cold-flame-drift",
   "version": "0.1.0",
   "description": "A field of grainy, hand-printed risograph flames sliding along a diagonal with interactive mouse curl and flare rings.",
-  "author": "Zuhaib Rashid Dev",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
   "keywords": [
     "react",
@@ -38,5 +42,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://www.zuhaibrashid.com"
 }

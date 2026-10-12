@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   title: "Digital Journal | Flourish UI",
   description: "A photorealistic 3D digital journal with interactive flipbook mechanics and cinematic visuals.",
   keywords: ["react", "nextjs", "journal", "flipbook", "3d", "framer-motion", "tailwind"],
-  authors: [{ name: "Zuhaib Rashid" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

@@ -6,7 +6,7 @@
 
 A high-fidelity, 3-column workspace dashboard designed for podcast and content studios. It features an intricate collapsible sidebar, a central AI-assisted content creation feed, and a rich media transcript view.
 
-**Author**: Zuhaib Rashid Dev and adventrer github/zuhaib-dev
+**Author:** [Zuhaib Rashid](https://www.zuhaibrashid.com)
 
 ## 🌟 Overview
 
@@ -26,3 +26,11 @@ The **Proma Content Workspace** demonstrates how to build a complex, multi-pane 
 - Tailwind CSS v4
 - Framer Motion
 - Lucide React (Icons)
+
+## Author
+
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

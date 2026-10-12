@@ -31,5 +31,10 @@
     "tailwindcss": "^4.3.3",
     "typescript": "5.7.3"
   },
-  "author": "Zuhaib Rashid Dev and adventrer github/zuhaib-dev"
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
+  "homepage": "https://www.zuhaibrashid.com"
 }

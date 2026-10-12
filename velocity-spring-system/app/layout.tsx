@@ -10,6 +10,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Velocity Spring System | Flourish UI",
   description: "A gorgeous layout animation system inspired by MacOS docks and highly physical spring mechanics.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

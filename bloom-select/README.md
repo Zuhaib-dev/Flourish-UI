@@ -6,7 +6,7 @@
 
 A premium, highly interactive React component library crafted for modern web applications. 
 
-**Author:** Zuhaib Rashid (@Zuhaib-dev)
+**Author:** [Zuhaib Rashid](https://www.zuhaibrashid.com)
 **Tags:** `#react` `#ui-library` `#framer-motion` `#tailwind` `#components` `#design-system`
 
 ---
@@ -56,8 +56,10 @@ export default function MyPage() {
 }
 ```
 
-## 👨‍💻 Author
-**Zuhaib Rashid**
+## Author
 
----
-*Built with room to grow. 🌱*
+**Zuhaib Rashid** — Full Stack Developer & Next.js Engineer
+- **Portfolio:** [zuhaibrashid.com](https://www.zuhaibrashid.com)
+- **GitHub:** [@Zuhaib-dev](https://github.com/Zuhaib-dev)
+- **LinkedIn:** [Zuhaib Rashid](https://www.linkedin.com/in/zuhaib-rashid-661345318/)
+- **X:** [@xuhaib_x9](https://x.com/xuhaib_x9)

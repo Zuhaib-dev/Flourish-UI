@@ -4,6 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Admit One 3D Holographic Ticket - Flourish UI",
   description: "A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL shaders and interactive physical tilt.",
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({

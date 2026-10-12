@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Prisma Hero - UIMIX",
   description: "A dark, atmospheric hero component featuring a full-bleed background video and framer-motion text pull-up effects.",
-  authors: [{ name: "Zuhaib Rashid" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

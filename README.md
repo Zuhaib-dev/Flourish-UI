@@ -14,7 +14,7 @@
   </p>
   
   <p align="center">
-    Crafted with 🖤 by <a href="https://github.com/Zuhaib-dev">Zuhaib Rashid</a>
+    Crafted with 🖤 by <a href="https://www.zuhaibrashid.com">Zuhaib Rashid</a> • <a href="https://github.com/Zuhaib-dev">GitHub</a> • <a href="https://www.linkedin.com/in/zuhaib-rashid-661345318/">LinkedIn</a> • <a href="https://x.com/xuhaib_x9">X</a>
   </p>
 </div>
 
@@ -283,9 +283,10 @@ An interactive organic wave field shader background featuring perceptual OKLab c
   <h3>✨ Keep Flourishing</h3>
   <p>If you found value in these components, consider starring the repository or sharing it with others.</p>
   <p>
+    <a href="https://www.zuhaibrashid.com">Portfolio</a> • 
     <a href="https://github.com/Zuhaib-dev">GitHub</a> • 
-    <a href="https://twitter.com/ZuhaibRashid">Twitter</a> • 
-    <a href="https://www.linkedin.com/in/zuhaibrashid/">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/zuhaib-rashid-661345318/">LinkedIn</a> • 
+    <a href="https://x.com/xuhaib_x9">X (@xuhaibx9)</a>
   </p>
   <p><sub>© 2026 Zuhaib Rashid. All rights reserved.</sub></p>
 </div>

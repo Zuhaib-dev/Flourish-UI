@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Live Notification Feed",
   description: "A premium interactive live notification feed by Zuhaib Rashid",
-  authors: [{ name: "Zuhaib Rashid", url: "https://github.com/Zuhaib-dev" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
