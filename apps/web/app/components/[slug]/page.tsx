@@ -57,6 +57,41 @@ export default async function ComponentPage({
   const component = getComponent(slug)
   if (!component) notFound()
 
+  const pageUrl = `https://flourish-ui.vercel.app/components/${component.slug}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://flourish-ui.vercel.app/' },
+          { '@type': 'ListItem', position: 2, name: 'Components', item: 'https://flourish-ui.vercel.app/components' },
+          { '@type': 'ListItem', position: 3, name: component.title, item: pageUrl },
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: `${component.title} React Component | Flourish UI`,
+        description: component.description,
+        isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
+        breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+        primaryImageOfPage: `https://flourish-ui.vercel.app${component.previewImage}`,
+        mainEntity: {
+          '@type': 'CreativeWork',
+          name: component.title,
+          description: component.description,
+          image: `https://flourish-ui.vercel.app${component.previewImage}`,
+          creator: { '@id': 'https://www.zuhaibrashid.com/#person' },
+          keywords: component.tags.join(', '),
+          genre: component.category,
+        },
+      },
+    ],
+  }
+
   // Find related specimens in the same category
   const relatedComponents = components
     .filter((c) => c.slug !== component.slug && c.category === component.category)
@@ -64,6 +99,10 @@ export default async function ComponentPage({
 
   return (
     <div className="premium-detail relative min-h-screen overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
+      />
       <div className="noise-overlay" />
       <div className="blueprint-grid" />
       <div className="radial-glow glow-primary" />
