@@ -1,4 +1,4 @@
-import Skiper39 from "@/components/ui/skiper39";
+import Skiper39 from "../components/ui/skiper39";
 
 export default function Skiper39Demo() {
   return (

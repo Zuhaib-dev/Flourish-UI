@@ -1,6 +1,6 @@
 "use client"
 
-import TicketStubFooter from "@/components/ui/ticket-stub-footer"
+import TicketStubFooter from "../components/ui/ticket-stub-footer"
 
 // Same component, re-inked: a paper page, a cobalt ticket and new copy.
 export default function DemoPaper() {

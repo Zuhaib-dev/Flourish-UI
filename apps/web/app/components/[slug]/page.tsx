@@ -55,7 +55,6 @@ export default async function ComponentPage({
   const { slug } = await params
   const component = getComponent(slug)
   if (!component) notFound()
-  const hasLivePreview = component.slug === 'admit-one-3-d-holographic-ticket'
 
   // Find related specimens in the same category
   const relatedComponents = components
@@ -184,28 +183,31 @@ export default async function ComponentPage({
             </div>
             <div className="flex items-center gap-2 text-[11px] text-emerald-700 font-medium">
               <Sparkles size={12} className="text-amber-500" />
-              <span>{hasLivePreview ? 'LIVE PREVIEW' : 'PREVIEW IMAGE'}</span>
+              <span>LIVE PREVIEW</span>
+              <a
+                href={`/previews/${component.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="live-preview-new-tab"
+                aria-label={`Open ${component.title} live preview in a new tab`}
+                title="Open full-size preview in a new tab"
+              >
+                <span>Open in new tab</span>
+                <ExternalLink size={12} />
+              </a>
             </div>
           </div>
 
           {/* Canvas Preview Area */}
           <div className="detail-preview-stage relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
             <div className="relative w-full h-full max-w-4xl max-h-[500px] rounded-xl overflow-hidden border border-zinc-200 shadow-md bg-white flex items-center justify-center">
-              {hasLivePreview ? (
-                <iframe
-                  title={`${component.title} interactive preview`}
-                  src={`/previews/${component.slug}`}
-                  className="live-component-frame"
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin"
-                />
-              ) : (
-                <img
-                  src={component.previewImage}
-                  alt={component.title}
-                  className="w-full h-full object-contain"
-                />
-              )}
+              <iframe
+                title={`${component.title} interactive preview`}
+                src={`/previews/${component.slug}`}
+                className="live-component-frame"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+              />
             </div>
           </div>
 

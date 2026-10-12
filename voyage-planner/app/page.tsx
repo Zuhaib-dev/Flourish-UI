@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { Plane, Plus, Wallet, Briefcase, Check } from 'lucide-react';
 
 const folders = [
-  { title: "Kyoto in Autumn", dates: "Nov 3 – 11", flag: "🇯🇵", image: "/kyoto.jpg", status: "In 41 D", statusColor: "bg-[#eaf1ff] text-[#4a72d4]", avatars: ["👦🏻","👦🏽","👧🏾"] },
-  { title: "Reykjavík lights", dates: "Jan 18 – 22", flag: "🇮🇸", image: "/reykjavik.jpg", status: "In 4 Mo", statusColor: "bg-[#fbeaf4] text-[#d153a0]", avatars: ["👦🏻","👧🏾"] },
-  { title: "Yerevan & Dilijan", dates: "Mar 6 – 10", flag: "🇦🇲", image: "/yerevan.jpg", status: "Draft", statusColor: "bg-[#ffede2] text-[#ee7d4f]", avatars: ["👦🏻"] }
+  { title: "Kyoto in Autumn", dates: "Nov 3 – 11", flag: "🇯🇵", image: "/previews/voyage-planner/kyoto.jpg", status: "In 41 D", statusColor: "bg-[#eaf1ff] text-[#4a72d4]", avatars: ["👦🏻","👦🏽","👧🏾"] },
+  { title: "Reykjavík lights", dates: "Jan 18 – 22", flag: "🇮🇸", image: "/previews/voyage-planner/reykjavik.jpg", status: "In 4 Mo", statusColor: "bg-[#fbeaf4] text-[#d153a0]", avatars: ["👦🏻","👧🏾"] },
+  { title: "Yerevan & Dilijan", dates: "Mar 6 – 10", flag: "🇦🇲", image: "/previews/voyage-planner/yerevan.jpg", status: "Draft", statusColor: "bg-[#ffede2] text-[#ee7d4f]", avatars: ["👦🏻"] }
 ];
 
 export default function VoyageDashboard() {
@@ -61,7 +61,7 @@ export default function VoyageDashboard() {
             {/* Top Image Area */}
             <div className="p-3 pb-0">
               <div className="relative h-45 rounded-5 overflow-hidden bg-neutral-100 border border-black/3">
-                <img src="/lisbon.jpg" alt="Lisbon" className="w-full h-full object-cover" />
+                <img src="/previews/voyage-planner/lisbon.jpg" alt="Lisbon" className="w-full h-full object-cover" />
                 {/* Lisbon Getaway pill */}
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xl rounded-full px-3 py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-white/50 flex items-center gap-1.5 text-[11px] font-bold z-10 whitespace-nowrap">
                   <span className="text-sm shadow-sm rounded-full bg-white leading-none">🇵🇹</span> Lisbon Getaway

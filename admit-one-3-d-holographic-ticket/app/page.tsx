@@ -1,6 +1,6 @@
 "use client";
 
-import AdmitOneTicketDemo from "@/components/ui/demo";
+import AdmitOneTicketDemo from "../components/ui/demo";
 
 export default function Page() {
   return (

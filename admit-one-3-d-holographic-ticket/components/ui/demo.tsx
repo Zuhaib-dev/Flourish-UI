@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import AdmitOneTicket from "@/components/ui/admit-one-3-d-holographic-ticket";
+import AdmitOneTicket from "./admit-one-3-d-holographic-ticket";
 
 export default function AdmitOneTicketDemo() {
   return (

@@ -8,7 +8,7 @@ import {
 	useState,
 	type ReactNode,
 } from 'react'
-import DraggableWidgetGrid, { type WidgetItem } from '@/components/ui/draggable-widget-grid'
+import DraggableWidgetGrid, { type WidgetItem } from '../components/ui/draggable-widget-grid'
 
 /* ------------------------------------------------------------------ *
  * Demo: an AI agent observability dashboard with eight widgets.

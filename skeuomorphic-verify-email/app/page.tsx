@@ -20,7 +20,7 @@ export default function VerifyEmail() {
       {/* 3D Mailbox Image with mix-blend-multiply to remove white background */}
       <div className="w-80 h-80 mb-2 -mt-16 pointer-events-none">
         <img 
-          src="/mailbox.jpg" 
+          src="/previews/skeuomorphic-verify-email/mailbox.jpg"
           alt="3D Mailbox" 
           className="w-full h-full object-contain mix-blend-multiply opacity-90"
         />

@@ -1,6 +1,6 @@
 "use client"
 
-import InkOrbitHero from "@/components/ui/ink-orbit-hero"
+import InkOrbitHero from "../components/ui/ink-orbit-hero"
 
 export default function Demo() {
   return (

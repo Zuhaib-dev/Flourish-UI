@@ -1,4 +1,4 @@
-import { ShaderBackground } from "@/components/ui/waves-shaders-homlu-ui"
+import { ShaderBackground } from "./waves-shaders-homlu-ui"
 
 export default function ShaderBackgroundDemo() {
   return (

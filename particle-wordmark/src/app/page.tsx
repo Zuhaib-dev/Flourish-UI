@@ -1,4 +1,4 @@
-import ParticleWordmark from "@/components/ui/particle-wordmark";
+import ParticleWordmark from "../components/ui/particle-wordmark";
 
 export default function ParticleWordmarkDemo() {
   return (

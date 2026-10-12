@@ -1,4 +1,4 @@
-import { KineticHover, HoverItem } from '@/components/kinetic-hover';
+import { KineticHover, HoverItem } from '../components/kinetic-hover';
 
 const projects: HoverItem[] = [
   {
@@ -7,7 +7,7 @@ const projects: HoverItem[] = [
     title: 'A quieter kind of loud',
     category: 'Editorial / 2024',
     description: 'A visual identity for a new generation of independent publishing.',
-    image: '/preview-editorial.png',
+    image: '/previews/kinetic-hover/preview-editorial.png',
     color: '#c8dcff',
   },
   {
@@ -16,7 +16,7 @@ const projects: HoverItem[] = [
     title: 'Objects with intent',
     category: 'Art direction / 2023',
     description: 'Still life studies exploring the tension between utility and desire.',
-    image: '/preview-objects.png',
+    image: '/previews/kinetic-hover/preview-objects.png',
     color: '#f5d7a4',
   },
   {
@@ -25,7 +25,7 @@ const projects: HoverItem[] = [
     title: 'Between the lines',
     category: 'Architecture / 2023',
     description: 'A photographic essay on the geometry of everyday movement.',
-    image: '/preview-architecture.png',
+    image: '/previews/kinetic-hover/preview-architecture.png',
     color: '#d7d0c8',
   },
   {
@@ -34,7 +34,7 @@ const projects: HoverItem[] = [
     title: 'The common thread',
     category: 'Campaign / 2022',
     description: 'A campaign about the small rituals that bring us together.',
-    image: '/preview-editorial.png',
+    image: '/previews/kinetic-hover/preview-editorial.png',
     color: '#d8e8d1',
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
-import { LiveNotificationFeed } from "@/components/ui/live-notification-feed";
-import type { LiveNotification } from "@/components/ui/live-notification-feed";
+import { LiveNotificationFeed } from "../components/ui/live-notification-feed";
+import type { LiveNotification } from "../components/ui/live-notification-feed";
 
 const settings = {
   autoplay: true,

@@ -1,4 +1,4 @@
-import ContributionSkyline from "@/components/ui/contribution-skyline";
+import ContributionSkyline from "../components/ui/contribution-skyline";
 
 async function getContributions(username: string) {
   try {

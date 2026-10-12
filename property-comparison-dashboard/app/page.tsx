@@ -14,7 +14,7 @@ const properties = [
     price: "$472,000", 
     tag: "B3", 
     beds: "3 bed / 2 ba", 
-    img: "/house1.jpg",
+    img: "/previews/property-comparison-dashboard/house1.jpg",
     details: "Single-family home · 0.28-acre lot · Built in 1998",
     description: "A cozy three-bedroom home with 2 bathrooms and 1,800 sq ft of living space. Great starter home with a recently updated kitchen and a beautiful fenced backyard."
   },
@@ -24,7 +24,7 @@ const properties = [
     price: "$491,000", 
     tag: "B3", 
     beds: "4 bed / 2.5 ba", 
-    img: "/house2.jpg",
+    img: "/previews/property-comparison-dashboard/house2.jpg",
     details: "Single-family home · 0.40-acre lot · Built in 2010",
     description: "Beautifully maintained two-story property featuring a wrap-around porch, open-concept living area, and a spacious garage. Perfect for a growing family."
   },
@@ -34,7 +34,7 @@ const properties = [
     price: "$488,500", 
     tag: "B3", 
     beds: "3 bed / 2 ba", 
-    img: "/house3.jpg",
+    img: "/previews/property-comparison-dashboard/house3.jpg",
     details: "Single-family home · 0.31-acre lot · Built in 2002",
     description: "Stunning red brick home nestled in a quiet cul-de-sac. Features a brand new roof, hardwood floors throughout, and a beautifully manicured front lawn."
   },
@@ -44,7 +44,7 @@ const properties = [
     price: "$485,000", 
     tag: "B4", 
     beds: "3 bed / 2 ba", 
-    img: "/house4.jpg",
+    img: "/previews/property-comparison-dashboard/house4.jpg",
     details: "Single-family home · 0.33-acre lot · Built in 2015",
     description: "Modern suburban living at its finest. This property boasts high ceilings, smart home integration, and a massive driveway suitable for multiple vehicles."
   },
@@ -54,7 +54,7 @@ const properties = [
     price: "$510,000", 
     tag: "B4", 
     beds: "4 bed / 2.5 ba", 
-    img: "/house5.jpg",
+    img: "/previews/property-comparison-dashboard/house5.jpg",
     details: "Single-family home · 0.35-acre lot · Built in 2005",
     description: "A four-bedroom home with 2.5 bathrooms and 2,200 sq ft of living space. It offers the Martins more room to work with. Compare the added space with the lot size adjustments."
   },
@@ -256,7 +256,7 @@ export default function PropertyDashboard() {
           <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-black/4 rounded-full pl-3 pr-4 py-1.5 flex items-center gap-3 cursor-pointer hover:bg-neutral-50 transition-colors">
             <span className="text-[13px] font-medium text-neutral-400">Listing agent:</span>
             <div className="flex items-center gap-2.5">
-              <img src="/avatar.jpg" alt="Jenny Dukes" className="w-6 h-6 rounded-full object-cover border border-black/5" />
+              <img src="/previews/property-comparison-dashboard/avatar.jpg" alt="Jenny Dukes" className="w-6 h-6 rounded-full object-cover border border-black/5" />
               <span className="text-[13.5px] font-bold text-[#222]">Jenny Dukes</span>
             </div>
           </div>

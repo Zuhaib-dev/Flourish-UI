@@ -30,7 +30,7 @@ export default function AgentDashboard() {
       <div className="absolute top-0 left-0 w-full h-150 pointer-events-none z-0">
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/background.jpg')" }}
+          style={{ backgroundImage: "url('/previews/agent-orchestration-dashboard/background.jpg')" }}
         />
         {/* Gradients to blend the image into the dark background and darken the top */}
         <div className="absolute inset-0 bg-linear-to-b from-[#111113]/60 via-[#111113]/60 to-[#111113]" />

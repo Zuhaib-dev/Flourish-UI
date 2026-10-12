@@ -1,6 +1,6 @@
 "use client"
 
-import ColdFlameDrift from "@/components/ui/cold-flame-drift"
+import ColdFlameDrift from "./cold-flame-drift"
 
 const sans = "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
 const mono = "ui-monospace, 'SF Mono', Menlo, Consolas, monospace"

@@ -1,6 +1,6 @@
 "use client";
 
-import { CreditCardForm, type CardState, type CardValidity }  from "@/components/ui/credit-card-form";
+import { CreditCardForm, type CardState, type CardValidity }  from "./credit-card-form";
 
 export default function DemoOne() {
   return (

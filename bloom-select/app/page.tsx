@@ -1,4 +1,4 @@
-import { BloomSelect } from '@/components/bloom-select';
+import { BloomSelect } from '../components/bloom-select';
 
 export default function Page() {
   return (

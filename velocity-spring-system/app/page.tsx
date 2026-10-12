@@ -7,14 +7,14 @@ import { SlidersHorizontal, Check, Eye, LayoutGrid } from "lucide-react";
 // Massive library of highly curated images
 const CARDS = [
   { id: "face", title: "behind the scenes", src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800", aspect: "aspect-[4/5]", width: "160px", tags: ["Portrait", "Film"] },
-  { id: "lisbon", title: "Lisbon Streets", src: "/lisbon.jpg", aspect: "aspect-[3/4]", width: "190px", tags: ["Travel", "Europe"] },
+  { id: "lisbon", title: "Lisbon Streets", src: "/previews/velocity-spring-system/lisbon.jpg", aspect: "aspect-[3/4]", width: "190px", tags: ["Travel", "Europe"] },
   { id: "salad", title: "JAPANESE POTATO SALAD", src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800", aspect: "aspect-[5/4]", width: "220px", tags: ["Culinary", "3D"] },
-  { id: "architecture", title: "Architecture", src: "/preview-architecture.png", aspect: "aspect-[4/3]", width: "240px", tags: ["Design", "Space"] },
-  { id: "kyoto", title: "Kyoto Autumn", src: "/kyoto.jpg", aspect: "aspect-[4/5]", width: "170px", tags: ["Japan", "Nature"] },
-  { id: "editorial", title: "Editorial", src: "/preview-editorial.png", aspect: "aspect-[3/4]", width: "180px", tags: ["Print", "Type"] },
-  { id: "house", title: "Cedar House", src: "/house1.jpg", aspect: "aspect-[16/9]", width: "260px", tags: ["Real Estate", "Modern"] },
-  { id: "objects", title: "Objects", src: "/preview-objects.png", aspect: "aspect-square", width: "190px", tags: ["Industrial", "Art"] },
-  { id: "spread", title: "Journal Spread", src: "/spread1.jpg", aspect: "aspect-[3/4]", width: "160px", tags: ["Diary", "Film"] },
+  { id: "architecture", title: "Architecture", src: "/previews/velocity-spring-system/preview-architecture.png", aspect: "aspect-[4/3]", width: "240px", tags: ["Design", "Space"] },
+  { id: "kyoto", title: "Kyoto Autumn", src: "/previews/velocity-spring-system/kyoto.jpg", aspect: "aspect-[4/5]", width: "170px", tags: ["Japan", "Nature"] },
+  { id: "editorial", title: "Editorial", src: "/previews/velocity-spring-system/preview-editorial.png", aspect: "aspect-[3/4]", width: "180px", tags: ["Print", "Type"] },
+  { id: "house", title: "Cedar House", src: "/previews/velocity-spring-system/house1.jpg", aspect: "aspect-[16/9]", width: "260px", tags: ["Real Estate", "Modern"] },
+  { id: "objects", title: "Objects", src: "/previews/velocity-spring-system/preview-objects.png", aspect: "aspect-square", width: "190px", tags: ["Industrial", "Art"] },
+  { id: "spread", title: "Journal Spread", src: "/previews/velocity-spring-system/spread1.jpg", aspect: "aspect-[3/4]", width: "160px", tags: ["Diary", "Film"] },
 ];
 
 export default function VelocitySpringSystem() {

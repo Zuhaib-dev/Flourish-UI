@@ -21,7 +21,7 @@ const leaves = [
     ),
     back: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/1.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/1.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     )
   },
@@ -29,12 +29,12 @@ const leaves = [
     id: 2,
     front: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/spread1.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/spread1.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     ),
     back: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/2.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/2.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     )
   },
@@ -42,12 +42,12 @@ const leaves = [
     id: 3,
     front: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/spread2.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/spread2.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     ),
     back: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/3.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/3.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     )
   },
@@ -55,7 +55,7 @@ const leaves = [
     id: 4,
     front: (
       <div className="w-full h-full p-5 bg-[#faf9f7]">
-        <img src="/spread3.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
+        <img src="/previews/digital-journal-album/spread3.jpg" className="w-full h-full object-cover rounded-sm shadow-sm" />
       </div>
     ),
     back: (

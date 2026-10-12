@@ -3,7 +3,7 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Play, Share2, Sparkles } from "lucide-react";
-import { ShareDialog, type Collaborator } from "@/components/ui/share-file-dialog";
+import { ShareDialog, type Collaborator } from "../components/ui/share-file-dialog";
 
 /* Portraits are inlined as WebP data URIs so the demo fetches nothing. */
 const PORTRAITS = {

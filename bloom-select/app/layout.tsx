@@ -9,19 +9,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/previews/bloom-select/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/previews/bloom-select/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/previews/bloom-select/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/previews/bloom-select/apple-icon.png',
   },
   authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
   creator: "Zuhaib Rashid",

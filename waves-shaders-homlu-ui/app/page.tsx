@@ -1,6 +1,6 @@
 "use client";
 
-import ShaderBackgroundDemo from "@/components/ui/demo";
+import ShaderBackgroundDemo from "../components/ui/demo";
 
 export default function Page() {
   return (

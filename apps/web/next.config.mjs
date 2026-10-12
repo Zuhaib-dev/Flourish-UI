@@ -7,6 +7,10 @@ const appDirectory = path.dirname(fileURLToPath(import.meta.url))
 const nextConfig = {
   turbopack: {
     root: path.resolve(appDirectory, '../..'),
+    resolveAlias: {
+      react: path.join(appDirectory, 'node_modules/react'),
+      'react-dom': path.join(appDirectory, 'node_modules/react-dom'),
+    },
   },
   typescript: {
     ignoreBuildErrors: true,
