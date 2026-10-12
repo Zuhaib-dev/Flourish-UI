@@ -1,0 +1,116 @@
+'use client'
+
+import { useEffect, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Command,
+  Copy,
+  ExternalLink,
+  LayoutGrid,
+  List,
+  Search,
+  Terminal,
+  X,
+} from 'lucide-react'
+import { categories, components, installCommand, stats } from '@/config/components'
+
+export default function ComponentsArchivePage() {
+  const [selectedCategory, setSelectedCategory] = useState('All components')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+  const [copiedSlug, setCopiedSlug] = useState<string | null>(null)
+  const [paletteOpen, setPaletteOpen] = useState(false)
+
+  const filteredComponents = useMemo(() => components.filter((item) => {
+    const matchesCategory = selectedCategory === 'All components' || item.category === selectedCategory
+    const matchesQuery = !searchQuery.trim() || `${item.title} ${item.description} ${item.category} ${item.tags.join(' ')}`.toLowerCase().includes(searchQuery.trim().toLowerCase())
+    return matchesCategory && matchesQuery
+  }), [selectedCategory, searchQuery])
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { 'All components': components.length }
+    components.forEach((item) => { counts[item.category] = (counts[item.category] ?? 0) + 1 })
+    return counts
+  }, [])
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setPaletteOpen((open) => !open)
+      }
+      if (event.key === 'Escape') setPaletteOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
+  async function copyCommand(slug: string) {
+    try {
+      await navigator.clipboard.writeText(installCommand(slug))
+      setCopiedSlug(slug)
+      window.setTimeout(() => setCopiedSlug(null), 1800)
+    } catch { setCopiedSlug(null) }
+  }
+
+  const visibleSearchResults = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase()
+    return components.filter((item) => !query || `${item.title} ${item.description} ${item.category} ${item.tags.join(' ')}`.toLowerCase().includes(query)).slice(0, 7)
+  }, [searchQuery])
+
+  return (
+    <div className="premium-catalog">
+      <header className="premium-nav">
+        <div className="premium-nav-inner">
+          <a href="/" className="catalog-brand"><span className="catalog-brand-mark"><i /></span><span>flourish<span>.</span></span></a>
+          <nav className="catalog-nav-links" aria-label="Main navigation"><a href="/">Home</a><a className="active" href="/components">Components <span>{stats.components}</span></a><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ExternalLink size={12} /></a></nav>
+          <button className="catalog-search-trigger" onClick={() => setPaletteOpen(true)}><Search size={14} /><span>Search library</span><kbd><Command size={10} /> K</kbd></button>
+        </div>
+      </header>
+
+      <main className="catalog-main">
+        <div className="catalog-breadcrumb"><a href="/">Home</a><span>/</span><span>Components</span></div>
+        <section className="catalog-intro">
+          <div className="catalog-intro-copy"><span className="catalog-kicker"><i /> THE COLLECTION</span><h1>Find your next<br /><em>starting point.</em></h1><p>A considered set of expressive React components. Explore the details, then bring the source into your own project.</p></div>
+          <div className="catalog-summary"><div><strong>{String(stats.components).padStart(2, '0')}</strong><span>COMPONENTS</span></div><i /><div><strong>{String(stats.categories).padStart(2, '0')}</strong><span>CATEGORIES</span></div><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">OPEN SOURCE <ArrowUpRight size={13} /></a></div>
+        </section>
+
+        <section className="catalog-browser" aria-label="Browse component collection">
+          <div className="catalog-toolbar">
+            <div className="catalog-toolbar-title"><span>01</span><div><strong>Browse the collection</strong><small>{filteredComponents.length} {filteredComponents.length === 1 ? 'result' : 'results'}</small></div></div>
+            <div className="catalog-controls">
+              <label className="catalog-search"><Search size={14} /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search components" aria-label="Search components" />{searchQuery && <button onClick={() => setSearchQuery('')} aria-label="Clear search"><X size={13} /></button>}</label>
+              <div className="catalog-view-switch" aria-label="View mode"><button onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'selected' : ''} aria-label="Grid view"><LayoutGrid size={15} /></button><button onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'selected' : ''} aria-label="List view"><List size={15} /></button></div>
+            </div>
+          </div>
+
+          <div className="catalog-category-row"><span className="category-label">FILTER BY</span><div className="catalog-categories">{categories.map((category) => <button key={category} onClick={() => setSelectedCategory(category)} className={selectedCategory === category ? 'selected' : ''}>{category}<span>{categoryCounts[category] ?? 0}</span></button>)}</div></div>
+
+          {filteredComponents.length ? viewMode === 'grid' ? (
+            <div className="premium-card-grid">
+              <AnimatePresence mode="popLayout">
+                {filteredComponents.map((item, index) => (
+                  <motion.article key={item.slug} className="premium-component-card" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: .98 }} transition={{ duration: .24, delay: Math.min(index * .015, .14) }}>
+                    <a href={`/components/${item.slug}`} className="premium-card-image"><img src={item.previewImage} alt={item.title} loading="lazy" /><span className="card-image-index">{String(index + 1).padStart(2, '0')} <ArrowUpRight size={13} /></span></a>
+                    <div className="premium-card-content"><div className="premium-card-category"><span>{item.category}</span><span>{item.dependencies.length ? `${item.dependencies.length} packages` : 'No dependencies'}</span></div><a href={`/components/${item.slug}`} className="premium-card-title">{item.title}</a><p>{item.description}</p><div className="premium-card-footer"><a href={`/components/${item.slug}`}>Explore component <ArrowRight size={13} /></a><button onClick={() => copyCommand(item.slug)} aria-label={`Copy install command for ${item.title}`}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button></div></div>
+                  </motion.article>
+                ))}
+              </AnimatePresence>
+            </div>
+          ) : (
+            <div className="premium-list">{filteredComponents.map((item, index) => <article key={item.slug} className="premium-list-row"><span className="list-index">{String(index + 1).padStart(2, '0')}</span><a href={`/components/${item.slug}`} className="list-thumb"><img src={item.previewImage} alt="" loading="lazy" /></a><div className="list-copy"><a href={`/components/${item.slug}`}>{item.title}</a><p>{item.description}</p></div><span className="list-category">{item.category}</span><button onClick={() => copyCommand(item.slug)}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button><a className="list-open" href={`/components/${item.slug}`} aria-label={`Open ${item.title}`}><ArrowUpRight size={15} /></a></article>)}</div>
+          ) : <div className="catalog-empty"><span>NO MATCHES</span><strong>Nothing here just yet.</strong><p>Try a different search or clear the selected category.</p><button onClick={() => { setSearchQuery(''); setSelectedCategory('All components') }}>Reset filters <ArrowRight size={13} /></button></div>}
+        </section>
+
+        <section className="catalog-endcap"><span className="section-kicker">OPEN SOURCE, FULLY YOURS</span><p>Every piece is a starting point.<br /><em>Take it somewhere new.</em></p><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">Explore the repository <ArrowUpRight size={14} /></a></section>
+      </main>
+
+      <footer className="catalog-footer"><a href="/" className="catalog-brand"><span className="catalog-brand-mark"><i /></span><span>flourish<span>.</span></span></a><span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} /></a><span>© 2026</span></footer>
+
+      <AnimatePresence>{paletteOpen && <motion.div className="search-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setPaletteOpen(false) }}><motion.div className="search-dialog" initial={{ opacity: 0, y: 12, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: .98 }}><div className="search-dialog-input"><Search size={17} /><input autoFocus value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Find a component..." /><button onClick={() => setPaletteOpen(false)} aria-label="Close search"><X size={16} /></button></div><div className="search-results">{visibleSearchResults.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><img src={item.previewImage} alt="" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{visibleSearchResults.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div><div className="search-hint"><span>Search by title, style, or category</span><kbd>ESC</kbd></div></motion.div></motion.div>}</AnimatePresence>
+    </div>
+  )
+}

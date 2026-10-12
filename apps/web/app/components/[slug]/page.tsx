@@ -13,7 +13,7 @@ import {
   Cpu,
 } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { components, getComponent, installCommand } from '@/config/components'
+import { components, getComponent, installCommand, stats } from '@/config/components'
 import ClientDetailTabs from './client-tabs'
 
 function GithubIcon({ size = 15 }: { size?: number }) {
@@ -62,7 +62,7 @@ export default async function ComponentPage({
     .slice(0, 3)
 
   return (
-    <div className="relative min-h-screen bg-[#fafafa] text-[#09090b] overflow-x-hidden">
+    <div className="premium-detail relative min-h-screen overflow-x-hidden">
       <div className="noise-overlay" />
       <div className="blueprint-grid" />
       <div className="radial-glow glow-primary" />
@@ -85,12 +85,21 @@ export default async function ComponentPage({
             </span>
           </a>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-zinc-600">
+          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono text-zinc-600">
+            <a
+              href="/components"
+              className="px-3 py-1.5 rounded-lg border border-zinc-200/90 bg-white hover:bg-zinc-50 hover:border-violet-300 text-zinc-800 hover:text-violet-700 transition-all shadow-2xs font-semibold flex items-center gap-1.5"
+            >
+              <span>Components</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-violet-100 text-violet-700 font-mono">
+                {stats.components}
+              </span>
+            </a>
             <a
               href="https://github.com/Zuhaib-dev/Flourish-UI"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-zinc-950 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50 shadow-2xs"
+              className="hover:text-zinc-950 transition-colors hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50 shadow-2xs"
             >
               <GithubIcon size={14} /> <span>Monorepo</span> <ExternalLink size={11} className="opacity-50" />
             </a>
@@ -98,7 +107,7 @@ export default async function ComponentPage({
               href="https://www.zuhaibrashid.com"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-zinc-950 transition-colors hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200/80 hover:bg-zinc-50 shadow-2xs"
+              className="hover:text-zinc-950 transition-colors hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200/80 hover:bg-zinc-50 shadow-2xs"
             >
               <span>Zuhaib Rashid</span> <ArrowUpRight size={11} className="opacity-50" />
             </a>
@@ -112,10 +121,12 @@ export default async function ComponentPage({
         <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 mb-8 flex-wrap">
           <a href="/" className="hover:text-zinc-950 transition-colors flex items-center gap-1 font-medium">
             <ArrowLeft size={13} />
-            <span>Registry</span>
+            <span>Home</span>
           </a>
           <ChevronRight size={12} className="text-zinc-300" />
-          <span className="text-zinc-500">{component.category}</span>
+          <a href="/components" className="hover:text-violet-700 transition-colors font-medium">
+            Components
+          </a>
           <ChevronRight size={12} className="text-zinc-300" />
           <span className="text-violet-700 font-semibold">{component.title}</span>
         </div>
@@ -233,7 +244,7 @@ export default async function ComponentPage({
                 href="/#catalog"
                 className="text-xs font-mono text-zinc-500 hover:text-zinc-950 transition-colors flex items-center gap-1"
               >
-                <span>View all 35</span> <ArrowUpRight size={13} />
+                <span>View all {stats.components}</span> <ArrowUpRight size={13} />
               </a>
             </div>
 
