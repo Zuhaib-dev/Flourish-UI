@@ -5,7 +5,7 @@ import AdmitOneTicket from "@/components/ui/admit-one-3-d-holographic-ticket";
 
 export default function AdmitOneTicketDemo() {
   return (
-    <div className="flex min-h-[500px] w-full items-center justify-center bg-zinc-950 p-8">
+    <div className="flex min-h-125 w-full items-center justify-center bg-zinc-950 p-8">
       <div className="flex flex-col items-center gap-4">
         <AdmitOneTicket
           name="Zuhaib Rashid"
