@@ -263,6 +263,12 @@ A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL 
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/admit-one-3-d-holographic-ticket/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Admit One 3D Holographic Ticket Preview" />
 </div>
 
+### 🔥 [Cold Flame Drift](./cold-flame-drift)
+A field of grainy, hand-printed risograph flames sliding along a diagonal with noise-bent flow rows, dual-ink stippled grain, drifting dash marks, and dynamic pointer interaction.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/cold-flame-drift/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Cold Flame Drift Preview" />
+</div>
+
 <br />
 
 ---
