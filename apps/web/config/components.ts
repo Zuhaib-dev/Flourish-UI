@@ -72,7 +72,7 @@ export const components: ComponentEntry[] = [
     "slug": "bloom-select",
     "title": "Bloom Select Text Garden",
     "category": "Motion & Physics",
-    "description": "A premium, highly interactive React component library crafted for modern web applications.",
+    "description": "Bloom Select turns highlighted text into playful, animated flowers, adding an expressive moment to reading and writing interfaces.",
     "tags": [
       "motion",
       "typescript"

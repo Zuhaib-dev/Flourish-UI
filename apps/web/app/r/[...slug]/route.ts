@@ -22,6 +22,9 @@ export async function GET(
   if (!source) return NextResponse.json({ error: 'Component source not found' }, { status: 404 })
 
   return NextResponse.json(registryItem(component, source), {
-    headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    headers: {
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
   })
 }

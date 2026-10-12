@@ -4,6 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flourish-ui.vercel.app'),
+  alternates: { canonical: '/' },
   title: {
     default: 'Flourish UI — Expressive React Components',
     template: '%s | Flourish UI',

@@ -376,22 +376,28 @@ export async function generateMetadata({
   const { slug } = await params
   const component = getComponent(slug)
   const title = component ? `${component.title} React Component` : 'Component not found'
+  const description = component?.description
+    ? component.description.length > 160
+      ? `${component.description.slice(0, 157).replace(/\s+\S*$/, '')}…`
+      : component.description
+    : undefined
   return {
     title,
-    description: component?.description,
+    description,
     alternates: { canonical: `/components/${slug}` },
+    keywords: component ? [component.title, 'React UI component', ...component.tags] : undefined,
     openGraph: component ? {
       type: 'website',
       siteName: 'Flourish UI',
       title: `${title} | Flourish UI`,
-      description: component.description,
+      description,
       url: `/components/${slug}`,
       images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
     } : undefined,
     twitter: component ? {
       card: 'summary_large_image',
       title: `${title} | Flourish UI`,
-      description: component.description,
+      description,
       images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
     } : undefined,
   }

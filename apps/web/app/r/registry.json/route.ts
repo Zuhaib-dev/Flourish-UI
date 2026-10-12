@@ -8,6 +8,9 @@ export async function GET() {
     homepage: 'https://flourish-ui.vercel.app',
     items: components.map(registryCatalogItem),
   }, {
-    headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    headers: {
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
   })
 }
