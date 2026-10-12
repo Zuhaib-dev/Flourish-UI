@@ -573,7 +573,7 @@ button { cursor: pointer; }
 .premium-list { display: grid; border-top: 1px solid var(--line); }
 .premium-list-row { min-height: 94px; display: grid; grid-template-columns: 28px 90px minmax(170px, 1fr) minmax(140px, .5fr) 30px 77px 24px; gap: 15px; align-items: center; padding: 12px 9px; border-bottom: 1px solid var(--line); }
 .list-index { color: #9b9a90; font: 11px Georgia, 'Times New Roman', serif; }
-.list-thumb { display: block; height: 60px; overflow: hidden; background: #e7e5dd; }
+.list-thumb { position: relative; display: block; height: 60px; overflow: hidden; background: #e7e5dd; }
 .list-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .list-copy { min-width: 0; }
 .list-copy > a { color: var(--ink); font: 500 16px Georgia, 'Times New Roman', serif; }

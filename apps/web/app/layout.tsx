@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     creator: '@xuhaibx9',
     images: [{ url: '/og-image.png', alt: 'Flourish UI component library' }],
   },
+  verification: {
+    google: 'terZRkP5xAisMxUTVWZ_rW6MXSuOeuAFITryD0CBDxA',
+  },
 }
 
 export const viewport: Viewport = {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowDownRight,
@@ -100,11 +101,11 @@ export default function LandingPage() {
         <div className="hero-art" aria-label="A selection of Flourish UI component previews">
           <div className="hero-art-note"><Sparkles size={13} /> LITTLE DETAILS, BIG PRESENCE</div>
           <a className="hero-preview hero-preview-main" href={`/components/${featured[0]?.slug}`}>
-            <img src={featured[0]?.previewImage} alt={featured[0]?.title ?? 'Holographic ticket component preview'} />
+            <Image src={featured[0]?.previewImage ?? '/placeholder.svg'} alt={featured[0]?.title ?? 'Holographic ticket component preview'} fill sizes="(max-width: 760px) 78vw, 38vw" preload />
             <span className="preview-caption"><span><small>01 / FEATURED</small><strong>{featured[0]?.title}</strong></span><ArrowUpRight size={16} /></span>
           </a>
           <a className="hero-preview hero-preview-small" href={`/components/${featured[1]?.slug}`}>
-            <img src={featured[1]?.previewImage} alt={featured[1]?.title ?? 'Bloom Select component preview'} />
+            <Image src={featured[1]?.previewImage ?? '/placeholder.svg'} alt={featured[1]?.title ?? 'Bloom Select component preview'} fill sizes="(max-width: 760px) 34vw, 17vw" />
           </a>
           <div className="hero-stamp"><span>MADE TO<br />BE USED</span><span className="stamp-star">✳</span></div>
           <span className="art-index">FIG. 01 — A FEW THINGS FROM THE COLLECTION</span>
@@ -135,14 +136,14 @@ export default function LandingPage() {
           </article>
 
           <a className="bento-tile bento-motion" href="/components/cold-flame-drift">
-            <img src={components.find((item) => item.slug === 'cold-flame-drift')?.previewImage} alt="Cold Flame Drift component" loading="lazy" />
+            <Image src={components.find((item) => item.slug === 'cold-flame-drift')?.previewImage ?? '/placeholder.svg'} alt="Cold Flame Drift component" fill sizes="(max-width: 760px) 100vw, 40vw" />
             <div className="bento-image-shade" />
             <span className="bento-corner-icon"><WandSparkles size={15} /></span>
             <div className="bento-tile-copy"><span>02 / MOTION & EFFECTS</span><h3>Make the quiet parts move.</h3><p>Shaders, physics, and expressive motion.</p><span className="bento-card-link">Explore the live demo <ArrowUpRight size={13} /></span></div>
           </a>
 
           <a className="bento-tile bento-work" href="/components/property-comparison-dashboard">
-            <img src={components.find((item) => item.slug === 'property-comparison-dashboard')?.previewImage} alt="Property Comparison Dashboard component" loading="lazy" />
+            <Image src={components.find((item) => item.slug === 'property-comparison-dashboard')?.previewImage ?? '/placeholder.svg'} alt="Property Comparison Dashboard component" fill sizes="(max-width: 760px) 100vw, 40vw" />
             <div className="bento-work-copy"><span>03 / TOOLS THAT WORK</span><h3>Useful can be beautiful.</h3><span>Dashboards, editors, and workflows <ArrowUpRight size={13} /></span></div>
           </a>
 
@@ -172,7 +173,7 @@ export default function LandingPage() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.06 }}
             >
-              <div className="selected-image"><img src={item.previewImage} alt={item.title} loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
+              <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
               <div className="selected-meta"><span>{item.category}</span><span>{String(index + 2).padStart(2, '0')}</span></div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -202,7 +203,7 @@ export default function LandingPage() {
           <motion.div className="search-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setPaletteOpen(false) }}>
             <motion.div className="search-dialog" initial={{ opacity: 0, y: 12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: 0.98 }}>
               <div className="search-dialog-input"><Search size={17} /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a component..." /><button onClick={() => setPaletteOpen(false)} aria-label="Close search"><X size={16} /></button></div>
-              <div className="search-results">{results.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><img src={item.previewImage} alt="" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{results.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div>
+              <div className="search-results">{results.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><Image src={item.previewImage} alt="" width={108} height={76} sizes="54px" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{results.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div>
               <div className="search-hint"><span>Search by title, style, or category</span><kbd>ESC</kbd></div>
             </motion.div>
           </motion.div>

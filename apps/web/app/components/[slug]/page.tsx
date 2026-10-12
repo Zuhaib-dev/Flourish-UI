@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -267,11 +268,13 @@ export default async function ComponentPage({
                   href={`/components/${rel.slug}`}
                   className="group p-4 rounded-xl border border-zinc-200 bg-white hover:border-violet-300 hover:shadow-md transition-all flex flex-col overflow-hidden shadow-2xs"
                 >
-                  <div className="aspect-[16/10] rounded-lg overflow-hidden bg-zinc-50 border border-zinc-100 mb-3">
-                    <img
+                  <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-zinc-50 border border-zinc-100 mb-3">
+                    <Image
                       src={rel.previewImage}
                       alt={rel.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="text-sm font-bold text-zinc-950 group-hover:text-violet-600 transition-colors">
@@ -286,6 +289,38 @@ export default async function ComponentPage({
           </section>
         )}
       </main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'SoftwareSourceCode',
+                '@id': `https://flourish-ui.vercel.app/components/${component.slug}#source`,
+                name: component.title,
+                description: component.description,
+                url: `https://flourish-ui.vercel.app/components/${component.slug}`,
+                codeRepository: `https://github.com/Zuhaib-dev/Flourish-UI/tree/main/${component.slug}`,
+                programmingLanguage: 'TypeScript',
+                runtimePlatform: 'React',
+                image: `https://flourish-ui.vercel.app${component.previewImage}`,
+                author: { '@id': 'https://www.zuhaibrashid.com/#person' },
+                isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://flourish-ui.vercel.app/' },
+                  { '@type': 'ListItem', position: 2, name: 'Components', item: 'https://flourish-ui.vercel.app/components' },
+                  { '@type': 'ListItem', position: 3, name: component.title, item: `https://flourish-ui.vercel.app/components/${component.slug}` },
+                ],
+              },
+            ],
+          }).replace(/</g, '\\u003c'),
+        }}
+      />
 
       {/* Global Footer */}
       <footer className="border-t border-zinc-200 py-12 bg-white">
@@ -340,16 +375,23 @@ export async function generateMetadata({
 }) {
   const { slug } = await params
   const component = getComponent(slug)
+  const title = component ? `${component.title} React Component` : 'Component not found'
   return {
-    title: component ? component.title : 'Component not found',
+    title,
     description: component?.description,
     alternates: { canonical: `/components/${slug}` },
     openGraph: component ? {
       type: 'website',
       siteName: 'Flourish UI',
-      title: `${component.title} | Flourish UI`,
+      title: `${title} | Flourish UI`,
       description: component.description,
       url: `/components/${slug}`,
+      images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
+    } : undefined,
+    twitter: component ? {
+      card: 'summary_large_image',
+      title: `${title} | Flourish UI`,
+      description: component.description,
       images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
     } : undefined,
   }

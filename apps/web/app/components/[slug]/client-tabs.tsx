@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Check, ChevronDown, Clipboard, Code2, Copy, Terminal } from 'lucide-react'
 import type { ComponentEntry } from '@/config/components'
 
@@ -10,6 +10,36 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
   const [activeTab, setActiveTab] = useState<'install' | 'source'>('install')
   const [packageManager, setPackageManager] = useState<PackageManager>('pnpm')
   const [copied, setCopied] = useState<'command' | 'dependencies' | 'source' | null>(null)
+  const [loadedSource, setLoadedSource] = useState<{ slug: string; code: string } | null>(null)
+  const [sourceStatus, setSourceStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
+  const sourceRequests = useRef(new Map<string, Promise<string>>())
+  const sourceCode = loadedSource?.slug === component.slug ? loadedSource.code : null
+
+  useEffect(() => {
+    if (activeTab !== 'source' || sourceCode !== null) return
+
+    let current = true
+    setSourceStatus('loading')
+    let request = sourceRequests.current.get(component.slug)
+    if (!request) {
+      request = fetch(`/api/components/${component.slug}/source`).then(async (response) => {
+        if (!response.ok) throw new Error('Could not load component source')
+        return response.text()
+      })
+      sourceRequests.current.set(component.slug, request)
+    }
+
+    request.then((code) => {
+      if (!current) return
+      setLoadedSource({ slug: component.slug, code })
+      setSourceStatus('ready')
+    }).catch(() => {
+      sourceRequests.current.delete(component.slug)
+      if (current) setSourceStatus('error')
+    })
+
+    return () => { current = false }
+  }, [activeTab, component.slug, sourceCode])
 
   const commands: Record<PackageManager, string> = {
     pnpm: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/${component.slug}.json`,
@@ -75,8 +105,8 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
         </div>
       ) : (
         <div className="detail-source-content" role="tabpanel">
-          <div className="source-filebar"><span><Code2 size={13} /> components/flourish/{component.slug}.tsx</span><span>{component.code.split('\n').length.toLocaleString()} lines</span><button onClick={() => copy(component.code, 'source')}>{copied === 'source' ? <Check size={13} /> : <Copy size={13} />}{copied === 'source' ? 'Copied' : 'Copy source'}</button></div>
-          <pre className="source-code"><code>{component.code}</code></pre>
+          <div className="source-filebar"><span><Code2 size={13} /> components/flourish/{component.slug}.tsx</span><span>{sourceCode ? `${sourceCode.split('\n').length.toLocaleString()} lines` : sourceStatus === 'error' ? 'Unavailable' : 'Load on demand'}</span><button disabled={!sourceCode} onClick={() => sourceCode && copy(sourceCode, 'source')}>{copied === 'source' ? <Check size={13} /> : <Copy size={13} />}{copied === 'source' ? 'Copied' : 'Copy source'}</button></div>
+          <pre className="source-code"><code>{sourceCode ?? (sourceStatus === 'error' ? 'Source could not be loaded. Try opening the Source tab again.' : 'Loading component source…')}</code></pre>
           <span className="sr-only" aria-live="polite">{copied === 'source' ? 'Source copied to clipboard' : ''}</span>
         </div>
       )}

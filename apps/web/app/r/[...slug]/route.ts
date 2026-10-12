@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
-import { getComponent, registryItem } from '@/config/components'
+import { getComponent } from '@/config/components'
+import { getComponentSource } from '@/config/component-sources'
+import { registryItem } from '@/config/registry'
 
 export async function GET(
   _request: Request,
@@ -16,8 +18,10 @@ export async function GET(
     : requestedName
   const component = getComponent(componentSlug)
   if (!component) return NextResponse.json({ error: 'Component not found' }, { status: 404 })
+  const source = await getComponentSource(component.slug)
+  if (!source) return NextResponse.json({ error: 'Component source not found' }, { status: 404 })
 
-  return NextResponse.json(registryItem(component), {
+  return NextResponse.json(registryItem(component, source), {
     headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
   })
 }
