@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Flourish UI — Interfaces with character.',
-  description: 'An open-source component registry for expressive, production-ready interfaces by Zuhaib Rashid.',
+  title: 'Flourish — expressive components for the web',
+  description: 'A considered collection of expressive React components. Explore the details, then bring the source into your own project.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#ffffff',
+  themeColor: '#f5f4ef',
 }
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
-      <body className="antialiased bg-[#fafafa] text-[#09090b] min-h-screen selection:bg-violet-600/20 selection:text-violet-950">
+      <body className="antialiased bg-[#f5f4ef] text-[#191916] min-h-screen selection:bg-orange-200/50 selection:text-[#191916]">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
