@@ -257,6 +257,12 @@ A tactile, interactive 3D flippable credit card form component with dynamic inpu
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/credit-card-form/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Credit Card Form Preview" />
 </div>
 
+### 🎟️ [Admit One 3D Holographic Ticket](./admit-one-3-d-holographic-ticket)
+A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL shaders, Bayer matrix dithering, simplex noise foil, interactive physical mouse tilt, and realistic specular glare.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/admit-one-3-d-holographic-ticket/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Admit One 3D Holographic Ticket Preview" />
+</div>
+
 <br />
 
 ---
