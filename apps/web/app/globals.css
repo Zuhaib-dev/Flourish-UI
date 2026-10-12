@@ -556,6 +556,9 @@ button { cursor: pointer; }
 .premium-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
 .premium-component-card:hover .premium-card-image img { transform: scale(1.035); }
 .card-image-index { position: absolute; z-index: 1; right: 10px; bottom: 9px; display: inline-flex; align-items: center; gap: 5px; color: white; font-size: 9px; }
+.card-open-new-tab { position: absolute; z-index: 2; left: 10px; bottom: 10px; display: inline-flex; min-height: 34px; align-items: center; justify-content: center; gap: 7px; padding: 0 11px; border: 1px solid #ffffff70; border-radius: 999px; background: #171712c9; color: #fff; font-size: 10px; font-weight: 600; text-decoration: none; backdrop-filter: blur(10px); transition: background .18s ease, transform .18s ease; }
+.card-open-new-tab:hover { transform: translateY(-1px); background: #171712ed; }
+.card-open-new-tab:focus-visible, .list-open:focus-visible { outline: 2px solid #b66a4e; outline-offset: 3px; }
 .save-component { position: absolute; z-index: 2; top: 10px; right: 10px; width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid #ffffff80; border-radius: 50%; background: #f5f4efed; color: #55544b; box-shadow: 0 3px 12px #15151020; cursor: pointer; transition: transform .18s ease, color .18s ease, background .18s ease; }
 .save-component:hover { transform: scale(1.08); color: #a45135; }
 .save-component.is-saved { background: #a45135; color: #fff8f3; }
@@ -583,7 +586,8 @@ button { cursor: pointer; }
 .premium-list-row .list-save { width: 30px; height: 30px; color: #77766d; }
 .premium-list-row .list-save[aria-pressed="true"] { color: #a45135; }
 .premium-list-row .list-copy-command { justify-content: flex-start; }
-.list-open { color: #77776e; }
+.list-open { display: inline-flex; width: 24px; height: 30px; align-items: center; justify-content: center; border-radius: 8px; color: #77776e; transition: color .18s ease, background .18s ease; }
+.list-open:hover { color: #282820; background: #efeee8; }
 .catalog-empty { min-height: 300px; display: grid; align-content: center; justify-items: center; text-align: center; }
 .catalog-empty > span { color: var(--orange); font-size: 8px; letter-spacing: 1.3px; }
 .catalog-empty strong { margin-top: 10px; font: 500 27px Georgia, 'Times New Roman', serif; }
@@ -729,7 +733,8 @@ button { cursor: pointer; }
   .premium-card-grid { grid-template-columns: 1fr; gap: 16px; }
   .premium-card-image { height: clamp(210px, 62vw, 330px); }
   .premium-card-content { min-height: 166px; }
-  .premium-list-row { grid-template-columns: 20px 56px minmax(0, 1fr) 28px 22px; gap: 8px; }
+  .premium-list-row { grid-template-columns: 20px 56px minmax(0, 1fr) 28px 40px; gap: 8px; }
+  .premium-list-row .list-open { width: 40px; height: 40px; }
   .list-thumb { height: 48px; }
   .list-category, .list-copy-command { display: none; }
   .list-copy > a { font-size: 14px; }
