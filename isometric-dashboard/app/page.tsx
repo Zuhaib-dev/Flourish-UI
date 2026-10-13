@@ -135,14 +135,14 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8 font-sans selection:bg-sky-500/30 relative">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-3 sm:p-8 font-sans selection:bg-sky-500/30 relative">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-150 bg-sky-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       
-      <div className="flex flex-col md:flex-row gap-6 max-w-5xl relative z-10">
+      <div className="flex w-full max-w-5xl flex-col gap-4 md:flex-row md:gap-6 relative z-10">
         
         {/* Time Range Card */}
-        <div className="w-80 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col gap-6 relative overflow-hidden">
+        <div className="w-full max-w-80 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-5 sm:p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col gap-6 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-linear-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-2 bg-sky-500/10 blur-xl"></div>
           
@@ -244,7 +244,7 @@ export default function Dashboard() {
         </div>
 
         {/* Output & Scrap Card */}
-        <div className="w-120 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col relative overflow-hidden">
+        <div className="w-full max-w-120 bg-[#161616]/80 backdrop-blur-3xl rounded-8 p-5 sm:p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-white/4 flex flex-col relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-linear-to-r from-transparent via-white/40 to-transparent blur-[1px]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-2 bg-purple-500/10 blur-xl"></div>
           

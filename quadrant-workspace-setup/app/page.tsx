@@ -5,7 +5,7 @@ import { Check, Info, ArrowLeft, X, Globe, Zap, Hexagon, Sparkles, Brain, Bot } 
 export default function QuadrantSetup() {
   return (
     <div 
-      className="min-h-screen bg-cover bg-center flex flex-col p-6 font-sans relative"
+      className="min-h-screen bg-cover bg-center flex flex-col p-3 sm:p-6 font-sans relative"
       style={{
         backgroundImage: 'url("https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=2000")',
       }}
@@ -14,7 +14,7 @@ export default function QuadrantSetup() {
       <div className="absolute inset-0 bg-[#e4dfd2]/30 backdrop-blur-[1px]" />
 
       {/* Header */}
-      <header className="relative z-10 flex justify-between items-center w-full max-w-225 mx-auto mb-10 px-2 mt-2">
+      <header className="relative z-10 flex justify-between items-center w-full max-w-225 mx-auto mb-5 sm:mb-10 px-2 mt-2">
         <div className="text-[28px] font-extrabold tracking-tight font-(family-name:--font-outfit) bg-clip-text text-transparent bg-linear-to-r from-gray-900 to-gray-600">
           Quadrant
         </div>
@@ -24,16 +24,16 @@ export default function QuadrantSetup() {
       </header>
 
       {/* Main Card */}
-      <main className="relative z-10 flex-1 w-full max-w-225 mx-auto bg-white rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-150 mb-8">
+      <main className="relative z-10 flex-1 w-full max-w-225 mx-auto bg-white rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] flex flex-col md:flex-row overflow-hidden border border-white/60 ring-1 ring-black/5 min-h-150 mb-8">
         
         {/* Left Sidebar */}
-        <div className="w-70 bg-[#f1f0ec] p-8 pr-6 shrink-0 flex flex-col">
+        <div className="w-full md:w-70 bg-[#f1f0ec] p-4 sm:p-6 md:p-8 md:pr-6 shrink-0 flex flex-col">
            <h2 className="text-[#a1a1aa] text-[14px] font-medium mb-1">Create new workspace,</h2>
-           <h1 className="text-[20px] font-medium text-gray-800 leading-tight mb-10 pr-2">
+           <h1 className="text-[18px] md:text-[20px] font-medium text-gray-800 leading-tight mb-4 md:mb-10 pr-2">
              Tell us about your brand and website
            </h1>
            
-           <div className="flex flex-col gap-6">
+           <div className="flex flex-row gap-4 overflow-x-auto pb-1 md:flex-col md:gap-6 md:overflow-visible md:pb-0">
              <Step 
                icon={<Check className="text-white w-3.5 h-3.5" strokeWidth={3} />} 
                iconBg="bg-[#3ebc67]" 
@@ -66,7 +66,7 @@ export default function QuadrantSetup() {
         </div>
 
         {/* Right Content */}
-        <div className="flex-1 px-10 py-8 overflow-y-auto bg-white border-l border-gray-100">
+        <div className="flex-1 min-w-0 px-4 sm:px-6 lg:px-10 py-6 sm:py-8 overflow-y-auto bg-white border-t md:border-t-0 md:border-l border-gray-100">
            <div className="max-w-125">
              
              {/* Add Topics */}
@@ -172,7 +172,7 @@ export default function QuadrantSetup() {
 
 function Step({ icon, iconBg, title, active, completed }: { icon: React.ReactNode, iconBg: string, title: string, active: boolean, completed: boolean }) {
   return (
-    <div className="flex items-center gap-3.5">
+    <div className="flex shrink-0 items-center gap-3.5 md:shrink">
       <div className={`w-6 h-6 rounded flex items-center justify-center shrink-0 ${iconBg}`}>
         {icon}
       </div>

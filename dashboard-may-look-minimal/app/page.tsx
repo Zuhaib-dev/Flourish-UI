@@ -26,7 +26,7 @@ export default function MinimalDashboard() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8 relative overflow-hidden font-sans text-slate-800 selection:bg-[#ff6b2b] selection:text-white">
+    <div className="min-h-screen bg-white flex items-center justify-center p-2 sm:p-4 lg:p-8 relative overflow-hidden font-sans text-slate-800 selection:bg-[#ff6b2b] selection:text-white">
       
       {/* Blueprint Grid Background */}
       <div 
@@ -48,11 +48,11 @@ export default function MinimalDashboard() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-[1240px] h-[800px] bg-white shadow-[0_20px_80px_rgba(0,0,0,0.07)] flex"
+        className="relative z-10 w-full max-w-[1240px] h-auto min-h-[calc(100svh-16px)] sm:h-[800px] bg-white shadow-[0_20px_80px_rgba(0,0,0,0.07)] flex"
       >
         
         {/* Sidebar */}
-        <div className="w-[260px] h-full bg-[#fcfcfc] border-r border-slate-200 flex flex-col pt-6 pb-6 px-5 relative z-10">
+        <div className="hidden sm:flex w-[200px] lg:w-[260px] h-full bg-[#fcfcfc] border-r border-slate-200 flex-col pt-6 pb-6 px-5 relative z-10">
           
           {/* Logo / Account */}
           <div className="flex items-center gap-3 px-2 mb-10 cursor-pointer group">
@@ -117,7 +117,7 @@ export default function MinimalDashboard() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 bg-white p-10 overflow-y-auto no-scrollbar relative z-0">
+        <div className="flex-1 min-w-0 bg-white p-4 sm:p-6 lg:p-10 overflow-y-auto no-scrollbar relative z-0">
           
           {/* Header 1 */}
           <div className="flex justify-between items-end mb-8 relative z-10">
@@ -126,17 +126,17 @@ export default function MinimalDashboard() {
               <p className="text-[12px] font-mono text-slate-400">See how new users progress toward their first meaningful action</p>
             </div>
             <div className="flex gap-2">
-              <button className="w-[30px] h-[30px] rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-colors">
+              <button className="w-10 h-10 sm:w-[30px] sm:h-[30px] rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-colors" aria-label="List view">
                 <List className="w-3.5 h-3.5" />
               </button>
-              <button className="w-[30px] h-[30px] rounded border border-slate-200 flex items-center justify-center bg-slate-50 text-slate-700 shadow-sm transition-colors">
+              <button className="w-10 h-10 sm:w-[30px] sm:h-[30px] rounded border border-slate-200 flex items-center justify-center bg-slate-50 text-slate-700 shadow-sm transition-colors" aria-label="Grid view">
                 <LayoutGrid className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
           {/* Top Row Grid */}
-          <div className="grid grid-cols-3 gap-[26px] mb-[44px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-[26px] mb-8 lg:mb-[44px]">
             <TopCard 
               title="Conversion Rate"
               value="24.30%"
@@ -173,7 +173,7 @@ export default function MinimalDashboard() {
           </div>
 
           {/* Bottom Row Grid */}
-          <div className="grid grid-cols-3 gap-[26px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-[26px]">
             <BottomCard1 mounted={mounted} />
             <BottomCard2 mounted={mounted} />
             <BottomCard3 mounted={mounted} />

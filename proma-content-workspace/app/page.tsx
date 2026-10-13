@@ -50,7 +50,7 @@ export default function PromaWorkspace() {
     <div className="flex h-screen w-full bg-white text-[#111827] font-sans overflow-hidden selection:bg-emerald-100">
       
       {/* Sidebar */}
-      <aside className="w-60 shrink-0 flex flex-col h-full bg-[#fcfcfc] border-r border-gray-100/60">
+      <aside className="hidden lg:flex w-60 shrink-0 flex-col h-full bg-[#fcfcfc] border-r border-gray-100/60">
         
         {/* Logo */}
         <div className="px-5 pt-6 pb-4 flex items-center justify-between">
@@ -133,7 +133,7 @@ export default function PromaWorkspace() {
       </aside>
 
       {/* Main Container */}
-      <main className="flex-1 flex flex-col h-full overflow-hidden">
+      <main className="flex-1 min-w-0 flex flex-col h-full overflow-hidden">
         
         {/* Top Header */}
         <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100/60 shrink-0 bg-white/50 backdrop-blur-sm">
@@ -184,7 +184,7 @@ export default function PromaWorkspace() {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-8 py-2 flex flex-col gap-6 no-scrollbar pb-32">
+          <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-2 flex flex-col gap-6 no-scrollbar pb-32">
               <motion.div variants={containerVars} initial="hidden" animate={mounted ? "show" : "hidden"} className="flex flex-col gap-5 w-full max-w-155 mx-auto">
                 
                 {/* File Attachments Block */}
@@ -332,7 +332,7 @@ export default function PromaWorkspace() {
           </div>
 
           {/* Right Column (Transcript) */}
-          <aside className="w-95 shrink-0 bg-white flex flex-col h-full overflow-hidden">
+          <aside className="hidden 2xl:flex w-95 shrink-0 bg-white flex-col h-full overflow-hidden">
             
             {/* Tabs */}
             <div className="px-5 pt-5 pb-3">

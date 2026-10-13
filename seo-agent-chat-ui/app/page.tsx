@@ -48,7 +48,7 @@ export default function AgentChatUI() {
     <div className="flex h-screen w-full bg-[#f9fafb] text-[#111827] font-sans overflow-hidden selection:bg-blue-100">
       
       {/* Sidebar */}
-      <aside className="w-65 shrink-0 flex flex-col h-full bg-[#f9fafb] border-r border-transparent">
+      <aside className="hidden md:flex w-65 shrink-0 flex-col h-full bg-[#f9fafb] border-r border-transparent">
         
         {/* Sidebar Header */}
         <div className="px-4 pt-4 pb-2 flex items-center justify-between">
@@ -142,11 +142,11 @@ export default function AgentChatUI() {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 h-full p-4 pl-0">
+      <main className="flex-1 min-w-0 h-full p-3 md:p-4 md:pl-0">
         <div className="bg-white w-full h-full rounded-3xl border border-gray-100 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_8px_40px_rgba(0,0,0,0.04)] flex flex-col overflow-hidden relative">
           
           {/* Chat Header */}
-          <header className="px-6 py-4 flex items-center justify-between z-10 bg-white/90 backdrop-blur-md border-b border-gray-50/50">
+          <header className="px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10 bg-white/90 backdrop-blur-md border-b border-gray-50/50">
             <div className="flex items-center gap-3">
               <button className="p-2 border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-500 transition-colors">
                 <RotateCcw className="w-4 h-4" />
@@ -214,7 +214,7 @@ export default function AgentChatUI() {
                 {/* Performance Snapshot Card */}
                 <div className="w-full bg-white border border-gray-100 rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300">
                   <h3 className="text-[14px] font-semibold mb-4 tracking-tight">Performance Snapshot</h3>
-                  <div className="grid grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                     <StatBox label="Spend" value="$18.4k" change="+6%" trend="up" />
                     <StatBox label="ROAS" value="2.4x" change="↓0.3" trend="down" />
                     <StatBox label="CPA" value="$34.80" change="↑11%" trend="up" />

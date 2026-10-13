@@ -24,3 +24,9 @@ body {
   background-color: #ffffff;
   color: #111827;
 }
+
+@media (max-width: 767px) {
+  .flow-workflow-scene {
+    transform: translateX(-260px);
+  }
+}

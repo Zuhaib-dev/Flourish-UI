@@ -14,14 +14,14 @@ export default function VoyageDashboard() {
   const [activeTab, setActiveTab] = useState("Upcoming");
 
   return (
-    <div className="min-h-screen bg-[#ebebeb] flex items-center justify-center p-8 font-sans antialiased text-neutral-900 selection:bg-neutral-200">
+    <div className="min-h-screen bg-[#ebebeb] flex items-center justify-center p-3 sm:p-8 font-sans antialiased text-neutral-900 selection:bg-neutral-200">
       
       {/* Main Container */}
       <motion.div 
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-[#f9f9f9] rounded-9 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-6 max-w-4xl flex flex-col gap-6"
+        className="w-full max-w-4xl bg-[#f9f9f9] rounded-9 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] p-4 sm:p-6 flex flex-col gap-6"
       >
         
         {/* Header */}
@@ -56,7 +56,7 @@ export default function VoyageDashboard() {
           {/* Left Column: The Ticket */}
           <motion.div 
             whileHover={{ y: -4 }}
-            className="w-90 bg-white rounded-7 shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] flex flex-col relative overflow-hidden transition-all duration-300"
+            className="w-full md:w-90 bg-white rounded-7 shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] flex flex-col relative overflow-hidden transition-all duration-300"
           >
             {/* Top Image Area */}
             <div className="p-3 pb-0">
@@ -152,7 +152,7 @@ export default function VoyageDashboard() {
           </motion.div>
 
           {/* Right Column: Folders List */}
-          <div className="w-85 flex flex-col h-full">
+          <div className="w-full md:w-85 flex flex-col h-full">
             <div className="flex flex-col gap-4 flex-1 justify-center">
               {folders.map((f, i) => (
                 <motion.div 

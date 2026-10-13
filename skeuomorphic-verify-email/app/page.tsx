@@ -18,7 +18,7 @@ export default function VerifyEmail() {
     <main className="flex-1 flex flex-col items-center justify-center p-6 selection:bg-neutral-200">
       
       {/* 3D Mailbox Image with mix-blend-multiply to remove white background */}
-      <div className="w-80 h-80 mb-2 -mt-16 pointer-events-none">
+      <div className="w-64 h-64 sm:w-80 sm:h-80 mb-2 -mt-10 sm:-mt-16 pointer-events-none">
         <img 
           src="/previews/skeuomorphic-verify-email/mailbox.jpg"
           alt="3D Mailbox" 

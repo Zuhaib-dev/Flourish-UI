@@ -16,7 +16,7 @@ export default function FlowCanvas() {
     <div className="flex h-screen w-full bg-white text-[#111827] font-sans overflow-hidden">
       
       {/* LEFT SIDEBAR */}
-      <aside className="w-60 shrink-0 border-r border-gray-100 bg-[#fefefe] flex flex-col h-full overflow-y-auto no-scrollbar z-30">
+      <aside className="hidden md:flex w-60 shrink-0 border-r border-gray-100 bg-[#fefefe] flex-col h-full overflow-y-auto no-scrollbar z-30">
         
         {/* Header */}
         <div className="px-5 h-14 flex items-center justify-between shrink-0">
@@ -112,14 +112,14 @@ export default function FlowCanvas() {
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
         
         {/* Top App Header */}
-        <header className="h-14 border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20">
+        <header className="h-14 border-b border-gray-100 bg-white flex items-center justify-between px-3 sm:px-6 shrink-0 z-20">
           <div className="flex items-center gap-2 text-[13px] font-medium text-gray-500">
             <div className="w-4 h-4 border border-gray-300 rounded-sm flex items-center justify-center">
               <LayoutGrid className="w-2.5 h-2.5 text-gray-400" strokeWidth={2.5} />
             </div>
             <span>Workflow Canvas</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3">
              <button className="flex items-center gap-1.5 border border-gray-200 rounded-full px-3 py-1.5 text-[12px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors shadow-sm">
                 <Star className="w-3.5 h-3.5" strokeWidth={2} /> Ask AI
              </button>
@@ -131,27 +131,27 @@ export default function FlowCanvas() {
         </header>
 
         {/* Canvas Toolbar */}
-        <div className="h-14 border-b border-gray-100 bg-white flex items-center justify-between px-6 shrink-0 z-20 relative">
+        <div className="h-14 border-b border-gray-100 bg-white flex items-center justify-between gap-2 px-3 sm:px-6 shrink-0 z-20 relative">
           <div className="flex items-center gap-2.5 text-[13px]">
              <div className="flex items-center gap-2 text-gray-400 font-medium">
                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3"><circle cx="12" cy="12" r="10"/></svg>
-               <span>Library</span>
+               <span className="hidden sm:inline">Library</span>
                <ChevronDown className="w-3.5 h-3.5 -rotate-90" strokeWidth={2.5} />
              </div>
              <span className="font-bold text-gray-900 tracking-tight">Email Classifier</span>
              <div className="w-px h-3 bg-gray-300 mx-1" />
-             <span className="text-gray-400 font-medium text-[12px]">7 nodes - 6 edges</span>
+             <span className="hidden sm:inline text-gray-400 font-medium text-[12px]">7 nodes - 6 edges</span>
           </div>
 
-          <div className="flex items-center gap-2.5 text-[12px] font-semibold">
+          <div className="flex items-center gap-1 sm:gap-2.5 text-[12px] font-semibold">
              <button className="text-gray-400 hover:text-gray-700 flex items-center justify-center w-7 h-7 rounded hover:bg-gray-50 transition-colors">
                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
              </button>
              <div className="w-px h-4 bg-gray-200 mx-1" />
-             <button className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 shadow-sm transition-colors">
+             <button className="hidden md:flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 shadow-sm transition-colors">
                <Play className="w-3 h-3" strokeWidth={2.5} /> Test Run
              </button>
-             <button className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 shadow-sm transition-colors">
+             <button className="hidden md:flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 shadow-sm transition-colors">
                <Save className="w-3 h-3" strokeWidth={2.5} /> Save
              </button>
              <button className="flex items-center gap-1.5 px-4 py-1.5 bg-[#1f2329] hover:bg-black rounded-md text-white shadow-sm transition-colors">
@@ -162,10 +162,10 @@ export default function FlowCanvas() {
         </div>
 
         {/* CANVAS AREA (Dot Grid) */}
-        <div className="flex-1 w-full h-full relative overflow-hidden dot-grid z-0 cursor-grab active:cursor-grabbing">
+        <div className="flex-1 w-full h-full relative overflow-auto overscroll-contain touch-pan-x touch-pan-y dot-grid z-0 cursor-grab active:cursor-grabbing">
           
           {/* Node Library Floating Panel */}
-          <div className="absolute top-4 left-4 bottom-4 w-65 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col z-20 overflow-hidden cursor-default">
+          <div className="hidden md:flex absolute top-4 left-4 bottom-4 w-65 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex-col z-20 overflow-hidden cursor-default">
              
              <div className="p-4 shrink-0">
                 <span className="text-[13px] font-bold text-gray-700">Nodes</span>
@@ -210,6 +210,7 @@ export default function FlowCanvas() {
              </div>
           </div>
 
+          <div className="flow-workflow-scene relative h-full min-h-[720px] min-w-[1500px]">
           {/* SVG Edges Layer */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))' }}>
              {/* Webhook -> AI Agent */}
@@ -339,6 +340,7 @@ export default function FlowCanvas() {
                />
              </div>
           </div>
+          </div>
 
           {/* Canvas Controls (Bottom Center) */}
           <div className="absolute bottom-6 left-[50%] -translate-x-1/2 bg-white border border-gray-100 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center px-1.5 py-1.5 z-20 cursor-default">
@@ -348,12 +350,12 @@ export default function FlowCanvas() {
              </div>
              <div className="w-px h-4 bg-gray-200 mx-2" />
              <div className="flex items-center gap-1 text-[12px] font-semibold text-gray-600">
-               <button className="w-6 h-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors"><ZoomOut className="w-3.5 h-3.5" /></button>
+               <button className="w-10 h-10 sm:w-6 sm:h-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors" aria-label="Zoom out"><ZoomOut className="w-3.5 h-3.5" /></button>
                <span className="w-10 text-center">100%</span>
-               <button className="w-6 h-6 flex items-center justify-center bg-gray-900 hover:bg-black text-white rounded transition-colors"><Plus className="w-3.5 h-3.5" strokeWidth={2.5} /></button>
+               <button className="w-10 h-10 sm:w-6 sm:h-6 flex items-center justify-center bg-gray-900 hover:bg-black text-white rounded transition-colors" aria-label="Zoom in"><Plus className="w-3.5 h-3.5" strokeWidth={2.5} /></button>
              </div>
              <div className="w-px h-4 bg-gray-200 mx-2" />
-             <div className="flex items-center gap-1">
+             <div className="hidden sm:flex items-center gap-1">
                <ControlButton icon={<Undo className="w-3.5 h-3.5" strokeWidth={2} />} />
                <ControlButton icon={<Redo className="w-3.5 h-3.5" strokeWidth={2} />} />
                <ControlButton icon={<Lock className="w-3.5 h-3.5" strokeWidth={2} />} />
@@ -361,7 +363,7 @@ export default function FlowCanvas() {
           </div>
 
           {/* Minimap (Bottom Right) */}
-          <div className="absolute bottom-6 right-6 w-36 h-24 bg-white border border-gray-100 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] z-20 p-2 overflow-hidden flex items-center justify-center cursor-default">
+          <div className="hidden sm:flex absolute bottom-6 right-6 w-36 h-24 bg-white border border-gray-100 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] z-20 p-2 overflow-hidden items-center justify-center cursor-default">
              <div className="w-full h-full relative opacity-60">
                <div className="absolute left-[10%] top-[20%] w-3 h-2 bg-blue-500 rounded-[1px]" />
                <div className="absolute left-[35%] top-[20%] w-3 h-2 bg-gray-400 rounded-[1px]" />
@@ -456,7 +458,7 @@ function NodeItem({ icon, label }: { icon: React.ReactNode, label: string }) {
 
 function ControlButton({ icon, active = false }: { icon: React.ReactNode, active?: boolean }) {
   return (
-    <button className={`p-1.5 rounded-md transition-colors ${active ? 'bg-gray-100 text-gray-800' : 'text-gray-400 hover:bg-gray-50 hover:text-gray-700'}`}>
+    <button className={`w-10 h-10 sm:w-auto sm:h-auto p-1.5 rounded-md transition-colors ${active ? 'bg-gray-100 text-gray-800' : 'text-gray-400 hover:bg-gray-50 hover:text-gray-700'}`}>
       {icon}
     </button>
   );

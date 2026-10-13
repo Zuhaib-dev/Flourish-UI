@@ -65,10 +65,10 @@ export default function PropertyDashboard() {
   const activeProp = properties.find(p => p.id === activeId)!;
 
   return (
-    <div className="flex h-screen w-full bg-[#f6f5ef] p-4 gap-6 font-sans overflow-hidden selection:bg-blue-100">
+    <div className="flex min-h-screen w-full flex-col gap-4 overflow-y-auto bg-[#f6f5ef] p-3 font-sans selection:bg-blue-100 md:h-screen md:flex-row md:gap-6 md:overflow-hidden md:p-4">
       
       {/* 1. Left Navigation Sidebar */}
-      <nav className="w-16 h-full bg-white rounded-3xl flex flex-col items-center py-6 shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/3 z-20">
+      <nav aria-label="Dashboard navigation" className="hidden md:flex w-16 h-full shrink-0 bg-white rounded-3xl flex-col items-center py-6 shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-black/3 z-20">
         <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-8 shadow-sm border border-indigo-100/50 cursor-pointer hover:bg-indigo-100 transition-colors">
           <Sparkles className="w-4 h-4 text-indigo-500" />
         </div>
@@ -87,7 +87,7 @@ export default function PropertyDashboard() {
       </nav>
 
       {/* 2. Middle Column: Comparison List */}
-      <div className="flex-1 max-w-145 flex flex-col pt-1 h-full z-10">
+      <div className="w-full min-w-0 flex flex-col pt-1 md:h-full md:flex-1 md:max-w-145 z-10">
         
         {/* Top Header */}
         <div className="flex items-center justify-between mb-8 px-1">
@@ -221,12 +221,12 @@ export default function PropertyDashboard() {
       </div>
 
       {/* Resize Handle (Visual Only) */}
-      <div className="w-8 flex items-center justify-center h-full opacity-60">
+      <div className="hidden md:flex w-8 items-center justify-center h-full opacity-60">
         <div className="w-1 h-12 bg-black/5 rounded-full" />
       </div>
 
       {/* 3. Right Column: Detail View */}
-      <div className="flex-[1.5] h-full flex flex-col pt-1 pb-2 z-10">
+      <div className="w-full min-w-0 flex flex-col pt-1 pb-2 md:h-full md:flex-[1.5] z-10">
         
         {/* Top Breadcrumb */}
         <div className="flex items-center gap-3 mb-8 px-1">
