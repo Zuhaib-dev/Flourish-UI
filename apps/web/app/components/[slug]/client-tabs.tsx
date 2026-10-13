@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Check, ChevronDown, Clipboard, Code2, Copy, Terminal } from 'lucide-react'
 import type { ComponentEntry } from '@/config/components'
+import { playUiSound } from '@/app/ui-sounds'
 
 type PackageManager = 'pnpm' | 'npm' | 'bun' | 'yarn'
 
@@ -75,6 +76,7 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
   async function copy(text: string, type: NonNullable<typeof copied>) {
     try {
       await navigator.clipboard.writeText(text)
+      playUiSound('copy')
       setCopied(type)
       window.setTimeout(() => setCopied(null), 1800)
     } catch {
@@ -85,14 +87,14 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
   return (
     <section className="detail-tabs" aria-label="Install or inspect component source">
       <div className="detail-tabs-header" role="tablist" aria-label="Component resources">
-        <button role="tab" aria-selected={activeTab === 'install'} onClick={() => setActiveTab('install')} className={activeTab === 'install' ? 'active' : ''}><Terminal size={14} /> Install</button>
-        <button role="tab" aria-selected={activeTab === 'source'} onClick={() => setActiveTab('source')} className={activeTab === 'source' ? 'active' : ''}><Code2 size={14} /> Source</button>
+        <button role="tab" aria-selected={activeTab === 'install'} onClick={() => { if (activeTab !== 'install') playUiSound('tab'); setActiveTab('install') }} className={activeTab === 'install' ? 'active' : ''}><Terminal size={14} /> Install</button>
+        <button role="tab" aria-selected={activeTab === 'source'} onClick={() => { if (activeTab !== 'source') playUiSound('tab'); setActiveTab('source') }} className={activeTab === 'source' ? 'active' : ''}><Code2 size={14} /> Source</button>
         <span>REGISTRY ITEM</span>
       </div>
 
       {activeTab === 'install' ? (
         <div className="detail-install-content" role="tabpanel">
-          <div className="manager-row"><span>PACKAGE MANAGER</span><div>{(['pnpm', 'npm', 'bun', 'yarn'] as const).map((manager) => <button key={manager} onClick={() => setPackageManager(manager)} className={packageManager === manager ? 'active' : ''} aria-pressed={packageManager === manager}>{manager}</button>)}</div></div>
+          <div className="manager-row"><span>PACKAGE MANAGER</span><div>{(['pnpm', 'npm', 'bun', 'yarn'] as const).map((manager) => <button key={manager} onClick={() => { if (packageManager !== manager) playUiSound('tab'); setPackageManager(manager) }} className={packageManager === manager ? 'active' : ''} aria-pressed={packageManager === manager}>{manager}</button>)}</div></div>
 
           <div className="install-command-box"><div><Terminal size={13} /><code>{commands[packageManager]}</code></div><button onClick={() => copy(commands[packageManager], 'command')} aria-label="Copy install command">{copied === 'command' ? <Check size={14} /> : <Copy size={14} />}<span>{copied === 'command' ? 'Copied' : 'Copy command'}</span></button></div>
           <p className="install-destination"><Check size={12} /> Adds source to <code>components/flourish/</code></p>

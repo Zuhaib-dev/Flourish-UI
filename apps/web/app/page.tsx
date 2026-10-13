@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import { components, recentlyAddedSlugs, stats } from '@/config/components'
 import { HomeSearch, CopyInstallCommand } from './home-interactions'
+import SoundToggle from './sound-toggle'
 
 const FEATURED_SLUGS = [
   'admit-one-3-d-holographic-ticket',
@@ -39,6 +40,7 @@ export default function LandingPage() {
             <a className="nav-current" href="/components">Components <span>{stats.components}</span></a>
             <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
           </nav>
+          <SoundToggle />
           <HomeSearch items={components} />
         </div>
       </header>

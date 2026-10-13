@@ -16,6 +16,7 @@ import {
 import { notFound } from 'next/navigation'
 import { categorySlug, components, getComponent, installCommand, stats } from '@/config/components'
 import ClientDetailTabs from './client-tabs'
+import SoundToggle from '@/app/sound-toggle'
 
 function GithubIcon({ size = 15 }: { size?: number }) {
   return (
@@ -147,6 +148,7 @@ export default async function ComponentPage({
             >
               <span>Zuhaib Rashid</span> <ArrowUpRight size={11} className="opacity-50" />
             </a>
+            <SoundToggle />
           </div>
         </div>
       </header>
