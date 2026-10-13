@@ -12,12 +12,18 @@ import {
   Heart,
   LayoutGrid,
   List,
+  ArrowDownUp,
   Search,
   Terminal,
   X,
 } from 'lucide-react'
-import { categories, components, installCommand, stats } from '@/config/components'
+import { categories, components, installCommand, recentlyAddedSlugs, stats } from '@/config/components'
 import { playUiSound } from '../ui-sounds'
+
+function recentlyAddedRank(slug: string) {
+  const index = recentlyAddedSlugs.indexOf(slug)
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index
+}
 
 export default function CatalogBrowser() {
   const [selectedCategory, setSelectedCategory] = useState('All components')
@@ -28,6 +34,7 @@ export default function CatalogBrowser() {
   const [savedSlugs, setSavedSlugs] = useState<string[]>([])
   const [savedReady, setSavedReady] = useState(false)
   const [savedOnly, setSavedOnly] = useState(false)
+  const [sortBy, setSortBy] = useState<'recent' | 'name' | 'lightest'>('recent')
 
   useEffect(() => {
     try {
@@ -50,7 +57,13 @@ export default function CatalogBrowser() {
     const matchesQuery = !searchQuery.trim() || `${item.title} ${item.description} ${item.category} ${item.tags.join(' ')}`.toLowerCase().includes(searchQuery.trim().toLowerCase())
     const matchesSaved = !savedOnly || savedSlugs.includes(item.slug)
     return matchesCategory && matchesQuery && matchesSaved
-  }), [selectedCategory, searchQuery, savedOnly, savedSlugs])
+  }).sort((first, second) => {
+    if (sortBy === 'name') return first.title.localeCompare(second.title)
+    if (sortBy === 'lightest') return first.dependencies.length - second.dependencies.length || first.title.localeCompare(second.title)
+    const firstIndex = recentlyAddedRank(first.slug)
+    const secondIndex = recentlyAddedRank(second.slug)
+    return firstIndex - secondIndex || first.title.localeCompare(second.title)
+  }), [selectedCategory, searchQuery, savedOnly, savedSlugs, sortBy])
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { 'All components': components.length }
@@ -108,6 +121,7 @@ export default function CatalogBrowser() {
             <div className="catalog-toolbar-title"><span>01</span><div><strong>Browse the collection</strong><small>{filteredComponents.length} {filteredComponents.length === 1 ? 'result' : 'results'}</small></div></div>
             <div className="catalog-controls">
               <label className="catalog-search"><Search size={14} /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search components" aria-label="Search components" />{searchQuery && <button onClick={() => setSearchQuery('')} aria-label="Clear search"><X size={13} /></button>}</label>
+              <label className="catalog-sort"><ArrowDownUp size={13} /><span className="sr-only">Sort components</span><select value={sortBy} onChange={(event) => { playUiSound('filter'); setSortBy(event.target.value as typeof sortBy) }} aria-label="Sort components"><option value="recent">Recently added</option><option value="name">Name: A to Z</option><option value="lightest">Fewest dependencies</option></select></label>
               <button className={`saved-filter${savedOnly ? ' selected' : ''}`} onClick={() => { playUiSound('filter'); setSavedOnly((active) => !active) }} aria-pressed={savedOnly}><Heart size={13} fill={savedOnly ? 'currentColor' : 'none'} /><span>Saved</span><span>{savedSlugs.length}</span></button>
               <div className="catalog-view-switch" aria-label="View mode"><button onClick={() => { if (viewMode !== 'grid') playUiSound('tab'); setViewMode('grid') }} className={viewMode === 'grid' ? 'selected' : ''} aria-label="Grid view"><LayoutGrid size={15} /></button><button onClick={() => { if (viewMode !== 'list') playUiSound('tab'); setViewMode('list') }} className={viewMode === 'list' ? 'selected' : ''} aria-label="List view"><List size={15} /></button></div>
             </div>

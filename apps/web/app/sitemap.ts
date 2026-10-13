@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${siteUrl}/`, changeFrequency: 'weekly', priority: 1 },
     { url: `${siteUrl}/components`, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${siteUrl}/registry`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${siteUrl}/changelog`, changeFrequency: 'weekly', priority: 0.65 },
     ...categories.slice(1).map((category) => ({ url: `${siteUrl}/categories/${categorySlug(category)}`, changeFrequency: 'weekly' as const, priority: 0.75 })),
     ...components.map(({ slug, previewImage }) => ({
       url: `${siteUrl}/components/${slug}`,

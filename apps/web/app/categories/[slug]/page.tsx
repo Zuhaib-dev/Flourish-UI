@@ -49,6 +49,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <div className="premium-card-content"><div className="premium-card-category"><span>{item.category}</span><span>{item.dependencies.length ? `${item.dependencies.length} packages` : 'No dependencies'}</span></div><a href={`/components/${item.slug}`} className="premium-card-title">{item.title}</a><p>{item.description}</p><div className="premium-card-footer"><a href={`/components/${item.slug}`}>Explore component <ArrowUpRight size={13} /></a></div></div>
         </article>)}
       </section>
+      <section className="category-explorer" aria-labelledby="category-explorer-heading"><div><span className="section-kicker">KEEP EXPLORING</span><h2 id="category-explorer-heading">Find another direction.</h2></div><div>{categoryNames.filter((item) => item !== category).map((item) => <a key={item} href={`/categories/${categorySlug(item)}`}>{item}<span>{components.filter((component) => component.category === item).length}</span><ArrowUpRight size={13} /></a>)}</div></section>
       <a className="category-back-link" href="/components"><ArrowLeft size={14} /> Browse all components</a>
     </div>
     <footer className="catalog-footer"><a href="/" className="catalog-brand"><span className="catalog-brand-mark">✳</span><span>flourish<span>.</span></span></a><span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span><span>© 2026</span></footer>
