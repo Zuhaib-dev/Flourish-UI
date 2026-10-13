@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { Check, Command, Copy, Search, X, ArrowUpRight } from 'lucide-react'
 import { installCommand, type ComponentEntry } from '@/config/components'
@@ -27,13 +28,13 @@ export function HomeSearch({ items }: { items: ComponentEntry[] }) {
 
   return <>
     <button className="nav-search" onClick={() => setOpen(true)} aria-label="Search components"><Search size={15} /><span>Search</span><kbd><Command size={10} /> K</kbd></button>
-    {open && <div className="search-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false) }}>
+    {open && createPortal(<div className="search-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false) }}>
       <div className="search-dialog" role="dialog" aria-modal="true" aria-label="Search components">
         <div className="search-dialog-input"><Search size={17} /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a component..." /><button onClick={() => setOpen(false)} aria-label="Close search"><X size={16} /></button></div>
         <div className="search-results">{results.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><Image src={item.previewImage} alt="" width={108} height={76} sizes="54px" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{results.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div>
         <div className="search-hint"><span>Search by title, style, or category</span><kbd>ESC</kbd></div>
       </div>
-    </div>}
+    </div>, document.body)}
   </>
 }
 

@@ -400,7 +400,7 @@ button { cursor: pointer; }
 .home-footer > span:first-of-type { margin-right: auto; }
 .home-footer > span a { color: #46463f; }
 .footer-github { display: inline-flex; align-items: center; gap: 6px; color: #46463f; }
-.search-overlay { position: fixed; inset: 0; z-index: 110; display: grid; place-items: start center; padding: min(18vh, 150px) 18px 20px; background: #17171277; backdrop-filter: blur(5px); }
+.search-overlay { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: start center; padding: min(18vh, 150px) 18px 20px; background: #171712e8; backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); }
 .search-dialog { width: min(100%, 560px); overflow: hidden; border: 1px solid #d8d6cc; border-radius: 10px; background: #f8f7f2; box-shadow: 0 24px 80px #0003; }
 .search-dialog-input { height: 58px; display: flex; align-items: center; gap: 12px; padding: 0 17px; color: #77776e; border-bottom: 1px solid var(--line); }
 .search-dialog-input input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 13px; }
