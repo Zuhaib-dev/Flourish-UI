@@ -306,7 +306,7 @@ const CreditCardForm = ({
         </form>
       </div>
 
-      <style>{`
+      <style jsx>{`
         .ccp {
           width: 100vw;
           display: flex;

@@ -238,7 +238,7 @@ export default function AnimationPage() {
         </div>
       </div>
 
-      <style>{`
+      <style jsx>{`
         .dither-pattern {
           background-image: 
             repeating-linear-gradient(0deg, transparent 0px, transparent 1px, white 1px, white 2px),
