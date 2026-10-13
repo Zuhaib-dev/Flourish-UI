@@ -32,7 +32,7 @@ export default function AdmitOneTicketDemo() {
           width={ticketWidth}
         />
         <p className="max-w-full text-center text-xs font-mono text-zinc-500">
-          Move your cursor over the ticket to experience dynamic 3D tilt, holographic foil, and specular highlights.
+          Drag across the ticket on touch screens, or move your cursor, to explore the 3D tilt and holographic foil.
         </p>
       </div>
     </div>

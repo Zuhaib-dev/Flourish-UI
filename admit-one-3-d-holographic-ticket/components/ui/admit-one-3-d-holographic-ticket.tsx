@@ -1910,7 +1910,7 @@ function TiltCard({
       onPointerEnter={() => setHovering(true)}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className={`relative w-fit will-change-transform ${className ?? ""}`}
+      className={`relative w-fit touch-pan-y will-change-transform ${className ?? ""}`}
       style={{
         transition: hovering ? "none" : "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
         transform: "perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)",
