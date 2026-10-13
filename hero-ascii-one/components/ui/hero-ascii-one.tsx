@@ -64,10 +64,10 @@ export default function AnimationPage() {
       ];
       
       selectors.forEach(selector => {
-        const containers = document.querySelectorAll(selector);
+        const containers = document.querySelectorAll<HTMLElement>(selector);
         containers.forEach(container => {
           // Find and remove any elements containing branding text
-          const allElements = container.querySelectorAll('*');
+          const allElements = container.querySelectorAll<HTMLElement>('*');
           allElements.forEach(el => {
             const text = (el.textContent || '').toLowerCase();
             const title = (el.getAttribute('title') || '').toLowerCase();
@@ -238,7 +238,7 @@ export default function AnimationPage() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .dither-pattern {
           background-image: 
             repeating-linear-gradient(0deg, transparent 0px, transparent 1px, white 1px, white 2px),

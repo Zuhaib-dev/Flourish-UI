@@ -19,6 +19,17 @@ export const categories = [
   'Interactive Surfaces',
 ]
 
+export const categorySlug = (category: string) => category.toLowerCase().replace(/ & /g, '-').replace(/[^a-z0-9]+/g, '-')
+export const categoryDescriptions: Record<string, string> = {
+  'Shaders & WebGL': 'Shader-driven visuals, WebGL effects, and interactive graphics ready to bring depth to your interface.',
+  'Skeuomorphic & 3D': 'Tactile, dimensional interfaces with thoughtful materials, depth, and physical interaction.',
+  'Canvas & Generative': 'Generative visuals and canvas-powered experiences built for expressive interfaces.',
+  'Motion & Physics': 'Components shaped by motion, spring physics, and playful response to user input.',
+  'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
+  'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
+}
+export const recentlyAddedSlugs = ['waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
+
 export const components: ComponentEntry[] = [
   {
     "slug": "admit-one-3-d-holographic-ticket",
@@ -33,7 +44,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "lime",
     "dependencies": [],
-    "previewImage": "/previews/admit-one-3-d-holographic-ticket.png"
+    "previewImage": "/previews/admit-one-3-d-holographic-ticket.webp"
   },
   {
     "slug": "agent-orchestration-dashboard",
@@ -50,7 +61,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/agent-orchestration-dashboard.png"
+    "previewImage": "/previews/agent-orchestration-dashboard.webp"
   },
   {
     "slug": "auth-section-1",
@@ -66,7 +77,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "@paper-design/shaders-react"
     ],
-    "previewImage": "/previews/auth-section-1.png"
+    "previewImage": "/previews/auth-section-1.webp"
   },
   {
     "slug": "bloom-select",
@@ -81,7 +92,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "framer-motion"
     ],
-    "previewImage": "/previews/bloom-select.png"
+    "previewImage": "/previews/bloom-select.webp"
   },
   {
     "slug": "cold-flame-drift",
@@ -96,7 +107,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "yellow",
     "dependencies": [],
-    "previewImage": "/previews/cold-flame-drift.png"
+    "previewImage": "/previews/cold-flame-drift.webp"
   },
   {
     "slug": "contribution-skyline",
@@ -109,7 +120,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "coral",
     "dependencies": [],
-    "previewImage": "/previews/contribution-skyline.png"
+    "previewImage": "/previews/contribution-skyline.webp"
   },
   {
     "slug": "credit-card-form",
@@ -122,7 +133,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "emerald",
     "dependencies": [],
-    "previewImage": "/previews/credit-card-form.png"
+    "previewImage": "/previews/credit-card-form.webp"
   },
   {
     "slug": "dashboard-may-look-minimal",
@@ -139,7 +150,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/dashboard-may-look-minimal.png"
+    "previewImage": "/previews/dashboard-may-look-minimal.webp"
   },
   {
     "slug": "daybreak-editorial",
@@ -157,7 +168,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/daybreak-editorial.png"
+    "previewImage": "/previews/daybreak-editorial.webp"
   },
   {
     "slug": "digital-journal-album",
@@ -173,7 +184,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "framer-motion"
     ],
-    "previewImage": "/previews/digital-journal-album.png"
+    "previewImage": "/previews/digital-journal-album.webp"
   },
   {
     "slug": "digital-signature-modal",
@@ -190,7 +201,7 @@ export const components: ComponentEntry[] = [
       "lucide-react",
       "react-signature-canvas"
     ],
-    "previewImage": "/previews/digital-signature-modal.png"
+    "previewImage": "/previews/digital-signature-modal.webp"
   },
   {
     "slug": "draggable-widget-grid",
@@ -206,7 +217,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "motion"
     ],
-    "previewImage": "/previews/draggable-widget-grid.png"
+    "previewImage": "/previews/draggable-widget-grid.webp"
   },
   {
     "slug": "flow-ai-canvas",
@@ -224,7 +235,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/flow-ai-canvas.png"
+    "previewImage": "/previews/flow-ai-canvas.webp"
   },
   {
     "slug": "hero-ascii-one",
@@ -237,7 +248,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "blue",
     "dependencies": [],
-    "previewImage": "/previews/hero-ascii-one.png"
+    "previewImage": "/previews/hero-ascii-one.webp"
   },
   {
     "slug": "ink-orbit-hero",
@@ -251,7 +262,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "violet",
     "dependencies": [],
-    "previewImage": "/previews/ink-orbit-hero.png"
+    "previewImage": "/previews/ink-orbit-hero.webp"
   },
   {
     "slug": "isometric-dashboard",
@@ -268,7 +279,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/isometric-dashboard.png"
+    "previewImage": "/previews/isometric-dashboard.webp"
   },
   {
     "slug": "kinetic-hover",
@@ -283,7 +294,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "framer-motion"
     ],
-    "previewImage": "/previews/kinetic-hover.png"
+    "previewImage": "/previews/kinetic-hover.webp"
   },
   {
     "slug": "live-notification-feed",
@@ -296,7 +307,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "emerald",
     "dependencies": [],
-    "previewImage": "/previews/live-notification-feed.png"
+    "previewImage": "/previews/live-notification-feed.webp"
   },
   {
     "slug": "particle-wordmark",
@@ -311,7 +322,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "indigo",
     "dependencies": [],
-    "previewImage": "/previews/particle-wordmark.png"
+    "previewImage": "/previews/particle-wordmark.webp"
   },
   {
     "slug": "post-planner-calendar",
@@ -328,7 +339,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/post-planner-calendar.png"
+    "previewImage": "/previews/post-planner-calendar.webp"
   },
   {
     "slug": "prisma-hero",
@@ -345,7 +356,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/prisma-hero.png"
+    "previewImage": "/previews/prisma-hero.webp"
   },
   {
     "slug": "proma-content-workspace",
@@ -362,7 +373,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/proma-content-workspace.png"
+    "previewImage": "/previews/proma-content-workspace.webp"
   },
   {
     "slug": "property-comparison-dashboard",
@@ -380,7 +391,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/property-comparison-dashboard.png"
+    "previewImage": "/previews/property-comparison-dashboard.webp"
   },
   {
     "slug": "quadrant-workspace-setup",
@@ -395,7 +406,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "lucide-react"
     ],
-    "previewImage": "/previews/quadrant-workspace-setup.png"
+    "previewImage": "/previews/quadrant-workspace-setup.webp"
   },
   {
     "slug": "seo-agent-chat-ui",
@@ -412,7 +423,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/seo-agent-chat-ui.png"
+    "previewImage": "/previews/seo-agent-chat-ui.webp"
   },
   {
     "slug": "share-file-dialog",
@@ -429,7 +440,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/share-file-dialog.png"
+    "previewImage": "/previews/share-file-dialog.webp"
   },
   {
     "slug": "skeuomorphic-notebook",
@@ -448,7 +459,7 @@ export const components: ComponentEntry[] = [
       "lucide-react",
       "react-signature-canvas"
     ],
-    "previewImage": "/previews/skeuomorphic-notebook.png"
+    "previewImage": "/previews/skeuomorphic-notebook.webp"
   },
   {
     "slug": "skeuomorphic-verify-email",
@@ -461,7 +472,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "coral",
     "dependencies": [],
-    "previewImage": "/previews/skeuomorphic-verify-email.png"
+    "previewImage": "/previews/skeuomorphic-verify-email.webp"
   },
   {
     "slug": "skiper39",
@@ -476,7 +487,7 @@ export const components: ComponentEntry[] = [
     "dependencies": [
       "gsap"
     ],
-    "previewImage": "/previews/skiper39.png"
+    "previewImage": "/previews/skiper39.webp"
   },
   {
     "slug": "split-signup-modal",
@@ -493,7 +504,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/split-signup-modal.png"
+    "previewImage": "/previews/split-signup-modal.webp"
   },
   {
     "slug": "ticket-stub-footer",
@@ -507,7 +518,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "rose",
     "dependencies": [],
-    "previewImage": "/previews/ticket-stub-footer.png"
+    "previewImage": "/previews/ticket-stub-footer.webp"
   },
   {
     "slug": "travel-booking-bento",
@@ -524,7 +535,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/travel-booking-bento.png"
+    "previewImage": "/previews/travel-booking-bento.webp"
   },
   {
     "slug": "velocity-spring-system",
@@ -540,7 +551,7 @@ export const components: ComponentEntry[] = [
       "framer-motion",
       "lucide-react"
     ],
-    "previewImage": "/previews/velocity-spring-system.png"
+    "previewImage": "/previews/velocity-spring-system.webp"
   },
   {
     "slug": "voyage-planner",
@@ -572,7 +583,7 @@ export const components: ComponentEntry[] = [
     ],
     "tone": "peach",
     "dependencies": [],
-    "previewImage": "/previews/waves-shaders-homlu-ui.png"
+    "previewImage": "/previews/waves-shaders-homlu-ui.webp"
   }
 ]
 

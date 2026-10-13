@@ -45,7 +45,7 @@ export type LiveNotification =
 
 export type NotificationKind = LiveNotification["kind"];
 
-export interface LiveNotificationFeedProps extends React.ComponentProps<"div"> {
+export interface LiveNotificationFeedProps extends Omit<React.ComponentProps<"div">, "ref"> {
   /** Notifications in the order they arrived. The newest sits on top, and items appended later land with their story. */
   items: LiveNotification[];
   title?: string;
@@ -62,6 +62,7 @@ export interface LiveNotificationFeedProps extends React.ComponentProps<"div"> {
   onOpen?: (id: string) => void;
   onAction?: (id: string, label: string) => void;
   onDismiss?: (id: string) => void;
+  ref?: (instance: HTMLDivElement | null) => void;
 }
 
 interface Entry {

@@ -28,9 +28,6 @@ const nextConfig = {
       'react-dom': path.join(appDirectory, 'node_modules/react-dom'),
     },
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 }
 
 export default nextConfig

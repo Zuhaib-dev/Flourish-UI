@@ -14,7 +14,7 @@ import {
   Cpu,
 } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { components, getComponent, installCommand, stats } from '@/config/components'
+import { categorySlug, components, getComponent, installCommand, stats } from '@/config/components'
 import ClientDetailTabs from './client-tabs'
 
 function GithubIcon({ size = 15 }: { size?: number }) {
@@ -293,10 +293,10 @@ export default async function ComponentPage({
                 </h3>
               </div>
               <a
-                href="/components"
+                href={`/categories/${categorySlug(component.category)}`}
                 className="text-xs font-mono text-zinc-500 hover:text-zinc-950 transition-colors flex items-center gap-1"
               >
-                <span>View all {stats.components}</span> <ArrowUpRight size={13} />
+                <span>Browse {component.category}</span> <ArrowUpRight size={13} />
               </a>
             </div>
 
@@ -431,13 +431,13 @@ export async function generateMetadata({
       title: `${title} | Flourish UI`,
       description,
       url: `/components/${slug}`,
-      images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
+      images: [{ url: component.previewImage.replace(/\.webp$/, '.jpg'), alt: `${component.title} component preview` }],
     } : undefined,
     twitter: component ? {
       card: 'summary_large_image',
       title: `${title} | Flourish UI`,
       description,
-      images: [{ url: component.previewImage, alt: `${component.title} component preview` }],
+      images: [{ url: component.previewImage.replace(/\.webp$/, '.jpg'), alt: `${component.title} component preview` }],
     } : undefined,
   }
 }

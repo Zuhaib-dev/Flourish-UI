@@ -513,6 +513,21 @@ button { cursor: pointer; }
 .catalog-intro h1 { margin: 18px 0 14px; font: 500 clamp(52px, 6.2vw, 79px)/.96 Georgia, 'Times New Roman', serif; letter-spacing: -4px; }
 .catalog-intro h1 em, .catalog-endcap p em { color: var(--orange); font-weight: 400; }
 .catalog-intro-copy > p { max-width: 440px; margin: 0; color: var(--muted-ink); font-size: 12px; line-height: 1.8; }
+.catalog-category-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; max-width: 650px; }
+.catalog-category-links a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; color: var(--muted-ink); font: 10px/1.2 var(--font-mono, monospace); text-decoration: none; transition: border-color .2s, color .2s, background .2s; }
+.catalog-category-links a:hover { border-color: var(--orange); color: var(--ink); background: #fffaf5; }
+.catalog-category-links a span { color: var(--orange); }
+.catalog-island-search { display: flex; margin: 18px 0 0 auto; }
+.category-page .catalog-main { max-width: 1180px; }
+.category-intro { min-height: 270px; }
+.category-intro h1 { max-width: 760px; }
+.category-intro h1 span { display: inline; }
+.category-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; padding: 38px 0; }
+.category-component-card .premium-card-image { display: block; position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.category-component-card .premium-card-image img { object-fit: cover; }
+.category-back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted-ink); font-size: 12px; padding: 0 0 36px; text-decoration: none; }
+.category-back-link:hover { color: var(--orange); }
+@media (max-width: 760px) { .category-card-grid { grid-template-columns: 1fr; } .catalog-category-links { gap: 6px; } }
 .catalog-summary { display: flex; align-items: center; gap: 24px; padding-bottom: 6px; }
 .catalog-summary > div { display: grid; gap: 5px; }
 .catalog-summary strong { font: 500 27px Georgia, 'Times New Roman', serif; }

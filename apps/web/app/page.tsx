@@ -1,25 +1,17 @@
-'use client'
-
-import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  Check,
-  Command,
-  Copy,
   Code2,
   Layers3,
   MousePointer2,
-  Search,
   Sparkles,
   Terminal,
   WandSparkles,
-  X,
 } from 'lucide-react'
-import { components, installCommand, stats } from '@/config/components'
+import { components, recentlyAddedSlugs, stats } from '@/config/components'
+import { HomeSearch, CopyInstallCommand } from './home-interactions'
 
 const FEATURED_SLUGS = [
   'admit-one-3-d-holographic-ticket',
@@ -31,41 +23,8 @@ const FEATURED_SLUGS = [
 ]
 
 export default function LandingPage() {
-  const [query, setQuery] = useState('')
-  const [paletteOpen, setPaletteOpen] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const featured = useMemo(
-    () => FEATURED_SLUGS.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined),
-    [],
-  )
-  const results = useMemo(() => {
-    const normalized = query.trim().toLowerCase()
-    return components
-      .filter((item) => !normalized || `${item.title} ${item.description} ${item.category} ${item.tags.join(' ')}`.toLowerCase().includes(normalized))
-      .slice(0, 7)
-  }, [query])
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
-        event.preventDefault()
-        setPaletteOpen((open) => !open)
-      }
-      if (event.key === 'Escape') setPaletteOpen(false)
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
-
-  async function copyCommand(command: string) {
-    try {
-      await navigator.clipboard.writeText(command)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1800)
-    } catch {
-      setCopied(false)
-    }
-  }
+  const featured = FEATURED_SLUGS.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined)
+  const recentlyAdded = recentlyAddedSlugs.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined).reverse()
 
   return (
     <main className="flourish-home min-h-screen overflow-hidden text-[#191916]">
@@ -80,9 +39,7 @@ export default function LandingPage() {
             <a className="nav-current" href="/components">Components <span>{stats.components}</span></a>
             <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
           </nav>
-          <button className="nav-search" onClick={() => setPaletteOpen(true)} aria-label="Search components">
-            <Search size={15} /><span>Search</span><kbd><Command size={10} /> K</kbd>
-          </button>
+          <HomeSearch items={components} />
         </div>
       </header>
 
@@ -157,6 +114,16 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section className="selected-section recently-added-section" aria-labelledby="recent-title">
+        <div className="section-heading"><div><span className="section-kicker">FRESH FROM THE STUDIO</span><h2 id="recent-title">Recently added.</h2></div><a href="/components" className="bento-all-link">Browse the full collection <ArrowRight size={14} /></a></div>
+        <div className="selected-grid">
+          {recentlyAdded.slice(0, 3).map((item, index) => <a key={item.slug} href={`/components/${item.slug}`} className={`selected-card selected-card-${index + 1}`}>
+            <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
+            <div className="selected-meta"><span>{item.category}</span><span>NEW</span></div><h3>{item.title}</h3><p>{item.description}</p>
+          </a>)}
+        </div>
+      </section>
+
       <section className="selected-section" id="selected">
         <div className="section-heading">
           <div><span className="section-kicker">A SMALL TOUR</span><h2>Distinct by design.</h2></div>
@@ -164,20 +131,16 @@ export default function LandingPage() {
         </div>
         <div className="selected-grid">
           {featured.slice(1).map((item, index) => (
-            <motion.a
+            <a
               key={item.slug}
               href={`/components/${item.slug}`}
               className={`selected-card selected-card-${index + 1}`}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.45, delay: index * 0.06 }}
             >
               <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
               <div className="selected-meta"><span>{item.category}</span><span>{String(index + 2).padStart(2, '0')}</span></div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-            </motion.a>
+            </a>
           ))}
         </div>
       </section>
@@ -185,9 +148,9 @@ export default function LandingPage() {
       <section className="install-section">
         <div className="install-copy"><span className="section-kicker">YOURS TO SHAPE</span><h2>Start with the good part.</h2><p>Each component comes as source code. Bring it into your project, tune the details, and make it feel like yours.</p><a href="/components" className="install-link">Browse all {stats.components} components <ArrowRight size={15} /></a></div>
         <div className="terminal-card">
-          <div className="terminal-top"><div className="terminal-lights"><i /><i /><i /></div><span>YOUR TERMINAL</span><button onClick={() => copyCommand(installCommand('admit-one-3-d-holographic-ticket'))} aria-label="Copy install command">{copied ? <Check size={14} /> : <Copy size={14} />}</button></div>
+          <div className="terminal-top"><div className="terminal-lights"><i /><i /><i /></div><span>YOUR TERMINAL</span><CopyInstallCommand /></div>
           <div className="terminal-command"><span className="terminal-prompt">$</span><code>pnpm dlx shadcn@latest add<br /><span>https://flourish-ui.vercel.app/r/admit-one-3-d-holographic-ticket.json</span></code></div>
-          <div className="terminal-bottom"><Terminal size={13} /> One command. Full source. <span>{copied ? 'Copied' : 'Ready when you are'}</span></div>
+          <div className="terminal-bottom"><Terminal size={13} /> One command. Full source. <span>Ready when you are</span></div>
         </div>
       </section>
 
@@ -198,17 +161,6 @@ export default function LandingPage() {
         <span>© 2026</span>
       </footer>
 
-      <AnimatePresence>
-        {paletteOpen && (
-          <motion.div className="search-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setPaletteOpen(false) }}>
-            <motion.div className="search-dialog" initial={{ opacity: 0, y: 12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: 0.98 }}>
-              <div className="search-dialog-input"><Search size={17} /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a component..." /><button onClick={() => setPaletteOpen(false)} aria-label="Close search"><X size={16} /></button></div>
-              <div className="search-results">{results.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><Image src={item.previewImage} alt="" width={108} height={76} sizes="54px" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{results.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div>
-              <div className="search-hint"><span>Search by title, style, or category</span><kbd>ESC</kbd></div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   )
 }
