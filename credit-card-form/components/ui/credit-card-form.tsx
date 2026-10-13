@@ -306,7 +306,8 @@ const CreditCardForm = ({
         </form>
       </div>
 
-      <style jsx>{`
+      <style>{`
+
         .ccp {
           width: 100vw;
           display: flex;
@@ -315,7 +316,7 @@ const CreditCardForm = ({
           background: #fbfcff;
           color: #0d0c22;
         }
-        .wrap {
+        .ccp .wrap {
           width: 100vw;
           max-width: 1000px;
           display: grid;
@@ -325,16 +326,16 @@ const CreditCardForm = ({
         }
 
         @media (max-width: 920px) {
-          .wrap {
+          .ccp .wrap {
             grid-template-columns: 1fr;
           }
         }
 
-        * {
+        .ccp, .ccp * {
           box-sizing: border-box;
         }
 
-        #highlight {
+        .ccp #highlight {
           position: absolute;
           border: 1px solid #fff;
           border-radius: 12px;
@@ -346,35 +347,35 @@ const CreditCardForm = ({
           box-shadow: 0 0 5px #fff;
           transition: 0.3s;
         }
-        #highlight.highlight__number {
+        .ccp #highlight.highlight__number {
           width: 346px;
           height: 40px;
           top: 92px;
           left: 18px;
         }
-        #highlight.highlight__holder {
+        .ccp #highlight.highlight__holder {
           width: 264px;
           height: 56px;
           top: 156px;
           left: 18px;
         }
-        #highlight.highlight__expire {
+        .ccp #highlight.highlight__expire {
           width: 86px;
           height: 56px;
           top: 156px;
           left: 323px;
         }
-        #highlight.highlight__cvv {
+        .ccp #highlight.highlight__cvv {
           width: 381px;
           height: 91px;
           top: 83px;
           left: 18px;
         }
-        #highlight.hidden {
+        .ccp #highlight.hidden {
           display: none;
         }
 
-        .card {
+        .ccp .card {
           position: relative;
           width: 100%;
           max-width: 420px;
@@ -383,12 +384,11 @@ const CreditCardForm = ({
           transition: 0.8s;
           perspective: 1000px;
         }
-        .card.flip {
+        .ccp .card.flip {
           transform: rotateY(180deg);
         }
 
-        .card__front,
-        .card__back {
+        .ccp .card__front, .ccp .card__back {
           width: 100%;
           max-width: 420px;
           height: 233px;
@@ -404,30 +404,29 @@ const CreditCardForm = ({
         }
 
         @media (max-width: 450px) {
-          .card__front,
-          .card__back {
+          .ccp .card__front, .ccp .card__back {
             padding: 12px 14px 16px;
             height: 206px;
           }
           /* shrink highlight boxes for small screens */
-          #highlight.highlight__number {
+          .ccp #highlight.highlight__number {
             width: 300px;
             left: 14px;
           }
-          #highlight.highlight__holder {
+          .ccp #highlight.highlight__holder {
             width: 220px;
             left: 14px;
           }
-          #highlight.highlight__expire {
+          .ccp #highlight.highlight__expire {
             left: 280px;
           }
-          #highlight.highlight__cvv {
+          .ccp #highlight.highlight__cvv {
             width: 330px;
             left: 14px;
           }
         }
 
-        .card__back {
+        .ccp .card__back {
           position: absolute;
           top: 0;
           left: 0;
@@ -435,8 +434,7 @@ const CreditCardForm = ({
           padding: 24px 0 0;
         }
 
-        .card__front::before,
-        .card__back::before {
+        .ccp .card__front::before, .ccp .card__back::before {
           content: "";
           position: absolute;
           border: 16px solid var(--ring1, ${ring1});
@@ -448,8 +446,7 @@ const CreditCardForm = ({
           filter: blur(13px);
         }
 
-        .card__front::after,
-        .card__back::after {
+        .ccp .card__front::after, .ccp .card__back::after {
           content: "";
           position: absolute;
           border: 16px solid var(--ring2, ${ring2});
@@ -461,7 +458,7 @@ const CreditCardForm = ({
           filter: blur(13px);
         }
 
-        .card__hide_line {
+        .ccp .card__hide_line {
           height: 40px;
           width: 100%;
           background-color: #6b7280;
@@ -469,7 +466,7 @@ const CreditCardForm = ({
           z-index: 1;
         }
 
-        .card_cvv {
+        .ccp .card_cvv {
           position: relative;
           z-index: 1;
           margin-top: 24px;
@@ -481,7 +478,7 @@ const CreditCardForm = ({
           font-weight: 600;
           text-transform: uppercase;
         }
-        .card_cvv_field {
+        .ccp .card_cvv_field {
           margin-top: 6px;
           background-color: #fff;
           border-radius: 12px;
@@ -496,7 +493,7 @@ const CreditCardForm = ({
           line-height: 21px;
         }
 
-        .card__header {
+        .ccp .card__header {
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -506,7 +503,7 @@ const CreditCardForm = ({
           z-index: 1;
         }
 
-        .card__number {
+        .ccp .card__number {
           font-size: 22px;
           margin-bottom: 32px;
           position: relative;
@@ -517,16 +514,16 @@ const CreditCardForm = ({
           color: #fff;
         }
 
-        .card__number .slot {
+        .ccp .card__number .slot {
           display: inline-flex;
           margin-right: 0;
         }
 
-        .card__number .slot:nth-child(4n) {
+        .ccp .card__number .slot:nth-child(4n) {
           margin-right: 10px;    /* group spacing */
         }
 
-        .card__number .digit {
+        .ccp .card__number .digit {
           display: flex;
           flex-direction: column;
           height: 33px;          /* one row height */
@@ -534,32 +531,32 @@ const CreditCardForm = ({
           transition: transform 0.2s;
         }
 
-        .card__number .digit.filed {
+        .ccp .card__number .digit.filed {
           transform: translateY(-33px); /* slide to reveal the value row */
         }
 
-        .card__number .row {
+        .ccp .card__number .row {
           height: 33px;
           display: block;
         }
 
-        .card__footer {
+        .ccp .card__footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
           position: relative;
           z-index: 1;
         }
-        .card__holder {
+        .ccp .card__holder {
           text-transform: uppercase;
         }
-        .card__section__title {
+        .ccp .card__section__title {
           font-size: 14px;
           font-weight: 600;
           text-transform: uppercase;
         }
 
-        .form {
+        .ccp .form {
           border-radius: 12px;
           background: #fff;
           width: 100%;
@@ -573,15 +570,14 @@ const CreditCardForm = ({
           color: #0d0c22;
         }
 
-        label {
+        .ccp label {
           display: block;
           margin: 6px 0 4px;
           color: #0d0c22;
           font-weight: 500;
         }
 
-        input,
-        select {
+        .ccp input, .ccp select {
           height: 52px;
           display: block;
           width: 100%;
@@ -595,41 +591,40 @@ const CreditCardForm = ({
           font-size: 16px;
         }
 
-        input:focus,
-        select:focus {
+        .ccp input:focus, .ccp select:focus {
           border: 1px solid #000;
           outline: 4px solid rgba(0, 0, 0, 0.1);
         }
 
-        select {
+        .ccp select {
           padding: 0 20px;
         }
 
-        .filed__group {
+        .ccp .filed__group {
           display: grid;
           grid-template-columns: 2fr 1fr;
           gap: 24px;
         }
 
         @media (max-width: 560px) {
-          .filed__group {
+          .ccp .filed__group {
             grid-template-columns: 1fr;
           }
         }
 
-        .filed__date {
+        .ccp .filed__date {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 12px;
         }
 
-        .err {
+        .ccp .err {
           color: #b42318;
           font-size: 12px;
           margin-top: 4px;
         }
 
-        .submit {
+        .ccp .submit {
           margin-top: 8px;
           height: 48px;
           border: none;
@@ -640,6 +635,7 @@ const CreditCardForm = ({
           cursor: pointer;
           opacity: ${validity.allValid ? 1 : 0.6};
         }
+      
       `}</style>
     </section>
   );
