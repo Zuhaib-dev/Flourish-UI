@@ -40,8 +40,7 @@ export default function LandingPage() {
             <a className="nav-current" href="/components">Components <span>{stats.components}</span></a>
             <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
           </nav>
-          <SoundToggle />
-          <HomeSearch items={components} />
+          <div className="home-nav-actions"><SoundToggle /><HomeSearch items={components} /></div>
         </div>
       </header>
 

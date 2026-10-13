@@ -254,6 +254,7 @@ button { cursor: pointer; }
 .home-nav, .home-hero, .collection-strip, .home-bento, .selected-section, .install-section, .home-footer { position: relative; z-index: 1; }
 .home-nav { height: 76px; border-bottom: 1px solid var(--line); }
 .home-nav-inner { height: 100%; max-width: 1320px; padding: 0 42px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.home-nav-actions { display: flex; align-items: center; gap: 9px; margin-left: auto; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 700; letter-spacing: -.9px; }
 .brand-mark, .catalog-brand-mark { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 auto; }
 .brand-mark svg, .catalog-brand-mark svg { display: block; width: 100%; height: 100%; overflow: visible; }
@@ -441,9 +442,8 @@ button { cursor: pointer; }
   .home-nav { height: 66px; }
   .home-nav-inner { padding: 0 18px; }
   .brand { font-size: 20px; }
-  .nav-links { position: static; transform: none; margin-left: auto; margin-right: 15px; gap: 0; }
-  .nav-links a:not(.nav-current) { display: none; }
-  .nav-current { font-size: 11px; }
+  .nav-links { display: none; }
+  .home-nav-actions { gap: 7px; }
   .nav-search { padding: 8px; }
   .nav-search > span, .nav-search kbd { display: none; }
   .home-hero { display: flex; flex-direction: column; align-items: stretch; padding: 52px 20px 48px; gap: 42px; }
@@ -783,6 +783,12 @@ button { cursor: pointer; }
   .manager-row { align-items: flex-start; flex-direction: column; }
   .source-filebar { flex-wrap: wrap; }
   .source-filebar > span:nth-child(2) { margin-left: auto; }
+}
+@media (max-width: 380px) {
+  .premium-detail .site-header .detail-container > div:nth-child(2) > a:first-child { display: none; }
+  .premium-detail .site-header .detail-container { gap: 8px; }
+  .home-nav-inner { padding: 0 12px; }
+  .home-nav-actions { gap: 5px; }
 }
 
 .code-scroll-container pre {
