@@ -500,4 +500,4 @@ export default function RasterDynamicsWordmark({
 
 type PointerEv = PointerEvent
 
-export { RasterDynamicsWordmark as HalftoneWordmarkFooter }
+export { RasterDynamicsWordmark, RasterDynamicsWordmark as HalftoneWordmarkFooter }

@@ -58,6 +58,7 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
     'credit-card-form': 'CreditCardForm',
     'kinetic-hover': 'KineticHover',
     'prisma-hero': 'PrismaHero',
+    'raster-dynamics-wordmark': 'RasterDynamicsWordmark',
     'waves-shaders-homlu-ui': 'ShaderBackground',
   }
   const exportName = namedExports[component.slug]
