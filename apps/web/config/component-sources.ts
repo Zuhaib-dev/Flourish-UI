@@ -16,6 +16,7 @@ const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
   'ink-orbit-hero': () => import('./component-sources/ink-orbit-hero'),
   'isometric-dashboard': () => import('./component-sources/isometric-dashboard'),
   'kinetic-hover': () => import('./component-sources/kinetic-hover'),
+  'liquid-glass-folder-stack': () => import('./component-sources/liquid-glass-folder-stack'),
   'live-notification-feed': () => import('./component-sources/live-notification-feed'),
   'particle-wordmark': () => import('./component-sources/particle-wordmark'),
   'post-planner-calendar': () => import('./component-sources/post-planner-calendar'),
