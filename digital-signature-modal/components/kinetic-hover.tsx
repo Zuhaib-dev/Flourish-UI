@@ -40,7 +40,7 @@ export function KineticHover({ items }: KineticHoverProps) {
               onMouseEnter={() => setActiveIndex(index)}
               onFocus={() => setActiveIndex(index)}
               tabIndex={0}
-              className={`group relative grid grid-cols-[12%_1fr_24%_18px] gap-3 items-center px-3 py-[21px] border-b border-[#d6d4cf] cursor-pointer transition-all duration-300 ease-out outline-none ${isActive ? 'text-black' : 'text-[#171717]'}`}
+              className={`group relative grid grid-cols-[12%_1fr_24%_18px] gap-3 items-center px-3 py-5.25 border-b border-[#d6d4cf] cursor-pointer transition-all duration-300 ease-out outline-none ${isActive ? 'text-black' : 'text-[#171717]'}`}
             >
               {/* Fluid Active Background */}
               {isActive && (

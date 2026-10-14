@@ -241,8 +241,8 @@ export default async function ComponentPage({
           </div>
 
           {/* Canvas Preview Area */}
-          <div className="detail-preview-stage relative aspect-[16/9] max-h-[580px] w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
-            <div className="relative w-full h-full max-w-4xl max-h-[500px] rounded-xl overflow-hidden border border-zinc-200 shadow-md bg-white flex items-center justify-center">
+          <div className="detail-preview-stage relative aspect-video max-h-145 w-full flex items-center justify-center bg-zinc-100/60 p-4 sm:p-8">
+            <div className="relative w-full h-full max-w-4xl max-h-125 rounded-xl overflow-hidden border border-zinc-200 shadow-md bg-white flex items-center justify-center">
               <iframe
                 title={`${component.title} interactive preview`}
                 src={`/previews/${component.slug}`}
@@ -309,7 +309,7 @@ export default async function ComponentPage({
                   href={`/components/${rel.slug}`}
                   className="group p-4 rounded-xl border border-zinc-200 bg-white hover:border-violet-300 hover:shadow-md transition-all flex flex-col overflow-hidden shadow-2xs"
                 >
-                  <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-zinc-50 border border-zinc-100 mb-3">
+                  <div className="relative aspect-16/10 rounded-lg overflow-hidden bg-zinc-50 border border-zinc-100 mb-3">
                     <Image
                       src={rel.previewImage}
                       alt={rel.title}
