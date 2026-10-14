@@ -434,7 +434,7 @@ function pump() {
         c.width = head.job.width;
         c.height = head.job.height;
         c.getContext("2d")?.putImageData(
-          new ImageData(head.job.pixels as unknown as Uint8ClampedArray, c.width, c.height),
+          new ImageData(head.job.pixels as any, c.width, c.height),
           0,
           0
         );
