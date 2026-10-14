@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import WebMcpProvider from './webmcp-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -141,6 +142,7 @@ export default function RootLayout({
             }).replace(/</g, '\\u003c'),
           }}
         />
+        <WebMcpProvider />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
