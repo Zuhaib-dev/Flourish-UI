@@ -1,0 +1,50 @@
+{
+  "name": "halftone-wordmark-footer",
+  "version": "0.1.0",
+  "description": "An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots.",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
+  "private": true,
+  "keywords": [
+    "react",
+    "nextjs",
+    "footer",
+    "halftone",
+    "wordmark",
+    "canvas",
+    "interactive",
+    "spring-physics",
+    "ui",
+    "shadcn",
+    "tailwind",
+    "zuhaib-dev",
+    "flourish-ui"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.54.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@12.6.0",
+  "homepage": "https://flourish-ui.vercel.app/components/halftone-wordmark-footer"
+}
