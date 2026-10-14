@@ -3,10 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flourish-ui.vercel.app"),
-  title: "Halftone Wordmark Footer | Zuhaib Rashid — Flourish UI",
+  title: "Raster Dynamics Wordmark | Zuhaib Rashid — Flourish UI",
   description:
     "An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots with real-time pointer push and shock wave animations.",
   keywords: [
+    "raster dynamics wordmark",
+    "raster dynamics",
     "halftone wordmark footer",
     "halftone footer",
     "wordmark footer",
@@ -25,33 +27,33 @@ export const metadata: Metadata = {
   publisher: "Flourish UI",
   category: "Technology",
   alternates: {
-    canonical: "/components/halftone-wordmark-footer",
+    canonical: "/components/raster-dynamics-wordmark",
   },
   openGraph: {
-    title: "Halftone Wordmark Footer | Flourish UI",
+    title: "Raster Dynamics Wordmark | Flourish UI",
     description:
       "A site footer whose wordmark is set enormous and cropped by the bottom edge, printed as a field of interactive spring-physics halftone dots.",
-    url: "/components/halftone-wordmark-footer",
+    url: "/components/raster-dynamics-wordmark",
     siteName: "Flourish UI",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/halftone-wordmark-footer/public/Preview.png",
+        url: "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/raster-dynamics-wordmark/public/Preview.png",
         width: 1200,
         height: 630,
-        alt: "Halftone Wordmark Footer Preview",
+        alt: "Raster Dynamics Wordmark Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Halftone Wordmark Footer | Zuhaib Rashid — Flourish UI",
+    title: "Raster Dynamics Wordmark | Zuhaib Rashid — Flourish UI",
     description:
       "Interactive field of spring-physics halftone dots that part around the pointer and ripple on click.",
     creator: "@xuhaibx9",
     images: [
-      "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/halftone-wordmark-footer/public/Preview.png",
+      "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/raster-dynamics-wordmark/public/Preview.png",
     ],
   },
   robots: {
@@ -86,7 +88,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareSourceCode",
-              name: "Halftone Wordmark Footer",
+              name: "Raster Dynamics Wordmark",
               description:
                 "An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots.",
               programmingLanguage: "TypeScript",

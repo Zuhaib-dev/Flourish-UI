@@ -1,13 +1,13 @@
 "use client"
 
-import HalftoneWordmarkFooter from "@/components/ui/halftone-wordmark-footer"
+import RasterDynamicsWordmark from "@/components/ui/raster-dynamics-wordmark"
 
 export default function Demo() {
   // w-full matters: 21st centres demos in a flex wrapper, and a flex item
   // left at width:auto shrinks the canvas to 0px wide.
   return (
     <div className="w-full">
-      <HalftoneWordmarkFooter />
+      <RasterDynamicsWordmark />
     </div>
   )
 }

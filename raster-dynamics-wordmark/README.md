@@ -1,9 +1,9 @@
-# 🪩 Halftone Wordmark Footer
+# 🪩 Raster Dynamics Wordmark
 
-**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/halftone-wordmark-footer)
+**Live preview:** [Open in Flourish UI](https://flourish-ui.vercel.app/components/raster-dynamics-wordmark)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/halftone-wordmark-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Halftone Wordmark Footer Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/raster-dynamics-wordmark/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Raster Dynamics Wordmark Preview" />
 </div>
 
 A site footer whose wordmark is set enormous and cropped by the bottom edge, printed as an interactive field of halftone dots. Each dot is sized by how much of the letter covers its cell, keeping type edges sharp at any scale. Move across it and the dots part around the pointer on springs, warming in color as they are pushed; click and a shock ring runs through the word.
@@ -27,11 +27,11 @@ pnpm dev
 ## Component Usage
 
 ```tsx
-import HalftoneWordmarkFooter from "@/components/ui/halftone-wordmark-footer"
+import RasterDynamicsWordmark from "@/components/ui/raster-dynamics-wordmark"
 
 export default function FooterSection() {
   return (
-    <HalftoneWordmarkFooter
+    <RasterDynamicsWordmark
       wordmark="Zuhaib"
       label="Zuhaib Studio"
       meta="©2026 · Srinagar / Kashmir"

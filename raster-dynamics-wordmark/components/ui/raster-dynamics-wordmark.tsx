@@ -181,7 +181,7 @@ const HWF_CSS = `
 }
 `
 
-export default function HalftoneWordmarkFooter({
+export default function RasterDynamicsWordmark({
   wordmark = "Zuhaib",
   label = "Zuhaib Studio",
   meta = "©2026 · Srinagar / Kashmir",
@@ -499,3 +499,5 @@ export default function HalftoneWordmarkFooter({
 }
 
 type PointerEv = PointerEvent
+
+export { RasterDynamicsWordmark as HalftoneWordmarkFooter }
