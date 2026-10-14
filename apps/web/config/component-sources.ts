@@ -23,6 +23,7 @@ const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
   'proma-content-workspace': () => import('./component-sources/proma-content-workspace'),
   'property-comparison-dashboard': () => import('./component-sources/property-comparison-dashboard'),
   'quadrant-workspace-setup': () => import('./component-sources/quadrant-workspace-setup'),
+  'raster-dynamics-wordmark': () => import('./component-sources/raster-dynamics-wordmark'),
   'seo-agent-chat-ui': () => import('./component-sources/seo-agent-chat-ui'),
   'share-file-dialog': () => import('./component-sources/share-file-dialog'),
   'skeuomorphic-notebook': () => import('./component-sources/skeuomorphic-notebook'),
