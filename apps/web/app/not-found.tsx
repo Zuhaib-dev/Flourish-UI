@@ -41,6 +41,7 @@ export default function NotFound() {
             <a href="/components">Components</a>
             <a href="/registry">Registry</a>
             <a href="/changelog">Changelog</a>
+            <a href="/developers">Developers</a>
           </nav>
         </div>
       </header>

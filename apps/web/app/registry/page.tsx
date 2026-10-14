@@ -167,6 +167,7 @@ export default function RegistryPage() {
             <a href="/components">Components</a>
             <a className="active" href="/registry">Registry</a>
             <a href="/changelog">Changelog</a>
+            <a href="/developers">Developers</a>
           </nav>
         </div>
       </header>

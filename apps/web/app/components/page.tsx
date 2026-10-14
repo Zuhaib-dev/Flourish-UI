@@ -93,7 +93,7 @@ export default function ComponentsArchivePage() {
       />
       <header className="premium-nav"><div className="premium-nav-inner">
         <a href="/" className="catalog-brand"><span className="catalog-brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span><span>flourish<span>.</span></span></a>
-        <nav className="catalog-nav-links" aria-label="Main navigation"><a href="/">Home</a><a className="active" href="/components">Components <span>{stats.components}</span></a><a href="/registry">Registry</a><a href="/changelog">Changelog</a><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ExternalLink size={12} /></a><SoundToggle /></nav>
+        <nav className="catalog-nav-links" aria-label="Main navigation"><a href="/">Home</a><a className="active" href="/components">Components <span>{stats.components}</span></a><a href="/registry">Registry</a><a href="/changelog">Changelog</a><a href="/developers">Developers</a><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ExternalLink size={12} /></a><SoundToggle /></nav>
       </div></header>
       <main className="catalog-main">
         <div className="catalog-breadcrumb"><a href="/">Home</a><span>/</span><span>Components</span></div>

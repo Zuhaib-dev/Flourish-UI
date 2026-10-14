@@ -152,6 +152,7 @@ export default function ChangelogPage() {
             <a href="/components">Components</a>
             <a href="/registry">Registry</a>
             <a className="active" href="/changelog">Changelog</a>
+            <a href="/developers">Developers</a>
           </nav>
         </div>
       </header>
