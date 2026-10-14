@@ -307,6 +307,14 @@ An evocative, illustrated 404 offline error page featuring the nostalgic Chrome 
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/404-error-page-component/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="No Internet Offline 404 Preview" />
 </div>
 
+---
+
+### 🎨 [Create from the Heart](./create-from-the-heart)
+An artisanal pastoral storybook hero component featuring organic brush calligraphy, plein air landscape art, and interactive cottagecore studio aesthetics.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/create-from-the-heart/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Create from the Heart Preview" />
+</div>
+
 <br />
 
 ---
