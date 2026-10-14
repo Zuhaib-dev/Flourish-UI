@@ -82,7 +82,7 @@ const PRESETS: { [K in HalftonePreset]: HalftonePalette } = {
 const DEFAULT_COLUMNS: FooterColumn[] = [
   { title: "Work", links: [{ label: "Index" }, { label: "Archive" }, { label: "Journal" }] },
   { title: "Studio", links: [{ label: "About" }, { label: "Process" }, { label: "Careers" }] },
-  { title: "Contact", links: [{ label: "hello@halden.co" }, { label: "+47 22 00 41 00" }] },
+  { title: "Contact", links: [{ label: "zuhaibrashid01@gmail.com" }, { label: "+91 11 00 44 00" }] },
 ]
 
 const SANS_STACK = '"Inter Tight", "Inter Variable", "Inter", "Helvetica Neue", Arial, system-ui, sans-serif'
@@ -180,9 +180,9 @@ const HWF_CSS = `
 `
 
 export default function HalftoneWordmarkFooter({
-  wordmark = "halden",
-  label = "Halden Studio",
-  meta = "©2026 · Oslo / Lisbon",
+  wordmark = "Zuhaib",
+  label = "Zuahib Studio",
+  meta = "©2026 · Srinager/ Kashmir",
   columns = DEFAULT_COLUMNS,
   backToTop = true,
   preset = "night",
