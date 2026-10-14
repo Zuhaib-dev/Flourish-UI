@@ -297,6 +297,24 @@ export const components: ComponentEntry[] = [
     "previewImage": "/previews/kinetic-hover.webp"
   },
   {
+    "slug": "liquid-glass-folder-stack",
+    "title": "Liquid Glass Folder Stack",
+    "category": "Skeuomorphic & 3D",
+    "description": "A tactile 3D frosted-glass interactive folder component with procedural domain-warped liquid marble artwork, spring hinge physics, dynamic file fan, and interactive keyboard menu.",
+    "tags": [
+      "skeuomorphic",
+      "3d",
+      "glassmorphism",
+      "canvas",
+      "spring-physics",
+      "procedural-art",
+      "typescript"
+    ],
+    "tone": "cyan",
+    "dependencies": [],
+    "previewImage": "/previews/liquid-glass-folder-stack.webp"
+  },
+  {
     "slug": "live-notification-feed",
     "title": "Live Notification Event Feed",
     "category": "Interactive Surfaces",
