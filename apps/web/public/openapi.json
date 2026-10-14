@@ -1,0 +1,534 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Flourish UI API",
+    "version": "1.0.0",
+    "description": "Official public REST API and component registry for Flourish UI. AI agents and developers can discover components, retrieve full TypeScript source code, dependencies, categories, and shadcn CLI installation commands.",
+    "contact": {
+      "name": "Zuhaib Rashid",
+      "url": "https://www.zuhaibrashid.com",
+      "email": "zuhaibrashid01@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/Zuhaib-dev/Flourish-UI/blob/main/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://flourish-ui.vercel.app",
+      "description": "Production API server"
+    }
+  ],
+  "paths": {
+    "/api/components": {
+      "get": {
+        "summary": "List all components",
+        "description": "Retrieve a paginated and filterable list of all Flourish UI React components.",
+        "operationId": "listComponents",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter components by category (e.g. Shaders & WebGL, Skeuomorphic & 3D, Canvas & Generative)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Filter components by specific tag (e.g. shaders, canvas, motion)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search query for component titles, descriptions, and categories",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of components to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of items to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response returning component list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/components/{slug}": {
+      "get": {
+        "summary": "Get component details",
+        "description": "Retrieve complete metadata, dependencies, and install commands for a specific component slug.",
+        "operationId": "getComponentBySlug",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Unique URL slug identifier of the component (e.g. liquid-glass-folder-stack)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Component details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Component not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Component with slug 'xyz' not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/components/{slug}/source": {
+      "get": {
+        "summary": "Get raw component source code",
+        "description": "Fetch the raw TypeScript/React source code for a component to inject directly into your codebase or agent context.",
+        "operationId": "getComponentSource",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Component slug identifier",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Raw component source code file",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Source code not found"
+          }
+        }
+      }
+    },
+    "/api/categories": {
+      "get": {
+        "summary": "List component categories",
+        "description": "Retrieve all component categories, descriptions, and component counts.",
+        "operationId": "listCategories",
+        "responses": {
+          "200": {
+            "description": "List of categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/r/{slug}.json": {
+      "get": {
+        "summary": "shadcn registry item manifest",
+        "description": "Machine-readable shadcn registry format consumable by the shadcn CLI (pnpm dlx shadcn add <url>).",
+        "operationId": "getRegistryItem",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Component slug",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "shadcn registry JSON item specification",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistryItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/r/registry.json": {
+      "get": {
+        "summary": "Full shadcn registry catalog manifest",
+        "description": "Comprehensive shadcn catalog listing all components in the Flourish UI registry.",
+        "operationId": "getRegistryCatalog",
+        "responses": {
+          "200": {
+            "description": "Complete shadcn registry catalog",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistryCatalog"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Component": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "example": "liquid-glass-folder-stack"
+          },
+          "title": {
+            "type": "string",
+            "example": "Liquid Glass Folder Stack"
+          },
+          "category": {
+            "type": "string",
+            "example": "Skeuomorphic & 3D"
+          },
+          "description": {
+            "type": "string",
+            "example": "Tactile frosted glass folder cards..."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "skeuomorphic",
+              "3d",
+              "interactive"
+            ]
+          },
+          "tone": {
+            "type": "string",
+            "example": "orange"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "lucide-react",
+              "framer-motion"
+            ]
+          },
+          "previewImage": {
+            "type": "string",
+            "example": "/previews/liquid-glass-folder-stack.webp"
+          },
+          "installCommand": {
+            "type": "string",
+            "example": "pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json"
+          },
+          "registryUrl": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json"
+          },
+          "pageUrl": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app/components/liquid-glass-folder-stack"
+          },
+          "previewUrl": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app/previews/liquid-glass-folder-stack"
+          },
+          "sourceApiUrl": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack/source"
+          }
+        },
+        "required": [
+          "slug",
+          "title",
+          "category",
+          "description",
+          "dependencies",
+          "installCommand"
+        ]
+      },
+      "ComponentsResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "total": {
+            "type": "integer",
+            "example": 37
+          },
+          "count": {
+            "type": "integer",
+            "example": 37
+          },
+          "offset": {
+            "type": "integer",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "example": 50
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Component"
+            }
+          }
+        },
+        "required": [
+          "success",
+          "total",
+          "count",
+          "components"
+        ]
+      },
+      "ComponentDetailResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "component": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Component"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "installCommands": {
+                    "type": "object",
+                    "properties": {
+                      "pnpm": {
+                        "type": "string"
+                      },
+                      "npm": {
+                        "type": "string"
+                      },
+                      "bun": {
+                        "type": "string"
+                      },
+                      "yarn": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Shaders & WebGL"
+          },
+          "slug": {
+            "type": "string",
+            "example": "shaders-webgl"
+          },
+          "count": {
+            "type": "integer",
+            "example": 7
+          },
+          "description": {
+            "type": "string",
+            "example": "Shader-driven visuals, WebGL effects..."
+          },
+          "url": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app/categories/shaders-webgl"
+          }
+        },
+        "required": [
+          "name",
+          "slug",
+          "count",
+          "description"
+        ]
+      },
+      "CategoriesResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "totalCategories": {
+            "type": "integer",
+            "example": 6
+          },
+          "totalComponents": {
+            "type": "integer",
+            "example": 37
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          }
+        },
+        "required": [
+          "success",
+          "categories"
+        ]
+      },
+      "RegistryItem": {
+        "type": "object",
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "example": "https://ui.shadcn.com/schema/registry-item.json"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "example": "registry:ui"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "registry:ui"
+                }
+              }
+            }
+          }
+        }
+      },
+      "RegistryCatalog": {
+        "type": "object",
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "example": "https://ui.shadcn.com/schema/registry.json"
+          },
+          "name": {
+            "type": "string",
+            "example": "flourish-ui"
+          },
+          "homepage": {
+            "type": "string",
+            "example": "https://flourish-ui.vercel.app"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
