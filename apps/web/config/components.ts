@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['raster-dynamics-wordmark', 'waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
+export const recentlyAddedSlugs = ['liquid-glass-folder-stack', 'raster-dynamics-wordmark', 'waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
 
 export const components: ComponentEntry[] = [
   {

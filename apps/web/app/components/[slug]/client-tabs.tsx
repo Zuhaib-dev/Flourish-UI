@@ -57,6 +57,7 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
   const namedExports: Record<string, string> = {
     'credit-card-form': 'CreditCardForm',
     'kinetic-hover': 'KineticHover',
+    'liquid-glass-folder-stack': 'LiquidGlassFolderStack',
     'prisma-hero': 'PrismaHero',
     'raster-dynamics-wordmark': 'RasterDynamicsWordmark',
     'waves-shaders-homlu-ui': 'ShaderBackground',
@@ -72,6 +73,8 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
           ? `${importLine}\n\n// Add this image to public/images/project.jpg.\nconst items = [{\n  id: "project-1", number: "01", title: "A project",\n  category: "Web", description: "A short project description.",\n  image: "/images/project.jpg", color: "#d86b43",\n}]\n\nexport default function Page() {\n  return <KineticHover items={items} />\n}`
       : component.slug === 'waves-shaders-homlu-ui'
         ? `${importLine}\n\nexport default function Page() {\n  return <div className="h-96"><ShaderBackground /></div>\n}`
+      : component.slug === 'liquid-glass-folder-stack'
+        ? `${importLine}\n\nexport default function Page() {\n  return (\n    <div className="flex justify-center p-12">\n      <LiquidGlassFolderStack label="My Files" art="aurora" seed={3} />\n    </div>\n  )\n}`
         : `${importLine}\n\nexport default function Page() {\n  return <${componentName} />\n}`
 
   async function copy(text: string, type: NonNullable<typeof copied>) {
