@@ -4,13 +4,13 @@ import "../../../../../liquid-glass-folder-stack/app/globals.css";
 import GlassFolder from "../../../../../liquid-glass-folder-stack/components/ui/liquid-glass-folder-stack";
 
 /**
- * Preview page for Liquid Glass Folder Stack with generous spacing and gap
- * so cards never collide or overlap on any viewport or iframe dimension.
+ * Live preview page for Liquid Glass Folder Stack with responsive scaling
+ * and generous gaps so cards never collide or overlap on any screen or iframe.
  */
 export default function ComponentLivePreview() {
   return (
     <div
-      className="relative flex w-full flex-col items-center justify-center overflow-x-hidden overflow-y-auto bg-background px-6 py-16 sm:py-20"
+      className="relative flex w-full flex-col items-center justify-center overflow-x-hidden overflow-y-auto bg-background px-4 py-8 sm:py-14 md:py-18"
       style={{ minHeight: "100svh" }}
     >
       <div
@@ -23,7 +23,7 @@ export default function ComponentLivePreview() {
         }}
       />
 
-      <div className="relative flex flex-wrap items-end justify-center gap-x-14 gap-y-20 sm:gap-x-16 sm:gap-y-24 lg:gap-x-20 lg:gap-y-28 max-w-[1360px] mx-auto z-10">
+      <div className="relative flex flex-wrap items-end justify-center gap-x-10 gap-y-16 sm:gap-x-14 sm:gap-y-20 lg:gap-x-20 lg:gap-y-24 max-w-[1400px] mx-auto z-10 transition-transform duration-300 scale-[0.72] sm:scale-[0.84] lg:scale-100 origin-center">
         <GlassFolder
           label="My Files"
           art="aurora"
@@ -67,7 +67,7 @@ export default function ComponentLivePreview() {
         />
       </div>
 
-      <p className="relative mt-14 sm:mt-18 font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase z-10">
+      <p className="relative mt-4 sm:mt-8 font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase z-10">
         Hover to lean · Click to open · + to add
       </p>
     </div>
