@@ -1,7 +1,32 @@
 {
-  "name": "my-project",
+  "name": "storybook-play-canvas",
   "version": "0.1.0",
+  "description": "Whimsical illustrated retro easel & storybook playground with interactive drawing, custom palettes, and tactile studio controls.",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
   "private": true,
+  "homepage": "https://flourish-ui.vercel.app/components/storybook-play-canvas",
+  "keywords": [
+    "react",
+    "nextjs",
+    "storybook-play-canvas",
+    "storybook",
+    "artboard",
+    "drawing-canvas",
+    "interactive-illustration",
+    "retro-easel",
+    "playful-ui",
+    "framer-motion",
+    "color-palette",
+    "ui",
+    "shadcn",
+    "tailwind",
+    "zuhaib-dev",
+    "flourish-ui"
+  ],
   "packageManager": "pnpm@12.3.4",
   "scripts": {
     "dev": "next dev",
