@@ -20,6 +20,31 @@ const sharedPackageAliases = Object.fromEntries(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
+  compress: true,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
+  },
+  async headers() {
+    return [
+      {
+        source: '/previews/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, follow' },
+        ],
+      },
+      {
+        source: '/(.*)\\.(png|jpg|jpeg|webp|avif|svg|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
   turbopack: {
     root: path.resolve(appDirectory, '../..'),
     resolveAlias: {
@@ -31,3 +56,4 @@ const nextConfig = {
 }
 
 export default nextConfig
+

@@ -218,7 +218,7 @@ export default function ChangelogPage() {
           <div className="changelog-recent-grid">
             {recent.map((component) => component && (
               <a key={component.slug} href={`/components/${component.slug}`} className="changelog-recent-card">
-                <div className="changelog-recent-thumb">
+                <div className="changelog-recent-thumb relative" style={{ position: 'relative' }}>
                   <Image
                     src={component.previewImage}
                     alt={component.title}

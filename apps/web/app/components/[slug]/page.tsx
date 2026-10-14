@@ -72,6 +72,19 @@ export default async function ComponentPage({
         ],
       },
       {
+        '@type': 'SoftwareSourceCode',
+        '@id': `${pageUrl}#source`,
+        name: component.title,
+        description: component.description,
+        url: pageUrl,
+        codeRepository: `https://github.com/Zuhaib-dev/Flourish-UI/tree/main/${component.slug}`,
+        programmingLanguage: 'TypeScript',
+        runtimePlatform: 'React',
+        image: `https://flourish-ui.vercel.app${component.previewImage}`,
+        author: { '@id': 'https://www.zuhaibrashid.com/#person' },
+        isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
+      },
+      {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
@@ -80,15 +93,7 @@ export default async function ComponentPage({
         isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
         breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
         primaryImageOfPage: `https://flourish-ui.vercel.app${component.previewImage}`,
-        mainEntity: {
-          '@type': 'CreativeWork',
-          name: component.title,
-          description: component.description,
-          image: `https://flourish-ui.vercel.app${component.previewImage}`,
-          creator: { '@id': 'https://www.zuhaibrashid.com/#person' },
-          keywords: component.tags.join(', '),
-          genre: component.category,
-        },
+        mainEntity: { '@id': `${pageUrl}#source` },
       },
     ],
   }
@@ -330,38 +335,6 @@ export default async function ComponentPage({
           </section>
         )}
       </main>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'SoftwareSourceCode',
-                '@id': `https://flourish-ui.vercel.app/components/${component.slug}#source`,
-                name: component.title,
-                description: component.description,
-                url: `https://flourish-ui.vercel.app/components/${component.slug}`,
-                codeRepository: `https://github.com/Zuhaib-dev/Flourish-UI/tree/main/${component.slug}`,
-                programmingLanguage: 'TypeScript',
-                runtimePlatform: 'React',
-                image: `https://flourish-ui.vercel.app${component.previewImage}`,
-                author: { '@id': 'https://www.zuhaibrashid.com/#person' },
-                isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
-              },
-              {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://flourish-ui.vercel.app/' },
-                  { '@type': 'ListItem', position: 2, name: 'Components', item: 'https://flourish-ui.vercel.app/components' },
-                  { '@type': 'ListItem', position: 3, name: component.title, item: `https://flourish-ui.vercel.app/components/${component.slug}` },
-                ],
-              },
-            ],
-          }).replace(/</g, '\\u003c'),
-        }}
-      />
 
       {/* Global Footer */}
       <footer className="border-t border-zinc-200 py-12 bg-white">

@@ -119,6 +119,14 @@ export default function RootLayout({
                   inLanguage: 'en',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
+                  potentialAction: {
+                    '@type': 'SearchAction',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate: 'https://flourish-ui.vercel.app/components?search={search_term_string}',
+                    },
+                    'query-input': 'required name=search_term_string',
+                  },
                 },
                 {
                   '@type': 'Organization',

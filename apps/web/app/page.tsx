@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import {
   ArrowDownRight,
@@ -13,6 +14,26 @@ import {
 import { components, recentlyAddedSlugs, stats } from '@/config/components'
 import { HomeSearch, CopyInstallCommand } from './home-interactions'
 import SoundToggle from './sound-toggle'
+
+export const metadata: Metadata = {
+  title: 'Flourish UI — Expressive React & Next.js Components Library',
+  description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
+  alternates: { canonical: 'https://flourish-ui.vercel.app' },
+  openGraph: {
+    title: 'Flourish UI — Expressive React & Next.js Components Library',
+    description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
+    url: 'https://flourish-ui.vercel.app',
+    siteName: 'Flourish UI',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Flourish UI — Expressive React Components' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flourish UI — Expressive React & Next.js Components Library',
+    description: 'An open collection of expressive, interactive React components with live previews, spring motion, and shadcn CLI support.',
+    creator: '@xuhaibx9',
+    images: ['/og-image.png'],
+  },
+}
 
 const FEATURED_SLUGS = [
   'admit-one-3-d-holographic-ticket',
@@ -59,7 +80,7 @@ export default function LandingPage() {
         <div className="hero-art" aria-label="A selection of Flourish UI component previews">
           <div className="hero-art-note"><Sparkles size={13} /> LITTLE DETAILS, BIG PRESENCE</div>
           <a className="hero-preview hero-preview-main" href={`/components/${featured[0]?.slug}`}>
-            <Image src={featured[0]?.previewImage ?? '/placeholder.svg'} alt={featured[0]?.title ?? 'Holographic ticket component preview'} fill sizes="(max-width: 760px) 78vw, 38vw" preload />
+            <Image src={featured[0]?.previewImage ?? '/placeholder.svg'} alt={featured[0]?.title ?? 'Holographic ticket component preview'} fill sizes="(max-width: 760px) 78vw, 38vw" priority />
             <span className="preview-caption"><span><small>01 / FEATURED</small><strong>{featured[0]?.title}</strong></span><ArrowUpRight size={16} /></span>
           </a>
           <a className="hero-preview hero-preview-small" href={`/components/${featured[1]?.slug}`}>
