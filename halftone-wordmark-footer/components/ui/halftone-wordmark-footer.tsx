@@ -181,8 +181,8 @@ const HWF_CSS = `
 
 export default function HalftoneWordmarkFooter({
   wordmark = "Zuhaib",
-  label = "Zuahib Studio",
-  meta = "©2026 · Srinager/ Kashmir",
+  label = "Zuhaib Studio",
+  meta = "©2026 · Srinagar / Kashmir",
   columns = DEFAULT_COLUMNS,
   backToTop = true,
   preset = "night",

@@ -33,14 +33,14 @@ export default function FooterSection() {
   return (
     <HalftoneWordmarkFooter
       wordmark="Zuhaib"
-      label="Zuahib Studio"
-      meta="©2026 · Srinager / Kashmir"
+      label="Zuhaib Studio"
+      meta="©2026 · Srinagar / Kashmir"
       preset="night"
       height="560px"
       columns={[
         { title: "Work", links: [{ label: "Index" }, { label: "Archive" }, { label: "Journal" }] },
         { title: "Studio", links: [{ label: "About" }, { label: "Process" }, { label: "Careers" }] },
-        { title: "Contact", links: [{ label: "[EMAIL_ADDRESS]" }, { label: "+91 11 00 44 00" }] },
+        { title: "Contact", links: [{ label: "zuhaibrashid01@gmail.com" }, { label: "+91 11 00 44 00" }] },
       ]}
     />
   )
@@ -52,8 +52,8 @@ export default function FooterSection() {
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `wordmark` | `string` | `"Zuhaib"` | The word printed in dots. |
-| `label` | `string` | `"Zuahib Studio"` | Top-left studio brand label. |
-| `meta` | `string` | `"©2026 · Srinager / Kashmir"` | Muted metadata line under label. |
+| `label` | `string` | `"Zuhaib Studio"` | Top-left studio brand label. |
+| `meta` | `string` | `"©2026 · Srinagar / Kashmir"` | Muted metadata line under label. |
 | `columns` | `FooterColumn[]` | `DEFAULT_COLUMNS` | Link columns across top nav. |
 | `backToTop` | `boolean` | `true` | Show back to top smooth scroll link. |
 | `preset` | `"night" \| "paper" \| "ember" \| "cobalt"` | `"night"` | Theme preset palette. |
