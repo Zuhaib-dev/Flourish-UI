@@ -14,7 +14,7 @@ An evocative, thought-provoking 404 offline error page that contrasts the iconic
 - **Nostalgic Dino Easter Egg**: Interactive Chrome dinosaur micro-interaction with spacebar jump mechanics and feedback notifications.
 - **Responsive Perspective Scaling**: Adaptive orientation scaling supporting both vertical mobile smartphones and wide desktop viewports (`object-cover` / `landscape:object-contain`).
 - **Tactile Floating UI**: Glassmorphic status pills and navigation action button directing visitors back to safety.
-- **Zero Heavy Dependencies**: Built with React 19, Next.js 16, Framer Motion, and Tailwind CSS.
+- **Zero Heavy Dependencies**: Built with React 19, Next.js 16, and Tailwind CSS with pure CSS micro-interactions.
 - **Accessible & SEO-Optimized**: Full OpenGraph, Twitter Card, and Schema.org structured data.
 
 ## Quick Start
