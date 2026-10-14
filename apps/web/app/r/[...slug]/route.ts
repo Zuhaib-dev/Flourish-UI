@@ -23,8 +23,9 @@ export async function GET(
 
   return NextResponse.json(registryItem(component, source), {
     headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
       'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-      'X-Robots-Tag': 'noindex, nofollow',
     },
   })
 }
