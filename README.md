@@ -291,6 +291,14 @@ A tactile 3D frosted-glass interactive folder component with procedural domain-w
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/liquid-glass-folder-stack/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Liquid Glass Folder Stack Preview" />
 </div>
 
+---
+
+### 🎨 [Storybook Play Canvas](./storybook-play-canvas)
+A whimsical illustrated retro easel and storybook playground inspired by tactile physical toy studios. Features an illustrated character scene, interactive doodle canvas, studio palette swatches, brush sizing slider, and retro desktop browser window aesthetics.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/storybook-play-canvas/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Storybook Play Canvas Preview" />
+</div>
+
 <br />
 
 ---
