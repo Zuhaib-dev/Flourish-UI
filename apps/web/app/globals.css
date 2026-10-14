@@ -795,3 +795,910 @@ button { cursor: pointer; }
   margin: 0;
   tab-size: 2;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   REGISTRY, CHANGELOG & 404 PAGES (FLOURISH UI EDITORIAL DESIGN)
+   ═══════════════════════════════════════════════════════════════ */
+
+.registry-page,
+.changelog-page,
+.not-found-page {
+  --paper: #f5f4ef;
+  --ink: #191916;
+  --muted-ink: #6f7068;
+  --line: #deddd5;
+  --orange: #d86b43;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Registry Layout ────────────────────────── */
+.registry-layout {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 42px 90px;
+}
+
+.registry-breadcrumb {
+  margin-bottom: 24px;
+}
+
+/* Registry Hero */
+.registry-hero {
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.registry-hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.registry-hero-copy {
+  max-width: 660px;
+}
+
+.registry-hero-copy h1 {
+  margin: 18px 0 16px;
+  font: 500 clamp(42px, 5.8vw, 70px) / 0.98 Georgia, 'Times New Roman', serif;
+  letter-spacing: -3px;
+  color: var(--ink);
+}
+
+.registry-hero-copy h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.registry-hero-copy p {
+  max-width: 500px;
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.registry-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.registry-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #faf9f5;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(25, 25, 22, 0.12);
+}
+
+.registry-cta-primary:hover {
+  transform: translateY(-1px);
+  background: #2b2b25;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(25, 25, 22, 0.18);
+}
+
+.registry-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #faf9f5;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.registry-cta-ghost:hover {
+  border-color: #bebbb0;
+  background: #fff;
+  color: var(--orange);
+  transform: translateY(-1px);
+}
+
+/* Stat Cluster */
+.registry-hero-stat-cluster {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #faf9f5;
+  flex-shrink: 0;
+  box-shadow: 0 6px 24px rgba(25, 25, 22, 0.03);
+}
+
+.registry-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 68px;
+}
+
+.registry-stat strong {
+  font: 500 32px / 1 Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  letter-spacing: -1px;
+}
+
+.registry-stat span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #8c8b82;
+}
+
+.registry-stat-divider {
+  width: 1px;
+  height: 38px;
+  background: var(--line);
+}
+
+/* Registry Command Section & Terminal */
+.registry-command-section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.registry-command-panel {
+  background: #1f201d;
+  border-radius: 10px;
+  padding: 34px 38px;
+  color: #e7e7df;
+  box-shadow: 0 18px 45px rgba(25, 25, 22, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.registry-command-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.registry-command-header span {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.registry-command-header h2 {
+  font: 500 clamp(20px, 2.6vw, 26px) / 1.2 Georgia, 'Times New Roman', serif;
+  margin: 6px 0 0;
+  color: #f7f6f1;
+  letter-spacing: -0.6px;
+}
+
+.registry-command-header svg {
+  color: #8b8a81;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.registry-manager-row {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0 14px;
+}
+
+.registry-manager-row button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: #9ea097;
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.registry-manager-row button:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.registry-manager-row button.active {
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--orange);
+  box-shadow: 0 2px 8px rgba(216, 107, 67, 0.3);
+}
+
+.registry-copy-command {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #141513;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 13px 18px;
+}
+
+.registry-copy-command code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: #e9e9e2;
+  overflow-x: auto;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.registry-copy-command button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #272825;
+  color: #e7e7df;
+  font-size: 11px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+}
+
+.registry-copy-command button:hover {
+  background: #343632;
+  color: #fff;
+}
+
+.registry-command-panel > p {
+  margin: 16px 0 0;
+  font-size: 11px;
+  color: #9ca096;
+  line-height: 1.65;
+}
+
+.registry-command-panel > p code {
+  color: #b7cca4;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+}
+
+/* Steps Section */
+.registry-steps-section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.registry-steps-header {
+  margin-bottom: 34px;
+}
+
+.registry-steps-header h2 {
+  font: 500 clamp(28px, 3.8vw, 42px) / 1.1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -1.3px;
+  margin: 10px 0 0;
+  color: var(--ink);
+}
+
+.registry-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.registry-step {
+  padding: 28px 24px;
+  background: #faf9f5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.registry-step:hover {
+  border-color: #bebbb0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(25, 25, 22, 0.06);
+}
+
+.registry-step-number {
+  font: 500 13px Georgia, 'Times New Roman', serif;
+  color: var(--orange);
+  letter-spacing: 1.2px;
+}
+
+.registry-step-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #eae8e0;
+  color: var(--ink);
+  margin: 14px 0 12px;
+}
+
+.registry-step-body h3 {
+  font: 500 19px / 1.2 Georgia, 'Times New Roman', serif;
+  margin: 0 0 8px;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+
+.registry-step-body p {
+  color: var(--muted-ink);
+  font-size: 12px;
+  line-height: 1.68;
+  margin: 0 0 16px;
+  min-height: 40px;
+}
+
+.registry-step-code {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 4px;
+  background: #eceae3;
+  color: #383832;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* FAQ / Troubleshooting */
+.registry-faq-section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.registry-faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.registry-faq-copy h2 {
+  font: 500 clamp(28px, 3.5vw, 40px) / 1.1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -1.4px;
+  margin: 10px 0 14px;
+  color: var(--ink);
+}
+
+.registry-faq-copy p {
+  color: var(--muted-ink);
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 0 0 22px;
+  max-width: 420px;
+}
+
+.registry-faq-browse {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.registry-faq-browse:hover {
+  gap: 9px;
+  text-decoration: underline;
+}
+
+.registry-faq-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 16px Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.registry-faq-item {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #faf9f5;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.18s ease;
+}
+
+.registry-faq-item:hover {
+  border-color: #bebbb0;
+}
+
+.registry-faq-item summary {
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+.registry-faq-item p {
+  padding: 0 18px 16px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.68;
+  color: var(--muted-ink);
+}
+
+/* Endcap CTA */
+.registry-endcap {
+  padding: 52px 0 0;
+}
+
+.registry-endcap-inner {
+  padding: 44px 48px;
+  border-radius: 10px;
+  background: #eae8df;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid var(--line);
+}
+
+.registry-endcap-inner p {
+  font: 500 clamp(22px, 2.6vw, 32px) / 1.18 Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.9px;
+  margin: 8px 0 0;
+  color: var(--ink);
+}
+
+.registry-endcap-inner p em {
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── Changelog Layout ───────────────────────── */
+.changelog-layout {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 42px 90px;
+}
+
+.changelog-hero {
+  padding-bottom: 46px;
+  border-bottom: 1px solid var(--line);
+}
+
+.changelog-hero h1 {
+  margin: 18px 0 16px;
+  font: 500 clamp(42px, 5.8vw, 70px) / 0.98 Georgia, 'Times New Roman', serif;
+  letter-spacing: -3px;
+  color: var(--ink);
+}
+
+.changelog-hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.changelog-hero p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Release Timeline */
+.changelog-timeline {
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.changelog-entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.changelog-entry-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.changelog-date {
+  font: 500 16px Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+}
+
+.changelog-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eae8e0;
+  color: var(--tag-color, var(--orange));
+}
+
+.changelog-entry-body {
+  background: #faf9f5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px 32px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.changelog-entry-body:hover {
+  border-color: #bebbb0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(25, 25, 22, 0.05);
+}
+
+.changelog-entry-body h2 {
+  font: 500 22px / 1.25 Georgia, 'Times New Roman', serif;
+  margin: 0 0 10px;
+  color: var(--ink);
+  letter-spacing: -0.4px;
+}
+
+.changelog-entry-body p {
+  color: var(--muted-ink);
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+.changelog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.changelog-tag-pill {
+  font-size: 9px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #eae8e0;
+  color: #64645b;
+}
+
+/* Changelog Recent Grid */
+.changelog-recent {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.changelog-recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.changelog-recent-header h2 {
+  font: 500 clamp(24px, 3.2vw, 34px) / 1.1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -1.2px;
+  margin: 8px 0 0;
+  color: var(--ink);
+}
+
+.changelog-recent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.changelog-recent-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #faf9f5;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.changelog-recent-card:hover {
+  transform: translateY(-3px);
+  border-color: #bebbb0;
+  box-shadow: 0 12px 28px rgba(25, 25, 22, 0.08);
+}
+
+.changelog-recent-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #eae8e0;
+  overflow: hidden;
+}
+
+.changelog-recent-img {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.changelog-recent-card:hover .changelog-recent-img {
+  transform: scale(1.04);
+}
+
+.changelog-recent-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.changelog-recent-info span {
+  font-size: 8px;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.changelog-recent-info strong {
+  font: 500 15px Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+}
+
+.changelog-recent-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(245, 244, 239, 0.88);
+  color: var(--ink);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+}
+
+.changelog-recent-card:hover .changelog-recent-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 404 Not Found Page ─────────────────────── */
+.not-found-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.not-found-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 400 clamp(90px, 14vw, 160px) / 1 Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  margin-bottom: 24px;
+  user-select: none;
+  letter-spacing: -6px;
+}
+
+.not-found-zero {
+  width: clamp(75px, 12vw, 130px);
+  height: clamp(75px, 12vw, 130px);
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+}
+
+.not-found-zero svg {
+  width: 100%;
+  height: 100%;
+}
+
+.not-found-copy {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-copy h1 {
+  font: 500 clamp(26px, 3.8vw, 38px) / 1.15 Georgia, 'Times New Roman', serif;
+  letter-spacing: -1.2px;
+  margin: 12px 0 12px;
+  color: var(--ink);
+}
+
+.not-found-copy p {
+  color: var(--muted-ink);
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 0 0 28px;
+}
+
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.not-found-suggestions {
+  margin-top: 54px;
+  width: 100%;
+  max-width: 720px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+
+.not-found-suggestions-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted-ink);
+  font-size: 11px;
+  margin-bottom: 18px;
+  letter-spacing: 0.4px;
+}
+
+.not-found-suggestions-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.not-found-suggestion-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #faf9f5;
+  color: var(--ink);
+  text-decoration: none;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.not-found-suggestion-card:hover {
+  border-color: #bebbb0;
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(25, 25, 22, 0.05);
+}
+
+.not-found-suggestion-cat {
+  display: block;
+  font-size: 8px;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.not-found-suggestion-card strong {
+  font: 500 13px Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+}
+
+/* ── Responsive Adaptations for Registry, Changelog & 404 ── */
+@media (max-width: 860px) {
+  .registry-hero-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .registry-hero-stat-cluster {
+    align-self: flex-start;
+  }
+  .registry-steps-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .registry-faq-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .changelog-entry {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .changelog-recent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .not-found-suggestions-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .registry-layout,
+  .changelog-layout {
+    padding: 22px 18px 60px;
+  }
+  .registry-hero-copy h1,
+  .changelog-hero h1 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+  .registry-command-panel {
+    padding: 24px 20px;
+  }
+  .registry-copy-command {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .registry-copy-command button {
+    align-self: flex-end;
+  }
+  .registry-endcap-inner {
+    padding: 30px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .changelog-recent-grid {
+    grid-template-columns: 1fr;
+  }
+  .not-found-main {
+    padding: 40px 18px 60px;
+  }
+}
+

@@ -4,14 +4,40 @@ import RegistryCommands from './registry-commands'
 import { components } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'Registry guide | Flourish UI',
-  description: 'Install Flourish UI components directly into your project with the shadcn CLI. One command brings the full source into your codebase.',
-  alternates: { canonical: '/registry' },
+  title: 'Flourish UI Registry — Install React Components via shadcn CLI',
+  description: 'Install Flourish UI components directly into your project with the shadcn CLI. One command brings the complete, editable TypeScript & Tailwind source into your codebase.',
+  keywords: [
+    'Flourish UI registry',
+    'shadcn registry',
+    'shadcn cli add',
+    'React UI components',
+    'Tailwind CSS components',
+    'Next.js UI library',
+    'open source react components',
+    'copy paste components',
+  ],
+  alternates: { canonical: 'https://flourish-ui.vercel.app/registry' },
   openGraph: {
-    title: 'Registry guide | Flourish UI',
-    description: 'Install Flourish UI components directly into your project with the shadcn CLI. One command brings the full source into your codebase.',
+    title: 'Flourish UI Registry — Install React Components via shadcn CLI',
+    description: 'Install Flourish UI components directly into your project with the shadcn CLI. One command brings the complete, editable source into your codebase.',
     type: 'website',
     url: 'https://flourish-ui.vercel.app/registry',
+    siteName: 'Flourish UI',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Flourish UI Registry Guide',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flourish UI Registry — Install React Components via shadcn CLI',
+    description: 'Install Flourish UI components directly into your project with the shadcn CLI. Full source code ownership.',
+    creator: '@zuhaibrashid',
+    images: ['/og-image.png'],
   },
 }
 
@@ -58,11 +84,67 @@ const faqs = [
   },
 ]
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'HowTo',
+      name: 'How to install Flourish UI components with shadcn CLI',
+      description: 'Step-by-step guide to installing open-source Flourish UI React components using the shadcn CLI.',
+      step: steps.map((s, idx) => ({
+        '@type': 'HowToStep',
+        position: idx + 1,
+        name: s.title,
+        text: s.body,
+        itemListElement: [
+          {
+            '@type': 'HowToDirection',
+            text: `Run the command: ${s.code}`,
+          },
+        ],
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
+        },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://flourish-ui.vercel.app',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Registry Guide',
+          item: 'https://flourish-ui.vercel.app/registry',
+        },
+      ],
+    },
+  ],
+}
+
+
 const totalComponents = components.length
 
 export default function RegistryPage() {
   return (
     <main className="registry-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Nav ─────────────────────────────── */}
       <header className="premium-nav">
         <div className="premium-nav-inner">
