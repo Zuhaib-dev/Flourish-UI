@@ -1,6 +1,6 @@
 "use client";
 
-import Demo from "@/components/ui/demo";
+import Demo from "../components/ui/demo";
 
 export default function Page() {
   return (

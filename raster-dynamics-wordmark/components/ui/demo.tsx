@@ -1,6 +1,6 @@
 "use client"
 
-import RasterDynamicsWordmark from "@/components/ui/raster-dynamics-wordmark"
+import RasterDynamicsWordmark from "./raster-dynamics-wordmark"
 
 export default function Demo() {
   // w-full matters: 21st centres demos in a flex wrapper, and a flex item
