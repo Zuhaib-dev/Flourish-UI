@@ -277,10 +277,10 @@ An interactive organic wave field shader background featuring perceptual OKLab c
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/waves-shaders-homlu-ui/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Waves Shaders Preview" />
 </div>
 
-### 🪩 [Halftone Wordmark Footer](./halftone-wordmark-footer)
+### 🪩 [Raster Dynamics Wordmark](./raster-dynamics-wordmark)
 An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots with real-time pointer push and expanding shockwave ring animations.
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/halftone-wordmark-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Halftone Wordmark Footer Preview" />
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/raster-dynamics-wordmark/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Raster Dynamics Wordmark Preview" />
 </div>
 
 <br />
