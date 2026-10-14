@@ -299,6 +299,14 @@ A whimsical illustrated retro easel and storybook playground inspired by tactile
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/storybook-play-canvas/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Storybook Play Canvas Preview" />
 </div>
 
+---
+
+### 🚫 [No Internet Offline 404](./404-error-page-component)
+An evocative, illustrated 404 offline error page featuring the nostalgic Chrome dinosaur and an overhead crowd perspective reminding visitors to disconnect and explore nature.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/404-error-page-component/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="No Internet Offline 404 Preview" />
+</div>
+
 <br />
 
 ---
