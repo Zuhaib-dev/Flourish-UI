@@ -49,7 +49,7 @@ export default function ApiTester() {
 
   async function runQuery() {
     setLoading(true)
-    playUiSound('action')
+    playUiSound('tab')
     const start = performance.now()
     try {
       const res = await fetch(active.path)

@@ -2,6 +2,14 @@
 
 import { useEffect } from 'react'
 
+declare module 'react' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface FormHTMLAttributes<T> {
+    toolname?: string
+    tooldescription?: string
+  }
+}
+
 export interface WebMcpTool {
   name: string
   description: string
