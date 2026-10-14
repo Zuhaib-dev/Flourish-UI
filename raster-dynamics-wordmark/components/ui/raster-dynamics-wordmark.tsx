@@ -35,6 +35,8 @@ export interface FooterColumn {
   links: FooterLink[]
 }
 
+export type RasterDynamicsWordmarkProps = HalftoneWordmarkFooterProps
+
 export interface HalftoneWordmarkFooterProps {
   /** The giant word printed in dots. Lowercase reads best. */
   wordmark?: string
