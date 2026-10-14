@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
+export const recentlyAddedSlugs = ['raster-dynamics-wordmark', 'waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
 
 export const components: ComponentEntry[] = [
   {
@@ -407,6 +407,22 @@ export const components: ComponentEntry[] = [
       "lucide-react"
     ],
     "previewImage": "/previews/quadrant-workspace-setup.webp"
+  },
+  {
+    "slug": "raster-dynamics-wordmark",
+    "title": "Raster Dynamics Wordmark",
+    "category": "Canvas & Generative",
+    "description": "An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots with real-time pointer push and expanding shockwave ring animations.",
+    "tags": [
+      "canvas",
+      "generative",
+      "typography",
+      "physics",
+      "typescript"
+    ],
+    "tone": "amber",
+    "dependencies": [],
+    "previewImage": "/previews/raster-dynamics-wordmark.webp"
   },
   {
     "slug": "seo-agent-chat-ui",

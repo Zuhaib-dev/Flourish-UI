@@ -25,7 +25,7 @@ const FEATURED_SLUGS = [
 
 export default function LandingPage() {
   const featured = FEATURED_SLUGS.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined)
-  const recentlyAdded = recentlyAddedSlugs.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined).reverse()
+  const recentlyAdded = recentlyAddedSlugs.map((slug) => components.find((item) => item.slug === slug)).filter((item) => item !== undefined)
 
   return (
     <main className="flourish-home min-h-screen overflow-hidden text-[#191916]">
