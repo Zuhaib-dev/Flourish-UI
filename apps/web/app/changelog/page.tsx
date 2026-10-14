@@ -4,14 +4,39 @@ import { ArrowRight, ArrowUpRight, Sparkles, GitBranch, Layers, Rocket, Wrench, 
 import { components, recentlyAddedSlugs } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'Changelog | Flourish UI',
-  description: 'New components, live previews, and improvements to the Flourish UI registry. A running record of what has arrived.',
-  alternates: { canonical: '/changelog' },
+  title: 'Changelog — Updates, New Components & Releases | Flourish UI',
+  description: 'Track the latest component releases, design improvements, live previews, and shadcn registry updates in Flourish UI.',
+  keywords: [
+    'Flourish UI changelog',
+    'react components release notes',
+    'new shadcn components',
+    'tailwind ui library updates',
+    'web animation releases',
+    'UI library releases',
+    'open source changelog',
+  ],
+  alternates: { canonical: 'https://flourish-ui.vercel.app/changelog' },
   openGraph: {
-    title: 'Changelog | Flourish UI',
-    description: 'New components, live previews, and improvements to the Flourish UI registry.',
+    title: 'Changelog — Updates, New Components & Releases | Flourish UI',
+    description: 'Track the latest component releases, design improvements, live previews, and shadcn registry updates in Flourish UI.',
     type: 'website',
     url: 'https://flourish-ui.vercel.app/changelog',
+    siteName: 'Flourish UI',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Flourish UI Changelog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Changelog — Updates, New Components & Releases | Flourish UI',
+    description: 'Track the latest component releases, design improvements, live previews, and shadcn registry updates in Flourish UI.',
+    creator: '@zuhaibrashid',
+    images: ['/og-image.png'],
   },
 }
 
@@ -54,6 +79,44 @@ const releases = [
   },
 ]
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Flourish UI Changelog',
+      description: 'A running record of new components, previews, and improvements across Flourish UI.',
+      url: 'https://flourish-ui.vercel.app/changelog',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: releases.map((release, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: release.title,
+          description: release.body,
+        })),
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://flourish-ui.vercel.app',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Changelog',
+          item: 'https://flourish-ui.vercel.app/changelog',
+        },
+      ],
+    },
+  ],
+}
+
 export default function ChangelogPage() {
   const recent = recentlyAddedSlugs
     .map((slug) => components.find((c) => c.slug === slug))
@@ -62,6 +125,11 @@ export default function ChangelogPage() {
 
   return (
     <main className="changelog-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* ── Nav ─────────────────────────────── */}
       <header className="premium-nav">
         <div className="premium-nav-inner">

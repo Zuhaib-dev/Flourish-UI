@@ -3,7 +3,12 @@ import type { Metadata } from 'next'
 import { components, recentlyAddedSlugs } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: '404 — Page not found | Flourish UI',
+  title: 'Page Not Found — 404 | Flourish UI',
+  description: 'The page you are looking for does not exist on Flourish UI. Explore our open-source, expressive React components.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 const suggestions = recentlyAddedSlugs
