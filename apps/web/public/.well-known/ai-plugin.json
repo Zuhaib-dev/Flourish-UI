@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "flourish_ui",
+  "name_for_human": "Flourish UI",
+  "description_for_model": "Discover, inspect, and retrieve source code for 34+ expressive React components, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry items.",
+  "description_for_human": "Explore and install expressive React components from Flourish UI.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://flourish-ui.vercel.app/openapi.json"
+  },
+  "logo_url": "https://flourish-ui.vercel.app/icon.svg",
+  "contact_email": "zuhaibrashid01@gmail.com",
+  "legal_info_url": "https://github.com/Zuhaib-dev/Flourish-UI/blob/main/LICENSE"
+}

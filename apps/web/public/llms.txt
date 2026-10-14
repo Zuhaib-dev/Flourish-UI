@@ -1,0 +1,36 @@
+# Flourish UI
+
+> Flourish UI is an open-source collection of expressive, interactive React components with live previews, WebGL shaders, tactile skeuomorphism, motion physics, and shadcn CLI registry support.
+
+## Overview
+- Official Website: https://flourish-ui.vercel.app
+- Developer Portal: https://flourish-ui.vercel.app/developers
+- OpenAPI Specification: https://flourish-ui.vercel.app/openapi.json
+- shadcn Registry Catalog: https://flourish-ui.vercel.app/r/registry.json
+- GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
+
+## Public REST API Endpoints
+All endpoints return JSON with full CORS permissions:
+- `GET https://flourish-ui.vercel.app/api/components`: List all components with pagination and filtering (`?category=...`, `?search=...`, `?tag=...`, `?limit=...`, `?offset=...`).
+- `GET https://flourish-ui.vercel.app/api/components/{slug}`: Fetch detailed component metadata, dependencies, and install commands.
+- `GET https://flourish-ui.vercel.app/api/components/{slug}/source`: Download raw TypeScript/React source code for direct codebase injection.
+- `GET https://flourish-ui.vercel.app/api/categories`: List all component design categories and counts.
+
+## WebMCP (Browser Agent In-Page Tools)
+Flourish UI implements the WebMCP standard for autonomous browser agents via `document.modelContext.registerTool()` and `navigator.modelContext`:
+- `search_components`: Search components by query or category.
+- `get_component`: Retrieve metadata and install commands by slug.
+- `get_component_source`: Fetch raw component TypeScript source.
+- `list_categories`: List all categories.
+- `get_install_command`: Generate shadcn CLI command for pnpm, npm, bun, or yarn.
+
+## shadcn CLI Integration
+Install any component directly into a Next.js / React project:
+```bash
+# Example: Liquid Glass Folder Stack
+pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json
+
+# Example: Raster Dynamics Wordmark
+pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/raster-dynamics-wordmark.json
+```
+Components land in `components/flourish/` with zero vendor lock-in.
