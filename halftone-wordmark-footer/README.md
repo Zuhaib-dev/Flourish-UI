@@ -32,15 +32,15 @@ import HalftoneWordmarkFooter from "@/components/ui/halftone-wordmark-footer"
 export default function FooterSection() {
   return (
     <HalftoneWordmarkFooter
-      wordmark="halden"
-      label="Halden Studio"
-      meta="©2026 · Oslo / Lisbon"
+      wordmark="Zuhaib"
+      label="Zuahib Studio"
+      meta="©2026 · Srinager / Kashmir"
       preset="night"
       height="560px"
       columns={[
         { title: "Work", links: [{ label: "Index" }, { label: "Archive" }, { label: "Journal" }] },
         { title: "Studio", links: [{ label: "About" }, { label: "Process" }, { label: "Careers" }] },
-        { title: "Contact", links: [{ label: "hello@halden.co" }, { label: "+47 22 00 41 00" }] },
+        { title: "Contact", links: [{ label: "[EMAIL_ADDRESS]" }, { label: "+91 11 00 44 00" }] },
       ]}
     />
   )
@@ -51,9 +51,9 @@ export default function FooterSection() {
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `wordmark` | `string` | `"halden"` | The word printed in dots. |
-| `label` | `string` | `"Halden Studio"` | Top-left studio brand label. |
-| `meta` | `string` | `"©2026 · Oslo / Lisbon"` | Muted metadata line under label. |
+| `wordmark` | `string` | `"Zuhaib"` | The word printed in dots. |
+| `label` | `string` | `"Zuahib Studio"` | Top-left studio brand label. |
+| `meta` | `string` | `"©2026 · Srinager / Kashmir"` | Muted metadata line under label. |
 | `columns` | `FooterColumn[]` | `DEFAULT_COLUMNS` | Link columns across top nav. |
 | `backToTop` | `boolean` | `true` | Show back to top smooth scroll link. |
 | `preset` | `"night" \| "paper" \| "ember" \| "cobalt"` | `"night"` | Theme preset palette. |
