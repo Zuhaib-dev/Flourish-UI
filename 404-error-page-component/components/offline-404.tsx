@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 export interface Offline404Props {
@@ -59,13 +58,9 @@ export function Offline404({
 
       {/* Floating 404 Header Badge */}
       <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="px-3.5 py-1 rounded-full bg-black/10 backdrop-blur-md border border-black/10 font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-black/75 shadow-sm"
-        >
+        <div className="px-3.5 py-1 rounded-full bg-black/10 backdrop-blur-md border border-black/10 font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-black/75 shadow-sm transition-all hover:bg-black/15">
           404 · DISCONNECT
-        </motion.div>
+        </div>
       </div>
 
       {/* Dino Easter Egg Interactive Hotspot (Top Area) */}
@@ -83,26 +78,19 @@ export function Offline404({
         }}
       >
         {/* Animated Jump Indicator */}
-        <motion.div
-          animate={dinoJumping ? { y: -24, rotate: [0, -5, 5, 0] } : { y: 0 }}
-          transition={{ duration: 0.45, ease: 'easeInOut' }}
-          className="w-16 h-16 pointer-events-none"
+        <div
+          className={`w-16 h-16 pointer-events-none transition-transform duration-300 ease-out ${
+            dinoJumping ? '-translate-y-7 rotate-[-5deg]' : 'translate-y-0 rotate-0'
+          }`}
         />
       </div>
 
       {/* Easter Egg Jump Toast */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.95 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 z-40 px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-white text-xs font-mono tracking-wide shadow-xl pointer-events-none"
-          >
-            🦖 Dino Jump Activated! (Press Space)
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showToast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-40 px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-white text-xs font-mono tracking-wide shadow-xl pointer-events-none animate-in fade-in slide-in-from-top-2 duration-200">
+          🦖 Dino Jump Activated! (Press Space)
+        </div>
+      )}
 
       {/* Soft Blurred Background Glow */}
       <img
@@ -113,13 +101,10 @@ export function Offline404({
       />
 
       {/* Main Illustrated Scene (High Definition Overhead Perspective) */}
-      <motion.img
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      <img
         src={imageSrc}
         alt="No Internet page with overhead bird's eye view of people looking at their phones"
-        className="absolute left-1/2 top-0 h-full w-full -translate-x-1/2 object-cover object-center portrait:object-cover landscape:h-full landscape:w-auto landscape:max-w-none landscape:object-contain"
+        className="absolute left-1/2 top-0 h-full w-full -translate-x-1/2 object-cover object-center portrait:object-cover landscape:h-full landscape:w-auto landscape:max-w-none landscape:object-contain transition-opacity duration-700"
         draggable={false}
       />
 
