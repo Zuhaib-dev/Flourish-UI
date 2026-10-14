@@ -283,6 +283,14 @@ An expressive site footer whose wordmark is printed as an interactive field of s
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/raster-dynamics-wordmark/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Raster Dynamics Wordmark Preview" />
 </div>
 
+---
+
+### 📁 [Liquid Glass Folder Stack](./liquid-glass-folder-stack)
+A tactile 3D frosted-glass interactive folder component with procedural domain-warped liquid marble artwork, spring hinge physics, dynamic file fan, and interactive keyboard menu.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/liquid-glass-folder-stack/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Liquid Glass Folder Stack Preview" />
+</div>
+
 <br />
 
 ---
