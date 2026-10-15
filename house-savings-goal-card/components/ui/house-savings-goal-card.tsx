@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,6 +9,32 @@ import {
   Check,
   X,
 } from 'lucide-react'
+
+// Smooth ease-out animated number counter hook
+function useAnimatedNumber(target: number, duration: number = 750) {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    let startTimestamp: number | null = null
+    const startVal = current
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+      const ease = 1 - Math.pow(1 - progress, 3) // cubic ease-out
+      setCurrent(Math.round(startVal + (target - startVal) * ease))
+
+      if (progress < 1) {
+        requestAnimationFrame(step)
+      }
+    }
+
+    const frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [target, duration])
+
+  return current
+}
 
 export interface Transaction {
   id: string
