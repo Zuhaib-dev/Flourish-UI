@@ -165,7 +165,7 @@ export default function RootLayout({
                   license: 'https://opensource.org/licenses/MIT',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
-                  description: 'An open-source collection of expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.',
+                  description: 'An open-source collection of 43+ expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.',
                   url: 'https://flourish-ui.vercel.app',
                 },
               ],

@@ -136,7 +136,7 @@ export default function AboutPage() {
         {/* ── Key Stats ────────────────────── */}
         <div className="developers-stat-cluster" style={{ margin: '16px 0 40px', justifyContent: 'flex-start' }} aria-label="Flourish UI stats">
           <div className="registry-stat">
-            <strong>37+</strong>
+            <strong>43+</strong>
             <span>COMPONENTS</span>
           </div>
           <div className="registry-stat-divider" aria-hidden="true" />
