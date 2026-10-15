@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['liquid-glass-folder-stack', 'raster-dynamics-wordmark', 'waves-shaders-homlu-ui', 'velocity-spring-system', 'travel-booking-bento', 'quadrant-workspace-setup', 'property-comparison-dashboard', 'prisma-hero']
+export const recentlyAddedSlugs = ['design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component', 'liquid-glass-folder-stack', 'raster-dynamics-wordmark']
 
 export const components: ComponentEntry[] = [
   {
@@ -618,6 +618,127 @@ export const components: ComponentEntry[] = [
     "tone": "peach",
     "dependencies": [],
     "previewImage": "/previews/waves-shaders-homlu-ui.webp"
+  },
+  {
+    "slug": "404-error-page-component",
+    "title": "Offline Pixel 404 Error",
+    "category": "Interactive Surfaces",
+    "description": "An expressive retro-futuristic offline 404 error experience featuring a playable offline Dino runner, radar sweep animation, telemetry diagnostics, and tactile back-to-home actions.",
+    "tags": [
+      "interactive",
+      "retro",
+      "404",
+      "canvas",
+      "game"
+    ],
+    "tone": "slate",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/404-error-page-component.png"
+  },
+  {
+    "slug": "create-from-the-heart",
+    "title": "Create from the Heart",
+    "category": "Interactive Surfaces",
+    "description": "An editorial fine-art portfolio landing hero inspired by Oscar Wilde. Features calligraphic typography, fine art pastoral illustration, interactive audio synthesis, and an animated newsletter studio dock.",
+    "tags": [
+      "editorial",
+      "fine-art",
+      "typography",
+      "audio",
+      "creative"
+    ],
+    "tone": "peach",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/create-from-the-heart.png"
+  },
+  {
+    "slug": "design-with-soul",
+    "title": "Design with Soul",
+    "category": "Interactive Surfaces",
+    "description": "An impressionist portfolio hero featuring a boy and his golden retriever on a grassy hill, calligraphic script typography, instant impasto painting style toggle, botanical animations, and parchment dock with services modal.",
+    "tags": [
+      "portfolio",
+      "fine-art",
+      "editorial",
+      "modal",
+      "accessibility"
+    ],
+    "tone": "amber",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/design-with-soul.png"
+  },
+  {
+    "slug": "genesis-onboarding-card",
+    "title": "Genesis Onboarding Card",
+    "category": "Skeuomorphic & 3D",
+    "description": "A delightful pastel skeuomorphic onboarding card featuring a floating 3D unicorn avatar, interactive onboarding milestones, progress rings, and spring micro-interactions.",
+    "tags": [
+      "skeuomorphic",
+      "onboarding",
+      "cards",
+      "3d",
+      "pastel"
+    ],
+    "tone": "lavender",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/genesis-onboarding-card.png"
+  },
+  {
+    "slug": "house-savings-goal-card",
+    "title": "House Savings Goal Card",
+    "category": "Skeuomorphic & 3D",
+    "description": "A tactile skeuomorphic savings goal card featuring an architectural Nordic A-frame cabin, live rupee (₹) target calculator, tactile milestone badges, and smooth progress filling physics.",
+    "tags": [
+      "fintech",
+      "skeuomorphic",
+      "cards",
+      "savings",
+      "tactile"
+    ],
+    "tone": "emerald",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/house-savings-goal-card.png"
+  },
+  {
+    "slug": "storybook-play-canvas",
+    "title": "Storybook Play Canvas",
+    "category": "Canvas & Generative",
+    "description": "A whimsical storybook canvas scene featuring an animated storybook world, interactive character controls, spring-loaded audio stems, and layered parallax depth.",
+    "tags": [
+      "canvas",
+      "storybook",
+      "motion",
+      "framer-motion",
+      "generative"
+    ],
+    "tone": "rose",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "previewImage": "/previews/storybook-play-canvas.png"
   }
 ]
 
