@@ -315,6 +315,14 @@ An artisanal pastoral storybook hero component featuring organic brush calligrap
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/create-from-the-heart/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Create from the Heart Preview" />
 </div>
 
+---
+
+### 🏡 [House Savings Goal Card](./house-savings-goal-card)
+A minimalist, high-fidelity financial savings goal card featuring a dynamic vertical tick progress meter, automated yield details, and an interactive transaction ledger.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/house-savings-goal-card/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="House Savings Goal Card Preview" />
+</div>
+
 <br />
 
 ---
