@@ -7,6 +7,9 @@
 - Developer Portal: https://flourish-ui.vercel.app/developers
 - OpenAPI Specification: https://flourish-ui.vercel.app/openapi.json
 - shadcn Registry Catalog: https://flourish-ui.vercel.app/r/registry.json
+- Machine-Readable Pricing: https://flourish-ui.vercel.app/pricing.md
+- Full Knowledge Bundle (llms-full.txt): https://flourish-ui.vercel.app/llms-full.txt
+- Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
 - GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
 
 ## Public REST API Endpoints

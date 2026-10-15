@@ -43,6 +43,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        headers: [
+          {
+            key: 'Link',
+            value: '</llms.txt>; rel="alternate"; type="text/markdown", </llms-full.txt>; rel="alternate"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown"',
+          },
+        ],
+      },
     ]
   },
   turbopack: {

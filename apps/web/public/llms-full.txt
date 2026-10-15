@@ -1,0 +1,375 @@
+# Flourish UI — Complete Knowledge Bundle (llms-full.txt)
+
+> Flourish UI is an open-source library of expressive, interactive React and Next.js components with tactile skeuomorphism, WebGL shaders, spring physics, and shadcn CLI registry support.
+
+## Core Metadata
+- Official Website: https://flourish-ui.vercel.app
+- Author: Zuhaib Rashid (https://www.zuhaibrashid.com)
+- GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
+- License: MIT (100% Free for Personal & Commercial Use)
+- Machine-Readable Pricing: https://flourish-ui.vercel.app/pricing.md
+- OpenAPI Specification: https://flourish-ui.vercel.app/openapi.json
+- Total Components Cataloged: 37
+
+## CLI Installation Quickstart
+Install any component directly into any Next.js or React application via shadcn CLI:
+```bash
+# pnpm
+pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+
+# npx / npm
+npx shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+
+# bun
+bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+```
+
+## Complete Component Catalog
+
+### 1. Admit One 3D Holographic Ticket (`admit-one-3-d-holographic-ticket`)
+- **Category**: Shaders & WebGL
+- **Description**: A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL shaders, Bayer matrix dithering, simplex noise foil, interactive physical mouse tilt, and realistic specular glare.
+- **Tags**: shaders, webgl, canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/admit-one-3-d-holographic-ticket.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/admit-one-3-d-holographic-ticket/source`
+
+### 2. Agent Orchestration Dashboard (`agent-orchestration-dashboard`)
+- **Category**: Dashboards & Editors
+- **Description**: An ultra-premium, dark-mode orchestration dashboard designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate widget layouts.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/agent-orchestration-dashboard
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/agent-orchestration-dashboard.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/agent-orchestration-dashboard/source`
+
+### 3. Auth Section Split Portal (`auth-section-1`)
+- **Category**: Interactive Surfaces
+- **Description**: A gorgeous, highly-converting split-screen authentication component layout built for Next.js.
+- **Tags**: interactive surfaces, webgl, typescript
+- **Dependencies**: `@paper-design/shaders-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/auth-section-1
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/auth-section-1.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/auth-section-1/source`
+
+### 4. Bloom Select Text Garden (`bloom-select`)
+- **Category**: Motion & Physics
+- **Description**: Bloom Select turns highlighted text into playful, animated flowers, adding an expressive moment to reading and writing interfaces.
+- **Tags**: motion, typescript
+- **Dependencies**: `framer-motion`
+- **Component URL**: https://flourish-ui.vercel.app/components/bloom-select
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/bloom-select.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/bloom-select/source`
+
+### 5. Cold Flame Drift Risograph (`cold-flame-drift`)
+- **Category**: Shaders & WebGL
+- **Description**: A tactile, generative field of grainy, hand-printed risograph flames sliding along a diagonal. Features noise-bent flow rows, dual-ink stippled grain, drifting dash marks, and dynamic pointer interaction (hover curl, speed boost, and click flare shockwaves).
+- **Tags**: shaders, webgl, canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/cold-flame-drift
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/cold-flame-drift.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/cold-flame-drift/source`
+
+### 6. GitHub Contribution Skyline (`contribution-skyline`)
+- **Category**: Canvas & Generative
+- **Description**: A GitHub-style contribution heat map that seamlessly transforms into an isometric 3D skyline. Every day is a box on a grid, smoothly transitioning between a 2D overhead view and a 3D perspective using HTML5 Canvas.
+- **Tags**: canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/contribution-skyline
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/contribution-skyline.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/contribution-skyline/source`
+
+### 7. Tactile 3D Credit Card Form (`credit-card-form`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A tactile, interactive 3D flippable credit card form component with dynamic input focus highlighting, number slot slide animations, Luhn validation, and smooth dual-sided flip transitions.
+- **Tags**: skeuomorphic, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/credit-card-form
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/credit-card-form.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/credit-card-form/source`
+
+### 8. Minimalist Control Room (`dashboard-may-look-minimal`)
+- **Category**: Dashboards & Editors
+- **Description**: A stunning, hyper-minimal SaaS dashboard UI featuring bespoke handcrafted SVG charts, wireframe-style crop marks, and perfect technical typography.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/dashboard-may-look-minimal
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/dashboard-may-look-minimal.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/dashboard-may-look-minimal/source`
+
+### 9. Daybreak Editorial Narrative (`daybreak-editorial`)
+- **Category**: Interactive Surfaces
+- **Description**: A premium, interactive Neo-Classical design system and UI shell for long-form narrative, reading, and writing experiences. Built with Next.js 15, Tailwind CSS v4, and Framer Motion.
+- **Tags**: interactive surfaces, motion, canvas, threejs
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/daybreak-editorial
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/daybreak-editorial.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/daybreak-editorial/source`
+
+### 10. Digital Journal 3D Album (`digital-journal-album`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A photorealistic, highly interactive 3D digital journal with true physical flipbook mechanics and cinematic visuals, built for the Flourish UI component library.
+- **Tags**: skeuomorphic, motion, typescript
+- **Dependencies**: `framer-motion`
+- **Component URL**: https://flourish-ui.vercel.app/components/digital-journal-album
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/digital-journal-album.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/digital-journal-album/source`
+
+### 11. Digital Signature Modal (`digital-signature-modal`)
+- **Category**: Interactive Surfaces
+- **Description**: A premium, highly interactive, and functionally complete React component for capturing digital signatures in web applications. It provides a polished and legally compliant-looking interface for users to sign documents.
+- **Tags**: interactive surfaces, typescript
+- **Dependencies**: `framer-motion, lucide-react, react-signature-canvas`
+- **Component URL**: https://flourish-ui.vercel.app/components/digital-signature-modal
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/digital-signature-modal.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/digital-signature-modal/source`
+
+### 12. Draggable Widget Observability Grid (`draggable-widget-grid`)
+- **Category**: Dashboards & Editors
+- **Description**: A beautiful, draggable grid of widgets that can be rearranged seamlessly using `motion/react`.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `motion`
+- **Component URL**: https://flourish-ui.vercel.app/components/draggable-widget-grid
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/draggable-widget-grid.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/draggable-widget-grid/source`
+
+### 13. FlowAI Node Workflow Canvas (`flow-ai-canvas`)
+- **Category**: Dashboards & Editors
+- **Description**: An ultra-premium node-based visual workflow editor interface. Built with an intricate left sidebar, an interactive node library panel, and a beautifully designed dot-grid canvas with floating toolbars and a minimap.
+- **Tags**: dashboards, motion, canvas, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/flow-ai-canvas
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/flow-ai-canvas.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/flow-ai-canvas/source`
+
+### 14. ASCII Cyberpunk Hero (`hero-ascii-one`)
+- **Category**: Canvas & Generative
+- **Description**: A dark, cyber-themed animated hero component featuring Unicorn Studio background rendering and typing aesthetics.
+- **Tags**: canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/hero-ascii-one
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/hero-ascii-one.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/hero-ascii-one/source`
+
+### 15. Generative 3D Ink Orbit Hero (`ink-orbit-hero`)
+- **Category**: Canvas & Generative
+- **Description**: A stunning hero section featuring a generative 3D ink sculpture that responds to drag, tilt, and click gestures. Built entirely using HTML5 Canvas and React with zero external dependencies.
+- **Tags**: canvas, motion, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/ink-orbit-hero
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/ink-orbit-hero.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/ink-orbit-hero/source`
+
+### 16. 3D Isometric Dashboard (`isometric-dashboard`)
+- **Category**: Dashboards & Editors
+- **Description**: A premium, high-fidelity dark-mode dashboard component featuring a true 3D isometric stacked bar chart and a highly detailed interactive heatmap calendar.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/isometric-dashboard
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/isometric-dashboard.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/isometric-dashboard/source`
+
+### 17. Kinetic Typography Hover (`kinetic-hover`)
+- **Category**: Motion & Physics
+- **Description**: A high-fidelity, interactive hover layout component designed for editorial portfolios and creative agencies.
+- **Tags**: motion, typescript
+- **Dependencies**: `framer-motion`
+- **Component URL**: https://flourish-ui.vercel.app/components/kinetic-hover
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/kinetic-hover.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/kinetic-hover/source`
+
+### 18. Liquid Glass Folder Stack (`liquid-glass-folder-stack`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A tactile 3D frosted-glass interactive folder component with procedural domain-warped liquid marble artwork, spring hinge physics, dynamic file fan, and interactive keyboard menu.
+- **Tags**: skeuomorphic, 3d, glassmorphism, canvas, spring-physics, procedural-art, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/liquid-glass-folder-stack
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack/source`
+
+### 19. Live Notification Event Feed (`live-notification-feed`)
+- **Category**: Interactive Surfaces
+- **Description**: A premium, interactive live notification feed designed for real-time dashboards and product demos. Built with Next.js, Framer Motion (conceptually adapted via native animations), and Tailwind CSS.
+- **Tags**: interactive surfaces, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/live-notification-feed
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/live-notification-feed.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/live-notification-feed/source`
+
+### 20. Interactive Particle Wordmark (`particle-wordmark`)
+- **Category**: Canvas & Generative
+- **Description**: A gorgeous, interactive particle-based wordmark component.
+- **Tags**: canvas, webgl, threejs, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/particle-wordmark
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/particle-wordmark.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/particle-wordmark/source`
+
+### 21. Post Planner Content Calendar (`post-planner-calendar`)
+- **Category**: Dashboards & Editors
+- **Description**: A pristine, minimalist SaaS dashboard component designed for planning and organizing content posts. Features a comprehensive calendar grid and data summary cards with a clean light-mode aesthetic.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/post-planner-calendar
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/post-planner-calendar.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/post-planner-calendar/source`
+
+### 22. Prisma Cinematic Video Hero (`prisma-hero`)
+- **Category**: Interactive Surfaces
+- **Description**: A dark, atmospheric hero component featuring a full-bleed background video, glassmorphic noise overlays, and `framer-motion` staggered text pull-up effects.
+- **Tags**: interactive surfaces, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/prisma-hero
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/prisma-hero.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/prisma-hero/source`
+
+### 23. Proma Podcast Workspace (`proma-content-workspace`)
+- **Category**: Dashboards & Editors
+- **Description**: A high-fidelity, 3-column workspace dashboard designed for podcast and content studios. It features an intricate collapsible sidebar, a central AI-assisted content creation feed, and a rich media transcript view.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/proma-content-workspace
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/proma-content-workspace.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/proma-content-workspace/source`
+
+### 24. Property Comparison Matrix (`property-comparison-dashboard`)
+- **Category**: Dashboards & Editors
+- **Description**: A highly interactive, fluid property comparison dashboard featuring soft skeuomorphic design and smooth `framer-motion` state transitions, built for the Flourish UI component library.
+- **Tags**: dashboards, motion, threejs, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/property-comparison-dashboard
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/property-comparison-dashboard.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/property-comparison-dashboard/source`
+
+### 25. Quadrant Workstation Hub (`quadrant-workspace-setup`)
+- **Category**: Dashboards & Editors
+- **Description**: A premium, highly polished workspace setup and configuration modal. It features a stunning split-layout design with a picturesque background, meticulous form elements, and smooth interactions.
+- **Tags**: dashboards, typescript
+- **Dependencies**: `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/quadrant-workspace-setup
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/quadrant-workspace-setup.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/quadrant-workspace-setup/source`
+
+### 26. Raster Dynamics Wordmark (`raster-dynamics-wordmark`)
+- **Category**: Canvas & Generative
+- **Description**: An expressive site footer whose wordmark is printed as an interactive field of spring-physics halftone dots with real-time pointer push and expanding shockwave ring animations.
+- **Tags**: canvas, generative, typography, physics, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/raster-dynamics-wordmark
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/raster-dynamics-wordmark.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/raster-dynamics-wordmark/source`
+
+### 27. SEO Analysis AI Agent Chat (`seo-agent-chat-ui`)
+- **Category**: Dashboards & Editors
+- **Description**: A pristine, high-fidelity chat interface designed for interacting with specialized AI agents (like an SEO Specialist). It features a full-width viewport design with a collapsible sidebar and a central chat feed capable of rendering complex, interactive data cards.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/seo-agent-chat-ui
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/seo-agent-chat-ui.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/seo-agent-chat-ui/source`
+
+### 28. Squircle Share File Dialog (`share-file-dialog`)
+- **Category**: Interactive Surfaces
+- **Description**: A highly-detailed, highly-polished share file dialog modal built for Next.js, featuring smooth Framer Motion animations.
+- **Tags**: interactive surfaces, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/share-file-dialog
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/share-file-dialog.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/share-file-dialog/source`
+
+### 29. Skeuomorphic Folio Notebook (`skeuomorphic-notebook`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A playful, highly interactive skeuomorphic take on a digital guestbook. It brings the tactile feel of a physical leather-bound journal into the browser with realistic page flips, handwritten typography, and organic ink features.
+- **Tags**: skeuomorphic, motion, canvas, typescript
+- **Dependencies**: `framer-motion, lucide-react, react-signature-canvas`
+- **Component URL**: https://flourish-ui.vercel.app/components/skeuomorphic-notebook
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/skeuomorphic-notebook.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/skeuomorphic-notebook/source`
+
+### 30. Skeuomorphic Verify Email (`skeuomorphic-verify-email`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A beautifully crafted, physically inspired email verification component featuring a 3D rendered mailbox, deep inset shadows, and tactile button interactions.
+- **Tags**: skeuomorphic, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/skeuomorphic-verify-email
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/skeuomorphic-verify-email.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/skeuomorphic-verify-email/source`
+
+### 31. Skiper39 Generative Crowd Canvas (`skiper39`)
+- **Category**: Canvas & Generative
+- **Description**: A highly interactive and animated crowd rendering component using HTML5 Canvas and `gsap` (GreenSock Animation Platform).
+- **Tags**: canvas, typescript
+- **Dependencies**: `gsap`
+- **Component URL**: https://flourish-ui.vercel.app/components/skiper39
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/skiper39.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/skiper39/source`
+
+### 32. Split Frosted Sign Up Modal (`split-signup-modal`)
+- **Category**: Interactive Surfaces
+- **Description**: A highly premium, two-column split-layout sign up modal featuring a clean typographic left panel and a dreamy, animated glassmorphic right panel. Built for the Flourish UI component library.
+- **Tags**: interactive surfaces, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/split-signup-modal
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/split-signup-modal.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/split-signup-modal/source`
+
+### 33. Ticket Stub Perforated Footer (`ticket-stub-footer`)
+- **Category**: Interactive Surfaces
+- **Description**: A dark, hairline-ruled closing section for an ops product, with the brand printed on an orange ticket.
+- **Tags**: interactive surfaces, canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/ticket-stub-footer
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/ticket-stub-footer.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/ticket-stub-footer/source`
+
+### 34. Travel Booking Bento Grid (`travel-booking-bento`)
+- **Category**: Dashboards & Editors
+- **Description**: A beautiful, highly complex travel booking dashboard featuring a modern bento-box grid layout, glassmorphism overlays, and stunning typography.
+- **Tags**: dashboards, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/travel-booking-bento
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/travel-booking-bento.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/travel-booking-bento/source`
+
+### 35. Velocity Spring Dock System (`velocity-spring-system`)
+- **Category**: Motion & Physics
+- **Description**: A breathtaking, highly interactive layout animation system featuring MacOS dock mechanics, seamless masonry grid toggles, and perfect physical spring interpolation. Built for the Flourish UI component library.
+- **Tags**: motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/velocity-spring-system
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/velocity-spring-system.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/velocity-spring-system/source`
+
+### 36. Voyage Soft-Skeuomorphic Planner (`voyage-planner`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts, glassmorphic folders, and ultra-premium UI details.
+- **Tags**: skeuomorphic, motion, typescript
+- **Dependencies**: `framer-motion, lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/voyage-planner
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/voyage-planner.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/voyage-planner/source`
+
+### 37. Waves OKLab Liquid Shader (`waves-shaders-homlu-ui`)
+- **Category**: Shaders & WebGL
+- **Description**: An interactive, organic wave field shader background featuring perceptual OKLab color transitions, 5-tap blur, film grain, and dynamic pointer displacement effects (push, directional distortion, swirl, and ripple).
+- **Tags**: shaders, webgl, canvas, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/waves-shaders-homlu-ui.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/waves-shaders-homlu-ui/source`
+
+## WebMCP In-Browser Autonomous Agent Tools
+Flourish UI implements the WebMCP standard via `document.modelContext` and `navigator.modelContext` for browser AI agents:
+- `search_components(query: string, category?: string)`: Find components matching keywords.
+- `get_component(slug: string)`: Return full component metadata and installation commands.
+- `get_component_source(slug: string)`: Download raw TypeScript React source code.
+- `list_categories()`: Return all design categories with component counts.
+- `get_install_command(slug: string, manager: "pnpm" | "npm" | "bun" | "yarn")`: Generate direct CLI copy command.
+
+## FAQ & Agent Decision Guide
+### Is Flourish UI free for commercial use?
+Yes. All components are licensed under the MIT License and can be used in personal and commercial web applications without restriction.
+
+### Does Flourish UI create vendor lock-in?
+No. Installing via `shadcn` CLI copies the clean TypeScript/React source code directly into your repository (`components/flourish/`), meaning you own the code completely.

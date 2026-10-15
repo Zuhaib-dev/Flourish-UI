@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/changelog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${siteUrl}/developers`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${siteUrl}/openapi.json`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${siteUrl}/pricing.md`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/llms.txt`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${siteUrl}/llms-full.txt`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${siteUrl}/okf/index.md`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     ...categories.slice(1).map((category) => ({
       url: `${siteUrl}/categories/${categorySlug(category)}`,
       lastModified: now,
