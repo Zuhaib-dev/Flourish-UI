@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { ArrowRight, Check, X, Sparkles, Menu, Mail, Compass, Layers, Palette } from 'lucide-react'
+import { ArrowRight, Check, X, Sparkles, Menu, Mail, Compass, Layers, Palette, Image as ImageIcon } from 'lucide-react'
 
 export interface ServiceItem {
   id: string
@@ -76,12 +76,38 @@ export default function DesignWithSoul({
   onCtaClick,
   className = '',
 }: DesignWithSoulProps) {
+  const [currentPainting, setCurrentPainting] = useState(paintingSrc)
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null)
   const [showPortfolioModal, setShowPortfolioModal] = useState(false)
+
+  // Accessibility: Close modals with Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (selectedService) setSelectedService(null)
+        if (showPortfolioModal) setShowPortfolioModal(false)
+        if (mobileMenuOpen) setMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedService, showPortfolioModal, mobileMenuOpen])
+
+  // Accessibility: Prevent background scroll when modal is active
+  useEffect(() => {
+    if (selectedService || showPortfolioModal) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedService, showPortfolioModal])
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
@@ -106,6 +132,12 @@ export default function DesignWithSoul({
     }
   }
 
+  const togglePaintingStyle = () => {
+    setCurrentPainting((prev) =>
+      prev.includes('fine-art') ? '/hero-original.png' : '/hero-fine-art.png'
+    )
+  }
+
   return (
     <main
       className={`relative min-h-screen w-full flex flex-col justify-between overflow-x-hidden bg-[#78a9c8] select-none ${className}`}
@@ -116,11 +148,11 @@ export default function DesignWithSoul({
       {/* Background Oil Painting Canvas Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
-          src={paintingSrc}
+          src={currentPainting}
           alt="Impressionist oil painting of a boy and golden dog sitting together on a grassy hill under summer sky"
           fill
           priority
-          className="object-cover object-bottom transition-transform duration-1000 scale-[1.002]"
+          className="object-cover object-bottom transition-all duration-1000 scale-[1.002]"
           sizes="100vw"
         />
 
@@ -129,7 +161,7 @@ export default function DesignWithSoul({
       </div>
 
       {/* Top Navigation Bar */}
-      <header className="relative z-20 w-full pt-6 sm:pt-8 md:pt-9 px-6 sm:px-12 md:px-16 flex items-center justify-between">
+      <header className="relative z-20 w-full pt-6 sm:pt-8 md:pt-9 px-6 sm:px-12 md:px-16 flex items-center justify-between animate-nav-fade">
         {/* Left Nav items */}
         <nav
           aria-label="Primary Navigation Left"
@@ -178,6 +210,16 @@ export default function DesignWithSoul({
               {item}
             </button>
           ))}
+
+          {/* Quick Painting Style Switcher */}
+          <button
+            onClick={togglePaintingStyle}
+            title={`Switch to ${currentPainting.includes('fine-art') ? 'Original Inpainted' : 'Fine-Art Impasto'} Canvas`}
+            className="p-1.5 rounded-full hover:bg-black/5 text-[#2c251f]/75 hover:text-[#181411] transition-all cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2c251f]"
+            aria-label="Toggle painting art style"
+          >
+            <Palette className="w-3.5 h-3.5" />
+          </button>
         </nav>
 
         {/* Mobile Hamburger Toggle */}
