@@ -330,11 +330,11 @@
           },
           "total": {
             "type": "integer",
-            "example": 37
+            "example": 43
           },
           "count": {
             "type": "integer",
-            "example": 37
+            "example": 43
           },
           "offset": {
             "type": "integer",
