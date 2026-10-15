@@ -297,7 +297,7 @@ export default function DesignWithSoul({
             <div className="md:col-span-4 lg:col-span-3 xl:col-span-3 p-4 sm:p-5 lg:p-6 flex items-center gap-3.5 sm:gap-4 bg-[#f6f0e6] hover:bg-[#f3ede3] transition-colors duration-200">
               {/* Botanical dried floral stem SVG */}
               <div
-                className="w-10 h-16 sm:w-11 sm:h-18 shrink-0 text-[#9b8c7b] flex items-center justify-center opacity-90"
+                className="w-10 h-16 sm:w-11 sm:h-18 shrink-0 text-[#9b8c7b] flex items-center justify-center opacity-90 animate-botanical-sway hover:scale-110 transition-transform duration-500 cursor-pointer"
                 aria-hidden="true"
               >
                 <svg
@@ -356,11 +356,11 @@ export default function DesignWithSoul({
                 <button
                   key={svc.id}
                   onClick={() => setSelectedService(svc)}
-                  className="p-3.5 sm:p-4 lg:p-5 flex flex-col justify-between items-start text-left hover:bg-[#f3ede3] active:bg-[#ede5da] transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
+                  className="p-3.5 sm:p-4 lg:p-5 flex flex-col justify-between items-start text-left hover:bg-[#f3ede3] active:bg-[#ede5da] hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
                   title={`Explore ${svc.title}`}
                 >
                   {/* Icon */}
-                  <div className="h-5 flex items-center text-[#241e18] group-hover:scale-110 transition-transform duration-300">
+                  <div className="h-5 flex items-center text-[#241e18] group-hover:scale-115 group-hover:rotate-6 transition-transform duration-300">
                     {svc.icon === 'branding' && (
                       <svg
                         viewBox="0 0 24 24"
@@ -447,7 +447,7 @@ export default function DesignWithSoul({
               {/* Form Input + Circular Submit Button */}
               <form onSubmit={handleSubscribe} className="relative mt-3 pt-1">
                 {subscribed ? (
-                  <div className="flex items-center gap-2 py-1.5 px-3 bg-[#e8efe6] border border-[#c3d5c0] rounded-xl text-xs text-[#305229] font-medium animate-fadeIn">
+                  <div className="flex items-center gap-2 py-1.5 px-3 bg-[#e8efe6] border border-[#c3d5c0] rounded-xl text-xs text-[#305229] font-medium animate-check-spring">
                     <Check className="w-3.5 h-3.5 text-[#3c7031] shrink-0" />
                     <span>Welcome to studio notes! Delivered gently.</span>
                   </div>
@@ -466,7 +466,7 @@ export default function DesignWithSoul({
                       type="submit"
                       disabled={submitting}
                       aria-label="Subscribe to studio notes"
-                      className="shrink-0 w-7 h-7 rounded-full bg-[#231d17] text-[#f7f2ea] flex items-center justify-center hover:bg-[#3d342b] active:scale-95 transition-all duration-200 cursor-pointer shadow-sm disabled:opacity-50"
+                      className="shrink-0 w-7 h-7 rounded-full bg-[#231d17] text-[#f7f2ea] flex items-center justify-center hover:bg-[#3d342b] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shadow-sm disabled:opacity-50"
                     >
                       {submitting ? (
                         <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -487,20 +487,27 @@ export default function DesignWithSoul({
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fadeIn"
+          aria-label={`${selectedService.title} Details`}
+          tabIndex={-1}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm animate-fadeIn"
           onClick={() => setSelectedService(null)}
         >
           <div
-            className="w-full max-w-lg bg-[#f6f0e6] rounded-3xl p-6 sm:p-8 border border-[#e5ded4] shadow-2xl relative"
+            className="w-full max-w-lg bg-[#f6f0e6] rounded-3xl p-6 sm:p-8 border border-[#e5ded4] shadow-2xl relative animate-modal-enter"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelectedService(null)}
-              className="absolute top-5 right-5 p-2 rounded-full hover:bg-black/5 text-[#5e5448] transition-colors"
-              aria-label="Close dialog"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="absolute top-5 right-5 flex items-center gap-1.5">
+              <kbd className="hidden sm:inline-block text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-black/5 text-[#8d8274] border border-[#ded5c8]">
+                ESC
+              </kbd>
+              <button
+                onClick={() => setSelectedService(null)}
+                className="p-2 rounded-full hover:bg-black/5 text-[#5e5448] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
+                aria-label="Close dialog (Escape)"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
             <div className="flex items-center gap-3">
               <span className="p-2.5 rounded-2xl bg-[#ebe4da] text-[#221c17]">
@@ -547,7 +554,7 @@ export default function DesignWithSoul({
                   const el = document.getElementById('studio-newsletter-input')
                   el?.focus()
                 }}
-                className="px-4 py-2 rounded-full bg-[#231d17] text-[#f7f2ea] text-xs font-semibold tracking-wider hover:bg-[#3d342b] transition-colors"
+                className="px-4 py-2 rounded-full bg-[#231d17] text-[#f7f2ea] text-xs font-semibold tracking-wider hover:bg-[#3d342b] transition-colors cursor-pointer"
               >
                 Inquire Project →
               </button>
@@ -561,20 +568,27 @@ export default function DesignWithSoul({
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-md animate-fadeIn"
+          aria-label="Curated Archive & Selected Works"
+          tabIndex={-1}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fadeIn"
           onClick={() => setShowPortfolioModal(false)}
         >
           <div
-            className="w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-[#f6f0e6] rounded-3xl p-6 sm:p-10 border border-[#e5ded4] shadow-2xl relative"
+            className="w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-[#f6f0e6] rounded-3xl p-6 sm:p-10 border border-[#e5ded4] shadow-2xl relative animate-modal-enter"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setShowPortfolioModal(false)}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-black/5 text-[#5e5448] transition-colors"
-              aria-label="Close dialog"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="absolute top-6 right-6 flex items-center gap-1.5">
+              <kbd className="hidden sm:inline-block text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-black/5 text-[#8d8274] border border-[#ded5c8]">
+                ESC
+              </kbd>
+              <button
+                onClick={() => setShowPortfolioModal(false)}
+                className="p-2 rounded-full hover:bg-black/5 text-[#5e5448] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
+                aria-label="Close dialog (Escape)"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
             <div className="flex items-center gap-2 text-[#8d8274]">
               <Sparkles className="w-4 h-4" />
@@ -619,7 +633,7 @@ export default function DesignWithSoul({
               ].map((proj) => (
                 <div
                   key={proj.title}
-                  className="p-5 rounded-2xl bg-[#ede6dc] border border-[#dfd5c7] hover:border-[#b8ac9c] transition-all group"
+                  className="p-5 rounded-2xl bg-[#ede6dc] border border-[#dfd5c7] hover:border-[#b8ac9c] hover:shadow-sm transition-all group"
                 >
                   <div className="flex items-center justify-between text-[11px] text-[#8d8274] uppercase tracking-wider font-semibold">
                     <span>{proj.category}</span>
