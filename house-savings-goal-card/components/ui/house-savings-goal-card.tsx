@@ -380,7 +380,7 @@ export function HouseSavingsGoalCard({
                         : 'bg-gray-50 text-[#111827] border-gray-200 hover:bg-gray-100'
                     }`}
                   >
-                    +${parseInt(amt).toLocaleString()}
+                    +₹{parseInt(amt).toLocaleString()}
                   </button>
                 ))}
               </div>
