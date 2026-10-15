@@ -48,7 +48,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Link',
-            value: '</llms.txt>; rel="alternate"; type="text/markdown", </llms-full.txt>; rel="alternate"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown"',
+            value: '</llms.txt>; rel="alternate"; type="text/markdown", </llms-full.txt>; rel="alternate"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </okf/index.md>; rel="describedby"; type="text/markdown", </AGENTS.md>; rel="help"; type="text/markdown"',
           },
           {
             key: 'Vary',
