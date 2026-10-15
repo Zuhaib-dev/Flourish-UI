@@ -65,11 +65,11 @@ export default function DesignWithSoul({
   headlineLine2 = 'with soul.',
   subtitle = 'Stories told beautifully.',
   ctaText = 'VIEW MY WORK →',
-  founderName = 'ZUHAIB',
+  founderName = 'MIRA HAYES',
   founderRole = 'FOUNDER & DESIGNER',
   founderQuote = 'Crafting visuals that leave a lasting feeling.',
   brandLogo = 'm.',
-  paintingSrc = '/hero-painting.png',
+  paintingSrc = '/hero-art.png',
   services = defaultServices,
   newsletterTitle = 'Notes from the studio',
   newsletterDesc = 'Thoughts, insights, and inspiration delivered gently.',
@@ -94,8 +94,8 @@ export default function DesignWithSoul({
       setTimeout(() => {
         setSubscribed(false)
         setEmail('')
-      }, 4500)
-    }, 400)
+      }, 4000)
+    }, 350)
   }
 
   const handleCta = () => {
@@ -108,34 +108,32 @@ export default function DesignWithSoul({
 
   return (
     <main
-      className={`relative min-h-screen w-full flex flex-col justify-between overflow-x-hidden bg-[#6da2c4] select-none ${className}`}
+      className={`relative min-h-screen w-full flex flex-col justify-between overflow-x-hidden bg-[#78a9c8] select-none ${className}`}
       style={{
-        backgroundColor: '#6ca1c4',
+        backgroundColor: '#78a9c8',
       }}
     >
       {/* Background Oil Painting Canvas Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src={paintingSrc}
-          alt="Impressionist painting of a boy and golden dog sitting together on a grassy hill under summer sky"
+          alt="Impressionist oil painting of a boy and golden dog sitting together on a grassy hill under summer sky"
           fill
           priority
-          className="object-cover object-bottom sm:object-center transition-transform duration-1000 scale-[1.01]"
+          className="object-cover object-[center_60%] sm:object-[center_bottom] lg:object-[62%_bottom] transition-transform duration-1000 scale-[1.005]"
           sizes="100vw"
         />
 
-        {/* Soft atmospheric gradient scrims to ensure absolute contrast on any display */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#6ca1c4]/20 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-black/15 via-black/5 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 canvas-grain opacity-40 pointer-events-none" />
+        {/* Soft natural canvas grain */}
+        <div className="absolute inset-0 canvas-grain opacity-30 pointer-events-none" />
       </div>
 
       {/* Top Navigation Bar */}
-      <header className="relative z-20 w-full pt-6 sm:pt-8 md:pt-10 px-6 sm:px-12 md:px-16 flex items-center justify-between">
+      <header className="relative z-20 w-full pt-6 sm:pt-8 md:pt-9 px-6 sm:px-12 md:px-16 flex items-center justify-between">
         {/* Left Nav items */}
         <nav
           aria-label="Primary Navigation Left"
-          className="hidden md:flex items-center gap-8 lg:gap-12"
+          className="hidden md:flex items-center gap-8 lg:gap-14"
         >
           {['HOME', 'WORK', 'ABOUT'].map((item) => (
             <button
@@ -143,7 +141,7 @@ export default function DesignWithSoul({
               onClick={() => {
                 if (item === 'WORK') setShowPortfolioModal(true)
               }}
-              className="text-[11px] lg:text-[12px] font-semibold tracking-[0.24em] text-[#2c2620]/85 hover:text-[#191512] transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2c2620]"
+              className="text-[10px] sm:text-[11px] font-medium tracking-[0.28em] text-[#2c251f]/80 hover:text-[#181411] transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2c251f]"
             >
               {item}
             </button>
@@ -154,7 +152,7 @@ export default function DesignWithSoul({
         <div className="flex-1 md:flex-initial flex justify-start md:justify-center">
           <a
             href="#home"
-            className="font-script text-3xl sm:text-4xl text-[#241e18] hover:opacity-80 transition-opacity tracking-tight -mt-1 cursor-pointer"
+            className="font-script text-3xl sm:text-4xl text-[#241e18] hover:opacity-85 transition-opacity tracking-tight cursor-pointer"
             aria-label="Mira Hayes Studio Home"
           >
             {brandLogo}
@@ -164,7 +162,7 @@ export default function DesignWithSoul({
         {/* Right Nav items */}
         <nav
           aria-label="Primary Navigation Right"
-          className="hidden md:flex items-center gap-8 lg:gap-12"
+          className="hidden md:flex items-center gap-8 lg:gap-14"
         >
           {['JOURNAL', 'CONTACT'].map((item) => (
             <button
@@ -175,7 +173,7 @@ export default function DesignWithSoul({
                   el?.focus()
                 }
               }}
-              className="text-[11px] lg:text-[12px] font-semibold tracking-[0.24em] text-[#2c2620]/85 hover:text-[#191512] transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2c2620]"
+              className="text-[10px] sm:text-[11px] font-medium tracking-[0.28em] text-[#2c251f]/80 hover:text-[#181411] transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2c251f]"
             >
               {item}
             </button>
@@ -194,7 +192,7 @@ export default function DesignWithSoul({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="relative z-30 md:hidden bg-[#f7f2ea]/95 backdrop-blur-md border-b border-[#e5ded4] px-6 py-6 shadow-lg animate-fadeIn">
+        <div className="relative z-30 md:hidden bg-[#f6f0e6]/95 backdrop-blur-md border-b border-[#e5ded4] px-6 py-6 shadow-lg animate-fadeIn">
           <div className="flex flex-col gap-4 text-center">
             {['HOME', 'WORK', 'ABOUT', 'JOURNAL', 'CONTACT'].map((item) => (
               <button
@@ -207,7 +205,7 @@ export default function DesignWithSoul({
                     el?.focus()
                   }
                 }}
-                className="text-xs font-semibold tracking-[0.22em] text-[#2c2620] py-2 hover:bg-black/5 rounded-md transition-colors"
+                className="text-xs font-semibold tracking-[0.24em] text-[#2c251f] py-2 hover:bg-black/5 rounded-md transition-colors"
               >
                 {item}
               </button>
@@ -219,16 +217,16 @@ export default function DesignWithSoul({
       {/* Hero Typography Section */}
       <section
         aria-label="Hero Introduction"
-        className="relative z-10 w-full px-6 sm:px-12 md:px-16 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 flex-1 flex flex-col justify-center max-w-4xl animate-hero-fade"
+        className="relative z-10 w-full px-6 sm:px-12 md:px-16 pt-10 sm:pt-14 md:pt-16 pb-8 sm:pb-12 flex-1 flex flex-col justify-center max-w-4xl animate-hero-fade"
       >
         {/* Main Display Headline */}
-        <h1 className="font-display text-[46px] sm:text-[68px] md:text-[84px] lg:text-[104px] font-medium tracking-[-0.04em] leading-[0.9] text-[#231d17]">
+        <h1 className="font-display text-[48px] sm:text-[72px] md:text-[92px] lg:text-[110px] font-normal tracking-[-0.04em] leading-[0.88] text-[#221c17]">
           <span className="block">{headlineLine1}</span>
           <span className="block">{headlineLine2}</span>
         </h1>
 
         {/* Handwritten Cursive Subtitle */}
-        <p className="font-script text-2xl sm:text-3xl md:text-4xl text-[#3a3329] tracking-normal mt-4 sm:mt-5 ml-1">
+        <p className="font-script text-3xl sm:text-4xl md:text-5xl text-[#3a3227] tracking-normal mt-3 sm:mt-4 ml-1">
           {subtitle}
         </p>
 
@@ -236,7 +234,7 @@ export default function DesignWithSoul({
         <div className="mt-7 sm:mt-9">
           <button
             onClick={handleCta}
-            className="group inline-flex items-center gap-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.25em] text-[#241e18] uppercase border-b border-[#241e18]/60 pb-1.5 hover:border-[#241e18] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#241e18] cursor-pointer"
+            className="group inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-medium tracking-[0.26em] text-[#2b241e] uppercase border-b border-[#2b241e]/60 pb-1 hover:border-[#2b241e] transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2b241e] cursor-pointer"
           >
             <span>{ctaText.replace(' →', '')}</span>
             <span
@@ -250,21 +248,21 @@ export default function DesignWithSoul({
       </section>
 
       {/* Floating Bottom Parchment Dock */}
-      <footer className="relative z-20 w-full px-2.5 sm:px-6 md:px-8 pb-3 sm:pb-6 animate-dock-slide">
-        <div className="w-full bg-[#f6f1eb] rounded-2xl md:rounded-3xl border border-[#e8e1d6] shadow-[0_16px_50px_rgba(25,20,15,0.14)] overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-12 items-stretch divide-y md:divide-y-0 md:divide-x divide-[#e8e1d6]">
+      <footer className="relative z-20 w-full px-3 sm:px-6 md:px-8 pb-3 sm:pb-5 animate-dock-slide">
+        <div className="w-full bg-[#f6f0e6] rounded-xl sm:rounded-2xl border border-[#e8dfd2] shadow-[0_12px_45px_rgba(25,20,15,0.12)] overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-12 items-stretch divide-y md:divide-y-0 md:divide-x divide-[#e8dfd2]">
             {/* Column 1: Founder & Designer Card */}
-            <div className="md:col-span-4 p-5 sm:p-6 lg:p-7 flex items-center gap-4 sm:gap-5 bg-[#f6f1eb] hover:bg-[#f3ede5] transition-colors duration-200">
+            <div className="md:col-span-4 lg:col-span-3 xl:col-span-3 p-4 sm:p-5 lg:p-6 flex items-center gap-3.5 sm:gap-4 bg-[#f6f0e6] hover:bg-[#f3ede3] transition-colors duration-200">
               {/* Botanical dried floral stem SVG */}
               <div
-                className="w-10 h-16 sm:w-12 sm:h-20 shrink-0 text-[#8a7e6f] flex items-center justify-center opacity-85"
+                className="w-10 h-16 sm:w-11 sm:h-18 shrink-0 text-[#9b8c7b] flex items-center justify-center opacity-90"
                 aria-hidden="true"
               >
                 <svg
                   viewBox="0 0 60 100"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.2"
+                  strokeWidth="1.1"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="w-full h-full"
@@ -298,53 +296,53 @@ export default function DesignWithSoul({
 
               {/* Founder Text */}
               <div className="flex flex-col justify-center">
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] font-bold text-[#8d8274]">
+                <span className="text-[9px] uppercase tracking-[0.22em] font-semibold text-[#8c8072]">
                   {founderRole}
                 </span>
-                <h2 className="text-base sm:text-lg font-bold tracking-wider text-[#221c17] mt-0.5">
+                <h2 className="text-sm sm:text-base font-semibold tracking-wider text-[#221c17] mt-0.5">
                   {founderName}
                 </h2>
-                <p className="font-script text-xs sm:text-sm text-[#5d5449] mt-1 leading-snug italic">
+                <p className="font-script text-base sm:text-lg text-[#5e5346] mt-0.5 leading-snug italic">
                   {founderQuote}
                 </p>
               </div>
             </div>
 
             {/* Column 2, 3, 4: Services (BRANDING, WEB DESIGN, ILLUSTRATION) */}
-            <div className="md:col-span-4 grid grid-cols-3 divide-x divide-[#e8e1d6] bg-[#f6f1eb]">
+            <div className="md:col-span-5 lg:col-span-5 xl:col-span-5 grid grid-cols-3 divide-x divide-[#e8dfd2] bg-[#f6f0e6]">
               {services.map((svc) => (
                 <button
                   key={svc.id}
                   onClick={() => setSelectedService(svc)}
-                  className="p-4 sm:p-5 flex flex-col justify-between items-start text-left hover:bg-[#f3ede5] active:bg-[#eee6db] transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
+                  className="p-3.5 sm:p-4 lg:p-5 flex flex-col justify-between items-start text-left hover:bg-[#f3ede3] active:bg-[#ede5da] transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#221c17]"
                   title={`Explore ${svc.title}`}
                 >
                   {/* Icon */}
-                  <div className="h-6 flex items-center text-[#241e18] group-hover:scale-110 transition-transform duration-300">
+                  <div className="h-5 flex items-center text-[#241e18] group-hover:scale-110 transition-transform duration-300">
                     {svc.icon === 'branding' && (
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.4"
-                        className="w-5 h-5"
+                        strokeWidth="1.3"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                       >
                         {/* Botanical Leaf Sprig */}
-                        <path d="M12 22V2" strokeLinecap="round" />
+                        <path d="M12 22V3" strokeLinecap="round" />
                         <path
-                          d="M12 8C8.5 7.5 7 5 7 2C10.5 2.5 12 5 12 8Z"
+                          d="M12 8C8 7.5 6.5 5 6.5 2C10 2.5 12 5 12 8Z"
                           fill="currentColor"
-                          fillOpacity="0.12"
+                          fillOpacity="0.15"
                         />
                         <path
-                          d="M12 14C15.5 13.5 17 11 17 8C13.5 8.5 12 11 12 14Z"
+                          d="M12 14C16 13.5 17.5 11 17.5 8C14 8.5 12 11 12 14Z"
                           fill="currentColor"
-                          fillOpacity="0.12"
+                          fillOpacity="0.15"
                         />
                         <path
-                          d="M12 18C8.5 17.5 7 15 7 12C10.5 12.5 12 15 12 18Z"
+                          d="M12 18C8 17.5 6.5 15 6.5 12C10 12.5 12 15 12 18Z"
                           fill="currentColor"
-                          fillOpacity="0.12"
+                          fillOpacity="0.15"
                         />
                       </svg>
                     )}
@@ -353,13 +351,13 @@ export default function DesignWithSoul({
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.4"
+                        strokeWidth="1.3"
                         strokeLinejoin="round"
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                       >
                         {/* Minimalist Mountain Peaks */}
-                        <path d="M3 18L9 6L14 15L17 10L21 18H3Z" />
-                        <path d="M9 6L14 15" strokeLinecap="round" />
+                        <path d="M3 18L9 7L14 15L17 11L21 18H3Z" />
+                        <path d="M9 7L14 15" strokeLinecap="round" />
                       </svg>
                     )}
                     {svc.icon === 'illustration' && (
@@ -367,22 +365,22 @@ export default function DesignWithSoul({
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.4"
+                        strokeWidth="1.3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                       >
                         {/* Origami Swallow / Dove */}
-                        <path d="M3 12L12 3L21 12L12 15L3 12Z" />
-                        <path d="M12 15L12 21L7 18" />
-                        <path d="M12 3V15" strokeDasharray="1 1" />
+                        <path d="M3 12L12 4L21 12L12 15L3 12Z" />
+                        <path d="M12 15L12 20L8 18" />
+                        <path d="M12 4V15" strokeDasharray="1.5 1.5" />
                       </svg>
                     )}
                   </div>
 
                   {/* Service Text */}
                   <div className="mt-3 sm:mt-4">
-                    <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#221c17] group-hover:text-black transition-colors block">
+                    <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-[#221c17] group-hover:text-black transition-colors block">
                       {svc.title}
                     </span>
                     <p className="text-[10px] sm:text-[11px] text-[#71675a] leading-tight mt-1 line-clamp-2">
@@ -394,12 +392,12 @@ export default function DesignWithSoul({
             </div>
 
             {/* Column 5: Studio Notes Newsletter Subscription Form */}
-            <div className="md:col-span-4 p-5 sm:p-6 lg:p-7 flex flex-col justify-between bg-[#f6f1eb] hover:bg-[#f3ede5]/60 transition-colors">
+            <div className="md:col-span-3 lg:col-span-4 xl:col-span-4 p-4 sm:p-5 lg:p-6 flex flex-col justify-between bg-[#f6f0e6] hover:bg-[#f3ede3]/60 transition-colors">
               <div>
-                <h3 className="font-script text-xl sm:text-2xl text-[#2a241e] leading-none">
+                <h3 className="font-script text-2xl sm:text-3xl text-[#2a241e] leading-none">
                   {newsletterTitle}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-[#71675a] mt-1 leading-snug">
+                <p className="text-[10px] sm:text-[11px] text-[#71675a] mt-1 leading-snug">
                   {newsletterDesc}
                 </p>
               </div>
@@ -407,12 +405,12 @@ export default function DesignWithSoul({
               {/* Form Input + Circular Submit Button */}
               <form onSubmit={handleSubscribe} className="relative mt-3 pt-1">
                 {subscribed ? (
-                  <div className="flex items-center gap-2 py-2 px-3 bg-[#e8efe6] border border-[#c3d5c0] rounded-xl text-xs text-[#305229] font-medium animate-fadeIn">
-                    <Check className="w-4 h-4 text-[#3c7031] shrink-0" />
-                    <span>Welcome to our studio circle! Delivered gently.</span>
+                  <div className="flex items-center gap-2 py-1.5 px-3 bg-[#e8efe6] border border-[#c3d5c0] rounded-xl text-xs text-[#305229] font-medium animate-fadeIn">
+                    <Check className="w-3.5 h-3.5 text-[#3c7031] shrink-0" />
+                    <span>Welcome to studio notes! Delivered gently.</span>
                   </div>
                 ) : (
-                  <div className="flex items-center border-b border-[#d1c7b8] focus-within:border-[#221c17] pb-1 transition-colors">
+                  <div className="flex items-center border-b border-[#cfc5b6] focus-within:border-[#221c17] pb-1 transition-colors">
                     <input
                       id="studio-newsletter-input"
                       type="email"
@@ -426,7 +424,7 @@ export default function DesignWithSoul({
                       type="submit"
                       disabled={submitting}
                       aria-label="Subscribe to studio notes"
-                      className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#231d17] text-[#f7f2ea] flex items-center justify-center hover:bg-[#3d342b] active:scale-95 transition-all duration-200 cursor-pointer shadow-sm disabled:opacity-50"
+                      className="shrink-0 w-7 h-7 rounded-full bg-[#231d17] text-[#f7f2ea] flex items-center justify-center hover:bg-[#3d342b] active:scale-95 transition-all duration-200 cursor-pointer shadow-sm disabled:opacity-50"
                     >
                       {submitting ? (
                         <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -451,7 +449,7 @@ export default function DesignWithSoul({
           onClick={() => setSelectedService(null)}
         >
           <div
-            className="w-full max-w-lg bg-[#f7f2ea] rounded-3xl p-6 sm:p-8 border border-[#e5ded4] shadow-2xl relative"
+            className="w-full max-w-lg bg-[#f6f0e6] rounded-3xl p-6 sm:p-8 border border-[#e5ded4] shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -478,7 +476,7 @@ export default function DesignWithSoul({
               </div>
             </div>
 
-            <p className="font-script text-xl text-[#4a4034] mt-4">
+            <p className="font-script text-2xl text-[#4a4034] mt-4">
               "{selectedService.description}"
             </p>
 
@@ -500,7 +498,7 @@ export default function DesignWithSoul({
             )}
 
             <div className="mt-7 pt-5 border-t border-[#e8e0d5] flex items-center justify-between">
-              <span className="text-xs text-[#8d8274]">Accepting Q3 / Q4 commissions</span>
+              <span className="text-xs text-[#8d8274]">Accepting commissions</span>
               <button
                 onClick={() => {
                   setSelectedService(null)
@@ -525,7 +523,7 @@ export default function DesignWithSoul({
           onClick={() => setShowPortfolioModal(false)}
         >
           <div
-            className="w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-[#f7f2ea] rounded-3xl p-6 sm:p-10 border border-[#e5ded4] shadow-2xl relative"
+            className="w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-[#f6f0e6] rounded-3xl p-6 sm:p-10 border border-[#e5ded4] shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -543,10 +541,10 @@ export default function DesignWithSoul({
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-[#221c17] mt-1">
+            <h2 className="text-2xl sm:text-3xl font-display font-medium tracking-tight text-[#221c17] mt-1">
               Selected Works & Case Studies
             </h2>
-            <p className="font-script text-xl text-[#554b3e] mt-1">
+            <p className="font-script text-2xl text-[#554b3e] mt-1">
               Stories told with quiet elegance and intentional craftsmanship.
             </p>
 
@@ -579,7 +577,7 @@ export default function DesignWithSoul({
               ].map((proj) => (
                 <div
                   key={proj.title}
-                  className="p-5 rounded-2xl bg-[#f0e9df] border border-[#e2d8cb] hover:border-[#b8ac9c] transition-all group"
+                  className="p-5 rounded-2xl bg-[#ede6dc] border border-[#dfd5c7] hover:border-[#b8ac9c] transition-all group"
                 >
                   <div className="flex items-center justify-between text-[11px] text-[#8d8274] uppercase tracking-wider font-semibold">
                     <span>{proj.category}</span>
