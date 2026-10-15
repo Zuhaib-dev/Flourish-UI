@@ -33,7 +33,7 @@
     <text x="70" y="384" fill="#191916" font-family="Georgia,serif" font-size="78" letter-spacing="-4">have a little <tspan fill="#D86B43" font-style="italic">feeling.</tspan></text>
     <text x="75" y="440" fill="#6F7068" font-family="Arial,sans-serif" font-size="18">Explore live previews. Take the source. Make it your own.</text>
     <path d="M75 490H510" stroke="#D4D2C8"/>
-    <text x="75" y="530" fill="#717168" font-family="Arial,sans-serif" font-size="12" letter-spacing="1.8">35+ COMPONENTS</text>
+    <text x="75" y="530" fill="#717168" font-family="Arial,sans-serif" font-size="12" letter-spacing="1.8">43+ COMPONENTS</text>
     <circle cx="261" cy="526" r="2.5" fill="#D86B43"/>
     <text x="280" y="530" fill="#717168" font-family="Arial,sans-serif" font-size="12" letter-spacing="1.8">LIVE &amp; INTERACTIVE</text>
   </g>

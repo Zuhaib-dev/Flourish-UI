@@ -43,6 +43,15 @@ export const metadata: Metadata = {
 const releases = [
   {
     date: 'October 2026',
+    tag: 'NEW RELEASES (43+ TOTAL)',
+    icon: <Sparkles size={15} />,
+    title: '6 Artisanal Components & Expanded Interactive Catalog',
+    body: 'Six new expressive components join Flourish UI: Offline Pixel 404 Error (with playable Chrome dinosaur), Create from the Heart (editorial fine-art hero with audio stems), Design with Soul (painterly landscape hero & impasto studio dock), Genesis Onboarding Card (pastel skeuomorphic 3D wizard), House Savings Goal Card (Nordic A-frame fintech savings goal), and Storybook Play Canvas (whimsical drawing easel). Library expands to 43+ components with full shadcn CLI support.',
+    tags: ['skeuomorphic', 'canvas', 'fine-art', '404', 'fintech'],
+    accent: '#d86b43',
+  },
+  {
+    date: 'October 2026',
     tag: 'NEW COMPONENTS',
     icon: <Sparkles size={15} />,
     title: 'Liquid Glass Folder Stack & Raster Dynamics Wordmark',
