@@ -65,7 +65,7 @@ export default function DesignWithSoul({
   headlineLine2 = 'with soul.',
   subtitle = 'Stories told beautifully.',
   ctaText = 'VIEW MY WORK →',
-  founderName = 'MIRA HAYES',
+  founderName = 'ZUHAIB',
   founderRole = 'FOUNDER & DESIGNER',
   founderQuote = 'Crafting visuals that leave a lasting feeling.',
   brandLogo = 'm.',
