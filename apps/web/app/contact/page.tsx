@@ -1,25 +1,83 @@
 import type { Metadata } from 'next'
-import { ArrowUpRight, Mail, MessageSquare, Send, Sparkles, Terminal } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, HelpCircle, Mail, MessageSquare, Send, Sparkles, Terminal, Wrench } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contact & Support — Flourish UI',
+  title: 'Contact & Developer Support — Flourish UI',
   description:
-    'Get in touch with the Flourish UI team for support, custom component engineering, feature requests, or community collaborations.',
+    'Get in touch with the Flourish UI team for developer support, custom WebGL shader engineering, feature requests, design consultations, or community collaborations.',
+  keywords: [
+    'Contact Flourish UI',
+    'Flourish UI support',
+    'custom React components',
+    'custom WebGL shader development',
+    'Next.js UI engineer contact',
+    'Zuhaib Rashid email',
+    'open source UI support',
+  ],
+  authors: [{ name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' }],
+  creator: 'Zuhaib Rashid',
+  publisher: 'Flourish UI',
   alternates: { canonical: 'https://flourish-ui.vercel.app/contact' },
   openGraph: {
     type: 'website',
-    title: 'Contact & Support — Flourish UI',
+    title: 'Contact & Developer Support — Flourish UI',
     description:
-      'Get in touch with the Flourish UI team for support, custom component engineering, feature requests, or community collaborations.',
+      'Get in touch with the Flourish UI team for developer support, custom WebGL shader engineering, feature requests, or community collaborations.',
     url: 'https://flourish-ui.vercel.app/contact',
     siteName: 'Flourish UI',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Contact Flourish UI' }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact & Developer Support — Flourish UI',
+    description:
+      'Reach out for developer support, custom component engineering, or collaboration inquiries.',
+    creator: '@xuhaibx9',
+    images: ['/og-image.png'],
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      '@id': 'https://flourish-ui.vercel.app/contact#webpage',
+      url: 'https://flourish-ui.vercel.app/contact',
+      name: 'Contact Flourish UI',
+      description: 'Support channels, direct email contact, and engineering consultations for Flourish UI.',
+      publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
+      isPartOf: { '@id': 'https://flourish-ui.vercel.app/#website' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://flourish-ui.vercel.app',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Contact',
+          item: 'https://flourish-ui.vercel.app/contact',
+        },
+      ],
+    },
+  ],
 }
 
 export default function ContactPage() {
   return (
-    <div className="developers-page">
+    <main className="developers-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* ── Nav ─────────────────────────────── */}
       <header className="premium-nav">
         <div className="premium-nav-inner">
           <a href="/" className="catalog-brand" aria-label="Flourish UI home">
@@ -46,30 +104,37 @@ export default function ContactPage() {
         </div>
       </header>
 
-      <main className="developers-layout" style={{ maxWidth: 840 }}>
+      {/* ── Content Layout ─────────────────── */}
+      <div className="developers-layout" style={{ maxWidth: 880 }}>
+        {/* Breadcrumb */}
         <div className="catalog-breadcrumb registry-breadcrumb">
           <a href="/">Home</a>
           <span>/</span>
           <span>Contact</span>
         </div>
 
-        <section className="developers-hero" style={{ borderBottom: 'none', paddingBottom: 24 }}>
+        {/* ── Hero ─────────────────────────── */}
+        <section className="developers-hero" aria-labelledby="contact-heading" style={{ borderBottom: 'none', paddingBottom: 20 }}>
           <div className="developers-hero-copy" style={{ maxWidth: '100%' }}>
-            <span className="catalog-kicker"><i />GET IN TOUCH</span>
-            <h1>We&apos;d love to hear from <em>you.</em></h1>
-            <p style={{ maxWidth: '100%', fontSize: 15, lineHeight: 1.8 }}>
-              Whether you have questions about integrating Flourish UI components into your Next.js application,
-              suggestions for new shader directions, or inquiries about custom design system engineering, we are here to help.
+            <span className="catalog-kicker"><i />REACH OUT &amp; CONNECT</span>
+            <h1 id="contact-heading">
+              We&apos;d love to hear<br />
+              from <em>you.</em>
+            </h1>
+            <p style={{ maxWidth: '100%', fontSize: 16, lineHeight: 1.8 }}>
+              Have questions about integrating components, ideas for new shader experiments, or inquiries
+              regarding bespoke UI/UX engineering engagements? We respond to every email and message promptly.
             </p>
           </div>
         </section>
 
-        <article className="contact-methods-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, margin: '24px 0 40px' }}>
+        {/* ── Direct Contact Cards ──────────── */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 20, margin: '20px 0 36px' }}>
           <div style={{ padding: 24, background: '#faf9f5', border: '1px solid var(--line)', borderRadius: 8 }}>
             <Mail size={22} style={{ color: 'var(--orange)', marginBottom: 12 }} />
-            <h3 style={{ margin: '0 0 8px', fontSize: 16, color: 'var(--ink)' }}>Direct Email</h3>
-            <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
-              For support inquiries, commercial consultations, or general questions:
+            <h3 style={{ margin: '0 0 6px', fontSize: 16, color: 'var(--ink)' }}>Direct Inquiries</h3>
+            <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
+              For general questions, component feedback, or custom engineering quotes:
             </p>
             <a href="mailto:zuhaibrashid01@gmail.com" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 13, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
               zuhaibrashid01@gmail.com <ArrowUpRight size={12} />
@@ -78,9 +143,9 @@ export default function ContactPage() {
 
           <div style={{ padding: 24, background: '#faf9f5', border: '1px solid var(--line)', borderRadius: 8 }}>
             <MessageSquare size={22} style={{ color: 'var(--orange)', marginBottom: 12 }} />
-            <h3 style={{ margin: '0 0 8px', fontSize: 16, color: 'var(--ink)' }}>GitHub Discussions</h3>
-            <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
-              Open an issue, share a component request, or submit a pull request on our repo:
+            <h3 style={{ margin: '0 0 6px', fontSize: 16, color: 'var(--ink)' }}>GitHub Community</h3>
+            <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
+              Report a bug, submit a component PR, or start a technical discussion:
             </p>
             <a href="https://github.com/Zuhaib-dev/Flourish-UI/issues" target="_blank" rel="noreferrer" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 13, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
               Open GitHub Issue <ArrowUpRight size={12} />
@@ -89,36 +154,69 @@ export default function ContactPage() {
 
           <div style={{ padding: 24, background: '#faf9f5', border: '1px solid var(--line)', borderRadius: 8 }}>
             <Sparkles size={22} style={{ color: 'var(--orange)', marginBottom: 12 }} />
-            <h3 style={{ margin: '0 0 8px', fontSize: 16, color: 'var(--ink)' }}>Author Portfolio</h3>
-            <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
-              Explore the personal work and portfolio of founder Zuhaib Rashid:
+            <h3 style={{ margin: '0 0 6px', fontSize: 16, color: 'var(--ink)' }}>Founder Portfolio</h3>
+            <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--muted-ink)', lineHeight: 1.6 }}>
+              Learn more about creator Zuhaib Rashid and other creative web projects:
             </p>
             <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 13, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
               zuhaibrashid.com <ArrowUpRight size={12} />
             </a>
           </div>
+        </div>
+
+        {/* ── Guidance Articles ─────────────── */}
+        <article style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--muted-ink)' }}>
+          <h2 style={{ font: '500 22px Georgia, serif', color: 'var(--ink)', margin: '32px 0 14px' }}>Bespoke Engineering &amp; Custom Systems</h2>
+          <p style={{ marginBottom: 16 }}>
+            Do you need an exclusive WebGL hero shader for an upcoming product launch, a complex tactile canvas dashboard,
+            or bespoke component migrations for your team’s Next.js repository? We partner with selected startups, creative studios,
+            and enterprise engineering teams for tailored contracting work.
+          </p>
+          <p style={{ marginBottom: 28 }}>
+            When requesting custom engineering, please include a brief overview of your project requirements, target launch timeline,
+            and any design files (Figma, screenshots, or motion references) in your email.
+          </p>
+
+          <h2 style={{ font: '500 22px Georgia, serif', color: 'var(--ink)', margin: '32px 0 14px' }}>Reporting Issues &amp; Vulnerabilities</h2>
+          <p style={{ marginBottom: 32 }}>
+            If you encounter a browser compatibility bug, accessibility obstacle, or performance regression in any Flourish UI component,
+            please open an issue on our GitHub repository with minimal reproduction steps. We prioritize accessibility fixes and
+            cross-browser parity across Chrome, Safari, Firefox, and Edge.
+          </p>
         </article>
 
-        <section style={{ padding: 28, background: '#f0eee6', border: '1px solid var(--line)', borderRadius: 8, fontSize: 13, lineHeight: 1.8, color: 'var(--muted-ink)' }}>
-          <h2 style={{ font: '500 20px Georgia, serif', color: 'var(--ink)', margin: '0 0 10px' }}>Custom Design &amp; Shader Engineering</h2>
-          <p style={{ margin: 0 }}>
-            Need a custom interactive 3D WebGL hero, a proprietary skeuomorphic dashboard widget, or an enterprise design system token architecture?
-            We partner with select startups and studios for custom engineering engagements. Reach out directly to discuss timelines, specifications, and scope.
-          </p>
+        {/* ── Endcap CTA ───────────────────── */}
+        <section className="registry-endcap" aria-label="Explore components" style={{ marginTop: 24 }}>
+          <div className="registry-endcap-inner">
+            <div>
+              <span className="catalog-kicker"><i />EXPLORE THE LIBRARY</span>
+              <p>Looking for a specific component?<br /><em>Check out the full catalog.</em></p>
+            </div>
+            <a href="/components" className="registry-cta-primary">
+              View components <ArrowRight size={14} />
+            </a>
+          </div>
         </section>
-      </main>
+      </div>
 
+      {/* ── Footer ──────────────────────────── */}
       <footer className="catalog-footer">
         <a href="/" className="catalog-brand">
           <span className="catalog-brand-mark" aria-hidden="true">✳</span>
           <span>flourish<span>.</span></span>
         </a>
         <span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
-        <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">
-          <Terminal size={13} /> GitHub <ArrowUpRight size={11} />
-        </a>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/developers">Developers</a>
+          <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">
+            <Terminal size={12} /> GitHub <ArrowUpRight size={10} />
+          </a>
+        </div>
         <span>© 2026</span>
       </footer>
-    </div>
+    </main>
   )
 }
