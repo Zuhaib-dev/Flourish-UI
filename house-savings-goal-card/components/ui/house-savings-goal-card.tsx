@@ -104,20 +104,20 @@ const DEFAULT_TRANSACTIONS: Transaction[] = [
 function BrandLogo({ source }: { source: 'td' | 'vanguard' | 'stripe' }) {
   if (source === 'td') {
     return (
-      <div className="w-7 h-7 rounded-full bg-[#008a00] text-white flex items-center justify-center font-bold text-[9px] tracking-tighter shrink-0 shadow-sm">
+      <div className="w-7 h-7 rounded-full bg-[#008a00] text-white flex items-center justify-center font-bold text-[9px] tracking-tighter shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-110">
         TD
       </div>
     )
   }
   if (source === 'vanguard') {
     return (
-      <div className="w-7 h-7 rounded-full bg-[#c1272d] text-white flex items-center justify-center font-serif font-bold text-[12px] italic shrink-0 shadow-sm">
+      <div className="w-7 h-7 rounded-full bg-[#c1272d] text-white flex items-center justify-center font-serif font-bold text-[12px] italic shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-110">
         V
       </div>
     )
   }
   return (
-    <div className="w-7 h-7 rounded-full bg-[#5956e9] text-white flex items-center justify-center font-bold text-[11px] shrink-0 shadow-sm">
+    <div className="w-7 h-7 rounded-full bg-[#5956e9] text-white flex items-center justify-center font-bold text-[11px] shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-110">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
         <path
           d="M8 8.5C8 6.567 9.567 5 11.5 5H15.5C17.433 5 19 6.567 19 8.5C19 10.433 17.433 12 15.5 12H8.5C6.567 12 5 13.567 5 15.5C5 17.433 6.567 19 8.5 19H12.5C14.433 19 16 17.433 16 15.5"
@@ -145,6 +145,12 @@ export function HouseSavingsGoalCard({
   const [title, setTitle] = useState(goalTitle)
   const [date, setDate] = useState(targetDate)
   const [transactions, setTransactions] = useState<Transaction[]>(DEFAULT_TRANSACTIONS)
+  const [isMounted, setIsMounted] = useState(false)
+  const [newTxId, setNewTxId] = useState<string | null>(null)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // Modals state
   const [showAddFunds, setShowAddFunds] = useState(false)
@@ -155,6 +161,8 @@ export function HouseSavingsGoalCard({
   const [toastMessage, setToastMessage] = useState<string | null>(null)
 
   const progressPercent = Math.min(100, Math.round((currentAmount / targetAmount) * 100))
+  const displayProgress = useAnimatedNumber(progressPercent, 800)
+  const displayAmount = useAnimatedNumber(currentAmount, 800)
   const totalTicks = 48
   const filledTicks = Math.round((progressPercent / 100) * totalTicks)
 
@@ -180,6 +188,7 @@ export function HouseSavingsGoalCard({
       amount: val,
     }
 
+    setNewTxId(newTx.id)
     setTransactions([newTx, ...transactions])
     setShowAddFunds(false)
     triggerToast(`Added ₹${val.toLocaleString()} to ${title}!`)
@@ -203,15 +212,15 @@ export function HouseSavingsGoalCard({
       )}
 
       {/* Main Goal Widget Card */}
-      <section className="w-full max-w-[724px] bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/[0.04] overflow-hidden grid grid-cols-1 md:grid-cols-2 relative transition-all">
+      <section className="w-full max-w-[724px] bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.09)] border border-black/[0.04] overflow-hidden grid grid-cols-1 md:grid-cols-2 relative transition-all duration-500 animate-card-enter">
         {/* ================= LEFT HALF: GOAL PROGRESS & NORDIC HOUSE ================= */}
-        <div className="flex flex-col justify-between pt-6 px-6 sm:px-7 pb-0 bg-white relative border-b md:border-b-0 md:border-r border-gray-100/90">
+        <div className="flex flex-col justify-between pt-6 px-6 sm:px-7 pb-0 bg-white relative border-b md:border-b-0 md:border-r border-gray-100/90 group">
           <div>
             {/* Top Back Button */}
             <button
               type="button"
               onClick={() => triggerToast('Navigating back to Goals')}
-              className="w-9 h-9 rounded-full bg-[#f3f4f6] text-[#111827] flex items-center justify-center hover:bg-[#e5e7eb] active:scale-95 transition-all mb-5 cursor-pointer shadow-none"
+              className="w-9 h-9 rounded-full bg-[#f3f4f6] text-[#111827] flex items-center justify-center hover:bg-[#e5e7eb] hover:scale-105 active:scale-95 transition-all mb-5 cursor-pointer shadow-none"
               title="Back to goals"
               aria-label="Back"
             >
@@ -226,7 +235,7 @@ export function HouseSavingsGoalCard({
 
               <div
                 onClick={() => setShowEditGoal(true)}
-                className="bg-[#f3f4f6] text-[#6b7280] text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-[#e5e7eb] transition-colors"
+                className="bg-[#f3f4f6] text-[#6b7280] text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-[#e5e7eb] hover:scale-105 active:scale-95 transition-all"
                 title="Click to edit date"
               >
                 <Clock className="w-3 h-3 text-[#9ca3af]" strokeWidth={2} />
@@ -234,23 +243,23 @@ export function HouseSavingsGoalCard({
               </div>
             </div>
 
-            {/* Big Progress Percentage */}
-            <div className="text-[44px] font-semibold text-[#111827] tracking-tight leading-none my-3.5">
-              {progressPercent}%
+            {/* Big Progress Percentage (Smooth Animated Counter) */}
+            <div className="text-[44px] font-semibold text-[#111827] tracking-tight leading-none my-3.5 transition-all">
+              {displayProgress}%
             </div>
 
-            {/* Current vs Target Amount */}
+            {/* Current vs Target Amount (Animated Count-up) */}
             <div className="flex items-center justify-between text-xs mb-2.5">
               <div className="flex items-center gap-1.5 font-semibold text-[#111827]">
                 <span className="w-2.5 h-[1.5px] bg-[#111827] inline-block" />
-                <span>₹{currentAmount.toLocaleString()}</span>
+                <span>₹{displayAmount.toLocaleString()}</span>
               </div>
               <div className="font-normal text-[#9ca3af]">
                 ₹{targetAmount.toLocaleString()}
               </div>
             </div>
 
-            {/* Vertical Ticks Progress Bar (Pixel-Perfect to Design) */}
+            {/* Vertical Ticks Progress Bar (Pixel-Perfect with Sequential Cascading Animation) */}
             <div
               className="w-full flex items-center justify-between gap-[2.5px] py-1 mb-2"
               role="progressbar"
@@ -260,12 +269,15 @@ export function HouseSavingsGoalCard({
               aria-label={`Progress: ${progressPercent}% towards ${title}`}
             >
               {Array.from({ length: totalTicks }).map((_, i) => {
-                const isFilled = i < filledTicks
+                const isFilled = isMounted && i < filledTicks
                 return (
                   <span
                     key={i}
-                    className={`h-[15px] w-[2px] rounded-full transition-colors duration-300 ${
-                      isFilled ? 'bg-[#df4b42]' : 'bg-[#e5e7eb]'
+                    style={{
+                      transitionDelay: isMounted ? `${i * 14}ms` : '0ms',
+                    }}
+                    className={`h-[15px] w-[2px] rounded-full transition-all duration-300 ${
+                      isFilled ? 'bg-[#df4b42] scale-y-100' : 'bg-[#e5e7eb] scale-y-90'
                     }`}
                   />
                 )
@@ -273,7 +285,7 @@ export function HouseSavingsGoalCard({
             </div>
           </div>
 
-          {/* Nordic Red House Photograph (Blended seamlessly, anchored to the left) */}
+          {/* Nordic Red House Photograph (Blended seamlessly, anchored to the left, gentle hover parallax) */}
           <div
             className="relative w-[calc(100%+3rem)] sm:w-[calc(100%+3.5rem)] -mx-6 sm:-mx-7 mt-auto flex-1 min-h-[230px] sm:min-h-[260px] flex items-end overflow-hidden"
             style={{
@@ -284,7 +296,7 @@ export function HouseSavingsGoalCard({
             <img
               src={houseImageSrc}
               alt="Quaint Nordic red wooden house on grassy hill"
-              className="w-full h-full min-h-[250px] sm:min-h-[280px] object-cover object-[18%_bottom] block select-none pointer-events-none scale-[1.2] origin-[18%_85%]"
+              className="w-full h-full min-h-[250px] sm:min-h-[285px] object-cover scale-[1.45] -translate-x-12 sm:-translate-x-16 translate-y-2 block select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.5] group-hover:-translate-x-14"
               draggable={false}
             />
           </div>
@@ -298,14 +310,14 @@ export function HouseSavingsGoalCard({
               <button
                 type="button"
                 onClick={() => setShowEditGoal(true)}
-                className="px-4 py-1.5 rounded-full bg-[#f3f4f6] text-[#111827] text-xs font-medium hover:bg-[#e5e7eb] active:scale-95 transition-all cursor-pointer"
+                className="px-4 py-1.5 rounded-full bg-[#f3f4f6] text-[#111827] text-xs font-medium hover:bg-[#e5e7eb] hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 Edit
               </button>
               <button
                 type="button"
                 onClick={() => setShowAddFunds(true)}
-                className="px-4 py-1.5 rounded-full bg-[#111827] text-white text-xs font-medium hover:bg-black active:scale-95 transition-all cursor-pointer shadow-sm"
+                className="px-4 py-1.5 rounded-full bg-[#111827] text-white text-xs font-medium hover:bg-black hover:scale-105 hover:shadow-md active:scale-95 transition-all cursor-pointer shadow-sm"
               >
                 Add funds
               </button>
@@ -314,7 +326,7 @@ export function HouseSavingsGoalCard({
             {/* Auto-invested in VMFXX Banner */}
             <div
               onClick={() => setShowFundDetails(true)}
-              className="p-2.5 px-3 rounded-2xl bg-white hover:bg-gray-50/80 border border-gray-100 flex items-center justify-between cursor-pointer transition-all group shadow-[0_2px_8px_rgba(0,0,0,0.02)] mb-5"
+              className="p-2.5 px-3 rounded-2xl bg-white hover:bg-gray-50/80 border border-gray-100 hover:border-gray-200 flex items-center justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 group shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-md mb-5"
             >
               <div className="flex items-center gap-2.5">
                 {/* Vanguard Logo Icon */}
@@ -324,13 +336,20 @@ export function HouseSavingsGoalCard({
                   <div className="text-xs font-semibold text-[#111827] leading-tight group-hover:text-black">
                     Auto-invested in {fundCode}
                   </div>
-                  <div className="text-[11px] text-[#6b7280] leading-tight">
-                    Earning <span className="text-[#059669] font-medium">{yieldRate} yield</span>
+                  <div className="text-[11px] text-[#6b7280] leading-tight flex items-center gap-1.5">
+                    <span>Earning</span>
+                    <span className="inline-flex items-center gap-1 text-[#059669] font-medium">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                      </span>
+                      {yieldRate} yield
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#111827] group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#111827] group-hover:translate-x-1 transition-all" />
             </div>
 
             {/* Transactions Header */}
@@ -344,7 +363,9 @@ export function HouseSavingsGoalCard({
                 <div
                   key={tx.id}
                   onClick={() => triggerToast(`${tx.title}: +₹${tx.amount.toLocaleString()}`)}
-                  className="flex items-center justify-between py-2 px-1 hover:bg-gray-50/90 rounded-xl transition-colors cursor-pointer group"
+                  className={`flex items-center justify-between py-2 px-1 hover:bg-gray-50/90 rounded-xl transition-all duration-200 cursor-pointer group hover:translate-x-1 ${
+                    tx.id === newTxId ? 'animate-new-tx' : ''
+                  }`}
                 >
                   <div className="flex items-center gap-2.5">
                     <BrandLogo source={tx.source} />
@@ -358,7 +379,7 @@ export function HouseSavingsGoalCard({
                     </div>
                   </div>
 
-                  <div className="text-xs font-semibold text-[#111827] tracking-tight">
+                  <div className="text-xs font-semibold text-[#111827] tracking-tight group-hover:scale-105 transition-transform">
                     +₹{tx.amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                 </div>
