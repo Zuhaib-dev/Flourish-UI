@@ -138,6 +138,23 @@ export default function RootLayout({
                   founder: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   sameAs: ['https://github.com/Zuhaib-dev/Flourish-UI'],
                 },
+                {
+                  '@type': 'SoftwareApplication',
+                  '@id': 'https://flourish-ui.vercel.app/#software',
+                  name: 'Flourish UI',
+                  applicationCategory: 'DeveloperApplication',
+                  operatingSystem: 'Any',
+                  offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
+                  },
+                  license: 'https://opensource.org/licenses/MIT',
+                  author: { '@id': 'https://www.zuhaibrashid.com/#person' },
+                  publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
+                  description: 'An open-source collection of expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.',
+                  url: 'https://flourish-ui.vercel.app',
+                },
               ],
             }).replace(/</g, '\\u003c'),
           }}

@@ -77,6 +77,43 @@ const jsonLd = {
         },
       ],
     },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is Flourish UI and how does it work?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Flourish UI is a free, open-source collection of 37+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I install Flourish UI components into my project?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can install any Flourish UI component using the shadcn CLI with: pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json. Alternatively, developers can copy raw TypeScript code directly from the component page or retrieve it via the public REST API.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Flourish UI free for commercial use?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, Flourish UI is 100% free and open-source under the MIT License. You can freely use, modify, customize, and distribute all components in personal, commercial, client, and open-source projects with zero licensing fees or attribution requirements.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What machine-readable endpoints and files does Flourish UI support for AI agents?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Flourish UI provides /llms.txt, /llms-full.txt, /pricing.md, OpenAPI 3.1.0 specification at /openapi.json, Google Open Knowledge Format (OKF) bundle at /okf/index.md, and in-page WebMCP agent tools via document.modelContext for autonomous browser agents.',
+          },
+        },
+      ],
+    },
   ],
 }
 
@@ -116,6 +153,24 @@ const endpoints = [
     path: '/r/{slug}.json',
     desc: 'Machine-readable shadcn registry item specification consumed by `shadcn add`.',
     sample: 'https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json',
+  },
+  {
+    method: 'GET',
+    path: '/pricing.md',
+    desc: 'Structured machine-readable pricing specification declaring $0 MIT licensing for AI agents.',
+    sample: 'https://flourish-ui.vercel.app/pricing.md',
+  },
+  {
+    method: 'GET',
+    path: '/llms-full.txt',
+    desc: 'Complete single-file knowledge bundle indexing all 37 components and install commands.',
+    sample: 'https://flourish-ui.vercel.app/llms-full.txt',
+  },
+  {
+    method: 'GET',
+    path: '/okf/index.md',
+    desc: 'Open Knowledge Format (OKF) index mapping conceptual documentation for AI systems.',
+    sample: 'https://flourish-ui.vercel.app/okf/index.md',
   },
 ]
 
@@ -392,7 +447,46 @@ npx shadcn@latest add https://flourish-ui.vercel.app/r/raster-dynamics-wordmark.
                 <p><strong>Declarative forms:</strong> <code>&lt;form toolname=&quot;...&quot; tooldescription=&quot;...&quot;&gt;</code></p>
                 <p><strong>OpenAPI Endpoint:</strong> <a href="/openapi.json" target="_blank">/openapi.json</a></p>
                 <p><strong>LLM Agent Manifest:</strong> <a href="/llms.txt" target="_blank">/llms.txt</a></p>
+                <p><strong>Full Knowledge Bundle:</strong> <a href="/llms-full.txt" target="_blank">/llms-full.txt</a></p>
+                <p><strong>Agent Pricing Spec:</strong> <a href="/pricing.md" target="_blank">/pricing.md</a></p>
+                <p><strong>Open Knowledge Format:</strong> <a href="/okf/index.md" target="_blank">/okf/index.md</a></p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Extractable AI & Developer FAQs ──────── */}
+        <section className="developers-faq-section" aria-labelledby="faq-heading">
+          <div className="developers-section-header">
+            <span className="catalog-kicker"><i />FREQUENTLY ASKED QUESTIONS</span>
+            <h2 id="faq-heading">Everything you need to know.</h2>
+            <p>Direct, concise answers to common questions about Flourish UI, licensing, and integration.</p>
+          </div>
+
+          <div className="developers-faq-grid">
+            <div className="dev-faq-card">
+              <h3>What is Flourish UI?</h3>
+              <p>
+                Flourish UI is a free, open-source collection of 37+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.
+              </p>
+            </div>
+            <div className="dev-faq-card">
+              <h3>How do I install Flourish UI components?</h3>
+              <p>
+                You can install any Flourish UI component using the shadcn CLI by running <code>pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json</code>. Alternatively, developers can copy raw TypeScript code directly from the component page or retrieve it via the public REST API.
+              </p>
+            </div>
+            <div className="dev-faq-card">
+              <h3>Is Flourish UI free for commercial use?</h3>
+              <p>
+                Yes, Flourish UI is 100% free and open-source under the MIT License. You can freely use, modify, customize, and distribute all components in personal, commercial, client, and open-source projects with zero licensing fees or attribution requirements.
+              </p>
+            </div>
+            <div className="dev-faq-card">
+              <h3>What machine-readable files does Flourish UI provide for AI agents?</h3>
+              <p>
+                Flourish UI provides <code>/llms.txt</code>, <code>/llms-full.txt</code>, <code>/pricing.md</code>, an OpenAPI 3.1.0 specification at <code>/openapi.json</code>, a Google Open Knowledge Format (OKF) bundle at <code>/okf/index.md</code>, and in-page WebMCP agent tools via <code>document.modelContext</code>.
+              </p>
             </div>
           </div>
         </section>

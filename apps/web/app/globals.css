@@ -2243,4 +2243,54 @@ button { cursor: pointer; }
   }
 }
 
+/* Developers FAQ Section */
+.developers-faq-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.developers-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.dev-faq-card {
+  padding: 24px;
+  background: #faf9f5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.dev-faq-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.dev-faq-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted-ink);
+}
+
+.dev-faq-card code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--ink);
+  background: #eceae3;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .developers-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
