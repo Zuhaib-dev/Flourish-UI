@@ -2,7 +2,7 @@
   "schema_version": "v1",
   "name_for_model": "flourish_ui",
   "name_for_human": "Flourish UI",
-  "description_for_model": "Discover, inspect, and retrieve source code for 34+ expressive React components, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry items.",
+  "description_for_model": "Discover, inspect, and retrieve source code for 43+ expressive React components, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry items.",
   "description_for_human": "Explore and install expressive React components from Flourish UI.",
   "auth": {
     "type": "none"

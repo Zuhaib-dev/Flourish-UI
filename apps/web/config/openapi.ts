@@ -231,8 +231,8 @@ export const openApiSpec = {
         type: 'object',
         properties: {
           success: { type: 'boolean', example: true },
-          total: { type: 'integer', example: 37 },
-          count: { type: 'integer', example: 37 },
+          total: { type: 'integer', example: 43 },
+          count: { type: 'integer', example: 43 },
           offset: { type: 'integer', example: 0 },
           limit: { type: 'integer', example: 50 },
           categories: { type: 'array', items: { type: 'string' } },
@@ -281,7 +281,7 @@ export const openApiSpec = {
         properties: {
           success: { type: 'boolean', example: true },
           totalCategories: { type: 'integer', example: 6 },
-          totalComponents: { type: 'integer', example: 37 },
+          totalComponents: { type: 'integer', example: 43 },
           categories: { type: 'array', items: { $ref: '#/components/schemas/Category' } },
         },
         required: ['success', 'categories'],
