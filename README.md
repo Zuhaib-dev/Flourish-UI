@@ -331,6 +331,14 @@ A surreal 3D-illustrated onboarding card featuring profile photo upload, animate
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/genesis-onboarding-card/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Genesis Onboarding Card Preview" />
 </div>
 
+---
+
+### 🎨 [Design with Soul](./design-with-soul)
+An impressionist fine-art portfolio hero section and interactive studio dock featuring painterly canvas aesthetics, bespoke studio practice modals, and a gentle studio notes newsletter form.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/design-with-soul/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Design with Soul Preview" />
+</div>
+
 <br />
 
 ---
