@@ -16,7 +16,7 @@ Flourish UI operates on a 100% free, community-first open-source model under the
 - **License**: MIT Open Source License.
 - **Commercial Freedom**: Unlimited commercial web applications, client projects, internal tools, and SaaS products.
 - **Seat & Project Limit**: Unlimited.
-- **Included**: All 37+ components, shadcn registry files, REST API access, WebMCP agent tools, and full TypeScript source code.
+- **Included**: All 43+ components, shadcn registry files, REST API access, WebMCP agent tools, and full TypeScript source code.
 
 ## Enterprise Services
 For teams requiring custom WebGL shaders, bespoke design system engineering, or accessibility compliance consulting, custom project-based contracts are available directly with author Zuhaib Rashid.

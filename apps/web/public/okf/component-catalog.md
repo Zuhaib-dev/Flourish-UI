@@ -1,7 +1,7 @@
 ---
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 37 interactive React components in Flourish UI.
+description: Categorized directory of all 43 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
 timestamp: 2026-10-15
