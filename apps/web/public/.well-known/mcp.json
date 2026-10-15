@@ -1,0 +1,46 @@
+{
+  "name": "flourish-ui",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for Flourish UI component discovery, source inspection, and shadcn installation.",
+  "transport": {
+    "type": "http",
+    "url": "https://flourish-ui.vercel.app/api/components"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "search_components",
+        "description": "Search Flourish UI React components by keyword or category",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": { "type": "string", "description": "Search term or keyword" },
+            "category": { "type": "string", "description": "Design category" }
+          }
+        }
+      },
+      {
+        "name": "get_component",
+        "description": "Retrieve metadata, dependencies, and shadcn CLI install command",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": { "type": "string", "description": "Component slug" }
+          },
+          "required": ["slug"]
+        }
+      },
+      {
+        "name": "get_component_source",
+        "description": "Download raw TypeScript source code for a component",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": { "type": "string", "description": "Component slug" }
+          },
+          "required": ["slug"]
+        }
+      }
+    ]
+  }
+}

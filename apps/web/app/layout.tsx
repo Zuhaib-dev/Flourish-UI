@@ -96,6 +96,7 @@ export default function RootLayout({
                   '@type': 'Person',
                   '@id': 'https://www.zuhaibrashid.com/#person',
                   name: 'Zuhaib Rashid',
+                  description: 'Full Stack Developer and UI engineer creating expressive React and Next.js components.',
                   url: 'https://www.zuhaibrashid.com',
                   jobTitle: 'Full Stack Developer',
                   sameAs: [
@@ -137,6 +138,18 @@ export default function RootLayout({
                   logo: 'https://flourish-ui.vercel.app/icon.svg',
                   founder: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   sameAs: ['https://github.com/Zuhaib-dev/Flourish-UI'],
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    contactType: 'customer support',
+                    email: 'zuhaibrashid01@gmail.com',
+                    url: 'https://www.zuhaibrashid.com',
+                  },
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Srinagar',
+                    addressRegion: 'Jammu and Kashmir',
+                    addressCountry: 'IN',
+                  },
                 },
                 {
                   '@type': 'SoftwareApplication',

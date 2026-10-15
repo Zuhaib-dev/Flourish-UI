@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
   alternates: { canonical: 'https://flourish-ui.vercel.app' },
   openGraph: {
+    type: 'website',
     title: 'Flourish UI — Expressive React & Next.js Components Library',
     description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
     url: 'https://flourish-ui.vercel.app',
