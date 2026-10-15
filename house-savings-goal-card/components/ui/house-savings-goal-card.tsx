@@ -7,10 +7,7 @@ import {
   Clock,
   Plus,
   Check,
-  TrendingUp,
   X,
-  Building2,
-  DollarSign,
 } from 'lucide-react'
 
 export interface Transaction {
@@ -159,7 +156,7 @@ export function HouseSavingsGoalCard({
 
     setTransactions([newTx, ...transactions])
     setShowAddFunds(false)
-    triggerToast(`Added $${val.toLocaleString()} to ${title}!`)
+    triggerToast(`Added ₹${val.toLocaleString()} to ${title}!`)
   }
 
   // Handle editing goal
@@ -182,7 +179,7 @@ export function HouseSavingsGoalCard({
       {/* Main Goal Widget Card */}
       <section className="w-full max-w-[724px] bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/[0.04] overflow-hidden grid grid-cols-1 md:grid-cols-2 relative transition-all">
         {/* ================= LEFT HALF: GOAL PROGRESS & NORDIC HOUSE ================= */}
-        <div className="flex flex-col justify-between pt-6 px-6 sm:px-7 pb-0 bg-[#fafafa]/90 relative border-b md:border-b-0 md:border-r border-gray-100/90">
+        <div className="flex flex-col justify-between pt-6 px-6 sm:px-7 pb-0 bg-white relative border-b md:border-b-0 md:border-r border-gray-100/90">
           <div>
             {/* Top Back Button */}
             <button
@@ -220,10 +217,10 @@ export function HouseSavingsGoalCard({
             <div className="flex items-center justify-between text-xs mb-2.5">
               <div className="flex items-center gap-1.5 font-semibold text-[#111827]">
                 <span className="w-2.5 h-[1.5px] bg-[#111827] inline-block" />
-                <span>${currentAmount.toLocaleString()}</span>
+                <span>₹{currentAmount.toLocaleString()}</span>
               </div>
               <div className="font-normal text-[#9ca3af]">
-                ${targetAmount.toLocaleString()}
+                ₹{targetAmount.toLocaleString()}
               </div>
             </div>
 
@@ -250,12 +247,18 @@ export function HouseSavingsGoalCard({
             </div>
           </div>
 
-          {/* Nordic Red House Photograph (Anchoring Bottom-Left) */}
-          <div className="relative w-full overflow-hidden mt-3 -mx-6 sm:-mx-7 -mb-0">
+          {/* Nordic Red House Photograph (Blended seamlessly, anchored to the left) */}
+          <div
+            className="relative w-[calc(100%+3rem)] sm:w-[calc(100%+3.5rem)] -mx-6 sm:-mx-7 mt-auto flex-1 min-h-[230px] sm:min-h-[260px] flex items-end overflow-hidden"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.12) 6%, rgba(0,0,0,0.65) 18%, black 35%, black 100%)',
+              maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.12) 6%, rgba(0,0,0,0.65) 18%, black 35%, black 100%)',
+            }}
+          >
             <img
               src={houseImageSrc}
               alt="Quaint Nordic red wooden house on grassy hill"
-              className="w-full h-auto object-cover block select-none pointer-events-none"
+              className="w-full h-full min-h-[250px] sm:min-h-[280px] object-cover object-[18%_bottom] block select-none pointer-events-none scale-[1.2] origin-[18%_85%]"
               draggable={false}
             />
           </div>
@@ -314,7 +317,7 @@ export function HouseSavingsGoalCard({
               {transactions.slice(0, 6).map((tx) => (
                 <div
                   key={tx.id}
-                  onClick={() => triggerToast(`${tx.title}: +$${tx.amount.toLocaleString()}`)}
+                  onClick={() => triggerToast(`${tx.title}: +₹${tx.amount.toLocaleString()}`)}
                   className="flex items-center justify-between py-2 px-1 hover:bg-gray-50/90 rounded-xl transition-colors cursor-pointer group"
                 >
                   <div className="flex items-center gap-2.5">
@@ -330,7 +333,7 @@ export function HouseSavingsGoalCard({
                   </div>
 
                   <div className="text-xs font-semibold text-[#111827] tracking-tight">
-                    +${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    +₹{tx.amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                 </div>
               ))}
@@ -388,11 +391,11 @@ export function HouseSavingsGoalCard({
               {/* Amount Input */}
               <div>
                 <label className="text-[11px] font-medium text-gray-500 block mb-1">
-                  Custom Amount ($)
+                  Custom Amount (₹)
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs font-medium">
-                    $
+                    ₹
                   </span>
                   <input
                     type="number"
@@ -483,7 +486,7 @@ export function HouseSavingsGoalCard({
 
               <div>
                 <label className="text-[11px] font-medium text-gray-500 block mb-1">
-                  Target Amount ($)
+                  Target Amount (₹)
                 </label>
                 <input
                   type="number"
