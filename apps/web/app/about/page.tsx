@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { ArrowRight, ArrowUpRight, Code2, Cpu, Heart, Layers, ShieldCheck, Sparkles, Terminal, Zap } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, ArrowUpRight, Code2, Cpu, Globe, Heart, Layers, ShieldCheck, Sparkles, Terminal, Zap } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Flourish UI — Open Source Expressive React Components & Story',
@@ -68,6 +69,19 @@ const jsonLd = {
           name: 'About',
           item: 'https://flourish-ui.vercel.app/about',
         },
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://www.zuhaibrashid.com/#person',
+      name: 'Zuhaib Rashid',
+      url: 'https://www.zuhaibrashid.com',
+      image: 'https://flourish-ui.vercel.app/zuhaib-rashid.webp',
+      jobTitle: 'Full-Stack Developer & UI Engineer',
+      sameAs: [
+        'https://www.linkedin.com/in/zuhaib-rashid-661345318/',
+        'https://github.com/Zuhaib-dev',
+        'https://x.com/xuhaib_x9',
       ],
     },
   ],
@@ -206,24 +220,188 @@ export default function AboutPage() {
           </p>
 
           {/* Author Card */}
-          <div style={{ padding: '26px', background: '#faf9f5', border: '1px solid var(--line)', borderRadius: 8, display: 'flex', gap: 18, alignItems: 'center' }}>
-            <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#eceae3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <span style={{ font: '600 18px Georgia, serif', color: 'var(--orange)' }}>Z</span>
+          <div
+            style={{
+              padding: '28px',
+              background: '#faf9f5',
+              border: '1px solid var(--line)',
+              borderRadius: '16px',
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '24px',
+              alignItems: 'center',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)',
+            }}
+          >
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <div
+                style={{
+                  width: '84px',
+                  height: '84px',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  border: '2.5px solid #fff',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06)',
+                  position: 'relative',
+                  background: '#eceae3',
+                }}
+              >
+                <Image
+                  src="/zuhaib-rashid.webp"
+                  alt="Zuhaib Rashid"
+                  width={84}
+                  height={84}
+                  priority
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                />
+              </div>
+              <span
+                style={{
+                  position: 'absolute',
+                  bottom: '2px',
+                  right: '2px',
+                  width: '14px',
+                  height: '14px',
+                  borderRadius: '50%',
+                  background: '#10b981',
+                  border: '2px solid #fff',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
+                }}
+                title="Active Developer & Creator"
+              />
             </div>
-            <div>
-              <strong style={{ color: 'var(--ink)', fontSize: 16, display: 'block', marginBottom: 4 }}>Created by Zuhaib Rashid</strong>
-              <p style={{ margin: '0 0 6px', fontSize: 13, lineHeight: 1.6 }}>
-                Full-stack developer and UI engineer based in Srinagar, Jammu &amp; Kashmir. Focused on building thoughtful, high-performance web software.
+
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                <strong style={{ color: 'var(--ink)', fontSize: '18px', fontWeight: 600, letterSpacing: '-0.01em' }}>
+                  Zuhaib Rashid
+                </strong>
+                <span
+                  style={{
+                    fontSize: '11px',
+                    fontFamily: 'monospace',
+                    color: 'var(--orange)',
+                    background: 'rgba(232, 96, 52, 0.08)',
+                    padding: '2px 8px',
+                    borderRadius: '12px',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  CREATOR &amp; MAINTAINER
+                </span>
+              </div>
+
+              <p style={{ margin: '0 0 14px', fontSize: '13.5px', lineHeight: 1.65, color: 'var(--muted-ink)' }}>
+                Full-stack developer and creative technologist based in Srinagar, Jammu &amp; Kashmir. Dedicated to crafting thoughtful, high-performance digital software blending tactile physics, WebGL visuals, and zero-lock-in components.
               </p>
-              <div style={{ display: 'flex', gap: 14 }}>
-                <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                  Personal Portfolio <ArrowUpRight size={11} />
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <a
+                  href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    color: '#0a66c2',
+                    background: '#fff',
+                    border: '1px solid #d0d7de',
+                    padding: '6px 13px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={11} />
                 </a>
-                <a href="https://x.com/xuhaib_x9" target="_blank" rel="noreferrer" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                  Twitter / X <ArrowUpRight size={11} />
+
+                <a
+                  href="https://www.zuhaibrashid.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    color: 'var(--ink)',
+                    background: '#fff',
+                    border: '1px solid #d0d7de',
+                    padding: '6px 13px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  }}
+                >
+                  <Globe size={13} style={{ color: 'var(--orange)' }} />
+                  <span>Portfolio</span>
+                  <ArrowUpRight size={11} />
                 </a>
-                <a href="https://github.com/Zuhaib-dev" target="_blank" rel="noreferrer" style={{ color: 'var(--orange)', fontWeight: 600, fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                  GitHub <ArrowUpRight size={11} />
+
+                <a
+                  href="https://github.com/Zuhaib-dev"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    color: 'var(--ink)',
+                    background: '#fff',
+                    border: '1px solid #d0d7de',
+                    padding: '6px 13px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>GitHub</span>
+                  <ArrowUpRight size={11} />
+                </a>
+
+                <a
+                  href="https://x.com/xuhaib_x9"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    color: 'var(--ink)',
+                    background: '#fff',
+                    border: '1px solid #d0d7de',
+                    padding: '6px 13px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  <span>Twitter / X</span>
+                  <ArrowUpRight size={11} />
                 </a>
               </div>
             </div>
