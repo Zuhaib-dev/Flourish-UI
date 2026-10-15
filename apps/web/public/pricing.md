@@ -9,7 +9,7 @@
 - **Seat Limit**: Unlimited developers & teams
 - **Project Limit**: Unlimited commercial websites, SaaS apps, and client projects
 - **Included Features**:
-  - Full access to all 30+ interactive React & Next.js components
+  - Full access to all 43+ interactive React & Next.js components
   - Direct `shadcn` CLI installation registry support
   - WebGL shaders, Canvas simulations, tactile skeuomorphism, and motion physics
   - Full TypeScript and Tailwind CSS source code with zero vendor lock-in

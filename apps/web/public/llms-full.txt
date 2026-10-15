@@ -1,28 +1,36 @@
-# Flourish UI — Complete Knowledge Bundle (llms-full.txt)
+# Flourish UI — Complete Single-File Knowledge Bundle
 
-> Flourish UI is an open-source library of expressive, interactive React and Next.js components with tactile skeuomorphism, WebGL shaders, spring physics, and shadcn CLI registry support.
+> This document contains the complete, canonical index of all components in Flourish UI. It is designed for LLMs, autonomous agents, and search engines to ingest the entire library in a single HTTP request without web scraping or crawling.
 
-## Core Metadata
+## Ecosystem Summary
 - Official Website: https://flourish-ui.vercel.app
-- Author: Zuhaib Rashid (https://www.zuhaibrashid.com)
-- GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
-- License: MIT (100% Free for Personal & Commercial Use)
+- Developer Portal & API: https://flourish-ui.vercel.app/developers
 - Machine-Readable Pricing: https://flourish-ui.vercel.app/pricing.md
-- OpenAPI Specification: https://flourish-ui.vercel.app/openapi.json
-- Total Components Cataloged: 37
+- LLM Context Signpost: https://flourish-ui.vercel.app/llms.txt
+- OpenAPI 3.1 Specification: https://flourish-ui.vercel.app/openapi.json
+- shadcn Registry Catalog: https://flourish-ui.vercel.app/r/registry.json
+- Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
+- GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
+- License: MIT (100% Free for personal and commercial usage)
+- Total Components Cataloged: 43
+- Total Design Categories: 6
 
-## CLI Installation Quickstart
-Install any component directly into any Next.js or React application via shadcn CLI:
+## How to Install Components
+Every component in Flourish UI can be installed directly into your Next.js / React project using the official shadcn CLI:
 ```bash
-# pnpm
-pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+# Using pnpm
+pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json
 
-# npx / npm
-npx shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+# Using npm
+npx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json
 
-# bun
-bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
+# Using Bun
+bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json
+
+# Using Yarn
+yarn dlx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].json
 ```
+Components land cleanly in `components/flourish/` with zero vendor lock-in.
 
 ## Complete Component Catalog
 
@@ -39,7 +47,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: An ultra-premium, dark-mode orchestration dashboard designed for monitoring and deploying AI agents. Features a bespoke 16-bit pixel art lighthouse background and intricate widget layouts.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/agent-orchestration-dashboard
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/agent-orchestration-dashboard.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/agent-orchestration-dashboard/source`
@@ -93,7 +101,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A stunning, hyper-minimal SaaS dashboard UI featuring bespoke handcrafted SVG charts, wireframe-style crop marks, and perfect technical typography.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/dashboard-may-look-minimal
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/dashboard-may-look-minimal.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/dashboard-may-look-minimal/source`
@@ -102,7 +110,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Interactive Surfaces
 - **Description**: A premium, interactive Neo-Classical design system and UI shell for long-form narrative, reading, and writing experiences. Built with Next.js 15, Tailwind CSS v4, and Framer Motion.
 - **Tags**: interactive surfaces, motion, canvas, threejs
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/daybreak-editorial
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/daybreak-editorial.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/daybreak-editorial/source`
@@ -120,7 +128,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Interactive Surfaces
 - **Description**: A premium, highly interactive, and functionally complete React component for capturing digital signatures in web applications. It provides a polished and legally compliant-looking interface for users to sign documents.
 - **Tags**: interactive surfaces, typescript
-- **Dependencies**: `framer-motion, lucide-react, react-signature-canvas`
+- **Dependencies**: `framer-motion`, `lucide-react`, `react-signature-canvas`
 - **Component URL**: https://flourish-ui.vercel.app/components/digital-signature-modal
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/digital-signature-modal.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/digital-signature-modal/source`
@@ -138,7 +146,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: An ultra-premium node-based visual workflow editor interface. Built with an intricate left sidebar, an interactive node library panel, and a beautifully designed dot-grid canvas with floating toolbars and a minimap.
 - **Tags**: dashboards, motion, canvas, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/flow-ai-canvas
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/flow-ai-canvas.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/flow-ai-canvas/source`
@@ -165,7 +173,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A premium, high-fidelity dark-mode dashboard component featuring a true 3D isometric stacked bar chart and a highly detailed interactive heatmap calendar.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/isometric-dashboard
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/isometric-dashboard.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/isometric-dashboard/source`
@@ -210,7 +218,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A pristine, minimalist SaaS dashboard component designed for planning and organizing content posts. Features a comprehensive calendar grid and data summary cards with a clean light-mode aesthetic.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/post-planner-calendar
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/post-planner-calendar.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/post-planner-calendar/source`
@@ -219,7 +227,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Interactive Surfaces
 - **Description**: A dark, atmospheric hero component featuring a full-bleed background video, glassmorphic noise overlays, and `framer-motion` staggered text pull-up effects.
 - **Tags**: interactive surfaces, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/prisma-hero
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/prisma-hero.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/prisma-hero/source`
@@ -228,7 +236,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A high-fidelity, 3-column workspace dashboard designed for podcast and content studios. It features an intricate collapsible sidebar, a central AI-assisted content creation feed, and a rich media transcript view.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/proma-content-workspace
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/proma-content-workspace.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/proma-content-workspace/source`
@@ -237,7 +245,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A highly interactive, fluid property comparison dashboard featuring soft skeuomorphic design and smooth `framer-motion` state transitions, built for the Flourish UI component library.
 - **Tags**: dashboards, motion, threejs, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/property-comparison-dashboard
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/property-comparison-dashboard.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/property-comparison-dashboard/source`
@@ -264,7 +272,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A pristine, high-fidelity chat interface designed for interacting with specialized AI agents (like an SEO Specialist). It features a full-width viewport design with a collapsible sidebar and a central chat feed capable of rendering complex, interactive data cards.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/seo-agent-chat-ui
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/seo-agent-chat-ui.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/seo-agent-chat-ui/source`
@@ -273,7 +281,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Interactive Surfaces
 - **Description**: A highly-detailed, highly-polished share file dialog modal built for Next.js, featuring smooth Framer Motion animations.
 - **Tags**: interactive surfaces, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/share-file-dialog
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/share-file-dialog.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/share-file-dialog/source`
@@ -282,7 +290,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Skeuomorphic & 3D
 - **Description**: A playful, highly interactive skeuomorphic take on a digital guestbook. It brings the tactile feel of a physical leather-bound journal into the browser with realistic page flips, handwritten typography, and organic ink features.
 - **Tags**: skeuomorphic, motion, canvas, typescript
-- **Dependencies**: `framer-motion, lucide-react, react-signature-canvas`
+- **Dependencies**: `framer-motion`, `lucide-react`, `react-signature-canvas`
 - **Component URL**: https://flourish-ui.vercel.app/components/skeuomorphic-notebook
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/skeuomorphic-notebook.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/skeuomorphic-notebook/source`
@@ -309,7 +317,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Interactive Surfaces
 - **Description**: A highly premium, two-column split-layout sign up modal featuring a clean typographic left panel and a dreamy, animated glassmorphic right panel. Built for the Flourish UI component library.
 - **Tags**: interactive surfaces, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/split-signup-modal
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/split-signup-modal.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/split-signup-modal/source`
@@ -327,7 +335,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Dashboards & Editors
 - **Description**: A beautiful, highly complex travel booking dashboard featuring a modern bento-box grid layout, glassmorphism overlays, and stunning typography.
 - **Tags**: dashboards, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/travel-booking-bento
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/travel-booking-bento.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/travel-booking-bento/source`
@@ -336,7 +344,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Motion & Physics
 - **Description**: A breathtaking, highly interactive layout animation system featuring MacOS dock mechanics, seamless masonry grid toggles, and perfect physical spring interpolation. Built for the Flourish UI component library.
 - **Tags**: motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/velocity-spring-system
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/velocity-spring-system.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/velocity-spring-system/source`
@@ -345,7 +353,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Category**: Skeuomorphic & 3D
 - **Description**: A gorgeous, soft-skeuomorphic trip planner widget featuring realistic ticket cutouts, glassmorphic folders, and ultra-premium UI details.
 - **Tags**: skeuomorphic, motion, typescript
-- **Dependencies**: `framer-motion, lucide-react`
+- **Dependencies**: `framer-motion`, `lucide-react`
 - **Component URL**: https://flourish-ui.vercel.app/components/voyage-planner
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/voyage-planner.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/voyage-planner/source`
@@ -358,6 +366,60 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/{slug}.json
 - **Component URL**: https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/waves-shaders-homlu-ui.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/waves-shaders-homlu-ui/source`
+
+### 38. Offline Pixel 404 Error (`404-error-page-component`)
+- **Category**: Interactive Surfaces
+- **Description**: An expressive retro-futuristic offline 404 error experience featuring a playable offline Dino runner, radar sweep animation, telemetry diagnostics, and tactile back-to-home actions.
+- **Tags**: interactive, retro, 404, canvas, game
+- **Dependencies**: `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/404-error-page-component
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/404-error-page-component.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/404-error-page-component/source`
+
+### 39. Create from the Heart (`create-from-the-heart`)
+- **Category**: Interactive Surfaces
+- **Description**: An editorial fine-art portfolio landing hero inspired by Oscar Wilde. Features calligraphic typography, fine art pastoral illustration, interactive audio synthesis, and an animated newsletter studio dock.
+- **Tags**: editorial, fine-art, typography, audio, creative
+- **Dependencies**: `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/create-from-the-heart
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/create-from-the-heart.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/create-from-the-heart/source`
+
+### 40. Design with Soul (`design-with-soul`)
+- **Category**: Interactive Surfaces
+- **Description**: An impressionist portfolio hero featuring a boy and his golden retriever on a grassy hill, calligraphic script typography, instant impasto painting style toggle, botanical animations, and parchment dock with services modal.
+- **Tags**: portfolio, fine-art, editorial, modal, accessibility
+- **Dependencies**: `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/design-with-soul
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/design-with-soul.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/design-with-soul/source`
+
+### 41. Genesis Onboarding Card (`genesis-onboarding-card`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A delightful pastel skeuomorphic onboarding card featuring a floating 3D unicorn avatar, interactive onboarding milestones, progress rings, and spring micro-interactions.
+- **Tags**: skeuomorphic, onboarding, cards, 3d, pastel
+- **Dependencies**: `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/genesis-onboarding-card
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/genesis-onboarding-card.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/genesis-onboarding-card/source`
+
+### 42. House Savings Goal Card (`house-savings-goal-card`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A tactile skeuomorphic savings goal card featuring an architectural Nordic A-frame cabin, live rupee (₹) target calculator, tactile milestone badges, and smooth progress filling physics.
+- **Tags**: fintech, skeuomorphic, cards, savings, tactile
+- **Dependencies**: `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/house-savings-goal-card
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/house-savings-goal-card.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/house-savings-goal-card/source`
+
+### 43. Storybook Play Canvas (`storybook-play-canvas`)
+- **Category**: Canvas & Generative
+- **Description**: A whimsical storybook canvas scene featuring an animated storybook world, interactive character controls, spring-loaded audio stems, and layered parallax depth.
+- **Tags**: canvas, storybook, motion, framer-motion, generative
+- **Dependencies**: `framer-motion`, `lucide-react`, `clsx`, `tailwind-merge`
+- **Component URL**: https://flourish-ui.vercel.app/components/storybook-play-canvas
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/storybook-play-canvas.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/storybook-play-canvas/source`
 
 ## WebMCP In-Browser Autonomous Agent Tools
 Flourish UI implements the WebMCP standard via `document.modelContext` and `navigator.modelContext` for browser AI agents:
