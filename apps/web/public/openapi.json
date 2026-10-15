@@ -446,7 +446,7 @@
           },
           "totalComponents": {
             "type": "integer",
-            "example": 37
+            "example": 43
           },
           "categories": {
             "type": "array",
