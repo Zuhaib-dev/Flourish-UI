@@ -377,7 +377,7 @@ button { cursor: pointer; }
 .selected-meta { display: flex; justify-content: space-between; margin-top: 15px; color: #7d7d73; font-size: 8px; letter-spacing: .8px; text-transform: uppercase; }
 .selected-meta span:first-child { color: var(--orange); }
 .selected-card h3 { margin: 7px 0 6px; font: 500 19px/1.2 Georgia, 'Times New Roman', serif; letter-spacing: -.3px; }
-.selected-card p { max-width: 390px; margin: 0; color: var(--muted-ink); font-size: 11px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.selected-card p { max-width: 390px; margin: 0; color: var(--muted-ink); font-size: 11px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .install-section { max-width: 1236px; margin: 0 auto 86px; padding: 50px 55px; display: grid; grid-template-columns: .85fr 1fr; align-items: center; gap: 65px; background: #e9e7df; }
 .install-copy h2 { max-width: 350px; font-size: 40px; }
 .install-copy p { max-width: 370px; margin: 14px 0 19px; color: #686960; font-size: 12px; line-height: 1.75; }
@@ -586,7 +586,7 @@ button { cursor: pointer; }
 .premium-card-category span:first-child { color: var(--orange); }
 .premium-card-title { margin-top: 10px; color: var(--ink); font: 500 18px/1.2 Georgia, 'Times New Roman', serif; letter-spacing: -.25px; }
 .premium-card-title:hover { color: #a94f32; }
-.premium-card-content > p { margin: 6px 0 14px; color: #77776e; font-size: 10px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.premium-card-content > p { margin: 6px 0 14px; color: #77776e; font-size: 10px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .premium-card-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding-top: 10px; border-top: 1px solid #e7e5dd; }
 .premium-card-footer a, .premium-card-footer button { display: inline-flex; align-items: center; gap: 6px; color: #68685f; font-size: 9px; }
 .premium-card-footer a:hover { color: var(--orange); }

@@ -212,7 +212,7 @@ export function HouseSavingsGoalCard({
       )}
 
       {/* Main Goal Widget Card */}
-      <section className="w-full max-w-[724px] bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.09)] border border-black/[0.04] overflow-hidden grid grid-cols-1 md:grid-cols-2 relative transition-all duration-500 animate-card-enter">
+      <section className="w-full max-w-181 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.09)] border border-black/4 overflow-hidden grid grid-cols-1 md:grid-cols-2 relative transition-all duration-500 animate-card-enter">
         {/* ================= LEFT HALF: GOAL PROGRESS & NORDIC HOUSE ================= */}
         <div className="flex flex-col justify-between pt-6 px-6 sm:px-7 pb-0 bg-white relative border-b md:border-b-0 md:border-r border-gray-100/90 group">
           <div>
@@ -276,7 +276,7 @@ export function HouseSavingsGoalCard({
                     style={{
                       transitionDelay: isMounted ? `${i * 14}ms` : '0ms',
                     }}
-                    className={`h-[15px] w-[2px] rounded-full transition-all duration-300 ${
+                    className={`h-3.75 w-0.5 rounded-full transition-all duration-300 ${
                       isFilled ? 'bg-[#df4b42] scale-y-100' : 'bg-[#e5e7eb] scale-y-90'
                     }`}
                   />
@@ -287,7 +287,7 @@ export function HouseSavingsGoalCard({
 
           {/* Nordic Red House Photograph (Blended seamlessly, anchored to the left, gentle hover parallax) */}
           <div
-            className="relative w-[calc(100%+3rem)] sm:w-[calc(100%+3.5rem)] -mx-6 sm:-mx-7 mt-auto flex-1 min-h-[230px] sm:min-h-[260px] flex items-end overflow-hidden"
+            className="relative w-[calc(100%+3rem)] sm:w-[calc(100%+3.5rem)] -mx-6 sm:-mx-7 mt-auto flex-1 min-h-57.5 sm:min-h-65 flex items-end overflow-hidden"
             style={{
               WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.12) 6%, rgba(0,0,0,0.65) 18%, black 35%, black 100%)',
               maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.12) 6%, rgba(0,0,0,0.65) 18%, black 35%, black 100%)',
@@ -296,7 +296,7 @@ export function HouseSavingsGoalCard({
             <img
               src={houseImageSrc}
               alt="Quaint Nordic red wooden house on grassy hill"
-              className="w-full h-full min-h-[250px] sm:min-h-[285px] object-cover scale-[1.45] -translate-x-12 sm:-translate-x-16 translate-y-2 block select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.5] group-hover:-translate-x-14"
+              className="w-full h-full min-h-62.5 sm:min-h-71.25 object-cover scale-[1.45] -translate-x-12 sm:-translate-x-16 translate-y-2 block select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.5] group-hover:-translate-x-14"
               draggable={false}
             />
           </div>
@@ -397,7 +397,7 @@ export function HouseSavingsGoalCard({
       {/* ================= MODAL: ADD FUNDS ================= */}
       {showAddFunds && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="w-full max-w-[360px] bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
+          <div className="w-full max-w-90 bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
             <button
               type="button"
               onClick={() => setShowAddFunds(false)}
@@ -503,7 +503,7 @@ export function HouseSavingsGoalCard({
       {/* ================= MODAL: EDIT GOAL ================= */}
       {showEditGoal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="w-full max-w-[360px] bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
+          <div className="w-full max-w-90 bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
             <button
               type="button"
               onClick={() => setShowEditGoal(false)}
@@ -571,7 +571,7 @@ export function HouseSavingsGoalCard({
       {/* ================= MODAL: FUND YIELD DETAILS ================= */}
       {showFundDetails && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="w-full max-w-[380px] bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
+          <div className="w-full max-w-95 bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-left">
             <button
               type="button"
               onClick={() => setShowFundDetails(false)}

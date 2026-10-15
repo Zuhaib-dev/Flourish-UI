@@ -66,7 +66,7 @@ export function Offline404({
       {/* Dino Easter Egg Interactive Hotspot (Top Area) */}
       <div
         onClick={triggerJump}
-        className="absolute top-12 left-1/2 -translate-x-1/2 sm:translate-x-[-120px] z-30 cursor-pointer w-48 h-32 flex flex-col items-center justify-start group"
+        className="absolute top-12 left-1/2 -translate-x-1/2 sm:-translate-x-30 z-30 cursor-pointer w-48 h-32 flex flex-col items-center justify-start group"
         title="Click or press Spacebar to jump!"
         role="button"
         tabIndex={0}

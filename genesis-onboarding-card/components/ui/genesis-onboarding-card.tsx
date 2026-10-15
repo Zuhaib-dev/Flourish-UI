@@ -133,10 +133,10 @@ export function GenesisOnboardingCard({
       )}
 
       {/* Main Genesis Onboarding Card */}
-      <section className="w-full max-w-[392px] sm:max-w-[412px] bg-white rounded-[32px] sm:rounded-[36px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.09)] border border-black/[0.04] overflow-hidden flex flex-col relative transition-all duration-500 animate-card-enter">
+      <section className="w-full max-w-98 sm:max-w-103 bg-white rounded-4xl sm:rounded-[36px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.09)] border border-black/4 overflow-hidden flex flex-col relative transition-all duration-500 animate-card-enter">
         {/* Top 3D Surreal Orange Tree Illustration */}
         <div
-          className="relative w-full h-[280px] sm:h-[305px] overflow-hidden bg-[#3582c6]"
+          className="relative w-full h-70 sm:h-76.25 overflow-hidden bg-[#3582c6]"
           style={{
             WebkitMaskImage:
               'linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
@@ -155,7 +155,7 @@ export function GenesisOnboardingCard({
         {/* Card Body Content */}
         <div className="px-6 sm:px-7 pt-2 pb-7 flex flex-col text-left">
           {/* Welcome Heading */}
-          <h1 className="text-[22px] sm:text-[23px] font-bold text-[#111827] tracking-tight leading-[1.25] m-0">
+          <h1 className="text-[22px] sm:text-[23px] font-bold text-[#111827] tracking-tight leading-tight m-0">
             Welcome to Genesis,
             <br />
             Your first journey here!
@@ -293,7 +293,7 @@ export function GenesisOnboardingCard({
       {/* Success Modal / Celebration Greeting */}
       {isSuccess && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-[340px] bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-center animate-in zoom-in-95 duration-200">
+          <div className="w-full max-w-85 bg-white rounded-3xl p-6 shadow-2xl relative border border-gray-100 text-center animate-in zoom-in-95 duration-200">
             <button
               type="button"
               onClick={handleReset}

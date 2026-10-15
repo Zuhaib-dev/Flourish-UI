@@ -23,7 +23,7 @@ export default function ComponentLivePreview() {
         }}
       />
 
-      <div className="relative flex flex-wrap items-end justify-center gap-x-10 gap-y-16 sm:gap-x-14 sm:gap-y-20 lg:gap-x-20 lg:gap-y-24 max-w-[1400px] mx-auto z-10 transition-transform duration-300 scale-[0.72] sm:scale-[0.84] lg:scale-100 origin-center">
+      <div className="relative flex flex-wrap items-end justify-center gap-x-10 gap-y-16 sm:gap-x-14 sm:gap-y-20 lg:gap-x-20 lg:gap-y-24 max-w-350 mx-auto z-10 transition-transform duration-300 scale-[0.72] sm:scale-[0.84] lg:scale-100 origin-center">
         <GlassFolder
           label="My Files"
           art="aurora"
