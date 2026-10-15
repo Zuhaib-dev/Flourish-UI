@@ -69,7 +69,7 @@ export default function DesignWithSoul({
   founderRole = 'FOUNDER & DESIGNER',
   founderQuote = 'Crafting visuals that leave a lasting feeling.',
   brandLogo = 'm.',
-  paintingSrc = '/hero-art.png',
+  paintingSrc = '/hero-fine-art.png',
   services = defaultServices,
   newsletterTitle = 'Notes from the studio',
   newsletterDesc = 'Thoughts, insights, and inspiration delivered gently.',
@@ -120,7 +120,7 @@ export default function DesignWithSoul({
           alt="Impressionist oil painting of a boy and golden dog sitting together on a grassy hill under summer sky"
           fill
           priority
-          className="object-cover object-[center_60%] sm:object-[center_bottom] lg:object-[62%_bottom] transition-transform duration-1000 scale-[1.005]"
+          className="object-cover object-bottom transition-transform duration-1000 scale-[1.002]"
           sizes="100vw"
         />
 
