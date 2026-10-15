@@ -1,6 +1,7 @@
-import "../../../../../house-savings-goal-card/app/globals.css"
-import DemoPage from "../../../../../house-savings-goal-card/app/page"
+"use client"
+
+import HouseSavingsGoalCard from "../../../../../house-savings-goal-card/components/ui/house-savings-goal-card"
 
 export default function ComponentLivePreview() {
-  return <DemoPage />
+  return <HouseSavingsGoalCard />
 }

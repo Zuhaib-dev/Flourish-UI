@@ -1,6 +1,7 @@
-import "../../../../../design-with-soul/app/globals.css"
-import DemoPage from "../../../../../design-with-soul/app/page"
+"use client"
+
+import DesignWithSoul from "../../../../../design-with-soul/components/ui/design-with-soul"
 
 export default function ComponentLivePreview() {
-  return <DemoPage />
+  return <DesignWithSoul />
 }

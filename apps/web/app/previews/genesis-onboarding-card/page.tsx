@@ -1,6 +1,7 @@
-import "../../../../../genesis-onboarding-card/app/globals.css"
-import DemoPage from "../../../../../genesis-onboarding-card/app/page"
+"use client"
+
+import GenesisOnboardingCard from "../../../../../genesis-onboarding-card/components/ui/genesis-onboarding-card"
 
 export default function ComponentLivePreview() {
-  return <DemoPage />
+  return <GenesisOnboardingCard />
 }

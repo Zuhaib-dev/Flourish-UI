@@ -61,6 +61,12 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
     'prisma-hero': 'PrismaHero',
     'raster-dynamics-wordmark': 'RasterDynamicsWordmark',
     'waves-shaders-homlu-ui': 'ShaderBackground',
+    '404-error-page-component': 'Offline404',
+    'create-from-the-heart': 'CreateFromTheHeart',
+    'design-with-soul': 'DesignWithSoulHero',
+    'genesis-onboarding-card': 'GenesisOnboardingCard',
+    'house-savings-goal-card': 'HouseSavingsGoalCard',
+    'storybook-play-canvas': 'StorybookPlayCanvas',
   }
   const exportName = namedExports[component.slug]
   const componentName = exportName ?? 'Component'
