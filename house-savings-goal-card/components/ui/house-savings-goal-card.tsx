@@ -341,7 +341,7 @@ export function HouseSavingsGoalCard({
 
       {/* Subtle Author / Design Credit */}
       <footer className="mt-6 text-center text-xs text-[#9ca3af] tracking-wide select-none">
-        @roman_designer
+        @ZuhaibRashid
       </footer>
 
       {/* ================= MODAL: ADD FUNDS ================= */}
