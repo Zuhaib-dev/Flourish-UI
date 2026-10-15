@@ -1,4 +1,10 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "storybook-play-canvas": () => import("./component-sources/storybook-play-canvas"),
+  "house-savings-goal-card": () => import("./component-sources/house-savings-goal-card"),
+  "genesis-onboarding-card": () => import("./component-sources/genesis-onboarding-card"),
+  "design-with-soul": () => import("./component-sources/design-with-soul"),
+  "create-from-the-heart": () => import("./component-sources/create-from-the-heart"),
+  "404-error-page-component": () => import("./component-sources/404-error-page-component"),
   'admit-one-3-d-holographic-ticket': () => import('./component-sources/admit-one-3-d-holographic-ticket'),
   'agent-orchestration-dashboard': () => import('./component-sources/agent-orchestration-dashboard'),
   'auth-section-1': () => import('./component-sources/auth-section-1'),
