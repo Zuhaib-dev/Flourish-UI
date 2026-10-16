@@ -1,5 +1,7 @@
 <div align="center">
-  <video src="./public/PublishVideo.mp4" poster="./public/og-image.png" width="100%" controls    playsinline style="border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);"></video>
+  <a href="https://flourish-ui.vercel.app">
+    <img src="./public/og-image.png" alt="Flourish UI — Expressive React Components" width="100%" style="border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);" />
+  </a>
 
   <h1>🌿 Flourish UI — Web Platform & Component Registry</h1>
   
@@ -16,7 +18,8 @@
   </p>
 
   <p>
-    <a href="https://flourish-ui.vercel.app"><strong>Explore the Live Website →</strong></a> • 
+    <a href="https://flourish-ui.vercel.app"><strong>Explore Live Website →</strong></a> • 
+    <a href="./public/PublishVideo.mp4">🎬 <strong>Watch Launch Video (MP4)</strong></a> • 
     <a href="https://flourish-ui.vercel.app/components"><strong>Browse 43+ Components</strong></a> • 
     <a href="https://flourish-ui.vercel.app/developers"><strong>Developer Docs</strong></a>
   </p>
@@ -117,15 +120,15 @@ It combines:
 
 ```mermaid
 graph TD
-    A[User / AI Agent] --> B[Next.js 16 App Router]
-    B --> C[Page Layer: /components, /previews, /categories]
-    B --> D[Registry API: /r/[slug].json]
-    B --> E[WebMCP Provider /api/mcp]
-    C --> F[Flourish Component Showcase]
-    D --> G[Shadcn CLI Consumers]
-    F --> H[Tailwind CSS v4 & Framer Motion]
-    F --> I[Procedural Web Audio Engine]
-    F --> J[WebGL / Canvas Shaders]
+    A["User / AI Agent"] --> B["Next.js 16 App Router"]
+    B --> C["Page Layer: /components, /previews, /categories"]
+    B --> D["Registry API: /r/{slug}.json"]
+    B --> E["WebMCP Provider: /api/mcp"]
+    C --> F["Flourish Component Showcase"]
+    D --> G["Shadcn CLI Consumers"]
+    F --> H["Tailwind CSS v4 & Framer Motion"]
+    F --> I["Procedural Web Audio Engine"]
+    F --> J["WebGL / Canvas Shaders"]
 ```
 
 ### Core Technologies
