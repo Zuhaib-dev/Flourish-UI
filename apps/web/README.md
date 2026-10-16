@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://flourish-ui.vercel.app/flourish-ui-linkedin-banner.jpg" alt="Flourish UI Banner" width="100%" style="border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);" />
+  <video src="./public/PublishVideo.mp4" poster="./public/og-image.png" width="100%" controls    playsinline style="border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);"></video>
 
   <h1>🌿 Flourish UI — Web Platform & Component Registry</h1>
   
@@ -268,7 +268,7 @@ For lightweight agent context loading, check:
 ## 👨‍💻 Author Profile & Digital Craftsmanship
 
 <div align="center">
-  <img src="https://flourish-ui.vercel.app/zuhaib-rashid.webp" alt="Zuhaib Rashid" width="130" height="130" style="border-radius: 50%; border: 3px solid #10b981; margin-bottom: 12px; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);" />
+  <img src="./public/zuhaib-rashid.webp" alt="Zuhaib Rashid" width="130" height="130" style="border-radius: 50%; border: 3px solid #10b981; margin-bottom: 12px; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);" />
   
   <h3>Zuhaib Rashid</h3>
   <p><strong>Creator & Lead Engineer of Flourish UI</strong></p>
