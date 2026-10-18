@@ -7,8 +7,6 @@ import {
   MapPin,
   ArrowRight,
   Check,
-  Instagram,
-  Linkedin,
 } from 'lucide-react'
 
 export interface NavigationColumn {
