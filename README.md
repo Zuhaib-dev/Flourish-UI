@@ -28,6 +28,14 @@
 
 ## 📦 The Collection
 
+### 🧺 [Letters from the garden](./letters-from-the-garden)
+An idyllic, cottagecore editorial garden footer and newsletter component featuring interactive clothesline breeze physics, floating wildflowers, and classical storybook typography.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/letters-from-the-garden/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Letters from the garden" />
+</div>
+
+---
+
 ### 🌸 [Bloom Select](./bloom-select)
 A beautiful, interactive React component that blooms organic, premium SVG flowers when you highlight text. Designed with a calming aesthetic and powered by fluid spring physics.
 <div align="center">
