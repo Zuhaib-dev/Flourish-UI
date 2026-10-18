@@ -15,7 +15,7 @@ Built with **React 19**, **Next.js 16**, **Tailwind CSS v4**, and **Framer Motio
 ## ✨ Highlights & Features
 
 - **Pixel-Perfect Aesthetic**: Exact recreation of vintage gouache storybook illustration paired with high-editorial typography (*Cormorant Garamond*, *Italiana*, and *Plus Jakarta Sans*).
-- **Interactive Breeze Physics**: Includes an ambient garden petal drift and an interactive "Gentle breeze" toggle that rustles hanging linens and animates the clothesline.
+- **Gentle Breeze Physics**: Includes ambient drifting garden petals and a continuous organic sway keyframe animation across the clothesline and linens.
 - **Granular Character Hover Physics**: The iconic `M O R R O W` brand title elevates each letter individually on hover with silky spring physics.
 - **Underline Newsletter Subscription**: Minimalist border-bottom email input with real-time feedback and submit status transitions.
 - **Harmonious Natural Palette**: Curated parchment cream (`#f6efe7`), deep forest green (`#426149`), charcoal ink (`#323c33`), and muted slate stone (`#7e7b74`).

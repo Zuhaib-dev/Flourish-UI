@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
 
 :root {
   --bg-cream: #f6efe7;
-  --text-dark: #323c33;
-  --text-muted: #7e7b74;
-  --text-header: #9c968c;
-  --brand-green: #426149;
+  --text-dark: #2a382e;
+  --text-muted: #79746c;
+  --text-header: #8c867c;
+  --brand-green: #2b3d36;
 }
 
 body {
@@ -18,32 +18,35 @@ body {
 }
 
 .font-editorial {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
 }
 
 .font-brand {
-  font-family: 'Italiana', 'Cormorant Garamond', 'Didot', Georgia, serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Didot, 'Bodoni MT', Georgia, serif;
 }
 
-/* Keyframe animations for natural garden breeze */
-@keyframes sway-slow {
+/* Keyframe animations for gentle natural garden breeze */
+@keyframes garden-breeze {
   0%, 100% {
-    transform: rotate(0deg) skewX(0deg);
+    transform: rotate(0deg) translateY(0px) scale(1);
   }
-  33% {
-    transform: rotate(1.2deg) skewX(0.8deg);
+  30% {
+    transform: rotate(0.35deg) translateY(-0.8px) scale(1.002);
   }
-  66% {
-    transform: rotate(-0.9deg) skewX(-0.6deg);
+  70% {
+    transform: rotate(-0.25deg) translateY(0.4px) scale(0.999);
   }
 }
 
-@keyframes sway-subtle {
+@keyframes cloth-flutter {
   0%, 100% {
-    transform: rotate(0deg);
+    transform: skewX(0deg) rotate(0deg);
   }
-  50% {
-    transform: rotate(-1.5deg);
+  25% {
+    transform: skewX(0.8deg) rotate(0.4deg);
+  }
+  65% {
+    transform: skewX(-0.6deg) rotate(-0.3deg);
   }
 }
 
@@ -53,23 +56,21 @@ body {
     opacity: 0;
   }
   20% {
-    opacity: 0.8;
+    opacity: 0.7;
   }
   80% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
-    transform: translate(-140px, 120px) rotate(160deg);
+    transform: translate(-180px, 140px) rotate(160deg);
     opacity: 0;
   }
 }
 
-.animate-sway-slow {
-  animation: sway-slow 7s ease-in-out infinite;
-  transform-origin: top center;
+.animate-breeze {
+  animation: garden-breeze 7s ease-in-out infinite;
 }
 
-.animate-sway-subtle {
-  animation: sway-subtle 5.5s ease-in-out infinite;
-  transform-origin: top center;
+.animate-flutter {
+  animation: cloth-flutter 5s ease-in-out infinite;
 }

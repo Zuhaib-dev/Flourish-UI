@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ArrowRight, Check, Sparkles, Wind } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 
 export interface NavigationLink {
   label: string
@@ -28,7 +28,7 @@ export function LettersFromTheGarden({
   description = 'Occasional notes from the garden, seasonal stories, and quiet things worth sharing.',
   newsletterPlaceholder = 'Your email address',
   copyrightText = '© 2026 MORROW',
-  artworkSrc = '/garden-clothesline.jpg',
+  artworkSrc = '/garden-scene@2x.png',
   onSubscribe,
   navigation = [
     { label: 'About', href: '#about' },
@@ -52,8 +52,6 @@ export function LettersFromTheGarden({
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [breezeActive, setBreezeActive] = useState(false)
-  const [activeCloth, setActiveCloth] = useState<number | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -63,102 +61,91 @@ export function LettersFromTheGarden({
     if (onSubscribe) {
       await onSubscribe(email)
     } else {
-      // Simulate pleasant natural delay
-      await new Promise((resolve) => setTimeout(resolve, 600))
+      await new Promise((resolve) => setTimeout(resolve, 500))
     }
     setIsSubmitting(false)
     setSubscribed(true)
   }
 
-  const triggerBreeze = () => {
-    setBreezeActive(true)
-    setTimeout(() => setBreezeActive(false), 2400)
-  }
-
   return (
     <footer
-      className={`relative w-full overflow-hidden bg-[#f6efe7] text-[#323c33] pt-12 sm:pt-16 lg:pt-20 transition-colors select-none ${className}`}
+      className={`relative w-full bg-[#f6efe7] text-[#2a382e] pt-8 sm:pt-10 md:pt-12 pb-0 overflow-hidden select-none flex flex-col justify-between ${className}`}
       role="contentinfo"
       aria-label="Footer and garden newsletter"
     >
       {/* ── Ambient Petal Breeze Particles ──────────────── */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-60">
+      <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden opacity-45">
         <span
           className="absolute top-1/4 left-3/4 w-2 h-2.5 rounded-full bg-[#d8b4e2]/60 blur-[0.4px]"
           style={{ animation: 'float-petal 14s linear infinite', animationDelay: '0s' }}
         />
         <span
           className="absolute top-1/3 left-1/2 w-1.5 h-2 rounded-full bg-[#fef08a]/70 blur-[0.3px]"
-          style={{ animation: 'float-petal 18s linear infinite', animationDelay: '4s' }}
+          style={{ animation: 'float-petal 18s linear infinite', animationDelay: '5s' }}
         />
         <span
-          className="absolute top-1/2 left-4/5 w-2.5 h-2 rounded-full bg-[#bbf7d0]/50 blur-[0.4px]"
-          style={{ animation: 'float-petal 16s linear infinite', animationDelay: '8s' }}
+          className="absolute top-1/2 left-4/5 w-2 h-2 rounded-full bg-[#bbf7d0]/50 blur-[0.4px]"
+          style={{ animation: 'float-petal 16s linear infinite', animationDelay: '10s' }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        {/* ── Top Row: Newsletter & Navigation Grid ──────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-          {/* Left Column: Newsletter Subscription */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
-            <div>
-              <h2 className="font-editorial text-2xl sm:text-3xl lg:text-[34px] font-medium tracking-tight text-[#323c33] leading-snug">
-                {title}
-              </h2>
-              <p className="mt-2 text-xs sm:text-[13px] text-[#7e7b74] max-w-sm leading-relaxed font-normal">
-                {description}
-              </p>
+      {/* ── Top Content Container ──────────────── */}
+      <div className="relative z-20 w-full max-w-[1360px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-8">
+          {/* Left Column: Title, Subtitle, Underline Input, Copyright */}
+          <div className="flex flex-col max-w-sm">
+            <h2 className="font-editorial text-[26px] sm:text-[30px] md:text-[33px] font-normal text-[#2a382e] tracking-tight leading-snug">
+              {title}
+            </h2>
+            <p className="mt-2 text-xs sm:text-[13px] text-[#79746c] leading-relaxed font-normal max-w-xs">
+              {description}
+            </p>
 
-              {/* Email Form */}
-              <div className="mt-6 sm:mt-7">
-                {subscribed ? (
-                  <div className="flex items-center gap-2 py-2 text-xs sm:text-[13px] text-[#426149] font-medium">
-                    <Check className="w-4 h-4 text-[#426149]" />
-                    <span>Thank you. Letters from the garden will find your inbox soon.</span>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-2 max-w-xs">
-                    <div className="relative flex items-center border-b border-[#323c33]/30 hover:border-[#323c33]/70 focus-within:border-[#426149] transition-colors pb-1.5 group">
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder={newsletterPlaceholder}
-                        className="w-full bg-transparent text-xs sm:text-[13px] text-[#323c33] placeholder:text-[#9c968c] focus:outline-none pr-8 py-0.5"
-                        aria-label="Email address for garden notes"
-                      />
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="absolute right-0 text-[#323c33]/80 hover:text-[#426149] disabled:opacity-50 transition-transform duration-200 hover:translate-x-1 cursor-pointer p-0.5"
-                        title="Subscribe"
-                        aria-label="Subscribe to garden notes"
-                      >
-                        {isSubmitting ? (
-                          <span className="inline-block w-3 h-3 border border-[#426149] border-t-transparent rounded-full animate-spin" />
-                        ) : (
-                          <ArrowRight className="w-4 h-4" />
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
+            {/* Email Subscription Form */}
+            <div className="mt-5 sm:mt-6">
+              {subscribed ? (
+                <div className="flex items-center gap-2 py-1 text-xs sm:text-[13px] text-[#2b3d36] font-medium">
+                  <Check className="w-4 h-4 text-[#2b3d36]" />
+                  <span>Thank you. Letters from the garden will arrive soon.</span>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="relative flex items-center border-b border-[#2a382e]/35 hover:border-[#2a382e]/70 focus-within:border-[#2b3d36] transition-colors pb-1 max-w-[300px] group">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={newsletterPlaceholder}
+                    className="w-full bg-transparent text-xs sm:text-[13px] text-[#2a382e] placeholder:text-[#9c968c] focus:outline-none pr-8 py-0.5"
+                    aria-label="Email address for garden notes"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="absolute right-0 text-[#2a382e]/80 hover:text-[#2b3d36] disabled:opacity-50 transition-transform duration-200 hover:translate-x-1 cursor-pointer p-0.5"
+                    aria-label="Submit email"
+                  >
+                    {isSubmitting ? (
+                      <span className="inline-block w-3 h-3 border border-[#2b3d36] border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <ArrowRight className="w-4 h-4" />
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
 
-            {/* Copyright tag */}
-            <div className="mt-8 sm:mt-10 text-[11px] tracking-wider text-[#9c968c] uppercase font-sans font-medium">
+            {/* Copyright */}
+            <div className="mt-6 sm:mt-8 text-[11px] tracking-[0.14em] uppercase font-sans font-medium text-[#8c867c]">
               {copyrightText}
             </div>
           </div>
 
-          {/* Right Column: Navigation Links (3-column layout) */}
-          <div className="lg:col-span-6 grid grid-cols-3 gap-6 sm:gap-10 lg:pl-12">
+          {/* Right Column: 3 Link Columns */}
+          <div className="grid grid-cols-3 gap-8 sm:gap-14 lg:gap-20">
             {/* Column 1: Navigation */}
             <div>
-              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#9c968c] mb-3 sm:mb-4">
+              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#8c867c] mb-3 sm:mb-4">
                 Navigation
               </h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -166,10 +153,10 @@ export function LettersFromTheGarden({
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-xs sm:text-[13px] text-[#7e7b74] hover:text-[#323c33] transition-colors duration-200 inline-block py-0.5 relative group"
+                      className="text-xs sm:text-[13px] text-[#5f5b54] hover:text-[#2a382e] transition-colors duration-200 inline-block py-0.5 relative group"
                     >
                       {item.label}
-                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#323c33] transition-all duration-200 group-hover:w-full" />
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#2a382e] transition-all duration-200 group-hover:w-full" />
                     </a>
                   </li>
                 ))}
@@ -178,7 +165,7 @@ export function LettersFromTheGarden({
 
             {/* Column 2: Socials */}
             <div>
-              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#9c968c] mb-3 sm:mb-4">
+              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#8c867c] mb-3 sm:mb-4">
                 Socials
               </h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -188,10 +175,10 @@ export function LettersFromTheGarden({
                       href={item.href}
                       target={item.href.startsWith('http') ? '_blank' : undefined}
                       rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-xs sm:text-[13px] text-[#7e7b74] hover:text-[#323c33] transition-colors duration-200 inline-block py-0.5 relative group"
+                      className="text-xs sm:text-[13px] text-[#5f5b54] hover:text-[#2a382e] transition-colors duration-200 inline-block py-0.5 relative group"
                     >
                       {item.label}
-                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#323c33] transition-all duration-200 group-hover:w-full" />
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#2a382e] transition-all duration-200 group-hover:w-full" />
                     </a>
                   </li>
                 ))}
@@ -200,7 +187,7 @@ export function LettersFromTheGarden({
 
             {/* Column 3: Legal */}
             <div>
-              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#9c968c] mb-3 sm:mb-4">
+              <h3 className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#8c867c] mb-3 sm:mb-4">
                 Legal
               </h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -208,10 +195,10 @@ export function LettersFromTheGarden({
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-xs sm:text-[13px] text-[#7e7b74] hover:text-[#323c33] transition-colors duration-200 inline-block py-0.5 relative group"
+                      className="text-xs sm:text-[13px] text-[#5f5b54] hover:text-[#2a382e] transition-colors duration-200 inline-block py-0.5 relative group"
                     >
                       {item.label}
-                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#323c33] transition-all duration-200 group-hover:w-full" />
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#2a382e] transition-all duration-200 group-hover:w-full" />
                     </a>
                   </li>
                 ))}
@@ -221,18 +208,17 @@ export function LettersFromTheGarden({
         </div>
 
         {/* ── Grand Center Brand Typography ──────────────── */}
-        <div className="relative mt-12 sm:mt-16 lg:mt-24 text-center z-10">
+        <div className="relative mt-6 sm:mt-8 md:mt-12 text-center select-none z-20 overflow-hidden">
           <h1
-            className="font-brand text-[58px] sm:text-[100px] md:text-[145px] lg:text-[185px] xl:text-[215px] font-normal tracking-[0.22em] text-[#426149] leading-none uppercase select-none transition-transform duration-700"
+            className="font-editorial text-[clamp(2.75rem,13.8vw,11.5rem)] font-normal tracking-[0.22em] text-[#2b3d36] leading-none uppercase whitespace-nowrap transition-transform duration-700"
             style={{
-              fontFeatureSettings: '"liga" 1',
-              paddingLeft: '0.22em', // Offsets tracking for true visual centering
+              paddingLeft: '0.22em', // Offsets tracking for true optical visual centering
             }}
           >
             {brandName.split('').map((char, index) => (
               <span
                 key={index}
-                className="inline-block transition-transform duration-300 ease-out hover:-translate-y-2 hover:text-[#2d4733] cursor-default"
+                className="inline-block transition-transform duration-300 ease-out hover:-translate-y-2 hover:text-[#1c2924] cursor-default"
               >
                 {char}
               </span>
@@ -241,82 +227,14 @@ export function LettersFromTheGarden({
         </div>
       </div>
 
-      {/* ── Bottom Clothesline & Garden Illustration ──────────────── */}
-      <div className="relative w-full -mt-10 sm:-mt-16 md:-mt-24 lg:-mt-32 z-20 overflow-hidden leading-none">
-        {/* Subtle Interactive Breeze Pill Toggle */}
-        <div className="absolute top-4 sm:top-8 right-6 sm:right-12 z-30 opacity-75 hover:opacity-100 transition-opacity">
-          <button
-            type="button"
-            onClick={triggerBreeze}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 hover:bg-white text-[11px] font-medium text-[#426149] border border-[#426149]/20 shadow-sm backdrop-blur-sm cursor-pointer transition-all active:scale-95"
-            title="Stir a gentle garden breeze"
-          >
-            <Wind className={`w-3.5 h-3.5 ${breezeActive ? 'animate-spin' : ''}`} />
-            <span className="hidden sm:inline">Gentle breeze</span>
-          </button>
-        </div>
-
-        {/* The Illustrated Painting Scene */}
-        <div
-          className={`relative w-full transition-transform duration-1000 ease-out ${
-            breezeActive ? 'scale-[1.008]' : 'scale-100'
-          }`}
-        >
-          <img
-            src={artworkSrc}
-            alt="Folk-art illustration of countryside garden washing line with hanging linen clothes, lavender, wicker basket, and weathered garden bench"
-            className={`w-full h-auto block select-none pointer-events-none transition-all duration-700 ${
-              breezeActive ? 'animate-sway-subtle' : ''
-            }`}
-            draggable={false}
-          />
-
-          {/* Interactive Sway Hotspots over hanging linens */}
-          <div className="absolute inset-0 pointer-events-auto">
-            {/* Clothesline Hotspot Container */}
-            <div className="relative w-full h-full">
-              {/* Linen 1: Small napkin (around 20% width) */}
-              <div
-                onMouseEnter={() => setActiveCloth(1)}
-                onMouseLeave={() => setActiveCloth(null)}
-                className="absolute top-[38%] left-[17%] w-[8%] h-[24%] cursor-pointer group"
-                title="White floral embroidered napkin"
-              />
-
-              {/* Linen 2: Large white sheet (around 30% width) */}
-              <div
-                onMouseEnter={() => setActiveCloth(2)}
-                onMouseLeave={() => setActiveCloth(null)}
-                className="absolute top-[36%] left-[26%] w-[18%] h-[32%] cursor-pointer group"
-                title="Fresh white cotton bedsheet"
-              />
-
-              {/* Linen 3: Lilac floral print towel (around 48% width) */}
-              <div
-                onMouseEnter={() => setActiveCloth(3)}
-                onMouseLeave={() => setActiveCloth(null)}
-                className="absolute top-[38%] left-[45%] w-[15%] h-[30%] cursor-pointer group"
-                title="Lavender floral printed table linen"
-              />
-
-              {/* Linen 4: Blue bistro striped towel (around 62% width) */}
-              <div
-                onMouseEnter={() => setActiveCloth(4)}
-                onMouseLeave={() => setActiveCloth(null)}
-                className="absolute top-[38%] left-[62%] w-[11%] h-[28%] cursor-pointer group"
-                title="Classic French blue bistro striped tea towel"
-              />
-
-              {/* Linen 5: Olive herb-pattern towel (around 73% width) */}
-              <div
-                onMouseEnter={() => setActiveCloth(5)}
-                onMouseLeave={() => setActiveCloth(null)}
-                className="absolute top-[38%] left-[73%] w-[9%] h-[26%] cursor-pointer group"
-                title="Olive sage herbal printed kitchen cloth"
-              />
-            </div>
-          </div>
-        </div>
+      {/* ── Bottom Clothesline & Garden Illustration with Breeze Animation ──────────────── */}
+      <div className="relative w-full -mt-4 sm:-mt-8 md:-mt-12 lg:-mt-18 z-10 overflow-hidden leading-none pointer-events-none select-none">
+        <img
+          src={artworkSrc}
+          alt="Countryside garden washing line with hanging linen, lavender, and flower bench"
+          className="w-full h-auto block select-none animate-breeze origin-bottom"
+          draggable={false}
+        />
       </div>
     </footer>
   )
