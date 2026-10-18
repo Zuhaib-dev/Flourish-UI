@@ -28,6 +28,14 @@
 
 ## 📦 The Collection
 
+### 🐎 [Sequel Frontier Footer](./sequel-frontier-footer)
+An evocative cyanotype editorial footer inspired by antique American frontier landscape intaglio engravings, expansive desert plains, and timeless risograph typography.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/sequel-frontier-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Sequel Frontier Footer" />
+</div>
+
+---
+
 ### 🧺 [Letters from the garden](./letters-from-the-garden)
 An idyllic, cottagecore editorial garden footer and newsletter component featuring interactive clothesline breeze physics, floating wildflowers, and classical storybook typography.
 <div align="center">
