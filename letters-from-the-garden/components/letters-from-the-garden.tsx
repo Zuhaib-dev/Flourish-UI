@@ -23,11 +23,11 @@ export interface LettersFromTheGardenProps {
 }
 
 export function LettersFromTheGarden({
-  brandName = 'MORROW',
+  brandName = 'Kashmir',
   title = 'Letters from the garden',
   description = 'Occasional notes from the garden, seasonal stories, and quiet things worth sharing.',
   newsletterPlaceholder = 'Your email address',
-  copyrightText = '© 2026 MORROW',
+  copyrightText = '© 2026 Kashmir',
   artworkSrc = '/garden-scene@2x.png',
   onSubscribe,
   navigation = [
