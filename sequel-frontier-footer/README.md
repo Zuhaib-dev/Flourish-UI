@@ -20,7 +20,7 @@ Built with **React 19**, **Next.js 16**, **Tailwind CSS v4**, and **Framer Motio
 - **Comprehensive Editorial Directory**: 4 structured columns with custom underline accent rules for `SHOP`, `ABOUT US`, `HELP & SUPPORT`, and `NEWSLETTER`.
 - **Minimalist Newsletter Form**: High-contrast bordered email box with custom ivory submit button and real-time submission feedback.
 - **Floating Legal Bar**: Elegantly balanced legal links (`Privacy Policy | Terms of Service | Cookie Policy`) floating along the mountain ridge.
-- **Complete SEO Ready**: Preconfigured with `sitemap.ts`, `robots.ts`, OpenGraph metadata, Twitter cards, and Schema.org `SoftwareSourceCode` JSON-LD author markup.
+- **Complete SEO Ready**: Preconfigured with OpenGraph metadata, Twitter cards, and Schema.org `SoftwareSourceCode` JSON-LD author markup.
 
 ---
 

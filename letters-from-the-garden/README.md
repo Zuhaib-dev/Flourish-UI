@@ -19,7 +19,7 @@ Built with **React 19**, **Next.js 16**, **Tailwind CSS v4**, and **Framer Motio
 - **Granular Character Hover Physics**: The iconic `M O R R O W` brand title elevates each letter individually on hover with silky spring physics.
 - **Underline Newsletter Subscription**: Minimalist border-bottom email input with real-time feedback and submit status transitions.
 - **Harmonious Natural Palette**: Curated parchment cream (`#f6efe7`), deep forest green (`#426149`), charcoal ink (`#323c33`), and muted slate stone (`#7e7b74`).
-- **Complete SEO Ready**: Preconfigured with `sitemap.ts`, `robots.ts`, OpenGraph metadata, Twitter cards, and Schema.org `SoftwareSourceCode` JSON-LD author markup.
+- **Complete SEO Ready**: Preconfigured with OpenGraph metadata, Twitter cards, and Schema.org `SoftwareSourceCode` JSON-LD author markup.
 - **Customizable**: Fully typed TypeScript props for all links, newsletter copy, copyright year, and custom artwork.
 
 ---
@@ -50,7 +50,7 @@ import { LettersFromTheGarden } from './components/letters-from-the-garden'
 export default function FooterExample() {
   return (
     <LettersFromTheGarden
-      brandName="MORROW"
+      brandName="Kashmir"
       title="Letters from the garden"
       description="Occasional notes from the garden, seasonal stories, and quiet things worth sharing."
       onSubscribe={async (email) => {
