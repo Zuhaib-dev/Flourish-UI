@@ -20,7 +20,7 @@
   <p>
     <a href="https://flourish-ui.vercel.app"><strong>Explore Live Website →</strong></a> • 
     <a href="./public/PublishVideo.mp4">🎬 <strong>Watch Launch Video (MP4)</strong></a> • 
-    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 43+ Components</strong></a> • 
+    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 45+ Components</strong></a> • 
     <a href="https://flourish-ui.vercel.app/developers"><strong>Developer Docs</strong></a>
   </p>
 </div>
@@ -32,7 +32,7 @@
 - [Overview](#-overview)
 - [Why Flourish UI?](#-why-flourish-ui)
 - [Key Features](#-key-features)
-- [Component Categories (43 Components)](#-component-categories-43-components)
+- [Component Categories (45 Components)](#-component-categories-45-components)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Local Development](#-local-development)
@@ -51,7 +51,7 @@
 Every component in the library can be inspected in real time, manipulated with live interactive controls, viewed across responsive viewports, and installed into any Next.js or React project with a single CLI command.
 
 ### 🎯 Key Metrics
-- **43+ Production-Ready Components** across 6 distinct design archetypes.
+- **45+ Production-Ready Components** across 6 distinct design archetypes.
 - **100% Free & Open Source** under the permissive MIT license.
 - **Zero Proprietary Lock-In**: Direct source copy-pasting or automated installation via the standard `shadcn` CLI.
 - **Native Tailwind CSS v4 & React 19** architectural foundation.
