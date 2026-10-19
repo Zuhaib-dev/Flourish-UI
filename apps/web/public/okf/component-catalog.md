@@ -1,15 +1,15 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 43 interactive React components in Flourish UI.
+description: Categorized directory of all 45 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
-timestamp: 2026-10-15
+timestamp: 2026-10-19
 ---
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 43 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
 

@@ -12,7 +12,7 @@
 - Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
 - GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
 - License: MIT (100% Free for personal and commercial usage)
-- Total Components Cataloged: 43
+- Total Components Cataloged: 45
 - Total Design Categories: 6
 
 ## How to Install Components
@@ -420,6 +420,24 @@ Components land cleanly in `components/flourish/` with zero vendor lock-in.
 - **Component URL**: https://flourish-ui.vercel.app/components/storybook-play-canvas
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/storybook-play-canvas.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/storybook-play-canvas/source`
+
+### 44. Letters from the Garden (`letters-from-the-garden`)
+- **Category**: Interactive Surfaces
+- **Description**: An idyllic cottagecore editorial footer and newsletter component with interactive breeze physics, floating wildflowers, and countryside clothesline artwork.
+- **Tags**: interactive surfaces, editorial, cottagecore, motion, typescript
+- **Dependencies**: `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/letters-from-the-garden
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/letters-from-the-garden.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/letters-from-the-garden/source`
+
+### 45. Sequel Frontier Footer (`sequel-frontier-footer`)
+- **Category**: Interactive Surfaces
+- **Description**: An antique cyanotype woodcut engraving footer with lone cowboy rider on horseback, cobalt blue textured aesthetic, 4-column directory, and newsletter box.
+- **Tags**: interactive surfaces, engraving, cyanotype, editorial, typescript
+- **Dependencies**: `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/sequel-frontier-footer
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/sequel-frontier-footer.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/sequel-frontier-footer/source`
 
 ## WebMCP In-Browser Autonomous Agent Tools
 Flourish UI implements the WebMCP standard via `document.modelContext` and `navigator.modelContext` for browser AI agents:
