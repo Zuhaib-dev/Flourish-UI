@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component', 'liquid-glass-folder-stack', 'raster-dynamics-wordmark']
+export const recentlyAddedSlugs = ['letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
