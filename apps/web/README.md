@@ -103,7 +103,7 @@ It combines:
 
 ---
 
-## 🗂️ Component Categories (43 Components)
+## 🗂️ Component Categories (45 Components)
 
 | Category | Description | Flagship Components |
 |---|---|---|
@@ -112,7 +112,7 @@ It combines:
 | **Motion & Physics** | Spring-based choreography, gesture dragging, and responsive hover dynamics | *Velocity Spring System, Kinetic Hover, Draggable Widget Grid, Post Planner Calendar* |
 | **Canvas & Generative** | HTML5 canvas simulations, procedural particles, and generative geometry | *Hero ASCII One, Particle Wordmark, Storybook Play Canvas, Raster Dynamics Wordmark* |
 | **Dashboards & Editors** | High-utility workflows, creative tools, and refined analytics | *Agent Orchestration Dashboard, Isometric Dashboard, Proma Content Workspace, Property Comparison* |
-| **Interactive Surfaces** | Expressive sections, delightful error states, and onboarding flows | *Genesis Onboarding Card, House Savings Goal Card, 404 Error Page Component, Bloom Select* |
+| **Interactive Surfaces** | Expressive sections, delightful error states, and onboarding flows | *Letters from the Garden, Sequel Frontier Footer, Genesis Onboarding Card, House Savings Goal Card, 404 Error Page Component, Bloom Select* |
 
 ---
 
@@ -152,7 +152,7 @@ apps/web/
 │   ├── page.tsx                 # Homepage with hero, spotlights, and interactive catalog
 │   ├── globals.css              # Tailwind v4 theme, fonts, animations, utilities
 │   ├── components/              # Component catalog directory & detail pages (/components/[slug])
-│   ├── previews/                # 43+ isolated preview routes (/previews/[slug])
+│   ├── previews/                # 45+ isolated preview routes (/previews/[slug])
 │   ├── categories/              # Filtered category pages (/categories/[category])
 │   ├── developers/              # Developer guides, CLI instructions, registry docs
 │   ├── changelog/               # Component version history and updates
@@ -166,10 +166,10 @@ apps/web/
 │   ├── sound-toggle.tsx         # Global UI audio switch
 │   └── ui-sounds.ts             # Web Audio API sound generator
 ├── config/
-│   ├── components.ts            # Component metadata database (43 entries)
+│   ├── components.ts            # Component metadata database (45 entries)
 │   └── component-sources/       # Raw TypeScript/TSX source strings for registry distribution
 ├── public/
-│   ├── previews/                # High-res webp/png preview thumbnails for all 43 components
+│   ├── previews/                # High-res webp/png preview thumbnails for all 45 components
 │   ├── flourish-ui-showcase.gif # Animated showcase demo
 │   ├── flourish-ui-showcase.mp4 # HD presentation video
 │   ├── flourish-ui-linkedin-banner.jpg # 3D isometric presentation banner
@@ -258,7 +258,7 @@ Flourish UI includes native support for **WebMCP (Web Model Context Protocol)**,
 
 - **Endpoint**: `/api/mcp`
 - **Exposed Tools**:
-  - `list_components`: Lists all 43 components with slugs, categories, tags, and descriptions.
+  - `list_components`: Lists all 45 components with slugs, categories, tags, and descriptions.
   - `get_component`: Returns full TypeScript source code, installation steps, and prop specifications.
   - `search_components`: Performs semantic search over titles, tags, and categories.
 

@@ -5,8 +5,8 @@ import CatalogBrowser from './catalog-browser'
 import SoundToggle from '../sound-toggle'
 
 export const metadata: Metadata = {
-  title: 'Explore 43+ Expressive React Components | Flourish UI',
-  description: 'Browse the complete collection of 43+ expressive React components with live previews, motion design, WebGL shaders, and shadcn CLI registry support.',
+  title: 'Explore 45+ Expressive React Components | Flourish UI',
+  description: 'Browse the complete collection of 45+ expressive React components with live previews, motion design, WebGL shaders, and shadcn CLI registry support.',
   keywords: [
     'React components',
     'Next.js component library',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://flourish-ui.vercel.app/components' },
   openGraph: {
-    title: 'Explore 43+ Expressive React Components | Flourish UI',
-    description: 'Browse the complete collection of 43+ expressive React components with live previews and shadcn CLI registry support.',
+    title: 'Explore 45+ Expressive React Components | Flourish UI',
+    description: 'Browse the complete collection of 45+ expressive React components with live previews and shadcn CLI registry support.',
     type: 'website',
     url: 'https://flourish-ui.vercel.app/components',
     siteName: 'Flourish UI',
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Explore 43+ Expressive React Components | Flourish UI',
-    description: 'Browse 43+ expressive React components with live previews, spring physics, and shadcn CLI registry support.',
+    title: 'Explore 45+ Expressive React Components | Flourish UI',
+    description: 'Browse 45+ expressive React components with live previews, spring physics, and shadcn CLI registry support.',
     creator: '@xuhaibx9',
     images: ['/og-image.png'],
   },
