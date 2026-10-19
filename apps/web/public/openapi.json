@@ -330,11 +330,11 @@
           },
           "total": {
             "type": "integer",
-            "example": 43
+            "example": 45
           },
           "count": {
             "type": "integer",
-            "example": 43
+            "example": 45
           },
           "offset": {
             "type": "integer",
@@ -446,7 +446,7 @@
           },
           "totalComponents": {
             "type": "integer",
-            "example": 43
+            "example": 45
           },
           "categories": {
             "type": "array",
