@@ -121,20 +121,20 @@ const endpoints = [
   {
     method: 'GET',
     path: '/api/components',
-    desc: 'List all components with optional filters: ?category, ?search, ?tag, ?limit, ?offset.',
+    desc: 'List all 45 components with optional filters: ?category, ?search, ?tag, ?limit, ?offset.',
     sample: 'https://flourish-ui.vercel.app/api/components?limit=10',
   },
   {
     method: 'GET',
     path: '/api/components/{slug}',
     desc: 'Fetch full metadata, dependencies, and install commands for a specific component.',
-    sample: 'https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack',
+    sample: 'https://flourish-ui.vercel.app/api/components/letters-from-the-garden',
   },
   {
     method: 'GET',
     path: '/api/components/{slug}/source',
     desc: 'Fetch raw TypeScript/React source code for direct injection or inspection.',
-    sample: 'https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack/source',
+    sample: 'https://flourish-ui.vercel.app/api/components/letters-from-the-garden/source',
   },
   {
     method: 'GET',
@@ -152,7 +152,7 @@ const endpoints = [
     method: 'GET',
     path: '/r/{slug}.json',
     desc: 'Machine-readable shadcn registry item specification consumed by `shadcn add`.',
-    sample: 'https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json',
+    sample: 'https://flourish-ui.vercel.app/r/letters-from-the-garden.json',
   },
   {
     method: 'GET',
@@ -288,13 +288,13 @@ export default function DevelopersPage() {
               </div>
               <pre className="dev-code-block">
                 <code>{`# 1. List components with category filter
-curl -s "https://flourish-ui.vercel.app/api/components?category=Shaders%20%26%20WebGL"
+curl -s "https://flourish-ui.vercel.app/api/components?category=Interactive%20Surfaces"
 
 # 2. Get single component install commands & dependencies
-curl -s "https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack"
+curl -s "https://flourish-ui.vercel.app/api/components/letters-from-the-garden"
 
 # 3. Download raw TypeScript component source
-curl -s "https://flourish-ui.vercel.app/api/components/liquid-glass-folder-stack/source"`}</code>
+curl -s "https://flourish-ui.vercel.app/api/components/letters-from-the-garden/source"`}</code>
               </pre>
             </div>
 
@@ -330,8 +330,8 @@ const mc = document.modelContext || navigator.modelContext;
 
 // Agent tool invocation:
 const results = await mc.callTool("search_components", {
-  query: "liquid glass",
-  category: "Skeuomorphic & 3D"
+  query: "letters garden",
+  category: "Interactive Surfaces"
 });`}</code>
               </pre>
             </div>
@@ -346,10 +346,10 @@ const results = await mc.callTool("search_components", {
               </div>
               <pre className="dev-code-block">
                 <code>{`# Add any Flourish UI component straight into components/flourish/
-pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-folder-stack.json
+pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/letters-from-the-garden.json
 
 # Or using npx, bunx, or yarn dlx
-npx shadcn@latest add https://flourish-ui.vercel.app/r/raster-dynamics-wordmark.json`}</code>
+npx shadcn@latest add https://flourish-ui.vercel.app/r/sequel-frontier-footer.json`}</code>
               </pre>
             </div>
           </div>

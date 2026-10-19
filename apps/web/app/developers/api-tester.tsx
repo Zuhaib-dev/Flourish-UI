@@ -14,7 +14,7 @@ const endpoints = [
   {
     name: 'Get Single Component',
     method: 'GET',
-    path: '/api/components/liquid-glass-folder-stack',
+    path: '/api/components/letters-from-the-garden',
     description: 'Fetch metadata, dependencies, and install commands for a component',
   },
   {
@@ -32,7 +32,7 @@ const endpoints = [
   {
     name: 'shadcn Registry Item',
     method: 'GET',
-    path: '/r/liquid-glass-folder-stack.json',
+    path: '/r/letters-from-the-garden.json',
     description: 'Fetch the shadcn registry JSON specification for CLI',
   },
 ] as const
