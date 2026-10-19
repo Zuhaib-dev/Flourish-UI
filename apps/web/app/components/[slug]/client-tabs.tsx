@@ -67,6 +67,8 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
     'genesis-onboarding-card': 'GenesisOnboardingCard',
     'house-savings-goal-card': 'HouseSavingsGoalCard',
     'storybook-play-canvas': 'StorybookPlayCanvas',
+    'letters-from-the-garden': 'LettersFromTheGarden',
+    'sequel-frontier-footer': 'SequelFrontierFooter',
   }
   const exportName = namedExports[component.slug]
   const componentName = exportName ?? 'Component'
