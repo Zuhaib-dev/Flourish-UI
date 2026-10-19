@@ -1,4 +1,6 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "letters-from-the-garden": () => import("./component-sources/letters-from-the-garden"),
+  "sequel-frontier-footer": () => import("./component-sources/sequel-frontier-footer"),
   "storybook-play-canvas": () => import("./component-sources/storybook-play-canvas"),
   "house-savings-goal-card": () => import("./component-sources/house-savings-goal-card"),
   "genesis-onboarding-card": () => import("./component-sources/genesis-onboarding-card"),
