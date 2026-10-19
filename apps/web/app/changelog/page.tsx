@@ -43,10 +43,19 @@ export const metadata: Metadata = {
 const releases = [
   {
     date: 'October 2026',
-    tag: 'NEW RELEASES (43+ TOTAL)',
+    tag: 'NEW RELEASES (45+ TOTAL)',
+    icon: <Sparkles size={15} />,
+    title: 'Letters from the Garden & Sequel Frontier Footer',
+    body: 'Two new artisanal editorial footer components join Flourish UI: Letters from the Garden (an idyllic cottagecore editorial footer with interactive breeze physics, countryside clothesline artwork, and newsletter subscription) and Sequel Frontier Footer (an antique cyanotype woodcut engraving footer with lone cowboy rider on horseback, cobalt blue textured aesthetic, and 4-column directory). Library expands to 45+ components with full shadcn CLI support.',
+    tags: ['interactive surfaces', 'editorial', 'cottagecore', 'engraving', 'footers'],
+    accent: '#2b3d36',
+  },
+  {
+    date: 'October 2026',
+    tag: 'ARTISANAL RELEASES',
     icon: <Sparkles size={15} />,
     title: '6 Artisanal Components & Expanded Interactive Catalog',
-    body: 'Six new expressive components join Flourish UI: Offline Pixel 404 Error (with playable Chrome dinosaur), Create from the Heart (editorial fine-art hero with audio stems), Design with Soul (painterly landscape hero & impasto studio dock), Genesis Onboarding Card (pastel skeuomorphic 3D wizard), House Savings Goal Card (Nordic A-frame fintech savings goal), and Storybook Play Canvas (whimsical drawing easel). Library expands to 43+ components with full shadcn CLI support.',
+    body: 'Six new expressive components join Flourish UI: Offline Pixel 404 Error (with playable Chrome dinosaur), Create from the Heart (editorial fine-art hero with audio stems), Design with Soul (painterly landscape hero & impasto studio dock), Genesis Onboarding Card (pastel skeuomorphic 3D wizard), House Savings Goal Card (Nordic A-frame fintech savings goal), and Storybook Play Canvas (whimsical drawing easel).',
     tags: ['skeuomorphic', 'canvas', 'fine-art', '404', 'fintech'],
     accent: '#d86b43',
   },

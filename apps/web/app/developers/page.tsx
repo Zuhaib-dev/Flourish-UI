@@ -85,7 +85,7 @@ const jsonLd = {
           name: 'What is Flourish UI and how does it work?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Flourish UI is a free, open-source collection of 43+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.',
+            text: 'Flourish UI is a free, open-source collection of 45+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.',
           },
         },
         {
@@ -163,7 +163,7 @@ const endpoints = [
   {
     method: 'GET',
     path: '/llms-full.txt',
-    desc: 'Complete single-file knowledge bundle indexing all 43 components and install commands.',
+    desc: 'Complete single-file knowledge bundle indexing all 45 components and install commands.',
     sample: 'https://flourish-ui.vercel.app/llms-full.txt',
   },
   {
@@ -467,7 +467,7 @@ npx shadcn@latest add https://flourish-ui.vercel.app/r/raster-dynamics-wordmark.
             <div className="dev-faq-card">
               <h3>What is Flourish UI?</h3>
               <p>
-                Flourish UI is a free, open-source collection of 43+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.
+                Flourish UI is a free, open-source collection of 45+ expressive React and Next.js components featuring WebGL shaders, tactile skeuomorphism, and physics-driven micro-interactions. All components provide direct TypeScript source code and one-command installation via the shadcn CLI registry.
               </p>
             </div>
             <div className="dev-faq-card">

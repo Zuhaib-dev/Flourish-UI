@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @source "../../../{404-error-page-component,admit-one-3-d-holographic-ticket,agent-orchestration-dashboard,auth-section-1,bloom-select,cold-flame-drift,contribution-skyline,create-from-the-heart,credit-card-form,dashboard-may-look-minimal,daybreak-editorial,design-with-soul,digital-journal-album,digital-signature-modal,draggable-widget-grid,flow-ai-canvas,genesis-onboarding-card,hero-ascii-one,house-savings-goal-card,ink-orbit-hero,isometric-dashboard,kinetic-hover,letters-from-the-garden,liquid-glass-folder-stack,live-notification-feed,particle-wordmark,post-planner-calendar,prisma-hero,proma-content-workspace,property-comparison-dashboard,quadrant-workspace-setup,raster-dynamics-wordmark,seo-agent-chat-ui,sequel-frontier-footer,share-file-dialog,skeuomorphic-notebook,skeuomorphic-verify-email,skiper39,split-signup-modal,storybook-play-canvas,ticket-stub-footer,travel-booking-bento,velocity-spring-system,voyage-planner,waves-shaders-homlu-ui}/**/*.{ts,tsx,js,jsx}";
 
 :root {
