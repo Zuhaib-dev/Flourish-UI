@@ -281,6 +281,18 @@ Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/design-with-soul.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/design-with-soul/source
 
+### Letters from the Garden (`letters-from-the-garden`)
+- **Description**: An idyllic cottagecore editorial footer and newsletter component with interactive breeze physics, floating wildflowers, and countryside clothesline artwork.
+- **URL**: https://flourish-ui.vercel.app/components/letters-from-the-garden
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/letters-from-the-garden.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/letters-from-the-garden/source
+
+### Sequel Frontier Footer (`sequel-frontier-footer`)
+- **Description**: An antique cyanotype woodcut engraving footer with lone cowboy rider on horseback, cobalt blue textured aesthetic, 4-column directory, and newsletter box.
+- **URL**: https://flourish-ui.vercel.app/components/sequel-frontier-footer
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/sequel-frontier-footer.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/sequel-frontier-footer/source
+
 ## Cross-References
 - [Full Knowledge Bundle](/llms-full.txt)
 - [Overview & Architecture](overview.md)
