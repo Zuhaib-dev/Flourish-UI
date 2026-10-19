@@ -739,6 +739,42 @@ export const components: ComponentEntry[] = [
       "tailwind-merge"
     ],
     "previewImage": "/previews/storybook-play-canvas.png"
+  },
+  {
+    "slug": "letters-from-the-garden",
+    "title": "Letters from the Garden",
+    "category": "Interactive Surfaces",
+    "description": "An idyllic cottagecore editorial footer and newsletter component with interactive breeze physics, floating wildflowers, and countryside clothesline artwork.",
+    "tags": [
+      "interactive surfaces",
+      "editorial",
+      "cottagecore",
+      "motion",
+      "typescript"
+    ],
+    "tone": "emerald",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "previewImage": "/previews/letters-from-the-garden.webp"
+  },
+  {
+    "slug": "sequel-frontier-footer",
+    "title": "Sequel Frontier Footer",
+    "category": "Interactive Surfaces",
+    "description": "An antique cyanotype woodcut engraving footer with lone cowboy rider on horseback, cobalt blue textured aesthetic, 4-column directory, and newsletter box.",
+    "tags": [
+      "interactive surfaces",
+      "engraving",
+      "cyanotype",
+      "editorial",
+      "typescript"
+    ],
+    "tone": "blue",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "previewImage": "/previews/sequel-frontier-footer.webp"
   }
 ]
 
