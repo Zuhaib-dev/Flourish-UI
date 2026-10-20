@@ -338,7 +338,7 @@ A minimalist, high-fidelity financial savings goal card featuring a dynamic vert
 <div align="center">
   <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/house-savings-goal-card/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="House Savings Goal Card Preview" />
 </div>
-
+ 
 ---
 
 ### 🌌 [Genesis Onboarding Card](./genesis-onboarding-card)
