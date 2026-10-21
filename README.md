@@ -370,3 +370,4 @@ An impressionist fine-art portfolio hero section and interactive studio dock fea
   </p>
   <p><sub>© 2026 Zuhaib Rashid. All rights reserved.</sub></p>
 </div>
+ 
