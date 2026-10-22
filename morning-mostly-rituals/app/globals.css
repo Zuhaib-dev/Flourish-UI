@@ -2,9 +2,9 @@
 @import 'tailwindcss';
 
 :root {
-  --bg-canvas: #eae1d3;
-  --text-ink: #181715;
-  --text-muted: #6f685d;
+  --bg-canvas: #ede4d4;
+  --text-ink: #161513;
+  --text-muted: #736c61;
   --color-rust: #ea421b;
   --border-line: #d8cdbc;
 }
@@ -22,18 +22,14 @@ body {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-.font-display {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
 /* Subtle risograph paper grain overlay */
 .riso-paper-texture {
-  background-color: #eae1d3;
+  background-color: #ede4d4;
   background-image: 
-    radial-gradient(#d3c6b2 0.75px, transparent 0.75px),
-    radial-gradient(#ebdcc8 0.75px, #eae1d3 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+    radial-gradient(#cfc2af 0.5px, transparent 0.5px),
+    radial-gradient(#e4d6c3 0.5px, #ede4d4 0.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
 }
 
 /* Hide scrollbar while preserving smooth scroll capabilities */
