@@ -1,0 +1,56 @@
+{
+  "name": "morning-mostly-rituals",
+  "version": "0.1.0",
+  "description": "An evocative, mid-century modern risograph editorial gallery and interactive timeline component chronicling morning rituals with fluid horizontal scroll physics.",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
+  "private": true,
+  "homepage": "https://flourish-ui.vercel.app/components/morning-mostly-rituals",
+  "keywords": [
+    "react",
+    "nextjs",
+    "morning-mostly-rituals",
+    "five-small-rituals",
+    "risograph",
+    "editorial-gallery",
+    "horizontal-scroll",
+    "timeline-scrubber",
+    "mid-century-modern",
+    "art-prints",
+    "interactive-editorial",
+    "tailwind",
+    "framer-motion",
+    "zuhaib-dev",
+    "flourish-ui"
+  ],
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.5.0",
+    "@vercel/analytics": "1.6.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.42.0",
+    "lucide-react": "^1.16.0",
+    "next": "16.4.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.7.3"
+  }
+}
