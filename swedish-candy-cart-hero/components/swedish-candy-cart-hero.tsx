@@ -91,18 +91,48 @@ export function SwedishCandyCartHero({
     <div
       className={`min-h-screen w-full candy-grid-bg text-[#881c34] flex flex-col justify-between selection:bg-[#f695b0] selection:text-white relative overflow-hidden ${className}`}
     >
-      {/* 1. TOP AWNING & NAVIGATION BAR */}
-      <div className="w-full relative z-30">
-        <header className="w-full bg-[#fff5f7] px-6 sm:px-10 lg:px-20 pt-6 sm:pt-7 pb-5 flex items-center justify-between border-b border-[#f7d5df]/40 shadow-2xs">
+      {/* 1. TOP SCALLOPED AWNING VALANCE AT VERY TOP */}
+      <div className="w-full relative z-40 pointer-events-none select-none">
+        <svg
+          className="w-full h-5 sm:h-6 md:h-7 block"
+          viewBox="0 0 1440 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="scallop-awning"
+              x="0"
+              y="0"
+              width="28"
+              height="28"
+              patternUnits="userSpaceOnUse"
+            >
+              {/* Solid top strip and hanging semicircle scallop */}
+              <path
+                d="M 0 0 H 28 V 8 C 28 19 21.5 28 14 28 C 6.5 28 0 19 0 8 Z"
+                fill="#cb97b4"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="28" fill="url(#scallop-awning)" />
+        </svg>
+      </div>
+
+      {/* 2. NAVIGATION BAR (Seamless on pink grid, larger and proper across all screens) */}
+      <header className="w-full relative z-30 px-6 sm:px-10 lg:px-20 pt-4 sm:pt-6 pb-2">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between">
+          
           {/* Left Nav Links */}
-          <nav className="flex items-center gap-7 sm:gap-11 text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-[0.16em] uppercase">
+          <nav className="flex items-center gap-7 sm:gap-10 md:gap-14 text-[14px] sm:text-[16px] md:text-[17px] font-bold tracking-[0.18em] uppercase text-[#791728]">
             <a
               href="#find-cart"
               onClick={(e) => {
                 e.preventDefault()
                 setSelectedCandyModal(true)
               }}
-              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+              className="hover:text-[#a82440] hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
             >
               FIND THE CART
             </a>
@@ -112,28 +142,31 @@ export function SwedishCandyCartHero({
                 e.preventDefault()
                 setSelectedCandyModal(true)
               }}
-              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+              className="hidden sm:inline-block hover:text-[#a82440] hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
             >
               BOOK AN EVENT
             </a>
           </nav>
 
-          {/* Center Bubbly Retro Brand Logo */}
+          {/* Center Refined Italic Serif Brand Logo */}
           <div className="text-center px-4">
-            <span className="font-bubbly-logo text-4xl sm:text-5xl md:text-[56px] text-[#881c34] font-black tracking-tighter hover:scale-105 transition-transform inline-block cursor-pointer select-none leading-none">
+            <a
+              href="#"
+              className="font-editorial-serif italic font-normal text-[38px] sm:text-[46px] md:text-[54px] text-[#791728] tracking-tight hover:opacity-90 transition-opacity inline-block cursor-pointer select-none leading-none -translate-y-0.5"
+            >
               nectar
-            </span>
+            </a>
           </div>
 
           {/* Right Nav Links & Candy Bag */}
-          <div className="flex items-center gap-7 sm:gap-10 text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-[0.16em] uppercase">
+          <div className="flex items-center gap-7 sm:gap-10 md:gap-14 text-[14px] sm:text-[16px] md:text-[17px] font-bold tracking-[0.18em] uppercase text-[#791728]">
             <a
               href="#candy-club"
               onClick={(e) => {
                 e.preventDefault()
                 setSelectedCandyModal(true)
               }}
-              className="hidden sm:inline-block hover:text-[#b02e4c] transition-colors cursor-pointer"
+              className="hidden md:inline-block hover:text-[#a82440] hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
             >
               CANDY CLUB
             </a>
@@ -143,7 +176,7 @@ export function SwedishCandyCartHero({
                 e.preventDefault()
                 setSelectedCandyModal(true)
               }}
-              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+              className="hover:text-[#a82440] hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
             >
               BUY CANDY
             </a>
@@ -152,33 +185,69 @@ export function SwedishCandyCartHero({
             <button
               type="button"
               onClick={() => setSelectedCandyModal(true)}
-              className="flex items-center gap-2 p-1.5 rounded-full hover:bg-[#fce6ed] transition-colors cursor-pointer"
+              className="flex items-center p-1.5 rounded-full hover:bg-[#fad8e2]/60 transition-colors cursor-pointer group"
               title="View Candy Bag"
+              aria-label="View Swedish Candy Bag"
             >
               <div className="relative">
-                <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-[#881c34]" />
-                <span className="absolute -top-1.5 -right-2 bg-[#f695b0] text-[#881c34] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-[#fff5f7] shadow-xs">
+                {/* Chic Outline Tote Bag matching reference */}
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 sm:w-7 sm:h-7 text-[#791728] group-hover:scale-105 transition-transform"
+                >
+                  <path
+                    d="M5 8.5H23V23.5C23 24.6 22.1 25.5 21 25.5H7C5.9 25.5 5 24.6 5 23.5V8.5Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M9.5 11.5V6.5C9.5 4.01 11.51 2 14 2C16.49 2 18.5 4.01 18.5 6.5V11.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {/* Pink round counter badge */}
+                <span className="absolute -top-1.5 -right-2 bg-[#e95e86] text-white text-[10px] sm:text-[11px] font-bold w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full flex items-center justify-center border-1.5 border-[#fff4f6] shadow-xs">
                   {bagCount}
                 </span>
               </div>
             </button>
           </div>
-        </header>
-
-        {/* 2. HANGING SCALLOPED AWNING FRINGE */}
-        <div className="w-full flex overflow-hidden leading-none pointer-events-none select-none -mt-[1px]">
-          {Array.from({ length: 60 }).map((_, i) => (
-            <svg
-              key={i}
-              className="w-7 sm:w-8 h-3.5 sm:h-4 shrink-0 text-[#f695b0] fill-current drop-shadow-xs"
-              viewBox="0 0 32 16"
-              preserveAspectRatio="none"
-            >
-              <path d="M0 0 C 0 9.5, 7.5 16, 16 16 C 24.5 16, 32 9.5, 32 0 Z" />
-            </svg>
-          ))}
         </div>
-      </div>
+
+        {/* Mobile secondary links strip if on very small mobile */}
+        <div className="sm:hidden flex items-center justify-center gap-6 pt-2 pb-1 text-[11px] font-bold tracking-[0.14em] uppercase text-[#791728]/80">
+          <a
+            href="#book-event"
+            onClick={(e) => {
+              e.preventDefault()
+              setSelectedCandyModal(true)
+            }}
+            className="hover:text-[#a82440]"
+          >
+            BOOK AN EVENT
+          </a>
+          <span className="text-[#cb97b4]">✦</span>
+          <a
+            href="#candy-club"
+            onClick={(e) => {
+              e.preventDefault()
+              setSelectedCandyModal(true)
+            }}
+            className="hover:text-[#a82440]"
+          >
+            CANDY CLUB
+          </a>
+        </div>
+      </header>
 
       {/* 3. HERO MAIN CONTENT */}
       <main className="w-full flex-1 px-6 sm:px-12 lg:px-20 pt-6 sm:pt-10 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">

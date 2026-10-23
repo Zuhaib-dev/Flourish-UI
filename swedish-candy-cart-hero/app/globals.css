@@ -32,13 +32,14 @@ body {
   font-family: 'Caveat', cursive;
 }
 
-/* Authentic pink grid background */
+/* Authentic pink grid background with dreamy atmospheric vignette */
 .candy-grid-bg {
   background-color: #fff4f6;
   background-image: 
     linear-gradient(to right, rgba(247, 213, 223, 0.75) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(247, 213, 223, 0.75) 1px, transparent 1px);
   background-size: 28px 28px;
+  box-shadow: inset 0 0 100px rgba(188, 206, 255, 0.35);
 }
 
 /* Awning scallop pattern */
