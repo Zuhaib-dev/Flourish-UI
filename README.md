@@ -28,6 +28,14 @@
 
 ## 📦 The Collection
 
+### 🌈 [Prismatic Liquid Shader](./prismatic-liquid-shader)
+An interactive, hyper-fluid WebGL liquid wave shader featuring perceptual OKLab color transitions, dynamic velocity ripples, multi-spectral presets, and customizable physical turbulence.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/prismatic-liquid-shader/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" alt="Prismatic Liquid Shader" />
+</div>
+
+---
+
 ### ⏰ [Morning, Mostly — Five Small Rituals](./morning-mostly-rituals)
 An evocative, mid-century modern risograph editorial gallery and interactive timeline component chronicling morning rituals with fluid horizontal scroll physics.
 <div align="center">
