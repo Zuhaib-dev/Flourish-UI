@@ -94,112 +94,138 @@ export function ShelterSkinTeamDossier({
   const sheetContent = (
     <motion.div
       key={activeMember.id}
-      initial={{ opacity: 0, scale: 0.96, y: 10 }}
+      initial={{ opacity: 0, scale: 0.97, y: 8 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.96, y: -10 }}
+      exit={{ opacity: 0, scale: 0.97, y: -8 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative w-full max-w-[560px] bg-[#fbf9f4] text-[#18181b] p-7 sm:p-10 md:p-12 paper-sheet-shadow rounded-xs border border-[#18181b]/10 select-none ${className}`}
+      className={`relative w-full max-w-[540px] bg-[#fbf9f4] text-[#18181b] px-7 sm:px-9 pt-8 pb-9 paper-sheet-shadow rounded-xs border border-[#18181b]/10 select-none ${className}`}
       style={{
         backgroundImage: `
           radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 0),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(251, 249, 244, 1))
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(251, 249, 244, 1))
         `,
         backgroundSize: '24px 24px, 100% 100%',
       }}
     >
-      {/* --- TOP ROW: BRAND LOGO & POLAROID PHOTO --- */}
+      {/* --- TOP ROW: BRAND LOGO & CLIPPED POLAROID PHOTO --- */}
       <div className="flex items-start justify-between relative">
         
         {/* Left: Brand Identity & Title */}
-        <div className="pt-1 z-10 max-w-[210px] sm:max-w-[240px]">
+        <div className="pt-0 z-10 w-[210px] sm:w-[230px] shrink-0">
           {/* Logo "shelter" */}
           <div className="inline-block group cursor-pointer">
-            <h2 className="font-shelter-logo text-[38px] sm:text-[46px] md:text-[50px] leading-none text-black tracking-[-0.04em] font-normal">
+            <h2
+              className="text-[40px] sm:text-[46px] leading-[0.9] text-black tracking-[-0.04em] font-normal"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
               shelter
             </h2>
-            <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.38em] text-black/80 uppercase text-center mt-1 -ml-1">
+            <div
+              className="text-[10px] sm:text-[11px] font-bold tracking-[0.38em] text-black/85 uppercase text-center mt-1 -ml-1"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            >
               SKIN
             </div>
           </div>
 
           {/* Subheading: MEET THE TEAM */}
-          <div className="mt-7 sm:mt-8">
-            <span className="font-technical-mono text-[11px] sm:text-[12px] font-bold tracking-[0.24em] text-black/90 uppercase">
+          <div className="mt-6 sm:mt-7">
+            <span
+              className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] text-black/90 uppercase block"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            >
               MEET THE TEAM
             </span>
           </div>
 
           {/* Top Questionnaire Box (Name, Role, Sign) */}
-          <div className="mt-8 border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
+          <div className="mt-6 border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
             {/* Field: NAME */}
-            <div className="px-3 py-1.5 min-h-[46px] flex flex-col justify-between">
-              <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
-                NAME:
+            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+              <span
+                className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+                style={{ fontFamily: "'Space Mono', monospace" }}
+              >
+                NAME :
               </span>
-              <span className="font-handwriting text-[24px] sm:text-[27px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+              <span
+                className="text-[25px] sm:text-[27px] text-[#1a1a1d] pl-2 leading-none mt-1"
+                style={{ fontFamily: "'Patrick Hand', cursive" }}
+              >
                 {activeMember.name}
               </span>
             </div>
 
             {/* Field: ROLE */}
-            <div className="px-3 py-1.5 min-h-[46px] flex flex-col justify-between">
-              <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
-                ROLE:
+            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+              <span
+                className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+                style={{ fontFamily: "'Space Mono', monospace" }}
+              >
+                ROLE :
               </span>
-              <span className="font-handwriting text-[23px] sm:text-[26px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+              <span
+                className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+                style={{ fontFamily: "'Patrick Hand', cursive" }}
+              >
                 {activeMember.role}
               </span>
             </div>
 
             {/* Field: SIGN */}
-            <div className="px-3 py-1.5 min-h-[46px] flex flex-col justify-between">
-              <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
-                SIGN:
+            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+              <span
+                className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+                style={{ fontFamily: "'Space Mono', monospace" }}
+              >
+                SIGN :
               </span>
-              <div className="font-handwriting text-[24px] sm:text-[27px] text-[#1a1a1d] pl-3 leading-none flex items-center gap-1.5 -translate-y-0.5">
-                <span className="text-[13px] text-black">✦</span>
+              <div
+                className="text-[24px] sm:text-[26px] text-[#1a1a1d] pl-2 leading-none mt-1 flex items-center gap-2"
+                style={{ fontFamily: "'Patrick Hand', cursive" }}
+              >
+                <span className="text-[12px] text-black">✦</span>
                 <span>{activeMember.sign}</span>
-                <span className="text-[13px] text-black">✦</span>
+                <span className="text-[12px] text-black">✦</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right: Clipped Polaroid Photo */}
-        <div className="relative -mr-2 sm:-mr-4 -mt-2 z-20">
+        {/* Right: Clipped Polaroid Photo with Overlapping Paperclip */}
+        <div className="relative -mr-2 sm:-mr-4 -mt-7 z-20">
           
-          {/* Physical Silver Metallic Wire Paperclip */}
-          <div className="absolute -top-3 right-8 sm:right-10 z-30 pointer-events-none drop-shadow-sm">
+          {/* Physical Silver Metallic Wire Paperclip Clipping Over Top Right of Polaroid */}
+          <div className="absolute -top-3.5 right-7 sm:right-8 z-30 pointer-events-none drop-shadow-sm">
             <svg
-              width="36"
+              width="34"
               height="80"
-              viewBox="0 0 36 80"
+              viewBox="0 0 34 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-[#9ca3af]"
+              className="drop-shadow-xs"
             >
-              {/* Outer paperclip loop */}
+              {/* Outer paperclip loop in front of photo */}
               <path
-                d="M10 24V62C10 68.6 15.4 74 22 74C28.6 74 34 68.6 34 62V16C34 7.2 26.8 0 18 0C9.2 0 2 7.2 2 16V55"
-                stroke="#6b7280"
+                d="M10 26V64C10 69.5 14.5 74 20 74C25.5 74 30 69.5 30 64V16C30 8.3 23.7 2 16 2C8.3 2 2 8.3 2 16V54"
+                stroke="#64748b"
                 strokeWidth="2.8"
                 strokeLinecap="round"
-                className="drop-shadow-xs"
               />
               {/* Inner loop */}
               <path
-                d="M10 24V50C10 54.4 13.6 58 18 58C22.4 58 26 54.4 26 50V16"
-                stroke="#4b5563"
+                d="M10 26V48C10 52 13 55 17 55C21 55 24 52 24 48V16"
+                stroke="#475569"
                 strokeWidth="2.8"
                 strokeLinecap="round"
               />
-              {/* Metallic highlight sheen */}
+              {/* Specular sheen highlight */}
               <path
-                d="M33 18V60"
-                stroke="#f3f4f6"
+                d="M29 18V62"
+                stroke="#f1f5f9"
                 strokeWidth="1.2"
                 strokeLinecap="round"
-                opacity="0.75"
+                opacity="0.8"
               />
             </svg>
           </div>
@@ -208,16 +234,16 @@ export function ShelterSkinTeamDossier({
           <motion.div
             animate={{
               rotate: isPhotoTilted ? 0 : activeMember.polaroidRotation || 4.5,
-              scale: isPhotoTilted ? 1.05 : 1,
+              scale: isPhotoTilted ? 1.04 : 1,
             }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             onClick={() => setIsPhotoTilted(!isPhotoTilted)}
             transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-            className="w-[165px] sm:w-[195px] md:w-[210px] bg-white p-2.5 sm:p-3 pb-8 sm:pb-10 polaroid-shadow cursor-pointer transition-shadow rounded-[1.5px] border border-[#e5e7eb]"
+            className="w-[170px] sm:w-[195px] md:w-[205px] bg-white p-2.5 sm:p-3 pb-8 sm:pb-9 polaroid-shadow cursor-pointer transition-shadow rounded-[1px] border border-[#e2e8f0]"
             title="Click to interact with Polaroid"
           >
             {/* Photo Container */}
-            <div className="relative aspect-[3/3.8] w-full overflow-hidden bg-stone-100 shadow-inner">
+            <div className="relative aspect-[3/3.75] w-full overflow-hidden bg-stone-100 shadow-inner">
               <Image
                 src={activeMember.photoUrl}
                 alt={`${activeMember.name} - ${activeMember.role}`}
@@ -225,14 +251,17 @@ export function ShelterSkinTeamDossier({
                 className="object-cover"
                 priority
               />
-              {/* Subtle Film Grain / Gloss Sheen */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/15 pointer-events-none" />
+              {/* Subtle Film Gloss Sheen */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/10 pointer-events-none" />
             </div>
 
             {/* Bottom Polaroid Chin with subtle handwritten name */}
             <div className="mt-2 text-center">
-              <span className="font-handwriting text-[14px] sm:text-[15px] text-stone-500/80">
-                {activeMember.name} • shelter
+              <span
+                className="text-[14px] text-stone-500/80"
+                style={{ fontFamily: "'Patrick Hand', cursive" }}
+              >
+                {activeMember.name} ✦ shelter
               </span>
             </div>
           </motion.div>
@@ -240,28 +269,29 @@ export function ShelterSkinTeamDossier({
       </div>
 
       {/* --- MIDDLE ROW: SCENT SELECTOR WITH HAND-DRAWN INK DOODLE --- */}
-      <div className="my-8 sm:my-9 relative pt-2 pb-1">
-        <div className="flex items-center justify-around text-center px-2">
+      <div className="my-7 sm:my-8 relative pt-2 pb-1">
+        <div className="flex items-center justify-around text-center px-4">
           
           {/* Option: VANILLA */}
           <button
             type="button"
             onClick={() => setSelectedScent('VANILLA')}
-            className="relative font-technical-mono text-[12px] sm:text-[13px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span>VANILLA</span>
             {selectedScent === 'VANILLA' && (
               <motion.div
                 layoutId="scent-ink-circle"
-                className="absolute -inset-1.5 sm:-inset-2 pointer-events-none"
+                className="absolute -inset-1.5 pointer-events-none"
               >
                 <svg
-                  viewBox="0 0 120 45"
+                  viewBox="0 0 110 40"
                   fill="none"
                   className="w-full h-full text-black stroke-current"
                 >
                   <path
-                    d="M10 22 C 10 10, 110 8, 110 22 C 110 36, 12 38, 14 20"
+                    d="M8 20 C 8 8, 102 6, 102 20 C 102 34, 10 36, 12 18"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -274,21 +304,22 @@ export function ShelterSkinTeamDossier({
           <button
             type="button"
             onClick={() => setSelectedScent('SOLAR')}
-            className="relative font-technical-mono text-[12px] sm:text-[13px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span>SOLAR</span>
             {selectedScent === 'SOLAR' && (
               <motion.div
                 layoutId="scent-ink-circle"
-                className="absolute -inset-1.5 sm:-inset-2 pointer-events-none"
+                className="absolute -inset-1.5 pointer-events-none"
               >
                 <svg
-                  viewBox="0 0 100 45"
+                  viewBox="0 0 95 40"
                   fill="none"
                   className="w-full h-full text-black stroke-current"
                 >
                   <path
-                    d="M8 22 C 8 10, 92 8, 92 22 C 92 36, 10 38, 12 20"
+                    d="M8 20 C 8 8, 88 6, 88 20 C 88 34, 10 36, 12 18"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -301,7 +332,8 @@ export function ShelterSkinTeamDossier({
           <button
             type="button"
             onClick={() => setSelectedScent('DEEP END')}
-            className="relative font-technical-mono text-[12px] sm:text-[13px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95 group"
+            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95 group"
+            style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span className="relative z-10">DEEP END</span>
 
@@ -310,18 +342,18 @@ export function ShelterSkinTeamDossier({
               <>
                 <motion.div
                   layoutId="scent-ink-circle"
-                  className="absolute -inset-2.5 sm:-inset-3 pointer-events-none"
+                  className="absolute -inset-2 pointer-events-none"
                 >
                   <svg
-                    viewBox="0 0 130 50"
+                    viewBox="0 0 125 45"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-full h-full text-black stroke-current"
                   >
-                    {/* Organic double-loop hand-drawn circle */}
+                    {/* Organic natural hand-drawn circle */}
                     <path
-                      d="M12 24 C 12 11, 118 9, 120 24 C 122 39, 14 41, 10 24 C 8 14, 114 12, 118 25"
-                      strokeWidth="1.7"
+                      d="M10 22 C 10 9, 114 7, 116 22 C 118 36, 12 38, 8 22 C 6 12, 110 10, 114 23"
+                      strokeWidth="1.6"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
@@ -332,46 +364,46 @@ export function ShelterSkinTeamDossier({
                 <motion.div
                   initial={{ scale: 0, rotate: -20 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  className="absolute -top-4 -right-4 pointer-events-none text-black"
+                  className="absolute -top-3.5 -right-3.5 pointer-events-none text-black"
                 >
                   <svg
-                    width="26"
-                    height="26"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="text-black stroke-current"
                   >
-                    <circle cx="16" cy="16" r="6" strokeWidth="1.8" />
+                    <circle cx="16" cy="16" r="5" strokeWidth="1.6" />
                     {/* Radiating sun ray dashes */}
-                    <line x1="16" y1="4" x2="16" y2="7" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="16" y1="25" x2="16" y2="28" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="4" y1="16" x2="7" y2="16" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="25" y1="16" x2="28" y2="16" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="7.5" y1="7.5" x2="9.8" y2="9.8" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="22.2" y1="22.2" x2="24.5" y2="24.5" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="7.5" y1="24.5" x2="9.8" y2="22.2" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="22.2" y1="9.8" x2="24.5" y2="7.5" strokeWidth="1.8" strokeLinecap="round" />
+                    <line x1="16" y1="4" x2="16" y2="7" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="16" y1="25" x2="16" y2="28" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="4" y1="16" x2="7" y2="16" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="25" y1="16" x2="28" y2="16" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="7.5" y1="7.5" x2="9.8" y2="9.8" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="22.2" y1="22.2" x2="24.5" y2="24.5" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="7.5" y1="24.5" x2="9.8" y2="22.2" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="22.2" y1="9.8" x2="24.5" y2="7.5" strokeWidth="1.6" strokeLinecap="round" />
                   </svg>
                 </motion.div>
 
                 {/* Hand-Drawn Ocean Wave Doodle below DEEP END */}
                 <motion.div
-                  initial={{ opacity: 0, y: -4 }}
+                  initial={{ opacity: 0, y: -3 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 pointer-events-none text-black"
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 pointer-events-none text-black"
                 >
                   <svg
-                    width="44"
-                    height="14"
-                    viewBox="0 0 44 14"
+                    width="38"
+                    height="12"
+                    viewBox="0 0 38 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="text-black stroke-current"
                   >
                     <path
-                      d="M2 9 C 8 3, 14 13, 20 8 C 26 3, 32 13, 40 7"
-                      strokeWidth="1.8"
+                      d="M2 8 C 7 3, 13 11, 18 7 C 23 3, 29 11, 35 6"
+                      strokeWidth="1.6"
                       strokeLinecap="round"
                     />
                   </svg>
@@ -386,41 +418,65 @@ export function ShelterSkinTeamDossier({
       <div className="border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
         
         {/* Field 1: FAVORITE SHELTER PRODUCT */}
-        <div className="px-3 py-1.5 min-h-[50px] flex flex-col justify-between">
-          <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
+        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+          <span
+            className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             FAVORITE SHELTER PRODUCT :
           </span>
-          <span className="font-handwriting text-[23px] sm:text-[26px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+          <span
+            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            style={{ fontFamily: "'Patrick Hand', cursive" }}
+          >
             {activeMember.favoriteProduct}
           </span>
         </div>
 
         {/* Field 2: GO-TO COFFEE SHOP ORDER */}
-        <div className="px-3 py-1.5 min-h-[50px] flex flex-col justify-between">
-          <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
+        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+          <span
+            className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             GO-TO COFFEE SHOP ORDER :
           </span>
-          <span className="font-handwriting text-[23px] sm:text-[26px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+          <span
+            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            style={{ fontFamily: "'Patrick Hand', cursive" }}
+          >
             {activeMember.coffeeOrder}
           </span>
         </div>
 
         {/* Field 3: WHERE YOU GREW UP */}
-        <div className="px-3 py-1.5 min-h-[50px] flex flex-col justify-between">
-          <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
+        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+          <span
+            className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             WHERE YOU GREW UP :
           </span>
-          <span className="font-handwriting text-[23px] sm:text-[26px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+          <span
+            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            style={{ fontFamily: "'Patrick Hand', cursive" }}
+          >
             {activeMember.grewUp}
           </span>
         </div>
 
         {/* Field 4: CURRENT HYPERFIXATION */}
-        <div className="px-3 py-1.5 min-h-[50px] flex flex-col justify-between">
-          <span className="font-technical-mono text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none">
+        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+          <span
+            className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
             CURRENT HYPERFIXATION :
           </span>
-          <span className="font-handwriting text-[23px] sm:text-[26px] text-[#1a1a1d] pl-3 leading-none -translate-y-0.5">
+          <span
+            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            style={{ fontFamily: "'Patrick Hand', cursive" }}
+          >
             {activeMember.hyperfixation}
           </span>
         </div>
