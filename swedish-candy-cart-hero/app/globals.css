@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Shrikhand&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -41,20 +41,9 @@ body {
   background-size: 28px 28px;
 }
 
-/* Subtle bobbing animation for floating sweets */
-@keyframes sweet-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(3deg);
-  }
-}
-
-.animate-sweet-float {
-  animation: sweet-float 4.5s ease-in-out infinite;
-}
-
-.animate-sweet-float-delayed {
-  animation: sweet-float 5.2s ease-in-out 1.5s infinite;
+/* Awning scallop pattern */
+.awning-scallop-border {
+  background-image: radial-gradient(circle at 16px 0px, transparent 16px, #f695b0 16.5px);
+  background-size: 32px 16px;
+  background-repeat: repeat-x;
 }

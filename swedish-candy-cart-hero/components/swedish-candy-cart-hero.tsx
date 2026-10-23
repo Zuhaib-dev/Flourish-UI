@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ShoppingBag, Sparkles, X, Heart, Plus, Check } from 'lucide-react'
+import { ShoppingBag, Sparkles, X, Plus, Check } from 'lucide-react'
 
 export interface CandyItem {
   id: string
@@ -74,7 +74,7 @@ export function SwedishCandyCartHero({
   descriptionText = 'Your go-to cart to call for events and catering, monthly candy club deliveries, online candy flees, and more.',
   ctaButtonText = 'JOIN THE CLUB',
   scriptCalloutText = 'catch me if you candy',
-  cartImageSrc = '/candy-cart.png',
+  cartImageSrc = '/candy-cart.jpg',
   className = '',
 }: SwedishCandyCartHeroProps) {
   const [bagCount, setBagCount] = useState<number>(0)
@@ -91,109 +91,115 @@ export function SwedishCandyCartHero({
     <div
       className={`min-h-screen w-full candy-grid-bg text-[#881c34] flex flex-col justify-between selection:bg-[#f695b0] selection:text-white relative overflow-hidden ${className}`}
     >
-      {/* 1. TOP SCALLOPED AWNING FRINGE */}
-      <div className="w-full flex overflow-hidden -mt-1 leading-none pointer-events-none select-none z-30">
-        {Array.from({ length: 48 }).map((_, i) => (
-          <div
-            key={i}
-            className="w-8 h-4 shrink-0 bg-[#f695b0] rounded-b-full shadow-xs -mr-1"
-          />
-        ))}
+      {/* 1. TOP AWNING & NAVIGATION BAR */}
+      <div className="w-full relative z-30">
+        <header className="w-full bg-[#fff5f7] px-6 sm:px-10 lg:px-20 pt-6 sm:pt-7 pb-5 flex items-center justify-between border-b border-[#f7d5df]/40 shadow-2xs">
+          {/* Left Nav Links */}
+          <nav className="flex items-center gap-7 sm:gap-11 text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-[0.16em] uppercase">
+            <a
+              href="#find-cart"
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedCandyModal(true)
+              }}
+              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+            >
+              FIND THE CART
+            </a>
+            <a
+              href="#book-event"
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedCandyModal(true)
+              }}
+              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+            >
+              BOOK AN EVENT
+            </a>
+          </nav>
+
+          {/* Center Bubbly Retro Brand Logo */}
+          <div className="text-center px-4">
+            <span className="font-bubbly-logo text-4xl sm:text-5xl md:text-[56px] text-[#881c34] font-black tracking-tighter hover:scale-105 transition-transform inline-block cursor-pointer select-none leading-none">
+              nectar
+            </span>
+          </div>
+
+          {/* Right Nav Links & Candy Bag */}
+          <div className="flex items-center gap-7 sm:gap-10 text-[13px] sm:text-[14px] md:text-[15px] font-bold tracking-[0.16em] uppercase">
+            <a
+              href="#candy-club"
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedCandyModal(true)
+              }}
+              className="hidden sm:inline-block hover:text-[#b02e4c] transition-colors cursor-pointer"
+            >
+              CANDY CLUB
+            </a>
+            <a
+              href="#buy-candy"
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedCandyModal(true)
+              }}
+              className="hover:text-[#b02e4c] transition-colors cursor-pointer"
+            >
+              BUY CANDY
+            </a>
+
+            {/* Candy Tote Bag Icon */}
+            <button
+              type="button"
+              onClick={() => setSelectedCandyModal(true)}
+              className="flex items-center gap-2 p-1.5 rounded-full hover:bg-[#fce6ed] transition-colors cursor-pointer"
+              title="View Candy Bag"
+            >
+              <div className="relative">
+                <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-[#881c34]" />
+                <span className="absolute -top-1.5 -right-2 bg-[#f695b0] text-[#881c34] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-[#fff5f7] shadow-xs">
+                  {bagCount}
+                </span>
+              </div>
+            </button>
+          </div>
+        </header>
+
+        {/* 2. HANGING SCALLOPED AWNING FRINGE */}
+        <div className="w-full flex overflow-hidden leading-none pointer-events-none select-none -mt-[1px]">
+          {Array.from({ length: 60 }).map((_, i) => (
+            <svg
+              key={i}
+              className="w-7 sm:w-8 h-3.5 sm:h-4 shrink-0 text-[#f695b0] fill-current drop-shadow-xs"
+              viewBox="0 0 32 16"
+              preserveAspectRatio="none"
+            >
+              <path d="M0 0 C 0 9.5, 7.5 16, 16 16 C 24.5 16, 32 9.5, 32 0 Z" />
+            </svg>
+          ))}
+        </div>
       </div>
 
-      {/* 2. TOP NAVIGATION BAR */}
-      <header className="w-full px-6 sm:px-10 lg:px-16 pt-5 pb-4 flex items-center justify-between border-b border-[#f7d5df]/60 z-20">
-        {/* Left Nav */}
-        <nav className="flex items-center gap-6 sm:gap-9 text-[11px] sm:text-[12px] font-bold tracking-[0.16em] uppercase">
-          <a
-            href="#find-cart"
-            onClick={(e) => {
-              e.preventDefault()
-              setSelectedCandyModal(true)
-            }}
-            className="hover:text-[#b02e4c] transition-colors cursor-pointer"
-          >
-            FIND THE CART
-          </a>
-          <a
-            href="#book-event"
-            onClick={(e) => {
-              e.preventDefault()
-              setSelectedCandyModal(true)
-            }}
-            className="hover:text-[#b02e4c] transition-colors cursor-pointer"
-          >
-            BOOK AN EVENT
-          </a>
-        </nav>
-
-        {/* Center Bubbly Retro Brand Logo */}
-        <div className="text-center">
-          <span className="font-bubbly-logo text-4xl sm:text-5xl text-[#881c34] font-black tracking-tighter hover:scale-105 transition-transform inline-block cursor-pointer">
-            nectar
-          </span>
-        </div>
-
-        {/* Right Nav & Bag */}
-        <div className="flex items-center gap-6 sm:gap-8 text-[11px] sm:text-[12px] font-bold tracking-[0.16em] uppercase">
-          <a
-            href="#candy-club"
-            onClick={(e) => {
-              e.preventDefault()
-              setSelectedCandyModal(true)
-            }}
-            className="hidden sm:inline-block hover:text-[#b02e4c] transition-colors cursor-pointer"
-          >
-            CANDY CLUB
-          </a>
-          <a
-            href="#buy-candy"
-            onClick={(e) => {
-              e.preventDefault()
-              setSelectedCandyModal(true)
-            }}
-            className="hover:text-[#b02e4c] transition-colors cursor-pointer"
-          >
-            BUY CANDY
-          </a>
-
-          {/* Candy Tote Bag Icon */}
-          <button
-            type="button"
-            onClick={() => setSelectedCandyModal(true)}
-            className="flex items-center gap-1.5 p-1 rounded-full hover:bg-[#fce6ed] transition-colors cursor-pointer"
-            title="View Candy Bag"
-          >
-            <div className="relative">
-              <ShoppingBag className="w-5 h-5 text-[#881c34]" />
-              <span className="absolute -top-1.5 -right-2 bg-[#f695b0] text-[#881c34] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-[#fff5f7]">
-                {bagCount}
-              </span>
-            </div>
-          </button>
-        </div>
-      </header>
-
-      {/* 3. HERO CONTENT */}
-      <main className="w-full flex-1 px-6 sm:px-10 lg:px-16 pt-8 sm:pt-14 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
+      {/* 3. HERO MAIN CONTENT */}
+      <main className="w-full flex-1 px-6 sm:px-12 lg:px-20 pt-6 sm:pt-10 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
         
         {/* --- LEFT COLUMN: EDITORIAL HEADLINE & CTA --- */}
-        <div className="lg:col-span-6 space-y-6 relative">
+        <div className="lg:col-span-6 space-y-6 sm:space-y-7 relative">
           
           {/* Eyebrow Location Pill */}
-          <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.18em] text-[#881c34]/90 uppercase">
+          <div className="text-[12px] sm:text-[13px] font-extrabold tracking-[0.22em] text-[#881c34]/95 uppercase">
             {locationText}
           </div>
 
           {/* Main Display Headline */}
-          <h1 className="font-editorial-serif text-[44px] sm:text-[58px] md:text-[68px] lg:text-[76px] leading-[1.01] text-[#881c34] font-normal tracking-[-0.02em]">
+          <h1 className="font-editorial-serif text-[48px] sm:text-[64px] md:text-[76px] lg:text-[84px] xl:text-[92px] leading-[0.98] text-[#881c34] font-normal tracking-[-0.03em]">
             <span className="block">{headlineLine1}</span>
             <span className="block">{headlineLine2}</span>
             <span className="block">{headlineLine3}</span>
           </h1>
 
           {/* Subtitle Description */}
-          <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#881c34]/85 leading-relaxed max-w-md font-normal">
+          <p className="text-[15px] sm:text-[16px] md:text-[17px] text-[#881c34]/85 leading-relaxed max-w-lg font-normal">
             {descriptionText}
           </p>
 
@@ -202,32 +208,32 @@ export function SwedishCandyCartHero({
             <button
               type="button"
               onClick={() => setSelectedCandyModal(true)}
-              className="px-7 py-3 rounded-full bg-[#ccd9fe] hover:bg-[#bccbfb] active:scale-95 text-[#3730a3] text-[11px] sm:text-[12px] font-extrabold tracking-[0.14em] uppercase transition-all shadow-xs cursor-pointer border border-[#b4c4f9]"
+              className="px-8 py-3.5 rounded-full bg-[#ccd9fe] hover:bg-[#bccbfb] active:scale-95 text-[#3730a3] text-[12px] sm:text-[13px] font-extrabold tracking-[0.16em] uppercase transition-all shadow-xs cursor-pointer border border-[#b4c4f9]"
             >
               {ctaButtonText}
             </button>
 
             {/* Hand-Drawn Whimsical Curly Maroon Arrow pointing right */}
-            <div className="hidden sm:block absolute left-48 -top-1 pointer-events-none">
+            <div className="hidden sm:block absolute left-52 -top-1 pointer-events-none">
               <svg
-                width="140"
-                height="70"
-                viewBox="0 0 140 70"
+                width="150"
+                height="75"
+                viewBox="0 0 150 75"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="text-[#881c34]"
               >
                 <path
-                  d="M10 35 C 30 10, 50 55, 75 30 C 95 12, 115 45, 132 40"
+                  d="M10 40 C 35 12, 55 60, 80 32 C 102 12, 122 48, 142 42"
                   stroke="currentColor"
-                  strokeWidth="2.2"
+                  strokeWidth="2.4"
                   strokeLinecap="round"
                   fill="none"
                 />
                 <path
-                  d="M122 32 L 134 40 L 126 48"
+                  d="M132 34 L 144 42 L 136 50"
                   stroke="currentColor"
-                  strokeWidth="2.2"
+                  strokeWidth="2.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
@@ -236,66 +242,66 @@ export function SwedishCandyCartHero({
           </div>
 
           {/* Floating Sweets near Left Column */}
-          {/* 1. Gummy Bear near 'Dreams' */}
+          {/* 1. Amber Gummy Bear near 'Dreams' */}
           <motion.div
-            className="absolute top-36 right-12 sm:right-28 pointer-events-none"
-            animate={{ y: [0, -6, 0], rotate: [0, 4, 0] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-40 right-10 sm:right-24 pointer-events-none"
+            animate={{ y: [0, -8, 0], rotate: [0, 6, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <div className="w-6 h-8 rounded-t-full rounded-b-md bg-gradient-to-b from-amber-400 to-amber-500 shadow-xs opacity-90 flex flex-col items-center justify-center p-0.5">
-              <div className="flex gap-1 mb-0.5">
-                <span className="w-1 h-1 rounded-full bg-amber-600" />
-                <span className="w-1 h-1 rounded-full bg-amber-600" />
+            <div className="w-7 h-9 rounded-t-full rounded-b-md bg-gradient-to-b from-amber-400 to-amber-500 shadow-md opacity-90 flex flex-col items-center justify-center p-0.5 border border-amber-300/40">
+              <div className="flex gap-1.5 mb-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
               </div>
-              <div className="w-2.5 h-3 rounded-full bg-amber-300/60" />
+              <div className="w-3 h-3.5 rounded-full bg-amber-200/60" />
             </div>
           </motion.div>
 
           {/* 2. Red Swedish Licorice near bottom left */}
           <motion.div
-            className="absolute -bottom-10 left-12 pointer-events-none"
-            animate={{ y: [0, 6, 0], rotate: [0, -6, 0] }}
-            transition={{ duration: 5.1, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+            className="absolute -bottom-10 left-8 pointer-events-none"
+            animate={{ y: [0, 8, 0], rotate: [0, -8, 0] }}
+            transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           >
-            <div className="w-4 h-7 rounded-sm bg-gradient-to-br from-rose-500 to-rose-700 shadow-xs rotate-45 border-t border-rose-300" />
+            <div className="w-4 h-8 rounded-sm bg-gradient-to-br from-rose-500 to-rose-700 shadow-md rotate-45 border-t border-rose-300" />
           </motion.div>
         </div>
 
         {/* --- RIGHT COLUMN: VINTAGE PIAGGIO APE CANDY TRUCK --- */}
         <div className="lg:col-span-6 relative flex flex-col items-center lg:items-end justify-center">
           
-          {/* Subtle Pink Aura behind cart */}
-          <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-pink-300/30 to-rose-200/20 blur-3xl -z-10" />
+          {/* Soft Pink Aura behind cart */}
+          <div className="absolute w-[85%] h-[85%] rounded-full bg-gradient-to-tr from-pink-300/35 to-rose-200/25 blur-3xl -z-10" />
 
           {/* Hand-Written Script Note: "catch me if you candy" */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="absolute -top-4 right-6 sm:right-16 z-20 pointer-events-none"
+            className="absolute -top-6 right-6 sm:right-16 z-20 pointer-events-none"
           >
-            <div className="font-script text-2xl sm:text-3xl text-[#881c34] font-bold tracking-wide -rotate-6 flex flex-col items-center">
+            <div className="font-script text-2xl sm:text-3xl md:text-4xl text-[#881c34] font-bold tracking-wide -rotate-6 flex flex-col items-center drop-shadow-xs">
               <span>{scriptCalloutText}</span>
-              <span className="text-xs">✦</span>
+              <span className="text-xs text-[#f695b0]">✦</span>
             </div>
           </motion.div>
 
           {/* Floating Cherries near top right */}
           <motion.div
-            className="absolute -top-10 right-0 sm:right-6 pointer-events-none z-10"
-            animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute -top-12 right-0 sm:right-4 pointer-events-none z-10"
+            animate={{ y: [0, -10, 0], rotate: [0, 6, 0] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <div className="flex items-center -space-x-1">
-              <span className="w-4 h-4 rounded-full bg-red-600 shadow-sm" />
-              <span className="w-4 h-4 rounded-full bg-red-500 shadow-sm" />
+            <div className="flex items-center -space-x-1.5">
+              <span className="w-5 h-5 rounded-full bg-gradient-to-br from-red-500 to-red-700 shadow-sm" />
+              <span className="w-5 h-5 rounded-full bg-gradient-to-br from-red-600 to-red-800 shadow-sm" />
             </div>
           </motion.div>
 
-          {/* The Vintage Red Candy Cart Truck */}
+          {/* The Vintage Red Candy Cart Truck (Larger & Seamlessly Blended) */}
           <div
             onClick={() => setSelectedCandyModal(true)}
-            className="relative w-full max-w-[620px] aspect-[4/3] group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+            className="relative w-full max-w-[650px] lg:max-w-[720px] xl:max-w-[760px] aspect-[4/3] group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
           >
             <Image
               src="/candy-cart.jpg"
@@ -306,7 +312,7 @@ export function SwedishCandyCartHero({
             />
 
             {/* Subtle "Peek Inside" Hover Pill */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#fff5f7]/95 backdrop-blur-xs border border-[#881c34]/20 text-[#881c34] text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-md flex items-center gap-2">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-[#fff5f7]/95 backdrop-blur-xs border border-[#881c34]/20 text-[#881c34] text-[11px] font-extrabold tracking-widest uppercase px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-md flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-[#f695b0]" />
               <span>PEEK INSIDE CART</span>
             </div>
@@ -314,21 +320,21 @@ export function SwedishCandyCartHero({
 
           {/* Floating Pastel Green Gummy Bear */}
           <motion.div
-            className="absolute -bottom-8 left-16 sm:left-32 pointer-events-none"
-            animate={{ y: [0, 8, 0], rotate: [0, -5, 0] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            className="absolute -bottom-8 left-16 sm:left-28 pointer-events-none"
+            animate={{ y: [0, 8, 0], rotate: [0, -6, 0] }}
+            transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
           >
-            <div className="w-5 h-7 rounded-t-full rounded-b-md bg-gradient-to-b from-lime-300 to-emerald-400 shadow-xs opacity-90" />
+            <div className="w-6 h-8 rounded-t-full rounded-b-md bg-gradient-to-b from-lime-300 to-emerald-400 shadow-md opacity-90 border border-lime-200/50" />
           </motion.div>
 
           {/* Floating Pink Peppermint Swirl Candy */}
           <motion.div
-            className="absolute -bottom-6 right-8 pointer-events-none"
-            animate={{ y: [0, -6, 0], rotate: [0, 8, 0] }}
-            transition={{ duration: 4.0, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+            className="absolute -bottom-6 right-10 pointer-events-none"
+            animate={{ y: [0, -7, 0], rotate: [0, 10, 0] }}
+            transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
           >
-            <div className="w-6 h-6 rounded-full border-2 border-[#f695b0] bg-white shadow-xs flex items-center justify-center">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#f695b0]" />
+            <div className="w-7 h-7 rounded-full border-2 border-[#f695b0] bg-white shadow-md flex items-center justify-center">
+              <span className="w-3 h-3 rounded-full bg-[#f695b0]" />
             </div>
           </motion.div>
         </div>
@@ -383,7 +389,7 @@ export function SwedishCandyCartHero({
                     return (
                       <div
                         key={candy.id}
-                        className="bg-white/80 backdrop-blur-xs border border-[#f7d5df] rounded-xl p-4 flex flex-col justify-between hover:shadow-md transition-shadow"
+                        className="bg-white/85 backdrop-blur-xs border border-[#f7d5df] rounded-xl p-4 flex flex-col justify-between hover:shadow-md transition-shadow"
                       >
                         <div className="space-y-2">
                           <div className="flex items-center justify-between">
