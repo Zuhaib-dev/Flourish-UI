@@ -98,7 +98,7 @@ export function ShelterSkinTeamDossier({
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97, y: -8 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative w-full max-w-[540px] bg-[#fbf9f4] text-[#18181b] px-7 sm:px-9 pt-8 pb-9 paper-sheet-shadow rounded-xs border border-[#18181b]/10 select-none ${className}`}
+      className={`relative w-full max-w-[530px] bg-[#fbf9f4] text-[#18181b] px-6 sm:px-8 pt-7 pb-8 paper-sheet-shadow rounded-xs border border-[#18181b]/10 select-none ${className}`}
       style={{
         backgroundImage: `
           radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 0),
@@ -111,17 +111,17 @@ export function ShelterSkinTeamDossier({
       <div className="flex items-start justify-between relative">
         
         {/* Left: Brand Identity & Title */}
-        <div className="pt-0 z-10 w-[210px] sm:w-[230px] shrink-0">
+        <div className="pt-0 z-10 w-[205px] sm:w-[225px] shrink-0">
           {/* Logo "shelter" */}
           <div className="inline-block group cursor-pointer">
             <h2
-              className="text-[40px] sm:text-[46px] leading-[0.9] text-black tracking-[-0.04em] font-normal"
+              className="text-[38px] sm:text-[44px] leading-[0.9] text-black tracking-[-0.04em] font-normal"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               shelter
             </h2>
             <div
-              className="text-[10px] sm:text-[11px] font-bold tracking-[0.38em] text-black/85 uppercase text-center mt-1 -ml-1"
+              className="text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.38em] text-black/85 uppercase text-center mt-1 -ml-1"
               style={{ fontFamily: "'Space Mono', monospace" }}
             >
               SKIN
@@ -129,7 +129,7 @@ export function ShelterSkinTeamDossier({
           </div>
 
           {/* Subheading: MEET THE TEAM */}
-          <div className="mt-6 sm:mt-7">
+          <div className="mt-5 sm:mt-6">
             <span
               className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] text-black/90 uppercase block"
               style={{ fontFamily: "'Space Mono', monospace" }}
@@ -139,9 +139,9 @@ export function ShelterSkinTeamDossier({
           </div>
 
           {/* Top Questionnaire Box (Name, Role, Sign) */}
-          <div className="mt-6 border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
+          <div className="mt-5 border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
             {/* Field: NAME */}
-            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+            <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[46px]">
               <span
                 className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
                 style={{ fontFamily: "'Space Mono', monospace" }}
@@ -149,7 +149,7 @@ export function ShelterSkinTeamDossier({
                 NAME :
               </span>
               <span
-                className="text-[25px] sm:text-[27px] text-[#1a1a1d] pl-2 leading-none mt-1"
+                className="text-[24px] sm:text-[26px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
                 style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 {activeMember.name}
@@ -157,7 +157,7 @@ export function ShelterSkinTeamDossier({
             </div>
 
             {/* Field: ROLE */}
-            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+            <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[46px]">
               <span
                 className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
                 style={{ fontFamily: "'Space Mono', monospace" }}
@@ -165,7 +165,7 @@ export function ShelterSkinTeamDossier({
                 ROLE :
               </span>
               <span
-                className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+                className="text-[22px] sm:text-[24px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
                 style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 {activeMember.role}
@@ -173,7 +173,7 @@ export function ShelterSkinTeamDossier({
             </div>
 
             {/* Field: SIGN */}
-            <div className="px-2.5 pt-1 pb-1 flex flex-col justify-between min-h-[50px]">
+            <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[46px]">
               <span
                 className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
                 style={{ fontFamily: "'Space Mono', monospace" }}
@@ -181,7 +181,7 @@ export function ShelterSkinTeamDossier({
                 SIGN :
               </span>
               <div
-                className="text-[24px] sm:text-[26px] text-[#1a1a1d] pl-2 leading-none mt-1 flex items-center gap-2"
+                className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-0.5 flex items-center gap-2"
                 style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 <span className="text-[12px] text-black">✦</span>
@@ -193,13 +193,13 @@ export function ShelterSkinTeamDossier({
         </div>
 
         {/* Right: Clipped Polaroid Photo with Overlapping Paperclip */}
-        <div className="relative -mr-2 sm:-mr-4 -mt-7 z-20">
+        <div className="relative -mr-1.5 sm:-mr-3 -mt-6 z-20">
           
           {/* Physical Silver Metallic Wire Paperclip Clipping Over Top Right of Polaroid */}
-          <div className="absolute -top-3.5 right-7 sm:right-8 z-30 pointer-events-none drop-shadow-sm">
+          <div className="absolute -top-3.5 right-6 sm:right-7 z-30 pointer-events-none drop-shadow-sm">
             <svg
-              width="34"
-              height="80"
+              width="32"
+              height="76"
               viewBox="0 0 34 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -239,7 +239,7 @@ export function ShelterSkinTeamDossier({
             whileHover={{ scale: 1.02 }}
             onClick={() => setIsPhotoTilted(!isPhotoTilted)}
             transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-            className="w-[170px] sm:w-[195px] md:w-[205px] bg-white p-2.5 sm:p-3 pb-8 sm:pb-9 polaroid-shadow cursor-pointer transition-shadow rounded-[1px] border border-[#e2e8f0]"
+            className="w-[165px] sm:w-[185px] md:w-[195px] bg-white p-2 sm:p-2.5 pb-7 sm:pb-8 polaroid-shadow cursor-pointer transition-shadow rounded-[1px] border border-[#e2e8f0]"
             title="Click to interact with Polaroid"
           >
             {/* Photo Container */}
@@ -256,9 +256,9 @@ export function ShelterSkinTeamDossier({
             </div>
 
             {/* Bottom Polaroid Chin with subtle handwritten name */}
-            <div className="mt-2 text-center">
+            <div className="mt-1.5 text-center">
               <span
-                className="text-[14px] text-stone-500/80"
+                className="text-[13px] text-stone-500/80"
                 style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 {activeMember.name} ✦ shelter
@@ -269,14 +269,14 @@ export function ShelterSkinTeamDossier({
       </div>
 
       {/* --- MIDDLE ROW: SCENT SELECTOR WITH HAND-DRAWN INK DOODLE --- */}
-      <div className="my-7 sm:my-8 relative pt-2 pb-1">
-        <div className="flex items-center justify-around text-center px-4">
+      <div className="my-6 sm:my-7 relative pt-1 pb-1">
+        <div className="flex items-center justify-around text-center px-3">
           
           {/* Option: VANILLA */}
           <button
             type="button"
             onClick={() => setSelectedScent('VANILLA')}
-            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            className="relative text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-1.5 transition-transform hover:scale-105 active:scale-95"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span>VANILLA</span>
@@ -304,7 +304,7 @@ export function ShelterSkinTeamDossier({
           <button
             type="button"
             onClick={() => setSelectedScent('SOLAR')}
-            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95"
+            className="relative text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-1.5 transition-transform hover:scale-105 active:scale-95"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span>SOLAR</span>
@@ -332,7 +332,7 @@ export function ShelterSkinTeamDossier({
           <button
             type="button"
             onClick={() => setSelectedScent('DEEP END')}
-            className="relative text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-2 transition-transform hover:scale-105 active:scale-95 group"
+            className="relative text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-black/90 cursor-pointer p-1.5 transition-transform hover:scale-105 active:scale-95 group"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
             <span className="relative z-10">DEEP END</span>
@@ -418,7 +418,7 @@ export function ShelterSkinTeamDossier({
       <div className="border border-black w-full bg-[#fbf9f4] divide-y divide-black shadow-2xs">
         
         {/* Field 1: FAVORITE SHELTER PRODUCT */}
-        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+        <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[48px]">
           <span
             className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
             style={{ fontFamily: "'Space Mono', monospace" }}
@@ -426,7 +426,7 @@ export function ShelterSkinTeamDossier({
             FAVORITE SHELTER PRODUCT :
           </span>
           <span
-            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            className="text-[22px] sm:text-[24px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
             style={{ fontFamily: "'Patrick Hand', cursive" }}
           >
             {activeMember.favoriteProduct}
@@ -434,7 +434,7 @@ export function ShelterSkinTeamDossier({
         </div>
 
         {/* Field 2: GO-TO COFFEE SHOP ORDER */}
-        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+        <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[48px]">
           <span
             className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
             style={{ fontFamily: "'Space Mono', monospace" }}
@@ -442,7 +442,7 @@ export function ShelterSkinTeamDossier({
             GO-TO COFFEE SHOP ORDER :
           </span>
           <span
-            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            className="text-[22px] sm:text-[24px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
             style={{ fontFamily: "'Patrick Hand', cursive" }}
           >
             {activeMember.coffeeOrder}
@@ -450,7 +450,7 @@ export function ShelterSkinTeamDossier({
         </div>
 
         {/* Field 3: WHERE YOU GREW UP */}
-        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+        <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[48px]">
           <span
             className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
             style={{ fontFamily: "'Space Mono', monospace" }}
@@ -458,7 +458,7 @@ export function ShelterSkinTeamDossier({
             WHERE YOU GREW UP :
           </span>
           <span
-            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            className="text-[22px] sm:text-[24px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
             style={{ fontFamily: "'Patrick Hand', cursive" }}
           >
             {activeMember.grewUp}
@@ -466,7 +466,7 @@ export function ShelterSkinTeamDossier({
         </div>
 
         {/* Field 4: CURRENT HYPERFIXATION */}
-        <div className="px-2.5 pt-1.5 pb-1 flex flex-col justify-between min-h-[52px]">
+        <div className="px-2.5 pt-1 pb-0.5 flex flex-col justify-between min-h-[48px]">
           <span
             className="text-[9px] font-bold tracking-[0.18em] text-black/75 uppercase leading-none"
             style={{ fontFamily: "'Space Mono', monospace" }}
@@ -474,7 +474,7 @@ export function ShelterSkinTeamDossier({
             CURRENT HYPERFIXATION :
           </span>
           <span
-            className="text-[23px] sm:text-[25px] text-[#1a1a1d] pl-2 leading-none mt-1"
+            className="text-[22px] sm:text-[24px] text-[#1a1a1d] pl-2 leading-none mt-0.5"
             style={{ fontFamily: "'Patrick Hand', cursive" }}
           >
             {activeMember.hyperfixation}
@@ -489,23 +489,24 @@ export function ShelterSkinTeamDossier({
     return (
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs overflow-y-auto">
             {/* Modal backdrop dismiss */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              className="absolute inset-0"
+              className="fixed inset-0"
             />
 
             {/* Modal Container */}
-            <div className="relative z-10 flex flex-col items-center max-w-full">
+            <div className="relative z-10 flex flex-col items-center max-w-full my-auto py-6">
               {/* Close Button */}
               <button
                 type="button"
+                id="close-modal-btn"
                 onClick={onClose}
-                className="absolute -top-12 right-0 sm:-right-4 text-white hover:text-stone-300 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors cursor-pointer"
+                className="absolute -top-4 right-0 sm:-right-4 text-white hover:text-stone-300 p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors cursor-pointer shadow-md"
                 aria-label="Close dossier"
               >
                 <X className="w-5 h-5" />
@@ -516,8 +517,11 @@ export function ShelterSkinTeamDossier({
 
               {/* Bottom Member Switcher within Modal */}
               {showMemberSwitcher && (
-                <div className="mt-5 flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-black/10">
-                  <span className="font-technical-mono text-[11px] font-bold tracking-widest uppercase text-stone-600">
+                <div className="mt-4 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full shadow-lg border border-black/10">
+                  <span
+                    className="text-[10px] font-bold tracking-widest uppercase text-stone-600"
+                    style={{ fontFamily: "'Space Mono', monospace" }}
+                  >
                     TEAM MEMBER:
                   </span>
                   {SHELTER_TEAM.map((member) => (
