@@ -28,6 +28,14 @@
 
 ## 📦 The Collection
 
+### 📎 [Shelter Skin — Meet The Team Dossier](./shelter-skin-team-dossier)
+A tactile, editorial questionnaire dossier card and interactive modal component crafted for skincare and beauty brands. Featuring an archival cream paper questionnaire sheet, a clipped 35mm film Polaroid photo held by a metallic paperclip, authentic gel-pen handwriting typography, hand-drawn ink doodles, and dual presentation modes (modular card or modal overlay).
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/shelter-skin-team-dossier/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="Shelter Skin Meet The Team Dossier" />
+</div>
+
+---
+
 ### 🍬 [The Swedish Candy Cart of Your Dreams — Nectar](./swedish-candy-cart-hero)
 A delightful, high-end editorial storefront hero section inspired by Scandinavian candy culture (*lördagsgodis*). Featuring authentic pink gingham paper grid patterns, a hanging dusty-rose scalloped awning valance, editorial serif typography (*Fraunces* and *Caveat*), whimsical floating candy physics, and an interactive Scandinavian Pick & Mix tasting menu modal.
 <div align="center">
