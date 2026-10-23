@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --canvas-blue: #9ebfd8;
+  --paper-cream: #fbf9f4;
+  --paper-border: #18181b;
+  --ink-pen: #1a1a1d;
+}
+
+body {
+  background-color: var(--canvas-blue);
+  color: var(--ink-pen);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Shelter Brand Serif Wordmark */
+.font-shelter-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.04em;
+}
+
+/* Handwritten gel pen font */
+.font-handwriting {
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+}
+
+/* Secondary cursive accent */
+.font-script-accent {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+/* Technical Monospace for labels & dossier stamps */
+.font-technical-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Tactile archival paper texture */
+.paper-sheet-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 25px -3px rgba(30, 60, 90, 0.18),
+    0 25px 45px -5px rgba(20, 50, 80, 0.12);
+}
+
+/* Polaroid physical photo shadow */
+.polaroid-shadow {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.14),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
