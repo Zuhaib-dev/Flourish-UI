@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shrikhand&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --candy-pink-bg: #fff5f7;
+  --candy-grid: #f7d5df;
+  --candy-burgundy: #881c34;
+  --candy-deep-red: #6d1227;
+  --candy-periwinkle: #ccd9fe;
+  --candy-periwinkle-hover: #b9cbfe;
+  --candy-scallop: #f695b0;
+}
+
+body {
+  background-color: var(--candy-pink-bg);
+  color: var(--candy-burgundy);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-editorial-serif {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.font-bubbly-logo {
+  font-family: 'Shrikhand', 'Fraunces', cursive, sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+/* Authentic pink grid background */
+.candy-grid-bg {
+  background-color: #fff4f6;
+  background-image: 
+    linear-gradient(to right, rgba(247, 213, 223, 0.75) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 213, 223, 0.75) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Subtle bobbing animation for floating sweets */
+@keyframes sweet-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.animate-sweet-float {
+  animation: sweet-float 4.5s ease-in-out infinite;
+}
+
+.animate-sweet-float-delayed {
+  animation: sweet-float 5.2s ease-in-out 1.5s infinite;
+}
