@@ -129,7 +129,7 @@ export function SwedishCandyCartHero({
 
         {/* Center Bubbly Retro Brand Logo */}
         <div className="text-center">
-          <span className="font-bubbly-logo text-3xl sm:text-4xl text-[#881c34] tracking-tight hover:scale-105 transition-transform inline-block cursor-pointer">
+          <span className="font-bubbly-logo text-4xl sm:text-5xl text-[#881c34] font-black tracking-tighter hover:scale-105 transition-transform inline-block cursor-pointer">
             nectar
           </span>
         </div>
@@ -274,7 +274,7 @@ export function SwedishCandyCartHero({
             transition={{ delay: 0.3 }}
             className="absolute -top-4 right-6 sm:right-16 z-20 pointer-events-none"
           >
-            <div className="font-script text-xl sm:text-2xl text-[#881c34] font-bold tracking-wide -rotate-6 flex flex-col items-center">
+            <div className="font-script text-2xl sm:text-3xl text-[#881c34] font-bold tracking-wide -rotate-6 flex flex-col items-center">
               <span>{scriptCalloutText}</span>
               <span className="text-xs">✦</span>
             </div>
@@ -295,13 +295,13 @@ export function SwedishCandyCartHero({
           {/* The Vintage Red Candy Cart Truck */}
           <div
             onClick={() => setSelectedCandyModal(true)}
-            className="relative w-full max-w-[580px] aspect-[4/3] group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+            className="relative w-full max-w-[620px] aspect-[4/3] group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
           >
             <Image
-              src={cartImageSrc}
+              src="/candy-cart.jpg"
               alt="The Swedish Candy Cart - Nectar"
               fill
-              className="object-contain drop-shadow-xl"
+              className="object-contain drop-shadow-xl mix-blend-multiply"
               priority
             />
 
