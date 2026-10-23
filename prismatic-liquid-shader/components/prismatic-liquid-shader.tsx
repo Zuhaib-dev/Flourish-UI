@@ -13,6 +13,8 @@ import {
   Droplets,
   Waves,
   RefreshCw,
+  Compass,
+  Check,
 } from 'lucide-react'
 
 // --- Vertex Shader ---
@@ -23,7 +25,7 @@ void main() {
 }
 `
 
-// --- Fragment Shader with Perceptual OKLab Blending & Dynamic Fluid Distortion ---
+// --- Fragment Shader with Quintic C2 Smooth Noise, Viscous Gyroscopic Fluid, and OKLab Color Mixing ---
 const FRAG_SRC = `
 #ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
@@ -50,37 +52,41 @@ uniform float u_seed;
 uniform vec3 u_colors[8];
 uniform int u_color_count;
 
-// --- Simplex / Value Noise & FBM ---
+// --- Quintic Smooth Noise (C2 continuous first & second derivatives for silky waves) ---
 float hash21(vec2 p) {
-  p = fract(p * vec2(234.34, 435.345));
-  p += dot(p, p + 34.23);
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
   return fract(p.x * p.y);
 }
 
-float noise(vec2 p) {
+float smoothNoise(vec2 p) {
   vec2 i = floor(p);
   vec2 f = fract(p);
-  vec2 u = f * f * (3.0 - 2.0 * f);
-  return mix(
-    mix(hash21(i), hash21(i + vec2(1.0, 0.0)), u.x),
-    mix(hash21(i + vec2(0.0, 1.0)), hash21(i + vec2(1.0, 1.0)), u.x),
-    u.y
-  );
+  // Quintic Hermite interpolation curve (Ken Perlin's improved polynomial)
+  vec2 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+  
+  float a = hash21(i);
+  float b = hash21(i + vec2(1.0, 0.0));
+  float c = hash21(i + vec2(0.0, 1.0));
+  float d = hash21(i + vec2(1.0, 1.0));
+
+  return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
 }
 
-float fbm(vec2 p) {
+// Ultra-smooth multi-octave FBM with irrational rotation matrix
+float smoothFBM(vec2 p) {
   float v = 0.0;
   float a = 0.5;
-  mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
-  for (int i = 0; i < 5; i++) {
-    v += a * noise(p);
-    p = rot * p * 2.05 + vec2(11.3, 7.7);
+  mat2 rot = mat2(0.80, -0.60, 0.60, 0.80);
+  for (int i = 0; i < 4; i++) {
+    v += a * smoothNoise(p);
+    p = rot * p * 2.02 + vec2(17.1, 9.3);
     a *= 0.5;
   }
   return v;
 }
 
-// --- Perceptual OKLab Color Mixing ---
+// --- Perceptual OKLab Color Mixing Pipeline ---
 vec3 srgbToLinear(vec3 c) {
   return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c));
 }
@@ -131,6 +137,7 @@ vec3 samplePalette(float t) {
   vec3 col = u_colors[0];
   for (int i = 0; i < 7; i++) {
     if (i == idx && i < u_color_count - 1) {
+      // Smooth Hermite blend between adjacent color stops
       col = mixOklab(u_colors[i], u_colors[i + 1], smoothstep(0.0, 1.0, frac));
       break;
     }
@@ -138,7 +145,7 @@ vec3 samplePalette(float t) {
   return col;
 }
 
-// Film Grain generator
+// Microscopic film grain hash
 float grainHash(vec2 p) {
   vec3 p3 = fract(vec3(p.xyx) * 0.1031);
   p3 += dot(p3, p3.yzx + 33.33);
@@ -149,57 +156,70 @@ void main() {
   vec2 uv = gl_FragCoord.xy / u_resolution.xy;
   vec2 p = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
   
-  float t = u_time * u_speed * 0.45;
+  // Smooth temporal scale
+  float t = u_time * u_speed * 0.35;
   vec2 mouseP = (u_mouse - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
   vec2 delta = p - mouseP;
   float dist = length(delta);
 
-  // --- Dynamic Mouse Interaction ---
+  // --- Silky Viscous Pointer Interactions ---
   if (u_mouse_active > 0.01) {
-    float strength = u_mouse_active * (1.0 + u_mouse_speed * 3.5);
+    float strength = u_mouse_active * (1.0 + u_mouse_speed * 2.8);
     
     if (u_cursor_mode == 0) {
-      // 0: Ripple waves
-      float rippleRadius = 0.55;
-      float wave = sin(dist * 24.0 - u_time * 6.0) * exp(-dist * 4.5);
-      p -= normalize(delta + 0.0001) * wave * 0.06 * strength;
+      // 0: Soft Acoustic Waves & Ripples
+      float rippleRadius = 0.65;
+      float falloff = exp(-pow(dist / rippleRadius, 2.0));
+      float wave = sin(dist * 20.0 - u_time * 5.0) * falloff;
+      p -= normalize(delta + 0.0001) * wave * 0.045 * strength;
     } else if (u_cursor_mode == 1) {
-      // 1: Vortex Swirl
-      float swirlRadius = 0.45;
-      float factor = max(0.0, 1.0 - dist / swirlRadius);
-      float angle = factor * factor * 2.8 * strength;
+      // 1: Fluid Vortex Swirl
+      float swirlRadius = 0.55;
+      float falloff = exp(-pow(dist / swirlRadius, 2.0));
+      float angle = falloff * 2.5 * strength;
       float ca = cos(angle), sa = sin(angle);
       p = mouseP + mat2(ca, -sa, sa, ca) * delta;
     } else if (u_cursor_mode == 2) {
-      // 2: Fluid Push / Displacement
-      float pushRadius = 0.5;
-      float factor = exp(-dist * 3.8);
-      p += normalize(delta + 0.0001) * factor * 0.18 * strength;
+      // 2: Viscous Fluid Push / Displacement
+      float pushRadius = 0.60;
+      float falloff = exp(-pow(dist / pushRadius, 2.0));
+      p += normalize(delta + 0.0001) * falloff * 0.14 * strength;
     } else if (u_cursor_mode == 3) {
       // 3: Chromatic Refraction Lens
-      float lensRadius = 0.35;
+      float lensRadius = 0.45;
       if (dist < lensRadius) {
         float f = smoothstep(lensRadius, 0.0, dist);
-        p += delta * f * 0.25 * strength;
+        p += delta * f * 0.22 * strength;
       }
     }
   }
 
-  // --- Multi-layer Domain Warping ---
+  // --- Viscous Gyroscopic Liquid Flow (Harmonic Sine-Coupled Drift) ---
+  vec2 flowDrift = vec2(
+    sin(p.y * 1.8 + t * 0.6) * 0.15,
+    cos(p.x * 1.8 - t * 0.5) * 0.15
+  );
+  p += flowDrift;
+
+  // --- Multi-Tier Smooth Domain Warping ---
   vec2 q = vec2(
-    fbm(p * u_scale + vec2(0.0, 0.0) + t * 0.12 + u_seed),
-    fbm(p * u_scale + vec2(5.2, 1.3) + t * 0.15 + u_seed * 0.5)
+    smoothFBM(p * u_scale + vec2(0.0, 0.0) + t * 0.08 + u_seed),
+    smoothFBM(p * u_scale + vec2(5.2, 1.3) + t * 0.10 + u_seed * 0.7)
   );
 
   vec2 r = vec2(
-    fbm(p * u_scale + 4.0 * q + vec2(1.7, 9.2) + t * 0.2),
-    fbm(p * u_scale + 4.0 * q + vec2(8.3, 2.8) + t * 0.18)
+    smoothFBM(p * u_scale + 3.2 * q + vec2(1.7, 9.2) + t * 0.14),
+    smoothFBM(p * u_scale + 3.2 * q + vec2(8.3, 2.8) + t * 0.12)
   );
 
-  float field = fbm(p * u_scale + 4.0 * r * u_turbulence + t * 0.25);
+  // Organic field value
+  float field = smoothFBM(p * u_scale + 3.5 * r * u_turbulence + t * 0.18);
 
-  // --- Dynamic Color Sampling with Chromatic Separation ---
-  float chromaShift = u_chromatic * 0.025 * (1.0 + u_mouse_speed * 2.0);
+  // Soft harmonic modulation to enrich depth
+  field = smoothstep(0.05, 0.95, field);
+
+  // --- Dynamic Color Sampling with Smooth Chromatic Dispersion ---
+  float chromaShift = u_chromatic * 0.022 * (1.0 + u_mouse_speed * 1.5);
   vec3 col;
   
   if (chromaShift > 0.001) {
@@ -215,19 +235,25 @@ void main() {
     col = samplePalette(field);
   }
 
-  // --- Specular Liquid Sheen Highlights ---
-  float highlight = pow(clamp(dot(normalize(vec3(r.x, r.y, 0.5)), normalize(vec3(0.3, 0.5, 1.0))), 0.0, 1.0), 4.0);
-  col += vec3(0.9, 0.95, 1.0) * highlight * 0.18;
+  // --- Soft Specular Caustics & Liquid Sheen ---
+  vec2 dF = vec2(
+    smoothFBM(p * u_scale + 3.5 * r * u_turbulence + vec2(0.01, 0.0)) - field,
+    smoothFBM(p * u_scale + 3.5 * r * u_turbulence + vec2(0.0, 0.01)) - field
+  );
+  vec3 normal = normalize(vec3(dF * 25.0, 1.0));
+  vec3 lightDir = normalize(vec3(0.35, 0.65, 0.8));
+  float specular = pow(clamp(dot(normal, lightDir), 0.0, 1.0), 5.0);
+  col += vec3(0.95, 0.98, 1.0) * specular * 0.16;
 
-  // --- Tactile Film Grain ---
+  // --- Tactile Micro-Film Grain ---
   if (u_grain > 0.001) {
-    float grain = (grainHash(gl_FragCoord.xy + fract(u_time * 17.1)) - 0.5) * u_grain * 0.14;
+    float grain = (grainHash(gl_FragCoord.xy + fract(u_time * 19.3)) - 0.5) * u_grain * 0.11;
     col += grain;
   }
 
-  // --- Soft Vignette ---
-  float vignette = smoothstep(1.2, 0.35, length(uv - 0.5));
-  col *= mix(0.78, 1.0, vignette);
+  // --- Gentle Cinematic Vignette ---
+  float vignette = smoothstep(1.3, 0.4, length(uv - 0.5));
+  col *= mix(0.82, 1.0, vignette);
 
   gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
@@ -292,9 +318,9 @@ export const COLOR_PRESETS: ColorPreset[] = [
 
 export const CURSOR_MODES = [
   { id: 0, label: 'Ripples', icon: Waves },
-  { id: 1, label: 'Vortex Swirl', icon: RefreshCw },
-  { id: 2, label: 'Displacement', icon: Droplets },
-  { id: 3, label: 'Chromatic Lens', icon: Sparkles },
+  { id: 1, label: 'Vortex', icon: RefreshCw },
+  { id: 2, label: 'Push', icon: Droplets },
+  { id: 3, label: 'Prism Lens', icon: Sparkles },
 ]
 
 export interface PrismaticLiquidShaderProps {
@@ -314,11 +340,11 @@ export function PrismaticLiquidShader({
   // Interactive State
   const [activePresetId, setActivePresetId] = useState(initialPreset)
   const [cursorMode, setCursorMode] = useState(initialCursorMode)
-  const [speed, setSpeed] = useState(1.1)
-  const [turbulence, setTurbulence] = useState(1.25)
-  const [scale, setScale] = useState(1.8)
-  const [chromatic, setChromatic] = useState(1.2)
-  const [grain, setGrain] = useState(0.4)
+  const [speed, setSpeed] = useState(1.0)
+  const [turbulence, setTurbulence] = useState(1.15)
+  const [scale, setScale] = useState(1.75)
+  const [chromatic, setChromatic] = useState(1.1)
+  const [grain, setGrain] = useState(0.35)
   const [seed, setSeed] = useState(42.0)
   const [showControls, setShowControls] = useState(true)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -371,7 +397,7 @@ export function PrismaticLiquidShader({
     const dx = x - s.lastMouseX
     const dy = y - s.lastMouseY
     const dist = Math.sqrt(dx * dx + dy * dy)
-    s.mouseSpeed = Math.min(dist / 25.0, 2.5)
+    s.mouseSpeed = Math.min(dist / 22.0, 2.2)
 
     s.targetMouseX = x
     s.targetMouseY = y
@@ -489,7 +515,7 @@ export function PrismaticLiquidShader({
     window.addEventListener('resize', resize)
     resize()
 
-    // IntersectionObserver to pause rendering when out of viewport
+    // IntersectionObserver to pause rendering when offscreen
     const observer = new IntersectionObserver(([entry]) => {
       isVisible = entry.isIntersecting
     })
@@ -503,10 +529,10 @@ export function PrismaticLiquidShader({
       const elapsed = (now - startTime) * 0.001
       const s = stateRef.current
 
-      // Smooth mouse easing
-      s.mouseX += (s.targetMouseX - s.mouseX) * 0.12
-      s.mouseY += (s.targetMouseY - s.mouseY) * 0.12
-      s.mouseSpeed *= 0.94
+      // Ultra-smooth mouse easing
+      s.mouseX += (s.targetMouseX - s.mouseX) * 0.1
+      s.mouseY += (s.targetMouseY - s.mouseY) * 0.1
+      s.mouseSpeed *= 0.95
 
       gl.uniform2f(uRes, canvas.width, canvas.height)
       gl.uniform1f(uTime, elapsed)
@@ -546,7 +572,7 @@ export function PrismaticLiquidShader({
   // Randomize Seed Function
   const handleRandomize = () => {
     setSeed(Math.random() * 100.0)
-    setTurbulence(0.8 + Math.random() * 1.2)
+    setTurbulence(0.9 + Math.random() * 0.6)
   }
 
   // Toggle Fullscreen
@@ -579,13 +605,13 @@ export function PrismaticLiquidShader({
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[11px] font-mono-code font-semibold tracking-wider text-cyan-300">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-            <span>WEBGL 2.0 • OKLAB LIQUID SPECTRUM</span>
+            <span>WEBGL 2.0 • PERCEPTUAL OKLAB DYNAMICS</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white font-display drop-shadow-md">
-            PRISMATIC <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-amber-300">DYNAMICS</span>
+            PRISMATIC <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-amber-300">LIQUID</span>
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 max-w-md font-medium drop-shadow-sm">
-            Hyper-fluid hydrodynamic wave field with perceptual OKLab gamut blending and velocity-driven cursor physics.
+            Hyper-smooth hydrodynamic wave field with perceptual OKLab gamut blending and velocity-driven cursor physics.
           </p>
         </div>
 
@@ -618,14 +644,14 @@ export function PrismaticLiquidShader({
         </div>
       </header>
 
-      {/* 3. Center Subtle Interaction Prompt (fades out on interaction) */}
+      {/* 3. Center Subtle Interaction Hint */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <div className="text-center px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 text-white/70 text-xs font-mono-code tracking-widest uppercase animate-pulse">
-          Move cursor or drag to stir liquid waves
+        <div className="text-center px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/80 text-xs font-mono-code tracking-widest uppercase animate-pulse">
+          Move cursor or drag across canvas to stir liquid waves
         </div>
       </div>
 
-      {/* 4. Bottom Floating Glassmorphism Control Center */}
+      {/* 4. Bottom Floating Glassmorphism Control Center (Redesigned with Zero Overlaps) */}
       <AnimatePresence>
         {showControls && (
           <motion.div
@@ -633,20 +659,22 @@ export function PrismaticLiquidShader({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}
             transition={{ type: 'spring', damping: 25, stiffness: 260 }}
-            className="absolute bottom-6 left-6 right-6 max-w-4xl mx-auto glass-panel rounded-2xl p-4 sm:p-5 z-20 space-y-4"
+            className="absolute bottom-6 left-6 right-6 max-w-4xl mx-auto glass-panel rounded-2xl p-5 sm:p-6 z-20 space-y-4"
           >
-            {/* Row 1: Preset Palettes */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Color Spectrum:</span>
-                <span className="text-cyan-300 font-mono-code lowercase text-[11px]">
-                  ({currentPreset.name})
+            {/* Section 1: Color Spectrum Header & Presets */}
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2 font-bold uppercase tracking-wider text-slate-200">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Color Spectrum</span>
+                </div>
+                <span className="text-cyan-300 font-mono-code text-[11px] bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+                  {currentPreset.name}
                 </span>
               </div>
 
-              {/* Palette Buttons */}
-              <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
+              {/* Palette Buttons Grid with ample spacing */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
                 {COLOR_PRESETS.map((preset) => {
                   const isActive = preset.id === activePresetId
                   return (
@@ -654,61 +682,71 @@ export function PrismaticLiquidShader({
                       key={preset.id}
                       type="button"
                       onClick={() => setActivePresetId(preset.id)}
-                      className={`relative px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                      className={`relative px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer flex flex-col items-start gap-1.5 text-left ${
                         isActive
-                          ? 'bg-white/20 text-white border border-white/40 shadow-sm'
-                          : 'bg-black/30 text-slate-300 hover:text-white hover:bg-white/10 border border-white/5'
+                          ? 'bg-white/20 text-white border border-cyan-400/50 shadow-md ring-1 ring-cyan-400/30'
+                          : 'bg-black/35 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10'
                       }`}
                     >
-                      {/* Color dots preview */}
-                      <div className="flex -space-x-1">
-                        {preset.colors.slice(1, 4).map((c, i) => (
+                      {/* Swatch dots */}
+                      <div className="flex items-center -space-x-1">
+                        {preset.colors.slice(1, 5).map((c, i) => (
                           <span
                             key={i}
-                            className="w-2.5 h-2.5 rounded-full border border-black/40"
+                            className="w-3 h-3 rounded-full border border-black/40 shadow-xs"
                             style={{ backgroundColor: c }}
                           />
                         ))}
                       </div>
-                      <span>{preset.name}</span>
+                      <span className="text-[11px] font-semibold truncate w-full tracking-tight">
+                        {preset.name}
+                      </span>
                     </button>
                   )
                 })}
               </div>
             </div>
 
-            {/* Row 2: Interaction Mode & Live Sliders */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-2 border-t border-white/10 items-center">
-              {/* Cursor Mode Selector */}
-              <div className="md:col-span-5 flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/5">
-                {CURSOR_MODES.map((mode) => {
-                  const Icon = mode.icon
-                  const isActive = cursorMode === mode.id
-                  return (
-                    <button
-                      key={mode.id}
-                      type="button"
-                      onClick={() => setCursorMode(mode.id)}
-                      className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-semibold tracking-wide flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                        isActive
-                          ? 'bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 shadow-xs'
-                          : 'text-slate-400 hover:text-white hover:bg-white/5'
-                      }`}
-                    >
-                      <Icon className="w-3 h-3" />
-                      <span>{mode.label}</span>
-                    </button>
-                  )
-                })}
+            {/* Divider */}
+            <div className="h-[1px] bg-white/10 w-full" />
+
+            {/* Section 2: Cursor Physics Mode & Live Sliders */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+              {/* Left: Mode Buttons */}
+              <div className="lg:col-span-5 space-y-1.5">
+                <div className="text-[11px] font-mono-code uppercase tracking-wider text-slate-400">
+                  Cursor Interaction Physics
+                </div>
+                <div className="grid grid-cols-4 gap-1.5 bg-black/40 p-1 rounded-xl border border-white/10">
+                  {CURSOR_MODES.map((mode) => {
+                    const Icon = mode.icon
+                    const isActive = cursorMode === mode.id
+                    return (
+                      <button
+                        key={mode.id}
+                        type="button"
+                        onClick={() => setCursorMode(mode.id)}
+                        className={`py-1.5 px-2 rounded-lg text-[11px] font-semibold tracking-tight flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
+                          isActive
+                            ? 'bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 shadow-xs'
+                            : 'text-slate-400 hover:text-white hover:bg-white/5'
+                        }`}
+                      >
+                        <Icon className="w-3.5 h-3.5" />
+                        <span className="text-[10px] leading-none">{mode.label}</span>
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
 
-              {/* Sliders: Speed, Turbulence, Chromatic */}
-              <div className="md:col-span-7 grid grid-cols-3 gap-3 text-[11px] font-mono-code text-slate-300">
+              {/* Right: Fine-Tuning Sliders with Clean Label Rows */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs font-mono-code">
                 {/* Flow Speed */}
-                <div className="space-y-1">
-                  <div className="flex justify-between">
-                    <span>Flow:</span>
-                    <span className="text-cyan-300">{speed.toFixed(1)}x</span>
+                <div className="bg-black/30 p-2.5 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px] text-slate-300">
+                    <span className="font-semibold text-slate-400 uppercase tracking-wider text-[10px]">Flow Speed</span>
+                    <span className="text-cyan-300 font-bold">{speed.toFixed(1)}x</span>
                   </div>
                   <input
                     type="range"
@@ -717,15 +755,15 @@ export function PrismaticLiquidShader({
                     step="0.1"
                     value={speed}
                     onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                    className="w-full h-1.5 bg-slate-700 rounded-lg cursor-pointer"
+                    className="w-full h-1.5 bg-slate-700/80 rounded-lg cursor-pointer"
                   />
                 </div>
 
-                {/* Turbulence */}
-                <div className="space-y-1">
-                  <div className="flex justify-between">
-                    <span>Warp:</span>
-                    <span className="text-pink-300">{turbulence.toFixed(2)}</span>
+                {/* Turbulence Warp */}
+                <div className="bg-black/30 p-2.5 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px] text-slate-300">
+                    <span className="font-semibold text-slate-400 uppercase tracking-wider text-[10px]">Turbulence</span>
+                    <span className="text-pink-300 font-bold">{turbulence.toFixed(2)}</span>
                   </div>
                   <input
                     type="range"
@@ -734,15 +772,15 @@ export function PrismaticLiquidShader({
                     step="0.05"
                     value={turbulence}
                     onChange={(e) => setTurbulence(parseFloat(e.target.value))}
-                    className="w-full h-1.5 bg-slate-700 rounded-lg cursor-pointer"
+                    className="w-full h-1.5 bg-slate-700/80 rounded-lg cursor-pointer"
                   />
                 </div>
 
-                {/* Chromatic Aberration */}
-                <div className="space-y-1">
-                  <div className="flex justify-between">
-                    <span>Prism:</span>
-                    <span className="text-amber-300">{chromatic.toFixed(1)}</span>
+                {/* Chromatic Dispersion */}
+                <div className="bg-black/30 p-2.5 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px] text-slate-300">
+                    <span className="font-semibold text-slate-400 uppercase tracking-wider text-[10px]">Prism Shift</span>
+                    <span className="text-amber-300 font-bold">{chromatic.toFixed(1)}</span>
                   </div>
                   <input
                     type="range"
@@ -751,7 +789,7 @@ export function PrismaticLiquidShader({
                     step="0.1"
                     value={chromatic}
                     onChange={(e) => setChromatic(parseFloat(e.target.value))}
-                    className="w-full h-1.5 bg-slate-700 rounded-lg cursor-pointer"
+                    className="w-full h-1.5 bg-slate-700/80 rounded-lg cursor-pointer"
                   />
                 </div>
               </div>
