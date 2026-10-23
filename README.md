@@ -28,6 +28,14 @@
 
 ## 📦 The Collection
 
+### 🍬 [The Swedish Candy Cart of Your Dreams — Nectar](./swedish-candy-cart-hero)
+A delightful, high-end editorial storefront hero section inspired by Scandinavian candy culture (*lördagsgodis*). Featuring authentic pink gingham paper grid patterns, a hanging dusty-rose scalloped awning valance, editorial serif typography (*Fraunces* and *Caveat*), whimsical floating candy physics, and an interactive Scandinavian Pick & Mix tasting menu modal.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/swedish-candy-cart-hero/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 12px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" alt="The Swedish Candy Cart of Your Dreams" />
+</div>
+
+---
+
 ### 🌈 [Prismatic Liquid Shader](./prismatic-liquid-shader)
 An interactive, hyper-fluid WebGL liquid wave shader featuring perceptual OKLab color transitions, dynamic velocity ripples, multi-spectral presets, and customizable physical turbulence.
 <div align="center">
