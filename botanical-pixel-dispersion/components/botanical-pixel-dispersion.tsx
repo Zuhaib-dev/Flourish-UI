@@ -71,7 +71,7 @@ export function BotanicalPixelDispersion({
   const [isExploded, setIsExploded] = useState<boolean>(false)
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [activeTileCount, setActiveTileCount] = useState<number>(0)
-  const [showControls, setShowControls] = useState<boolean>(true)
+  const [showControls, setShowControls] = useState<boolean>(false)
 
   // Mouse & Touch tracking
   const mouseRef = useRef<{
@@ -109,45 +109,48 @@ export function BotanicalPixelDispersion({
 
   // Initialize the Yuni Yoshida Authentic Mosaic Tiles Grid
   const initTiles = useCallback(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const container = containerRef.current
+    if (!container) return
 
-    const width = canvas.width
-    const height = canvas.height
-    const tileSize = Math.max(16, Math.round(width * 0.038)) // responsive tile size ~22px
+    const rect = container.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    if (width === 0 || height === 0) return
+
+    const tileSize = Math.max(16, Math.round(width * 0.038)) // responsive tile size ~21px
     const tiles: PixelTile[] = []
     let idCounter = 0
 
-    // Curated authentic palette sampled directly from the artwork
+    // Curated authentic palette sampled directly from the artwork & flower.jpg
     const petalPalette = [
-      '#ca0169', '#ae0258', '#b5005b', '#c7156c', '#d9267a', 
+      '#b80058', '#ca0169', '#ae0258', '#b5005b', '#c7156c', '#d9267a', 
       '#eb549a', '#f47fae', '#f8a5c2', '#fbc5d8', '#fde2eb',
-      '#8f0043', '#a20d52', '#d63384'
+      '#8f0043', '#a20d52', '#d63384', '#e21a82'
     ]
 
     const leafPalette = [
-      '#263c13', '#324d1a', '#3c551e', '#4c6a28', '#5c7a31', 
-      '#75943e', '#8fae4e', '#adc965', '#c8df84', '#e2f0b0',
+      '#263f17', '#314f1c', '#3e6223', '#4d752b', '#668e36', 
+      '#82aa44', '#9dc354', '#adc965', '#c8df84', '#e2f0b0',
       '#f2f9db', '#566b0e', '#678224'
     ]
 
     const stemPalette = [
-      '#7a9735', '#8ca83d', '#9eb948', '#b5cc62', '#cadb84', '#e3ecc2'
+      '#739233', '#8aa93e', '#a0be4b', '#bcd963', '#cadb84', '#e3ecc2'
     ]
 
-    // 1. PETAL PIXEL CLOUD (Top-Left of Flower Head) - dissolving outward
-    // Center of flower head is around x=0.68, y=0.28
-    const petalLeftMinX = Math.round(width * 0.34)
+    // 1. PETAL PIXEL CLOUD (Top-Left of Flower Head) - dissolving outward into space
+    // Center of flower disc in flower.jpg is at x=0.66, y=0.27; petals extend to x=0.44..0.88, y=0.10..0.44
+    const petalLeftMinX = Math.round(width * 0.30)
     const petalLeftMaxX = Math.round(width * 0.64)
-    const petalLeftMinY = Math.round(height * 0.08)
-    const petalLeftMaxY = Math.round(height * 0.36)
+    const petalLeftMinY = Math.round(height * 0.06)
+    const petalLeftMaxY = Math.round(height * 0.35)
 
     for (let y = petalLeftMinY; y <= petalLeftMaxY; y += tileSize) {
       for (let x = petalLeftMinX; x <= petalLeftMaxX; x += tileSize) {
-        // Density curve: denser near flower head (x=0.60), sparser further left (x=0.36)
+        // Density curve: denser near flower head (x=0.60), sparser further left (x=0.30)
         const normalizedDist = (x - petalLeftMinX) / (petalLeftMaxX - petalLeftMinX)
         const verticalDist = Math.abs(y - (petalLeftMinY + petalLeftMaxY) / 2) / (petalLeftMaxY - petalLeftMinY)
-        const probability = Math.pow(normalizedDist, 1.3) * (1 - verticalDist * 0.6) + 0.12
+        const probability = Math.pow(normalizedDist, 1.3) * (1 - verticalDist * 0.55) + 0.10
 
         if (Math.random() < probability) {
           // Color selection: darker fuchsia near center, pale blush on outer rim
@@ -161,8 +164,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
-            x: x + (Math.random() - 0.5) * 4,
-            y: y + (Math.random() - 0.5) * 4,
+            x: x + (Math.random() - 0.5) * 3,
+            y: y + (Math.random() - 0.5) * 3,
             vx: 0,
             vy: 0,
             size: tileSize,
@@ -184,15 +187,15 @@ export function BotanicalPixelDispersion({
     }
 
     // 2. PETAL PIXEL CLUSTER (Right edge of flower head)
-    const petalRightMinX = Math.round(width * 0.65)
-    const petalRightMaxX = Math.round(width * 0.82)
-    const petalRightMinY = Math.round(height * 0.14)
+    const petalRightMinX = Math.round(width * 0.64)
+    const petalRightMaxX = Math.round(width * 0.78)
+    const petalRightMinY = Math.round(height * 0.26)
     const petalRightMaxY = Math.round(height * 0.40)
 
     for (let y = petalRightMinY; y <= petalRightMaxY; y += tileSize) {
       for (let x = petalRightMinX; x <= petalRightMaxX; x += tileSize) {
         const normalizedDist = 1 - (x - petalRightMinX) / (petalRightMaxX - petalRightMinX)
-        if (Math.random() < normalizedDist * 0.75 + 0.08) {
+        if (Math.random() < normalizedDist * 0.72 + 0.12) {
           const color = petalPalette[Math.floor(Math.random() * petalPalette.length)]
           tiles.push({
             id: idCounter++,
@@ -220,15 +223,15 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 3. STEM MOSAIC TILES (Center stem x=0.48 to 0.54, y=0.36 to 0.52)
-    const stemMinX = Math.round(width * 0.46)
-    const stemMaxX = Math.round(width * 0.56)
-    const stemMinY = Math.round(height * 0.36)
-    const stemMaxY = Math.round(height * 0.54)
+    // 3. STEM MOSAIC TILES (Upper stem connecting head to leaves)
+    const stemMinX = Math.round(width * 0.48)
+    const stemMaxX = Math.round(width * 0.58)
+    const stemMinY = Math.round(height * 0.38)
+    const stemMaxY = Math.round(height * 0.50)
 
     for (let y = stemMinY; y <= stemMaxY; y += tileSize) {
       for (let x = stemMinX; x <= stemMaxX; x += tileSize) {
-        if (Math.random() < 0.6) {
+        if (Math.random() < 0.65) {
           const color = stemPalette[Math.floor(Math.random() * stemPalette.length)]
           tiles.push({
             id: idCounter++,
@@ -256,16 +259,16 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 4. LEAF PIXEL CLUSTER (Left Leaf x=0.18 to 0.44, y=0.48 to 0.68)
+    // 4. LEAF PIXEL CLUSTER (Left Leaf x=0.18 to 0.38, y=0.48 to 0.64)
     const leafLeftMinX = Math.round(width * 0.18)
-    const leafLeftMaxX = Math.round(width * 0.42)
+    const leafLeftMaxX = Math.round(width * 0.38)
     const leafLeftMinY = Math.round(height * 0.48)
-    const leafLeftMaxY = Math.round(height * 0.68)
+    const leafLeftMaxY = Math.round(height * 0.64)
 
     for (let y = leafLeftMinY; y <= leafLeftMaxY; y += tileSize) {
       for (let x = leafLeftMinX; x <= leafLeftMaxX; x += tileSize) {
         const normalizedDist = (x - leafLeftMinX) / (leafLeftMaxX - leafLeftMinX)
-        if (Math.random() < Math.pow(normalizedDist, 1.2) * 0.75 + 0.1) {
+        if (Math.random() < Math.pow(normalizedDist, 1.1) * 0.75 + 0.12) {
           const color = leafPalette[Math.floor(Math.random() * leafPalette.length)]
           tiles.push({
             id: idCounter++,
@@ -293,16 +296,16 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 5. LEAF PIXEL CLUSTER (Right Leaf x=0.55 to 0.78, y=0.48 to 0.68)
-    const leafRightMinX = Math.round(width * 0.54)
-    const leafRightMaxX = Math.round(width * 0.76)
-    const leafRightMinY = Math.round(height * 0.48)
+    // 5. LEAF PIXEL CLUSTER (Right Leaf x=0.52 to 0.72, y=0.52 to 0.66)
+    const leafRightMinX = Math.round(width * 0.52)
+    const leafRightMaxX = Math.round(width * 0.72)
+    const leafRightMinY = Math.round(height * 0.52)
     const leafRightMaxY = Math.round(height * 0.66)
 
     for (let y = leafRightMinY; y <= leafRightMaxY; y += tileSize) {
       for (let x = leafRightMinX; x <= leafRightMaxX; x += tileSize) {
         const normalizedDist = 1 - (x - leafRightMinX) / (leafRightMaxX - leafRightMinX)
-        if (Math.random() < Math.pow(normalizedDist, 1.1) * 0.72 + 0.1) {
+        if (Math.random() < Math.pow(normalizedDist, 1.1) * 0.72 + 0.12) {
           const color = leafPalette[Math.floor(Math.random() * leafPalette.length)]
           tiles.push({
             id: idCounter++,
@@ -330,13 +333,13 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 6. Solitary Dispersed Drift Pixels in Negative Space
+    // 6. Solitary Dispersed Drift Pixels in Negative Space (Exact Yuni Yoshida touches)
     const driftPositions = [
-      { x: width * 0.36, y: height * 0.33, isLeaf: false },
-      { x: width * 0.33, y: height * 0.70, isLeaf: true },
-      { x: width * 0.64, y: height * 0.66, isLeaf: true },
-      { x: width * 0.76, y: height * 0.38, isLeaf: false },
-      { x: width * 0.78, y: height * 0.39, isLeaf: false },
+      { x: width * 0.34, y: height * 0.32, isLeaf: false },
+      { x: width * 0.74, y: height * 0.36, isLeaf: false },
+      { x: width * 0.34, y: height * 0.46, isLeaf: true },
+      { x: width * 0.33, y: height * 0.68, isLeaf: true },
+      { x: width * 0.65, y: height * 0.64, isLeaf: true },
     ]
 
     driftPositions.forEach((pos) => {
@@ -385,11 +388,6 @@ export function BotanicalPixelDispersion({
       canvas.height = rect.height * dpr
       canvas.style.width = `${rect.width}px`
       canvas.style.height = `${rect.height}px`
-
-      const ctx = canvas.getContext('2d')
-      if (ctx) {
-        ctx.scale(dpr, dpr)
-      }
 
       initTiles()
     }
@@ -490,6 +488,8 @@ export function BotanicalPixelDispersion({
       const width = canvas.width / dpr
       const height = canvas.height / dpr
 
+      ctx.save()
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, width, height)
       animationTime += 0.025
 
@@ -630,10 +630,10 @@ export function BotanicalPixelDispersion({
           if (baseImageRef.current) {
             ctx.drawImage(
               baseImageRef.current,
-              tile.photoSourceX * (baseImageRef.current.width / width),
-              tile.photoSourceY * (baseImageRef.current.height / height),
-              tile.size * 1.5,
-              tile.size * 1.5,
+              (tile.photoSourceX / width) * baseImageRef.current.width,
+              (tile.photoSourceY / height) * baseImageRef.current.height,
+              (tile.size / width) * baseImageRef.current.width,
+              (tile.size / height) * baseImageRef.current.height,
               -halfSize,
               -halfSize,
               tile.size,
@@ -651,6 +651,8 @@ export function BotanicalPixelDispersion({
 
         ctx.restore()
       })
+
+      ctx.restore() // restore transform from ctx.save()
 
       animationFrameRef.current = requestAnimationFrame(render)
     }
@@ -695,6 +697,7 @@ export function BotanicalPixelDispersion({
       {/* 3. MINIMALIST FLOATING GALLERY CONTROLS TRAY (Glassmorphic) */}
       <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
         <button
+          id="toggle-controls-btn"
           type="button"
           onClick={() => setShowControls(!showControls)}
           className="p-2 rounded-full bg-white/80 hover:bg-white text-black/70 hover:text-black backdrop-blur-md border border-black/10 shadow-xs transition-all cursor-pointer"
@@ -705,6 +708,7 @@ export function BotanicalPixelDispersion({
         </button>
 
         <button
+          id="scatter-btn"
           type="button"
           onClick={toggleExplode}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md border border-black/10 text-[11px] font-mono font-bold tracking-wider uppercase transition-all shadow-xs cursor-pointer ${

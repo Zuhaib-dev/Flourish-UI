@@ -21,6 +21,7 @@ export default function Page() {
         {/* Flower Botanical Switcher */}
         <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs p-1 rounded-full border border-black/10 shadow-2xs font-mono text-[10.5px]">
           <button
+            id="flower-gerbera-btn"
             type="button"
             onClick={() => setFlowerVariation('gerbera')}
             className={`px-3 py-1 rounded-full font-bold transition-all cursor-pointer ${
@@ -32,6 +33,7 @@ export default function Page() {
             GERBERA
           </button>
           <button
+            id="flower-cosmos-btn"
             type="button"
             onClick={() => setFlowerVariation('cosmos')}
             className={`px-3 py-1 rounded-full font-bold transition-all cursor-pointer ${
