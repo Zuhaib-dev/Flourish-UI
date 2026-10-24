@@ -20,6 +20,9 @@ const sharedPackageAliases = Object.fromEntries(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    agentUpgrade: 'security',
+  },
   poweredByHeader: false,
   compress: true,
   images: {
