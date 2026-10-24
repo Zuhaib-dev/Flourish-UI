@@ -10,20 +10,22 @@ An artisanal, highly interactive botanical UI component inspired by Yuni Yoshida
 
 ## ✨ Features
 
-- **Iconic Botanical Artistry**: Clean, pure botanical flower on an archival gallery paper background, dissolving into square mosaic tiles without any obstructive typography or watermarks.
-- **60 FPS Physical Canvas Simulation**: High-DPI retina-crisp HTML5 canvas physical simulation engine tracking over 115 individual mosaic tiles.
-- **Cursor Physics Engine**:
-  - **Repel**: Tiles magnetically disperse away from the cursor in an organic clearing.
-  - **Vortex**: Tiles swirl around the cursor in a dynamic orbital whirlpool.
-  - **Ripple**: Wave undulations propagate outwards across the tiles.
-  - **Attract**: Magnetic suction pulling tiles toward the cursor.
-- **Tactile 3D Paper Elevation**: Tiles dynamically lift off the canvas paper surface with realistic directional cast shadows, scaling up to 1.35x and tilting with cursor velocity.
-- **Explosive Scatter & Reassemble**: One-click global scatter physics throwing tiles into a floating 3D suspended state with organic spring recovery back to their resting grid.
-- **3 Artisanal Tile Materials**:
-  - **Analog Paper**: Physical cut-paper chips with micro bevels and edge depth.
+- **Full Component Raster Dynamics**: The entire botanical subject (petals, center disc, stem, leaves, and stepped pixel dissolution) is decomposed into hundreds of dynamic physical tiles sampled directly from high-resolution imagery via an offscreen canvas sampling pipeline.
+- **60 FPS Canvas Physics Engine**:
+  - **Spring-Damper Dynamics**: Full velocity, damping, and elastic return calculations (`hwfStep`) driving real-time inertia and restitution.
+  - **Interactive Force Fields**: **Repel** (gentle clearing), **Vortex** (turbulent angular spin), **Ripple** (harmonic sinusoidal wave), and **Attract** (magnetic cursor convergence).
+  - **Kinetic Shockwave Ring**: Canvas clicks trigger an expanding shockwave ring propagating outward at ~0.95 px/ms that displaces tiles radially with smooth decay.
+  - **Tactile 3D Paper Elevation**: Tiles dynamically lift off the archival paper surface with responsive directional cast shadows (`shadowBlur`, `shadowOffsetY`), scaling up to 1.35x and tilting with velocity.
+- **Global Shatter & Reassemble**: One-click physical explosion scattering all tiles into a 3D suspended cloud across the canvas, with smooth harmonic reassembly back to home resting coordinates.
+- **4 Artisanal Tile Materials**:
+  - **Yuni Yoshida Cut Paper**: Physical beveled cut-paper chips with micro highlight edges and realistic paper texture.
   - **Photographic Slices**: Sub-sampled image slices sampled directly from the high-res flower photograph.
-  - **Prismatic Glass**: Translucent frosted glass tiles with luminous specular highlights.
+  - **Halftone Dots**: Area-weighted circular halftone screens reflecting local luminance and color.
+  - **Prismatic Glass**: Translucent frosted glass tiles with luminous specular bevels.
+- **Procedural Analog Print Grain**: Real-time 256x256 monochrome print grain tile overlay with adjustable opacity.
+- **Adjustable Density**: Fine (10px, ~1,500 tiles), Medium (14px, ~750 tiles), and Bold (18px, ~470 tiles) resolutions.
 - **Botanical Variation Switcher**: Toggle between vibrant pink Gerbera Daisy and magenta Cosmos blossoms.
+- **Zero Typography on Canvas**: Clean, museum-grade visual presentation without any obstructive text or watermarks.
 - **SEO & Production Optimized**: Next.js 16 (App Router), OpenGraph, Twitter Cards, Schema.org `SoftwareSourceCode` JSON-LD author metadata.
 
 ---
