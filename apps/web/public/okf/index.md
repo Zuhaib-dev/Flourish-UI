@@ -16,4 +16,4 @@ Welcome to the agent-readable Open Knowledge Format bundle for Flourish UI. This
 - [Pricing & Commercial Terms](pricing.md): $0 community open-source tier under MIT license and enterprise engineering services.
 - [shadcn Registry Integration](shadcn-registry.md): How CLI installations, zero-lock-in components, and registry schema work.
 - [WebMCP Browser Agent Protocol](webmcp.md): Dynamic browser agent tools exposed via `document.modelContext`.
-- [Component Directory & Taxonomy](component-catalog.md): Complete list of all 43 components and 6 design categories.
+- [Component Directory & Taxonomy](component-catalog.md): Complete list of all 50 components and 6 design categories.

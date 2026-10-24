@@ -439,6 +439,51 @@ Components land cleanly in `components/flourish/` with zero vendor lock-in.
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/sequel-frontier-footer.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/sequel-frontier-footer/source`
 
+### 46. Botanical Pixel Dispersion (`botanical-pixel-dispersion`)
+- **Category**: Canvas & Generative
+- **Description**: An artisanal raster dynamics botanical canvas inspired by Yuni Yoshida and Raster Dynamics Wordmark. Features offscreen sub-pixel color sampling, spring-damper physics, expanding click shockwave rings, 4 tile materials, and global 3D shatter/reassemble mechanics.
+- **Tags**: canvas, generative, physics, botanical, spring-damper, typescript
+- **Dependencies**: `framer-motion`, `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/botanical-pixel-dispersion
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/botanical-pixel-dispersion.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/botanical-pixel-dispersion/source`
+
+### 47. Morning, Mostly — Five Small Rituals (`morning-mostly-rituals`)
+- **Category**: Interactive Surfaces
+- **Description**: A mid-century modern risograph editorial gallery and interactive timeline component chronicling the quiet hours of early morning. Features dual-axis horizontal drag physics, 07:00-09:00 scrubber timeline, and curatorial print inspector.
+- **Tags**: interactive surfaces, editorial, risograph, timeline, motion, typescript
+- **Dependencies**: `framer-motion`, `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/morning-mostly-rituals
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/morning-mostly-rituals.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/morning-mostly-rituals/source`
+
+### 48. Prismatic Liquid Shader (`prismatic-liquid-shader`)
+- **Category**: Shaders & WebGL
+- **Description**: An interactive, hyper-fluid WebGL liquid wave shader featuring perceptual OKLab color transitions, velocity-driven cursor ripples and vortex distortion, 6 curated spectral presets, and hydrodynamic turbulence controls.
+- **Tags**: shaders, webgl, oklab, fluids, interactive, typescript
+- **Dependencies**: `framer-motion`, `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/prismatic-liquid-shader
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/prismatic-liquid-shader.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/prismatic-liquid-shader/source`
+
+### 49. Shelter Skin — Meet The Team Dossier (`shelter-skin-team-dossier`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: A tactile editorial questionnaire dossier card and interactive modal component. Features creamy archival paper, clipped 35mm Polaroid with metallic paperclip, authentic gel-pen handwriting, hand-drawn ink doodles, and interactive scent selector.
+- **Tags**: skeuomorphic, editorial, dossier, handwritten, modal, typescript
+- **Dependencies**: `framer-motion`, `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/shelter-skin-team-dossier
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/shelter-skin-team-dossier.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/shelter-skin-team-dossier/source`
+
+### 50. The Swedish Candy Cart of Your Dreams — Nectar (`swedish-candy-cart-hero`)
+- **Category**: Interactive Surfaces
+- **Description**: A delightful Scandinavian confectionery storefront hero section inspired by Swedish lördagsgodis. Features pink gingham grid canvas, scalloped valance awning, vintage Piaggio Ape truck, and interactive Pick & Mix tasting menu modal.
+- **Tags**: interactive surfaces, editorial, ecommerce, confectionery, motion, typescript
+- **Dependencies**: `framer-motion`, `lucide-react`
+- **Component URL**: https://flourish-ui.vercel.app/components/swedish-candy-cart-hero
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/swedish-candy-cart-hero.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/swedish-candy-cart-hero/source`
+
 ## WebMCP In-Browser Autonomous Agent Tools
 Flourish UI implements the WebMCP standard via `document.modelContext` and `navigator.modelContext` for browser AI agents:
 - `search_components(query: string, category?: string)`: Find components matching keywords.
