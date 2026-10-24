@@ -298,6 +298,14 @@ export default function RegistryPage() {
           <span className="catalog-brand-mark" aria-hidden="true">✳</span>
           <span>flourish<span>.</span></span>
         </a>
+        <nav className="catalog-footer-nav" aria-label="Footer navigation">
+          <a href="/components">Components</a>
+          <a href="/registry">Registry</a>
+          <a href="/developers">Developers</a>
+          <a href="/about">About</a>
+          <a href="/changelog">Changelog</a>
+          <a href="/contact">Contact</a>
+        </nav>
         <span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
         <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">
           <Terminal size={13} /> GitHub <ArrowUpRight size={11} />

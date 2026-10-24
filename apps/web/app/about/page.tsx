@@ -430,15 +430,17 @@ export default function AboutPage() {
           <span>flourish<span>.</span></span>
         </a>
         <span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
-        <div style={{ display: 'flex', gap: 16 }}>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy</a>
+        <nav className="catalog-footer-nav" aria-label="Footer navigation">
+          <a href="/components">Components</a>
+          <a href="/registry">Registry</a>
           <a href="/developers">Developers</a>
-          <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">
-            <Terminal size={12} /> GitHub <ArrowUpRight size={10} />
-          </a>
-        </div>
+          <a href="/about">About</a>
+          <a href="/changelog">Changelog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">
+          <Terminal size={12} /> GitHub <ArrowUpRight size={10} />
+        </a>
         <span>© 2026</span>
       </footer>
     </main>

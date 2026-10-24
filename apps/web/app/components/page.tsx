@@ -101,7 +101,20 @@ export default function ComponentsArchivePage() {
         <CatalogBrowser />
         <section className="catalog-endcap"><span className="section-kicker">OPEN SOURCE, FULLY YOURS</span><p>Every piece is a starting point.<br /><em>Take it somewhere new.</em></p><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">Explore the repository <ArrowUpRight size={14} /></a></section>
       </main>
-      <footer className="catalog-footer"><a href="/" className="catalog-brand"><span className="catalog-brand-mark" aria-hidden="true">✳</span><span>flourish<span>.</span></span></a><span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} /></a><span>© 2026</span></footer>
+      <footer className="catalog-footer">
+        <a href="/" className="catalog-brand"><span className="catalog-brand-mark" aria-hidden="true">✳</span><span>flourish<span>.</span></span></a>
+        <nav className="catalog-footer-nav" aria-label="Footer navigation">
+          <a href="/components">Components</a>
+          <a href="/registry">Registry</a>
+          <a href="/developers">Developers</a>
+          <a href="/about">About</a>
+          <a href="/changelog">Changelog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <span>Made with care by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
+        <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} /></a>
+        <span>© 2026</span>
+      </footer>
     </div>
   )
 }

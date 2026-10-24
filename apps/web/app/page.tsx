@@ -62,6 +62,8 @@ export default function LandingPage() {
             <a className="nav-current" href="/components">Components <span>{stats.components}</span></a>
             <a href="/registry">Registry</a>
             <a href="/developers">Developers</a>
+            <a href="/about">About</a>
+            <a href="/changelog">Changelog</a>
             <a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
           </nav>
           <div className="home-nav-actions"><SoundToggle /><HomeSearch items={components} /></div>
@@ -181,6 +183,14 @@ export default function LandingPage() {
 
       <footer className="home-footer">
         <a href="/" className="brand"><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle className="brand-orbit" cx="16" cy="16" r="12.5" /><g className="brand-flower"><ellipse cx="16" cy="10.2" rx="3.2" ry="5.2" /><ellipse cx="21.8" cy="16" rx="5.2" ry="3.2" /><ellipse cx="16" cy="21.8" rx="3.2" ry="5.2" /><ellipse cx="10.2" cy="16" rx="5.2" ry="3.2" /></g><circle className="brand-seed" cx="16" cy="16" r="2.2" /></svg></span><span>flourish<span className="brand-dot">.</span></span></a>
+        <nav className="home-footer-nav" aria-label="Footer navigation">
+          <a href="/components">Components</a>
+          <a href="/registry">Registry</a>
+          <a href="/developers">Developers</a>
+          <a href="/about">About</a>
+          <a href="/changelog">Changelog</a>
+          <a href="/contact">Contact</a>
+        </nav>
         <span>A collection by <a href="https://www.zuhaibrashid.com" target="_blank" rel="noreferrer">Zuhaib Rashid</a></span>
         <a className="footer-github" href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer"><Code2 size={15} /> GitHub <ArrowUpRight size={12} /></a>
         <span>© 2026</span>
