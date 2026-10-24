@@ -1,15 +1,15 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 45 interactive React components in Flourish UI.
+description: Categorized directory of all 50 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
-timestamp: 2026-10-19
+timestamp: 2026-10-24
 ---
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 50 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
 
@@ -30,6 +30,12 @@ Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 - **URL**: https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/waves-shaders-homlu-ui.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/waves-shaders-homlu-ui/source
+
+### Prismatic Liquid Shader (`prismatic-liquid-shader`)
+- **Description**: An interactive, hyper-fluid WebGL liquid wave shader featuring perceptual OKLab color transitions, velocity-driven cursor ripples and vortex distortion, 6 curated spectral presets, and hydrodynamic turbulence controls.
+- **URL**: https://flourish-ui.vercel.app/components/prismatic-liquid-shader
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/prismatic-liquid-shader.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/prismatic-liquid-shader/source
 
 ## Skeuomorphic & 3D
 
@@ -81,6 +87,12 @@ Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/house-savings-goal-card.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/house-savings-goal-card/source
 
+### Shelter Skin — Meet The Team Dossier (`shelter-skin-team-dossier`)
+- **Description**: A tactile editorial questionnaire dossier card and interactive modal component. Features creamy archival paper, clipped 35mm Polaroid with metallic paperclip, authentic gel-pen handwriting, hand-drawn ink doodles, and interactive scent selector.
+- **URL**: https://flourish-ui.vercel.app/components/shelter-skin-team-dossier
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/shelter-skin-team-dossier.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/shelter-skin-team-dossier/source
+
 ## Canvas & Generative
 
 ### GitHub Contribution Skyline (`contribution-skyline`)
@@ -124,6 +136,12 @@ Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 - **URL**: https://flourish-ui.vercel.app/components/storybook-play-canvas
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/storybook-play-canvas.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/storybook-play-canvas/source
+
+### Botanical Pixel Dispersion (`botanical-pixel-dispersion`)
+- **Description**: An artisanal raster dynamics botanical canvas inspired by Yuni Yoshida and Raster Dynamics Wordmark. Features offscreen sub-pixel color sampling, spring-damper physics, expanding click shockwave rings, 4 tile materials, and global 3D shatter/reassemble mechanics.
+- **URL**: https://flourish-ui.vercel.app/components/botanical-pixel-dispersion
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/botanical-pixel-dispersion.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/botanical-pixel-dispersion/source
 
 ## Motion & Physics
 
@@ -292,6 +310,18 @@ Flourish UI categorizes its 45 components into 6 distinct design aesthetics:
 - **URL**: https://flourish-ui.vercel.app/components/sequel-frontier-footer
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/sequel-frontier-footer.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/sequel-frontier-footer/source
+
+### Morning, Mostly — Five Small Rituals (`morning-mostly-rituals`)
+- **Description**: A mid-century modern risograph editorial gallery and interactive timeline component chronicling the quiet hours of early morning. Features dual-axis horizontal drag physics, 07:00-09:00 scrubber timeline, and curatorial print inspector.
+- **URL**: https://flourish-ui.vercel.app/components/morning-mostly-rituals
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/morning-mostly-rituals.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/morning-mostly-rituals/source
+
+### The Swedish Candy Cart of Your Dreams — Nectar (`swedish-candy-cart-hero`)
+- **Description**: A delightful Scandinavian confectionery storefront hero section inspired by Swedish lördagsgodis. Features pink gingham grid canvas, scalloped valance awning, vintage Piaggio Ape truck, and interactive Pick & Mix tasting menu modal.
+- **URL**: https://flourish-ui.vercel.app/components/swedish-candy-cart-hero
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/swedish-candy-cart-hero.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/swedish-candy-cart-hero/source
 
 ## Cross-References
 - [Full Knowledge Bundle](/llms-full.txt)
