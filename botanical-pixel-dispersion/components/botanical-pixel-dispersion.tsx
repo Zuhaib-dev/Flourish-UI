@@ -1,28 +1,24 @@
 'use client'
 
 import React, { useRef, useEffect, useState, useCallback } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  Sparkles, 
-  RotateCcw, 
-  Wind, 
-  Grid, 
-  Layers, 
-  Maximize2, 
   Sliders, 
-  Eye, 
-  EyeOff,
-  Zap
+  Zap,
+  RotateCcw,
+  Sparkles,
+  Layers,
+  CircleDot,
+  Grid
 } from 'lucide-react'
 
-export type TileStyle = 'analog' | 'photo' | 'glass'
+export type TileStyle = 'paper' | 'photo' | 'halftone' | 'glass'
 export type PhysicsMode = 'repel' | 'vortex' | 'ripple' | 'attract'
 
-export interface PixelTile {
+export interface RasterTile {
   id: number
-  homeX: number
-  homeY: number
+  hx: number
+  hy: number
   targetX: number
   targetY: number
   x: number
@@ -30,15 +26,16 @@ export interface PixelTile {
   vx: number
   vy: number
   size: number
-  color: string
-  originalColor: string
-  photoSourceX: number
-  photoSourceY: number
-  isLeaf: boolean
-  rotation: number
-  targetRotation: number
+  r: number
+  g: number
+  b: number
+  a: number
+  isBotanical: boolean
+  isDrift: boolean
   scale: number
   targetScale: number
+  rotation: number
+  targetRotation: number
   elevation: number
   targetElevation: number
   phase: number
@@ -49,33 +46,37 @@ export interface BotanicalPixelDispersionProps {
   flowerAlt?: string
   initialTileStyle?: TileStyle
   initialPhysicsMode?: PhysicsMode
+  initialTileSize?: number
   className?: string
 }
 
 export function BotanicalPixelDispersion({
   flowerImageSrc = '/flower.jpg',
-  flowerAlt = 'Botanical Gerbera Daisy — Pixel Dispersion',
-  initialTileStyle = 'analog',
+  flowerAlt = 'Botanical Raster Dynamics — Pixel Dispersion',
+  initialTileStyle = 'paper',
   initialPhysicsMode = 'repel',
+  initialTileSize = 14,
   className = '',
 }: BotanicalPixelDispersionProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationFrameRef = useRef<number | null>(null)
   const baseImageRef = useRef<HTMLImageElement | null>(null)
+  const grainTileRef = useRef<HTMLCanvasElement | null>(null)
 
   // Interactive UI State
   const [tileStyle, setTileStyle] = useState<TileStyle>(initialTileStyle)
   const [physicsMode, setPhysicsMode] = useState<PhysicsMode>(initialPhysicsMode)
-  const [repulsionRadius, setRepulsionRadius] = useState<number>(140)
-  const [repulsionStrength, setRepulsionStrength] = useState<number>(1.2)
-  const [showBaseFlower, setShowBaseFlower] = useState<boolean>(true)
+  const [tileSize, setTileSize] = useState<number>(initialTileSize)
+  const [repulsionRadius, setRepulsionRadius] = useState<number>(130)
+  const [repulsionStrength, setRepulsionStrength] = useState<number>(1.4)
+  const [grainOpacity, setGrainOpacity] = useState<number>(0.4)
   const [isExploded, setIsExploded] = useState<boolean>(false)
-  const [isHovered, setIsHovered] = useState<boolean>(false)
   const [activeTileCount, setActiveTileCount] = useState<number>(0)
   const [showControls, setShowControls] = useState<boolean>(false)
+  const [isHovered, setIsHovered] = useState<boolean>(false)
 
-  // Mouse & Touch tracking
+  // Mouse / Pointer Tracking
   const mouseRef = useRef<{
     x: number
     y: number
@@ -83,7 +84,6 @@ export function BotanicalPixelDispersion({
     prevY: number
     vx: number
     vy: number
-    isDown: boolean
     isActive: boolean
   }>({
     x: -1000,
@@ -92,96 +92,167 @@ export function BotanicalPixelDispersion({
     prevY: -1000,
     vx: 0,
     vy: 0,
-    isDown: false,
     isActive: false,
   })
 
-  const tilesRef = useRef<PixelTile[]>([])
+  // Shockwave Ring State (inspired by Raster Dynamics Wordmark)
+  const ringRef = useRef<{
+    x: number
+    y: number
+    t: number
+    active: boolean
+  }>({
+    x: 0,
+    y: 0,
+    t: 0,
+    active: false,
+  })
 
-  // Setup Base Image
+  const tilesRef = useRef<RasterTile[]>([])
+
+  // 1. Generate Procedural Analog Print Grain Tile (Once)
+  useEffect(() => {
+    const grainCanvas = document.createElement('canvas')
+    grainCanvas.width = 256
+    grainCanvas.height = 256
+    const gctx = grainCanvas.getContext('2d')
+    if (gctx) {
+      const imgData = gctx.createImageData(256, 256)
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        const v = Math.random() * 255
+        imgData.data[i] = v
+        imgData.data[i + 1] = v
+        imgData.data[i + 2] = v
+        imgData.data[i + 3] = Math.random() < 0.5 ? 0 : 255
+      }
+      gctx.putImageData(imgData, 0, 0)
+      grainTileRef.current = grainCanvas
+    }
+  }, [])
+
+  // 2. Load Base Flower Image
   useEffect(() => {
     const img = new window.Image()
     img.src = flowerImageSrc
     img.crossOrigin = 'anonymous'
     img.onload = () => {
       baseImageRef.current = img
-      initTiles()
+      rasterizeImageIntoTiles()
     }
   }, [flowerImageSrc])
 
-  // Initialize the Yuni Yoshida Authentic Mosaic Tiles Grid
-  const initTiles = useCallback(() => {
+  // 3. True Raster Sampling Engine
+  // Samples the botanical flower into a complete physical grid of square mosaic tiles
+  const rasterizeImageIntoTiles = useCallback(() => {
     const container = containerRef.current
-    if (!container) return
+    const img = baseImageRef.current
+    if (!container || !img) return
 
     const rect = container.getBoundingClientRect()
     const width = rect.width
     const height = rect.height
     if (width === 0 || height === 0) return
 
-    const tileSize = Math.max(16, Math.round(width * 0.038)) // responsive tile size ~21px
-    const tiles: PixelTile[] = []
+    // Offscreen sampling canvas
+    const offscreen = document.createElement('canvas')
+    offscreen.width = width
+    offscreen.height = height
+    const octx = offscreen.getContext('2d', { willReadFrequently: true })
+    if (!octx) return
+
+    // Draw flower aspect-fit into offscreen buffer
+    const imgAspect = img.naturalWidth / img.naturalHeight
+    const canvasAspect = width / height
+    let drawW = width
+    let drawH = height
+    let drawX = 0
+    let drawY = 0
+
+    if (imgAspect > canvasAspect) {
+      drawH = width / imgAspect
+      drawY = (height - drawH) / 2
+    } else {
+      drawW = height * imgAspect
+      drawX = (width - drawW) / 2
+    }
+
+    octx.drawImage(img, drawX, drawY, drawW, drawH)
+    const rawData = octx.getImageData(0, 0, width, height).data
+
+    const gap = tileSize
+    const cols = Math.floor(width / gap)
+    const rows = Math.floor(height / gap)
+    const tiles: RasterTile[] = []
     let idCounter = 0
 
-    // Curated authentic palette sampled directly from the artwork & flower.jpg
-    const petalPalette = [
-      '#b80058', '#ca0169', '#ae0258', '#b5005b', '#c7156c', '#d9267a', 
-      '#eb549a', '#f47fae', '#f8a5c2', '#fbc5d8', '#fde2eb',
-      '#8f0043', '#a20d52', '#d63384', '#e21a82'
+    // Curated authentic palette for stepped drift pixels
+    const petalDriftPalette = [
+      { r: 202, g: 1, b: 105 },
+      { r: 174, g: 2, b: 88 },
+      { r: 217, g: 38, b: 122 },
+      { r: 248, g: 165, b: 194 },
+      { r: 251, g: 197, b: 216 },
+      { r: 254, g: 226, b: 235 },
     ]
 
-    const leafPalette = [
-      '#263f17', '#314f1c', '#3e6223', '#4d752b', '#668e36', 
-      '#82aa44', '#9dc354', '#adc965', '#c8df84', '#e2f0b0',
-      '#f2f9db', '#566b0e', '#678224'
-    ]
+    for (let gy = 0; gy < rows; gy++) {
+      for (let gx = 0; gx < cols; gx++) {
+        const cellX = gx * gap
+        const cellY = gy * gap
 
-    const stemPalette = [
-      '#739233', '#8aa93e', '#a0be4b', '#bcd963', '#cadb84', '#e3ecc2'
-    ]
+        // 3x3 Sub-pixel sampling for authentic color fidelity
+        let sumR = 0
+        let sumG = 0
+        let sumB = 0
+        let sumA = 0
+        let samples = 0
 
-    // 1. PETAL PIXEL CLOUD (Top-Left of Flower Head) - dissolving outward into space
-    // Center of flower disc in flower.jpg is at x=0.66, y=0.27; petals extend to x=0.44..0.88, y=0.10..0.44
-    const petalLeftMinX = Math.round(width * 0.30)
-    const petalLeftMaxX = Math.round(width * 0.64)
-    const petalLeftMinY = Math.round(height * 0.06)
-    const petalLeftMaxY = Math.round(height * 0.35)
+        for (let sy = 0; sy < 3; sy++) {
+          for (let sx = 0; sx < 3; sx++) {
+            const px = Math.min(width - 1, Math.floor(cellX + ((sx + 0.5) * gap) / 3))
+            const py = Math.min(height - 1, Math.floor(cellY + ((sy + 0.5) * gap) / 3))
+            const idx = (py * width + px) * 4
+            sumR += rawData[idx]
+            sumG += rawData[idx + 1]
+            sumB += rawData[idx + 2]
+            sumA += rawData[idx + 3]
+            samples++
+          }
+        }
 
-    for (let y = petalLeftMinY; y <= petalLeftMaxY; y += tileSize) {
-      for (let x = petalLeftMinX; x <= petalLeftMaxX; x += tileSize) {
-        // Density curve: denser near flower head (x=0.60), sparser further left (x=0.30)
-        const normalizedDist = (x - petalLeftMinX) / (petalLeftMaxX - petalLeftMinX)
-        const verticalDist = Math.abs(y - (petalLeftMinY + petalLeftMaxY) / 2) / (petalLeftMaxY - petalLeftMinY)
-        const probability = Math.pow(normalizedDist, 1.3) * (1 - verticalDist * 0.55) + 0.10
+        const avgR = Math.round(sumR / samples)
+        const avgG = Math.round(sumG / samples)
+        const avgB = Math.round(sumB / samples)
+        const avgA = (sumA / samples) / 255
 
-        if (Math.random() < probability) {
-          // Color selection: darker fuchsia near center, pale blush on outer rim
-          const colorIdx = Math.min(
-            petalPalette.length - 1,
-            Math.floor((1 - normalizedDist) * (petalPalette.length - 3) + Math.random() * 3)
-          )
-          const color = petalPalette[Math.max(0, colorIdx)]
+        // Botanical Detection: Identify flower petals, center disc, stem, and leaves
+        // Background is pure paper off-white (RGB > 238)
+        const isWhiteBg = avgR > 238 && avgG > 238 && avgB > 238
+        const colorDiffFromWhite = Math.max(255 - avgR, 255 - avgG, 255 - avgB)
+        const isBotanical = !isWhiteBg && colorDiffFromWhite > 22 && avgA > 0.3
 
+        if (isBotanical) {
           tiles.push({
             id: idCounter++,
-            homeX: x,
-            homeY: y,
-            targetX: x,
-            targetY: y,
-            x: x + (Math.random() - 0.5) * 3,
-            y: y + (Math.random() - 0.5) * 3,
+            hx: cellX,
+            hy: cellY,
+            targetX: cellX,
+            targetY: cellY,
+            x: cellX,
+            y: cellY,
             vx: 0,
             vy: 0,
-            size: tileSize,
-            color,
-            originalColor: color,
-            photoSourceX: x,
-            photoSourceY: y,
-            isLeaf: false,
-            rotation: 0,
-            targetRotation: 0,
+            size: gap,
+            r: avgR,
+            g: avgG,
+            b: avgB,
+            a: avgA,
+            isBotanical: true,
+            isDrift: false,
             scale: 1,
             targetScale: 1,
+            rotation: 0,
+            targetRotation: 0,
             elevation: 1,
             targetElevation: 1,
             phase: Math.random() * Math.PI * 2,
@@ -190,37 +261,45 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 2. PETAL PIXEL CLUSTER (Right edge of flower head)
-    const petalRightMinX = Math.round(width * 0.64)
-    const petalRightMaxX = Math.round(width * 0.78)
-    const petalRightMinY = Math.round(height * 0.26)
-    const petalRightMaxY = Math.round(height * 0.40)
+    // 4. Iconic Yuni Yoshida Stepped Pixel Dissolution
+    // Adds dissolving square mosaic tiles stepping off the upper-left petal edge into white space
+    const petalDissolveMinX = Math.round(width * 0.30)
+    const petalDissolveMaxX = Math.round(width * 0.48)
+    const petalDissolveMinY = Math.round(height * 0.08)
+    const petalDissolveMaxY = Math.round(height * 0.34)
 
-    for (let y = petalRightMinY; y <= petalRightMaxY; y += tileSize) {
-      for (let x = petalRightMinX; x <= petalRightMaxX; x += tileSize) {
-        const normalizedDist = 1 - (x - petalRightMinX) / (petalRightMaxX - petalRightMinX)
-        if (Math.random() < normalizedDist * 0.72 + 0.12) {
-          const color = petalPalette[Math.floor(Math.random() * petalPalette.length)]
+    for (let y = petalDissolveMinY; y <= petalDissolveMaxY; y += gap) {
+      for (let x = petalDissolveMinX; x <= petalDissolveMaxX; x += gap) {
+        // Density fades as we move further left away from the flower
+        const normalizedDist = (x - petalDissolveMinX) / (petalDissolveMaxX - petalDissolveMinX)
+        const verticalDist = Math.abs(y - (petalDissolveMinY + petalDissolveMaxY) / 2) / (petalDissolveMaxY - petalDissolveMinY)
+        const prob = Math.pow(normalizedDist, 1.4) * (1 - verticalDist * 0.6) * 0.75 + 0.12
+
+        // Check if a tile already exists at this spot
+        const alreadyExists = tiles.some(t => Math.hypot(t.hx - x, t.hy - y) < gap * 0.7)
+        if (!alreadyExists && Math.random() < prob) {
+          const color = petalDriftPalette[Math.floor(Math.random() * petalDriftPalette.length)]
           tiles.push({
             id: idCounter++,
-            homeX: x,
-            homeY: y,
+            hx: x,
+            hy: y,
             targetX: x,
             targetY: y,
             x,
             y,
             vx: 0,
             vy: 0,
-            size: tileSize,
-            color,
-            originalColor: color,
-            photoSourceX: x,
-            photoSourceY: y,
-            isLeaf: false,
-            rotation: 0,
-            targetRotation: 0,
+            size: gap,
+            r: color.r,
+            g: color.g,
+            b: color.b,
+            a: 1,
+            isBotanical: true,
+            isDrift: true,
             scale: 1,
             targetScale: 1,
+            rotation: 0,
+            targetRotation: 0,
             elevation: 1,
             targetElevation: 1,
             phase: Math.random() * Math.PI * 2,
@@ -229,155 +308,37 @@ export function BotanicalPixelDispersion({
       }
     }
 
-    // 3. STEM MOSAIC TILES (Upper stem connecting head to leaves)
-    const stemMinX = Math.round(width * 0.48)
-    const stemMaxX = Math.round(width * 0.58)
-    const stemMinY = Math.round(height * 0.38)
-    const stemMaxY = Math.round(height * 0.50)
-
-    for (let y = stemMinY; y <= stemMaxY; y += tileSize) {
-      for (let x = stemMinX; x <= stemMaxX; x += tileSize) {
-        if (Math.random() < 0.65) {
-          const color = stemPalette[Math.floor(Math.random() * stemPalette.length)]
-          tiles.push({
-            id: idCounter++,
-            homeX: x,
-            homeY: y,
-            targetX: x,
-            targetY: y,
-            x,
-            y,
-            vx: 0,
-            vy: 0,
-            size: tileSize,
-            color,
-            originalColor: color,
-            photoSourceX: x,
-            photoSourceY: y,
-            isLeaf: true,
-            rotation: 0,
-            targetRotation: 0,
-            scale: 1,
-            targetScale: 1,
-            elevation: 1,
-            targetElevation: 1,
-            phase: Math.random() * Math.PI * 2,
-          })
-        }
-      }
-    }
-
-    // 4. LEAF PIXEL CLUSTER (Left Leaf x=0.18 to 0.38, y=0.48 to 0.64)
-    const leafLeftMinX = Math.round(width * 0.18)
-    const leafLeftMaxX = Math.round(width * 0.38)
-    const leafLeftMinY = Math.round(height * 0.48)
-    const leafLeftMaxY = Math.round(height * 0.64)
-
-    for (let y = leafLeftMinY; y <= leafLeftMaxY; y += tileSize) {
-      for (let x = leafLeftMinX; x <= leafLeftMaxX; x += tileSize) {
-        const normalizedDist = (x - leafLeftMinX) / (leafLeftMaxX - leafLeftMinX)
-        if (Math.random() < Math.pow(normalizedDist, 1.1) * 0.75 + 0.12) {
-          const color = leafPalette[Math.floor(Math.random() * leafPalette.length)]
-          tiles.push({
-            id: idCounter++,
-            homeX: x,
-            homeY: y,
-            targetX: x,
-            targetY: y,
-            x,
-            y,
-            vx: 0,
-            vy: 0,
-            size: tileSize,
-            color,
-            originalColor: color,
-            photoSourceX: x,
-            photoSourceY: y,
-            isLeaf: true,
-            rotation: 0,
-            targetRotation: 0,
-            scale: 1,
-            targetScale: 1,
-            elevation: 1,
-            targetElevation: 1,
-            phase: Math.random() * Math.PI * 2,
-          })
-        }
-      }
-    }
-
-    // 5. LEAF PIXEL CLUSTER (Right Leaf x=0.52 to 0.72, y=0.52 to 0.66)
-    const leafRightMinX = Math.round(width * 0.52)
-    const leafRightMaxX = Math.round(width * 0.72)
-    const leafRightMinY = Math.round(height * 0.52)
-    const leafRightMaxY = Math.round(height * 0.66)
-
-    for (let y = leafRightMinY; y <= leafRightMaxY; y += tileSize) {
-      for (let x = leafRightMinX; x <= leafRightMaxX; x += tileSize) {
-        const normalizedDist = 1 - (x - leafRightMinX) / (leafRightMaxX - leafRightMinX)
-        if (Math.random() < Math.pow(normalizedDist, 1.1) * 0.72 + 0.12) {
-          const color = leafPalette[Math.floor(Math.random() * leafPalette.length)]
-          tiles.push({
-            id: idCounter++,
-            homeX: x,
-            homeY: y,
-            targetX: x,
-            targetY: y,
-            x,
-            y,
-            vx: 0,
-            vy: 0,
-            size: tileSize,
-            color,
-            originalColor: color,
-            photoSourceX: x,
-            photoSourceY: y,
-            isLeaf: true,
-            rotation: 0,
-            targetRotation: 0,
-            scale: 1,
-            targetScale: 1,
-            elevation: 1,
-            targetElevation: 1,
-            phase: Math.random() * Math.PI * 2,
-          })
-        }
-      }
-    }
-
-    // 6. Solitary Dispersed Drift Pixels in Negative Space (Exact Yuni Yoshida touches)
-    const driftPositions = [
-      { x: width * 0.34, y: height * 0.32, isLeaf: false },
-      { x: width * 0.74, y: height * 0.36, isLeaf: false },
-      { x: width * 0.34, y: height * 0.46, isLeaf: true },
-      { x: width * 0.33, y: height * 0.68, isLeaf: true },
-      { x: width * 0.65, y: height * 0.64, isLeaf: true },
+    // Solitary negative space drift tiles
+    const negativeDrift = [
+      { x: width * 0.34, y: height * 0.46, r: 115, g: 146, b: 62 },
+      { x: width * 0.33, y: height * 0.68, r: 173, g: 201, b: 101 },
+      { x: width * 0.66, y: height * 0.64, r: 86, g: 107, b: 14 },
+      { x: width * 0.74, y: height * 0.36, r: 217, g: 38, b: 122 },
+      { x: width * 0.34, y: height * 0.32, r: 248, g: 165, b: 194 },
     ]
 
-    driftPositions.forEach((pos) => {
-      const color = pos.isLeaf
-        ? leafPalette[Math.floor(Math.random() * (leafPalette.length - 2))]
-        : petalPalette[Math.floor(Math.random() * (petalPalette.length - 2))]
+    negativeDrift.forEach(pos => {
       tiles.push({
         id: idCounter++,
-        homeX: Math.round(pos.x),
-        homeY: Math.round(pos.y),
+        hx: Math.round(pos.x),
+        hy: Math.round(pos.y),
         targetX: Math.round(pos.x),
         targetY: Math.round(pos.y),
         x: Math.round(pos.x),
         y: Math.round(pos.y),
         vx: 0,
         vy: 0,
-        size: tileSize,
-        color,
-        originalColor: color,
-        photoSourceX: Math.round(pos.x),
-        photoSourceY: Math.round(pos.y),
-        isLeaf: pos.isLeaf,
-        rotation: 0,
-        targetRotation: 0,
+        size: gap,
+        r: pos.r,
+        g: pos.g,
+        b: pos.b,
+        a: 1,
+        isBotanical: true,
+        isDrift: true,
         scale: 1,
         targetScale: 1,
+        rotation: 0,
+        targetRotation: 0,
         elevation: 1,
         targetElevation: 1,
         phase: Math.random() * Math.PI * 2,
@@ -386,9 +347,9 @@ export function BotanicalPixelDispersion({
 
     tilesRef.current = tiles
     setActiveTileCount(tiles.length)
-  }, [])
+  }, [tileSize])
 
-  // Canvas Resize Handler
+  // 5. Canvas Resize Handler with Retina DPR
   useEffect(() => {
     const handleResize = () => {
       const container = containerRef.current
@@ -403,15 +364,15 @@ export function BotanicalPixelDispersion({
       canvas.style.width = `${rect.width}px`
       canvas.style.height = `${rect.height}px`
 
-      initTiles()
+      rasterizeImageIntoTiles()
     }
 
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [initTiles])
+  }, [rasterizeImageIntoTiles])
 
-  // Mouse & Touch Interaction Listeners
+  // 6. Pointer & Touch Interactions
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const clientX = e.clientX - rect.left
@@ -438,54 +399,42 @@ export function BotanicalPixelDispersion({
     setIsHovered(false)
   }
 
-  // Click / Shockwave Burst Interaction
+  // Click Triggered Kinetic Shockwave Ring (from Raster Dynamics Wordmark)
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const clickX = e.clientX - rect.left
     const clickY = e.clientY - rect.top
 
-    // Trigger explosive radial shockwave
-    const tiles = tilesRef.current
-    tiles.forEach((tile) => {
-      const dx = tile.x - clickX
-      const dy = tile.y - clickY
-      const dist = Math.hypot(dx, dy)
-      const shockwaveRadius = 240
-
-      if (dist < shockwaveRadius && dist > 0) {
-        const force = (1 - dist / shockwaveRadius) * 22
-        const angle = Math.atan2(dy, dx)
-        tile.vx += Math.cos(angle) * force
-        tile.vy += Math.sin(angle) * force
-        tile.targetRotation += (Math.random() - 0.5) * 45
-        tile.targetScale = 1.35
-        tile.targetElevation = 18
-      }
-    })
+    ringRef.current = {
+      x: clickX,
+      y: clickY,
+      t: performance.now(),
+      active: true,
+    }
   }
 
-  // Explode All / Reassemble Physics
+  // 7. Global Shatter & Reassemble Physics
   const toggleExplode = () => {
     const tiles = tilesRef.current
     if (!isExploded) {
-      // Scatter tiles dramatically across canvas into floating exploded cloud
+      // Scatter all tiles across canvas into floating 3D suspended cloud
       tiles.forEach((tile) => {
         const angle = Math.random() * Math.PI * 2
-        const distance = 80 + Math.random() * 200
-        tile.targetX = tile.homeX + Math.cos(angle) * distance
-        tile.targetY = tile.homeY + Math.sin(angle) * distance
-        tile.vx = Math.cos(angle) * 12
-        tile.vy = Math.sin(angle) * 12
-        tile.targetRotation = (Math.random() - 0.5) * 120
+        const distance = 80 + Math.random() * 220
+        tile.targetX = tile.hx + Math.cos(angle) * distance
+        tile.targetY = tile.hy + Math.sin(angle) * distance
+        tile.vx = Math.cos(angle) * 14
+        tile.vy = Math.sin(angle) * 14
+        tile.targetRotation = (Math.random() - 0.5) * 140
         tile.targetScale = 0.85 + Math.random() * 0.45
-        tile.targetElevation = 10 + Math.random() * 12
+        tile.targetElevation = 10 + Math.random() * 14
       })
       setIsExploded(true)
     } else {
-      // Snap tiles back home with spring force
+      // Snap all tiles magnetically back to their resting botanical grid
       tiles.forEach((tile) => {
-        tile.targetX = tile.homeX
-        tile.targetY = tile.homeY
+        tile.targetX = tile.hx
+        tile.targetY = tile.hy
         tile.targetRotation = 0
         tile.targetScale = 1
         tile.targetElevation = 1
@@ -494,7 +443,7 @@ export function BotanicalPixelDispersion({
     }
   }
 
-  // Real-time Physics & Rendering Loop (60 FPS)
+  // 8. 60 FPS Real-time Simulation & Render Loop
   useEffect(() => {
     let animationTime = 0
 
@@ -507,6 +456,7 @@ export function BotanicalPixelDispersion({
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       const width = canvas.width / dpr
       const height = canvas.height / dpr
+      const now = performance.now()
 
       ctx.save()
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
@@ -514,63 +464,88 @@ export function BotanicalPixelDispersion({
       animationTime += 0.025
 
       const mouse = mouseRef.current
+      const ring = ringRef.current
       const tiles = tilesRef.current
 
-      // Physics loop for each mosaic tile
+      // Kinetic shockwave ring calculation
+      let ringRadius = 0
+      let ringAge = 0
+      if (ring.active) {
+        ringAge = now - ring.t
+        ringRadius = ringAge * 0.95
+        if (ringAge > 1000) {
+          ring.active = false
+        }
+      }
+
+      // Physics loop for each raster tile
       tiles.forEach((tile) => {
-        // 1. Mouse Interaction Physics
+        // A. Pointer Interaction Physics (Repel / Vortex / Ripple / Attract)
         if (mouse.isActive) {
           const dx = tile.x - mouse.x
           const dy = tile.y - mouse.y
-          const dist = Math.hypot(dx, dy)
+          const dist2 = dx * dx + dy * dy
+          const r = repulsionRadius
 
-          if (dist < repulsionRadius && dist > 0) {
-            const normalizedDist = 1 - dist / repulsionRadius
+          if (dist2 < r * r && dist2 > 0) {
+            const dist = Math.sqrt(dist2)
+            const normalized = 1 - dist / r
 
             if (physicsMode === 'repel') {
-              const force = normalizedDist * repulsionStrength * 6
-              const angle = Math.atan2(dy, dx)
-              tile.vx += Math.cos(angle) * force
-              tile.vy += Math.sin(angle) * force
-              tile.targetScale = 1 + normalizedDist * 0.28
-              tile.targetElevation = 1 + normalizedDist * 14
-              tile.targetRotation = (dx / repulsionRadius) * 12
+              const force = normalized * repulsionStrength * 7
+              tile.vx += (dx / dist) * force
+              tile.vy += (dy / dist) * force
+              tile.targetScale = 1 + normalized * 0.32
+              tile.targetElevation = 2 + normalized * 15
+              tile.targetRotation = (dx / r) * 22
             } else if (physicsMode === 'vortex') {
-              // Swirl tiles in dynamic orbital vortex
-              const force = normalizedDist * repulsionStrength * 5
-              const angle = Math.atan2(dy, dx) + Math.PI / 2
+              const force = normalized * repulsionStrength * 6.5
+              const angle = Math.atan2(dy, dx) + Math.PI * 0.55
               tile.vx += Math.cos(angle) * force
               tile.vy += Math.sin(angle) * force
-              tile.targetScale = 1 + normalizedDist * 0.25
-              tile.targetElevation = 1 + normalizedDist * 12
-              tile.targetRotation += normalizedDist * 4
+              tile.targetScale = 1 + normalized * 0.28
+              tile.targetElevation = 2 + normalized * 13
+              tile.targetRotation += normalized * 7
             } else if (physicsMode === 'ripple') {
-              // Wave ripple undulation
-              const wave = Math.sin(dist * 0.08 - animationTime * 4) * normalizedDist * 4
-              tile.vy += wave * 0.8
-              tile.targetScale = 1 + Math.abs(wave) * 0.15
-              tile.targetElevation = 1 + Math.abs(wave) * 6
+              const wave = Math.sin(dist * 0.1 - animationTime * 6) * normalized * 7
+              tile.vy += wave
+              tile.targetScale = 1 + Math.abs(wave) * 0.16
+              tile.targetElevation = 2 + Math.abs(wave) * 6
             } else if (physicsMode === 'attract') {
-              // Magnetic suction toward cursor
-              const force = normalizedDist * repulsionStrength * 4
-              const angle = Math.atan2(dy, dx)
-              tile.vx -= Math.cos(angle) * force
-              tile.vy -= Math.sin(angle) * force
-              tile.targetScale = 1 + normalizedDist * 0.2
-              tile.targetElevation = 1 + normalizedDist * 10
+              const force = normalized * repulsionStrength * 5
+              tile.vx -= (dx / dist) * force
+              tile.vy -= (dy / dist) * force
+              tile.targetScale = 1 + normalized * 0.24
+              tile.targetElevation = 2 + normalized * 10
             }
           }
         }
 
-        // 2. Spring Force returning tile to target position (home or exploded)
-        const springStiffness = isExploded ? 0.05 : 0.08
+        // B. Kinetic Shockwave Impulse (from click)
+        if (ring.active && ringAge < 1000) {
+          const rdx = tile.hx - ring.x
+          const rdy = tile.hy - ring.y
+          const rdist = Math.hypot(rdx, rdy) + 0.001
+          const band = 1 - Math.min(1, Math.abs(rdist - ringRadius) / 38)
+          if (band > 0) {
+            const shockForce = band * 18 * (1 - ringAge / 1000)
+            tile.vx += (rdx / rdist) * shockForce
+            tile.vy += (rdy / rdist) * shockForce
+            tile.targetRotation += (Math.random() - 0.5) * 45 * band
+            tile.targetScale = 1 + band * 0.38
+            tile.targetElevation = 3 + band * 18
+          }
+        }
+
+        // C. Spring Damping Physics returning tile to target position
+        const springK = isExploded ? 0.04 : 0.075
         const damping = 0.82
 
-        const targetX = isExploded ? (tile.targetX ?? tile.homeX) : tile.homeX
-        const targetY = isExploded ? (tile.targetY ?? tile.homeY) : tile.homeY
+        const targetX = isExploded ? tile.targetX : tile.hx
+        const targetY = isExploded ? tile.targetY : tile.hy
 
-        const fx = (targetX - tile.x) * springStiffness
-        const fy = (targetY - tile.y) * springStiffness
+        const fx = (targetX - tile.x) * springK
+        const fy = (targetY - tile.y) * springK
 
         tile.vx = (tile.vx + fx) * damping
         tile.vy = (tile.vy + fy) * damping
@@ -578,14 +553,14 @@ export function BotanicalPixelDispersion({
         tile.x += tile.vx
         tile.y += tile.vy
 
-        // Ambient organic micro-breathing when not repelled
-        const ambientFloat = Math.sin(animationTime * 1.5 + tile.phase) * 0.35
-        const currentY = tile.y + ambientFloat
+        // Ambient organic micro-breathing when idle
+        const ambient = Math.sin(animationTime * 1.5 + tile.phase) * 0.35
+        const currentY = tile.y + ambient
 
-        // Smooth interpolation of scale, rotation, elevation
-        tile.scale += (tile.targetScale - tile.scale) * 0.1
-        tile.rotation += (tile.targetRotation - tile.rotation) * 0.1
-        tile.elevation += (tile.targetElevation - tile.elevation) * 0.1
+        // Smooth state transitions
+        tile.scale += (tile.targetScale - tile.scale) * 0.12
+        tile.rotation += (tile.targetRotation - tile.rotation) * 0.12
+        tile.elevation += (tile.targetElevation - tile.elevation) * 0.12
 
         if (!isExploded && (!mouse.isActive || Math.hypot(tile.x - mouse.x, tile.y - mouse.y) >= repulsionRadius)) {
           tile.targetScale = 1
@@ -593,68 +568,48 @@ export function BotanicalPixelDispersion({
           tile.targetElevation = 1
         }
 
-        // 3. Render the Tile with Tactile Physical Materials
+        // D. Render the Tile Material
         ctx.save()
-        ctx.translate(tile.x + tile.size / 2, currentY + tile.size / 2)
+        const halfSize = tile.size / 2
+        ctx.translate(tile.x + halfSize, currentY + halfSize)
         ctx.rotate((tile.rotation * Math.PI) / 180)
         ctx.scale(tile.scale, tile.scale)
 
-        const halfSize = tile.size / 2
-
-        // Physical cast shadow on canvas paper
+        // Real-time 3D Paper Shadow
         if (tile.elevation > 1.2) {
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.18)'
-          ctx.shadowBlur = tile.elevation * 1.2
-          ctx.shadowOffsetY = tile.elevation * 0.75
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.22)'
+          ctx.shadowBlur = tile.elevation * 1.25
+          ctx.shadowOffsetY = tile.elevation * 0.8
           ctx.shadowOffsetX = (tile.x - width / 2) * 0.02
         } else {
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.08)'
-          ctx.shadowBlur = 3
-          ctx.shadowOffsetY = 1.5
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.06)'
+          ctx.shadowBlur = 2.5
+          ctx.shadowOffsetY = 1
           ctx.shadowOffsetX = 0
         }
 
-        if (tileStyle === 'analog') {
-          // Authentic Yuni Yoshida Analog Cut Paper Tile
-          ctx.fillStyle = tile.color
+        if (tileStyle === 'paper') {
+          // Authentic Yuni Yoshida Cut-Paper Mosaic
+          ctx.fillStyle = `rgb(${tile.r}, ${tile.g}, ${tile.b})`
           ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
 
-          // Subtle physical paper border bevel
+          // Paper micro-bevel stroke
           ctx.shadowColor = 'transparent'
           ctx.lineWidth = 0.75
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)'
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.32)'
           ctx.strokeRect(-halfSize, -halfSize, tile.size, tile.size)
 
-          // Soft bottom-right paper edge shadow
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'
+          // Subtle paper bottom edge shadow
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
           ctx.fillRect(-halfSize, halfSize - 1, tile.size, 1)
           ctx.fillRect(halfSize - 1, -halfSize, 1, tile.size)
-        } else if (tileStyle === 'glass') {
-          // Prismatic Frosted Glass Tile
-          ctx.fillStyle = tile.color
-          ctx.globalAlpha = 0.85
-          ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
-
-          // Luminous specular highlight
-          ctx.globalAlpha = 1
-          ctx.lineWidth = 1.2
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)'
-          ctx.strokeRect(-halfSize, -halfSize, tile.size, tile.size)
-
-          // Prismatic light beam
-          const grad = ctx.createLinearGradient(-halfSize, -halfSize, halfSize, halfSize)
-          grad.addColorStop(0, 'rgba(255, 255, 255, 0.4)')
-          grad.addColorStop(0.5, 'transparent')
-          grad.addColorStop(1, 'rgba(255, 255, 255, 0.1)')
-          ctx.fillStyle = grad
-          ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
         } else if (tileStyle === 'photo') {
-          // Photographic Slices from Base Flower
+          // Photographic Slices sampled from base flower
           if (baseImageRef.current) {
             ctx.drawImage(
               baseImageRef.current,
-              (tile.photoSourceX / width) * baseImageRef.current.width,
-              (tile.photoSourceY / height) * baseImageRef.current.height,
+              (tile.hx / width) * baseImageRef.current.width,
+              (tile.hy / height) * baseImageRef.current.height,
               (tile.size / width) * baseImageRef.current.width,
               (tile.size / height) * baseImageRef.current.height,
               -halfSize,
@@ -662,21 +617,59 @@ export function BotanicalPixelDispersion({
               tile.size,
               tile.size
             )
-            // Delicate tile boundary
-            ctx.lineWidth = 0.8
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)'
+            ctx.shadowColor = 'transparent'
+            ctx.lineWidth = 0.75
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)'
             ctx.strokeRect(-halfSize, -halfSize, tile.size, tile.size)
           } else {
-            ctx.fillStyle = tile.color
+            ctx.fillStyle = `rgb(${tile.r}, ${tile.g}, ${tile.b})`
             ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
           }
+        } else if (tileStyle === 'halftone') {
+          // Area-True Halftone Dot Matrix (inspired by Raster Dynamics Wordmark)
+          const luminance = (0.299 * tile.r + 0.587 * tile.g + 0.114 * tile.b) / 255
+          const dotRadius = Math.max(2, (1 - luminance * 0.42) * (tile.size * 0.48))
+
+          ctx.fillStyle = `rgb(${tile.r}, ${tile.g}, ${tile.b})`
+          ctx.beginPath()
+          ctx.arc(0, 0, dotRadius, 0, Math.PI * 2)
+          ctx.fill()
+        } else if (tileStyle === 'glass') {
+          // Prismatic Frosted Glass Tile
+          ctx.fillStyle = `rgba(${tile.r}, ${tile.g}, ${tile.b}, 0.82)`
+          ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
+
+          const grad = ctx.createLinearGradient(-halfSize, -halfSize, halfSize, halfSize)
+          grad.addColorStop(0, 'rgba(255, 255, 255, 0.55)')
+          grad.addColorStop(0.5, 'transparent')
+          grad.addColorStop(1, 'rgba(255, 255, 255, 0.15)')
+          ctx.fillStyle = grad
+          ctx.fillRect(-halfSize, -halfSize, tile.size, tile.size)
+
+          ctx.shadowColor = 'transparent'
+          ctx.lineWidth = 1
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'
+          ctx.strokeRect(-halfSize, -halfSize, tile.size, tile.size)
         }
 
         ctx.restore()
       })
 
-      ctx.restore() // restore transform from ctx.save()
+      // E. Analog Print Grain Overlay (from Raster Dynamics Wordmark)
+      const grainTile = grainTileRef.current
+      if (grainTile && grainOpacity > 0) {
+        ctx.globalAlpha = Math.min(1, grainOpacity) * 0.08
+        ctx.globalCompositeOperation = 'overlay'
+        const pattern = ctx.createPattern(grainTile, 'repeat')
+        if (pattern) {
+          ctx.fillStyle = pattern
+          ctx.fillRect(0, 0, width, height)
+        }
+        ctx.globalAlpha = 1
+        ctx.globalCompositeOperation = 'source-over'
+      }
 
+      ctx.restore() // restore transform
       animationFrameRef.current = requestAnimationFrame(render)
     }
 
@@ -686,7 +679,7 @@ export function BotanicalPixelDispersion({
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [physicsMode, repulsionRadius, repulsionStrength, tileStyle, isExploded])
+  }, [physicsMode, repulsionRadius, repulsionStrength, tileStyle, isExploded, grainOpacity])
 
   return (
     <div
@@ -715,34 +708,21 @@ export function BotanicalPixelDispersion({
       }}
       onTouchEnd={handlePointerLeave}
     >
-      {/* 1. BASE BIOLOGICAL FLOWER (High-Definition Botanical Layer) */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
-          showBaseFlower ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <Image
-          src={flowerImageSrc}
-          alt={flowerAlt}
-          fill
-          className="object-contain p-2"
-          priority
-        />
-      </div>
-
-      {/* 2. DYNAMIC MOSAIC PIXEL PARTICLES CANVAS */}
+      {/* 1. DYNAMIC RASTER MOSAIC TILES CANVAS (The entire flower is built here) */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-10"
       />
 
-      {/* 3. MINIMALIST FLOATING GALLERY CONTROLS TRAY (Glassmorphic) */}
+      {/* 2. MINIMALIST FLOATING GALLERY CONTROLS */}
       <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
         <button
           id="toggle-controls-btn"
           type="button"
           onClick={() => setShowControls(!showControls)}
-          className="p-2 rounded-full bg-white/80 hover:bg-white text-black/70 hover:text-black backdrop-blur-md border border-black/10 shadow-xs transition-all cursor-pointer"
+          className={`p-2 rounded-full backdrop-blur-md border border-black/10 shadow-xs transition-all cursor-pointer ${
+            showControls ? 'bg-black text-white' : 'bg-white/80 hover:bg-white text-black/70 hover:text-black'
+          }`}
           title="Toggle Controls"
           aria-label="Toggle Controls"
         >
@@ -755,17 +735,17 @@ export function BotanicalPixelDispersion({
           onClick={toggleExplode}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md border border-black/10 text-[11px] font-mono font-bold tracking-wider uppercase transition-all shadow-xs cursor-pointer ${
             isExploded
-              ? 'bg-rose-500 text-white border-rose-600'
+              ? 'bg-rose-500 text-white border-rose-600 ring-2 ring-rose-500/20'
               : 'bg-white/85 text-black hover:bg-white'
           }`}
-          title={isExploded ? 'Reassemble Mosaic' : 'Scatter Mosaic'}
+          title={isExploded ? 'Reassemble Botanical Mosaic' : 'Shatter Botanical Mosaic'}
         >
           <Zap className="w-3 h-3" />
-          <span>{isExploded ? 'REASSEMBLE' : 'SCATTER'}</span>
+          <span>{isExploded ? 'REASSEMBLE' : 'SHATTER'}</span>
         </button>
       </div>
 
-      {/* 4. EXPANDABLE CONTROL TRAY */}
+      {/* 3. EXPANDABLE RASTER DYNAMICS CONTROL TRAY */}
       <AnimatePresence>
         {showControls && (
           <motion.div
@@ -773,26 +753,32 @@ export function BotanicalPixelDispersion({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-14 right-4 z-20 w-56 bg-white/90 backdrop-blur-md p-3.5 rounded-xl border border-black/10 shadow-lg text-black text-xs font-mono space-y-3"
+            className="absolute top-14 right-4 z-20 w-60 bg-white/92 backdrop-blur-md p-3.5 rounded-xl border border-black/10 shadow-xl text-black text-xs font-mono space-y-3"
           >
             {/* Tile Material */}
             <div>
-              <div className="text-[10px] text-black/50 uppercase tracking-widest mb-1.5 font-bold">
-                TILE MATERIAL
+              <div className="text-[10px] text-black/50 uppercase tracking-widest mb-1.5 font-bold flex items-center justify-between">
+                <span>MATERIAL</span>
+                <span className="text-[9px] lowercase opacity-60">style</span>
               </div>
-              <div className="grid grid-cols-3 gap-1 bg-black/5 p-1 rounded-lg">
-                {(['analog', 'photo', 'glass'] as TileStyle[]).map((mode) => (
+              <div className="grid grid-cols-2 gap-1 bg-black/5 p-1 rounded-lg">
+                {[
+                  { id: 'paper', label: 'Paper Mosaic' },
+                  { id: 'photo', label: 'Photo Slices' },
+                  { id: 'halftone', label: 'Halftone Dots' },
+                  { id: 'glass', label: 'Prism Glass' },
+                ].map((mode) => (
                   <button
-                    key={mode}
+                    key={mode.id}
                     type="button"
-                    onClick={() => setTileStyle(mode)}
-                    className={`py-1 text-[10px] uppercase font-bold rounded-md transition-all cursor-pointer ${
-                      tileStyle === mode
+                    onClick={() => setTileStyle(mode.id as TileStyle)}
+                    className={`py-1 text-[9.5px] uppercase font-bold rounded-md transition-all cursor-pointer ${
+                      tileStyle === mode.id
                         ? 'bg-white text-black shadow-xs'
                         : 'text-black/60 hover:text-black'
                     }`}
                   >
-                    {mode}
+                    {mode.label}
                   </button>
                 ))}
               </div>
@@ -800,8 +786,9 @@ export function BotanicalPixelDispersion({
 
             {/* Cursor Interaction Physics */}
             <div>
-              <div className="text-[10px] text-black/50 uppercase tracking-widest mb-1.5 font-bold">
-                CURSOR PHYSICS
+              <div className="text-[10px] text-black/50 uppercase tracking-widest mb-1.5 font-bold flex items-center justify-between">
+                <span>CURSOR PHYSICS</span>
+                <span className="text-[9px] lowercase opacity-60">dynamics</span>
               </div>
               <div className="grid grid-cols-2 gap-1 bg-black/5 p-1 rounded-lg">
                 {(['repel', 'vortex', 'ripple', 'attract'] as PhysicsMode[]).map((m) => (
@@ -821,11 +808,39 @@ export function BotanicalPixelDispersion({
               </div>
             </div>
 
-            {/* Repulsion Radius Slider */}
+            {/* Tile Resolution / Cell Size */}
+            <div>
+              <div className="flex justify-between text-[10px] text-black/50 uppercase tracking-widest mb-1 font-bold">
+                <span>TILE DENSITY</span>
+                <span>{tileSize}PX</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 bg-black/5 p-1 rounded-lg">
+                {[
+                  { size: 10, label: 'Fine' },
+                  { size: 14, label: 'Medium' },
+                  { size: 18, label: 'Bold' },
+                ].map((res) => (
+                  <button
+                    key={res.size}
+                    type="button"
+                    onClick={() => setTileSize(res.size)}
+                    className={`py-1 text-[9.5px] uppercase font-bold rounded-md transition-all cursor-pointer ${
+                      tileSize === res.size
+                        ? 'bg-white text-black shadow-xs'
+                        : 'text-black/60 hover:text-black'
+                    }`}
+                  >
+                    {res.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Repulsion Force Radius */}
             <div>
               <div className="flex justify-between text-[10px] text-black/50 uppercase tracking-widest mb-1 font-bold">
                 <span>FORCE FIELD</span>
-                <span>{repulsionRadius}px</span>
+                <span>{repulsionRadius}PX</span>
               </div>
               <input
                 type="range"
@@ -837,29 +852,31 @@ export function BotanicalPixelDispersion({
               />
             </div>
 
-            {/* Toggle Base Layer */}
-            <div className="flex items-center justify-between pt-1 border-t border-black/10">
-              <span className="text-[10px] text-black/60 font-bold uppercase tracking-wider">
-                BASE FLOWER
-              </span>
-              <button
-                type="button"
-                onClick={() => setShowBaseFlower(!showBaseFlower)}
-                className="p-1 rounded-md hover:bg-black/5 transition-colors cursor-pointer text-black/80"
-                title={showBaseFlower ? 'Hide Base Layer' : 'Show Base Layer'}
-              >
-                {showBaseFlower ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-              </button>
+            {/* Print Grain Slider */}
+            <div>
+              <div className="flex justify-between text-[10px] text-black/50 uppercase tracking-widest mb-1 font-bold">
+                <span>PRINT GRAIN</span>
+                <span>{Math.round(grainOpacity * 100)}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value={grainOpacity}
+                onChange={(e) => setGrainOpacity(Number(e.target.value))}
+                className="w-full accent-black cursor-pointer h-1 bg-black/10 rounded-lg"
+              />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 5. SUBTLE BOTTOM-LEFT STATUS BADGE */}
+      {/* 4. SUBTLE BOTTOM-LEFT STATUS BADGE */}
       <div className="absolute bottom-4 left-4 z-20 pointer-events-none">
-        <div className="flex items-center gap-2 bg-white/75 backdrop-blur-xs px-2.5 py-1 rounded-full border border-black/5 text-[9.5px] font-mono text-black/60 font-semibold tracking-wider">
+        <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-black/5 text-[9.5px] font-mono text-black/60 font-semibold tracking-wider">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>{activeTileCount} TILES ✦ 60 FPS</span>
+          <span>{activeTileCount.toLocaleString()} TILES ✦ 60 FPS</span>
         </div>
       </div>
     </div>

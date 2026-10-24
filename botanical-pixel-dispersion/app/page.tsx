@@ -14,7 +14,7 @@ export default function Page() {
       <header className="w-full max-w-2xl mx-auto flex items-center justify-between mb-6 text-black/80">
         <div className="flex items-center gap-2.5">
           <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-black/10 shadow-2xs">
-            EDITORIAL EXPERIMENT ✦ 045
+            EDITORIAL EXPERIMENT ✦ 045 • RASTER DYNAMICS
           </span>
         </div>
 
