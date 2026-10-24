@@ -398,7 +398,7 @@ export function BotanicalPixelDispersion({
   }, [initTiles])
 
   // Mouse & Touch Interaction Listeners
-  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const clientX = e.clientX - rect.left
     const clientY = e.clientY - rect.top
@@ -425,7 +425,7 @@ export function BotanicalPixelDispersion({
   }
 
   // Click / Shockwave Burst Interaction
-  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const clickX = e.clientX - rect.left
     const clickY = e.clientY - rect.top
@@ -668,10 +668,29 @@ export function BotanicalPixelDispersion({
   return (
     <div
       ref={containerRef}
+      id="botanical-canvas-container"
       className={`relative w-full max-w-[560px] aspect-[3/4] bg-white rounded-xs gallery-canvas-shadow border border-black/5 overflow-hidden select-none cursor-crosshair ${className}`}
       onPointerMove={handlePointerMove}
+      onMouseMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
+      onMouseLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
+      onMouseDown={handlePointerDown}
+      onTouchMove={(e) => {
+        if (e.touches[0]) {
+          const rect = e.currentTarget.getBoundingClientRect()
+          const clientX = e.touches[0].clientX - rect.left
+          const clientY = e.touches[0].clientY - rect.top
+          const mouse = mouseRef.current
+          mouse.prevX = mouse.x
+          mouse.prevY = mouse.y
+          mouse.x = clientX
+          mouse.y = clientY
+          mouse.isActive = true
+          setIsHovered(true)
+        }
+      }}
+      onTouchEnd={handlePointerLeave}
     >
       {/* 1. BASE BIOLOGICAL FLOWER (High-Definition Botanical Layer) */}
       <div
