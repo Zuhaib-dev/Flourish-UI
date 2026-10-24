@@ -23,6 +23,8 @@ export interface PixelTile {
   id: number
   homeX: number
   homeY: number
+  targetX: number
+  targetY: number
   x: number
   y: number
   vx: number
@@ -164,6 +166,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
+            targetX: x,
+            targetY: y,
             x: x + (Math.random() - 0.5) * 3,
             y: y + (Math.random() - 0.5) * 3,
             vx: 0,
@@ -201,6 +205,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
+            targetX: x,
+            targetY: y,
             x,
             y,
             vx: 0,
@@ -237,6 +243,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
+            targetX: x,
+            targetY: y,
             x,
             y,
             vx: 0,
@@ -274,6 +282,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
+            targetX: x,
+            targetY: y,
             x,
             y,
             vx: 0,
@@ -311,6 +321,8 @@ export function BotanicalPixelDispersion({
             id: idCounter++,
             homeX: x,
             homeY: y,
+            targetX: x,
+            targetY: y,
             x,
             y,
             vx: 0,
@@ -350,6 +362,8 @@ export function BotanicalPixelDispersion({
         id: idCounter++,
         homeX: Math.round(pos.x),
         homeY: Math.round(pos.y),
+        targetX: Math.round(pos.x),
+        targetY: Math.round(pos.y),
         x: Math.round(pos.x),
         y: Math.round(pos.y),
         vx: 0,
@@ -454,18 +468,24 @@ export function BotanicalPixelDispersion({
   const toggleExplode = () => {
     const tiles = tilesRef.current
     if (!isExploded) {
-      // Scatter tiles dramatically across canvas
+      // Scatter tiles dramatically across canvas into floating exploded cloud
       tiles.forEach((tile) => {
-        tile.vx = (Math.random() - 0.5) * 35
-        tile.vy = (Math.random() - 0.5) * 35
-        tile.targetRotation = (Math.random() - 0.5) * 180
-        tile.targetScale = 0.8 + Math.random() * 0.6
-        tile.targetElevation = 12 + Math.random() * 10
+        const angle = Math.random() * Math.PI * 2
+        const distance = 80 + Math.random() * 200
+        tile.targetX = tile.homeX + Math.cos(angle) * distance
+        tile.targetY = tile.homeY + Math.sin(angle) * distance
+        tile.vx = Math.cos(angle) * 12
+        tile.vy = Math.sin(angle) * 12
+        tile.targetRotation = (Math.random() - 0.5) * 120
+        tile.targetScale = 0.85 + Math.random() * 0.45
+        tile.targetElevation = 10 + Math.random() * 12
       })
       setIsExploded(true)
     } else {
       // Snap tiles back home with spring force
       tiles.forEach((tile) => {
+        tile.targetX = tile.homeX
+        tile.targetY = tile.homeY
         tile.targetRotation = 0
         tile.targetScale = 1
         tile.targetElevation = 1
@@ -542,12 +562,15 @@ export function BotanicalPixelDispersion({
           }
         }
 
-        // 2. Spring Force returning tile to its original home position
-        const springStiffness = isExploded ? 0.003 : 0.075
+        // 2. Spring Force returning tile to target position (home or exploded)
+        const springStiffness = isExploded ? 0.05 : 0.08
         const damping = 0.82
 
-        const fx = (tile.homeX - tile.x) * springStiffness
-        const fy = (tile.homeY - tile.y) * springStiffness
+        const targetX = isExploded ? (tile.targetX ?? tile.homeX) : tile.homeX
+        const targetY = isExploded ? (tile.targetY ?? tile.homeY) : tile.homeY
+
+        const fx = (targetX - tile.x) * springStiffness
+        const fy = (targetY - tile.y) * springStiffness
 
         tile.vx = (tile.vx + fx) * damping
         tile.vy = (tile.vy + fy) * damping
@@ -564,7 +587,7 @@ export function BotanicalPixelDispersion({
         tile.rotation += (tile.targetRotation - tile.rotation) * 0.1
         tile.elevation += (tile.targetElevation - tile.elevation) * 0.1
 
-        if (!mouse.isActive || Math.hypot(tile.x - mouse.x, tile.y - mouse.y) >= repulsionRadius) {
+        if (!isExploded && (!mouse.isActive || Math.hypot(tile.x - mouse.x, tile.y - mouse.y) >= repulsionRadius)) {
           tile.targetScale = 1
           tile.targetRotation = 0
           tile.targetElevation = 1
