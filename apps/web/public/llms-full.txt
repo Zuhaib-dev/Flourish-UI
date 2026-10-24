@@ -12,7 +12,7 @@
 - Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
 - GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
 - License: MIT (100% Free for personal and commercial usage)
-- Total Components Cataloged: 45
+- Total Components Cataloged: 50
 - Total Design Categories: 6
 
 ## How to Install Components
