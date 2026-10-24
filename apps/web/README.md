@@ -20,7 +20,7 @@
   <p>
     <a href="https://flourish-ui.vercel.app"><strong>Explore Live Website →</strong></a> • 
     <a href="./public/PublishVideo.mp4">🎬 <strong>Watch Launch Video (MP4)</strong></a> • 
-    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 45+ Components</strong></a> • 
+    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 50+ Components</strong></a> • 
     <a href="https://flourish-ui.vercel.app/developers"><strong>Developer Docs</strong></a>
   </p>
 </div>
@@ -32,7 +32,7 @@
 - [Overview](#-overview)
 - [Why Flourish UI?](#-why-flourish-ui)
 - [Key Features](#-key-features)
-- [Component Categories (45 Components)](#-component-categories-45-components)
+- [Component Categories (50 Components)](#-component-categories-50-components)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Local Development](#-local-development)
@@ -51,7 +51,7 @@
 Every component in the library can be inspected in real time, manipulated with live interactive controls, viewed across responsive viewports, and installed into any Next.js or React project with a single CLI command.
 
 ### 🎯 Key Metrics
-- **45+ Production-Ready Components** across 6 distinct design archetypes.
+- **50+ Production-Ready Components** across 6 distinct design archetypes.
 - **100% Free & Open Source** under the permissive MIT license.
 - **Zero Proprietary Lock-In**: Direct source copy-pasting or automated installation via the standard `shadcn` CLI.
 - **Native Tailwind CSS v4 & React 19** architectural foundation.
@@ -103,16 +103,16 @@ It combines:
 
 ---
 
-## 🗂️ Component Categories (45 Components)
+## 🗂️ Component Categories (50 Components)
 
 | Category | Description | Flagship Components |
 |---|---|---|
-| **Shaders & WebGL** | Procedural WebGL effects, simplex noise, and shader reflections | *Admit One 3D Holographic Ticket, Waves Shaders Homlu UI, Cold Flame Drift, Ink Orbit Hero* |
-| **Skeuomorphic & 3D** | Realistic materials, tactile depth, analog dials, and physical hardware | *Liquid Glass Folder Stack, Skeuomorphic Verify Email, Digital Journal Album, Voyage Planner* |
+| **Shaders & WebGL** | Procedural WebGL effects, simplex noise, and shader reflections | *Admit One 3D Holographic Ticket, Prismatic Liquid Shader, Waves Shaders Homlu UI, Cold Flame Drift, Ink Orbit Hero* |
+| **Skeuomorphic & 3D** | Realistic materials, tactile depth, analog dials, and physical hardware | *Liquid Glass Folder Stack, Shelter Skin Team Dossier, Skeuomorphic Verify Email, Digital Journal Album, Voyage Planner* |
 | **Motion & Physics** | Spring-based choreography, gesture dragging, and responsive hover dynamics | *Velocity Spring System, Kinetic Hover, Draggable Widget Grid, Post Planner Calendar* |
-| **Canvas & Generative** | HTML5 canvas simulations, procedural particles, and generative geometry | *Hero ASCII One, Particle Wordmark, Storybook Play Canvas, Raster Dynamics Wordmark* |
+| **Canvas & Generative** | HTML5 canvas simulations, procedural particles, and generative geometry | *Botanical Pixel Dispersion, Hero ASCII One, Particle Wordmark, Storybook Play Canvas, Raster Dynamics Wordmark* |
 | **Dashboards & Editors** | High-utility workflows, creative tools, and refined analytics | *Agent Orchestration Dashboard, Isometric Dashboard, Proma Content Workspace, Property Comparison* |
-| **Interactive Surfaces** | Expressive sections, delightful error states, and onboarding flows | *Letters from the Garden, Sequel Frontier Footer, Genesis Onboarding Card, House Savings Goal Card, 404 Error Page Component, Bloom Select* |
+| **Interactive Surfaces** | Expressive sections, delightful error states, and onboarding flows | *Morning, Mostly — Five Small Rituals, The Swedish Candy Cart of Your Dreams, Letters from the Garden, Sequel Frontier Footer, Genesis Onboarding Card, House Savings Goal Card, 404 Error Page Component, Bloom Select* |
 
 ---
 
@@ -152,7 +152,7 @@ apps/web/
 │   ├── page.tsx                 # Homepage with hero, spotlights, and interactive catalog
 │   ├── globals.css              # Tailwind v4 theme, fonts, animations, utilities
 │   ├── components/              # Component catalog directory & detail pages (/components/[slug])
-│   ├── previews/                # 45+ isolated preview routes (/previews/[slug])
+│   ├── previews/                # 50+ isolated preview routes (/previews/[slug])
 │   ├── categories/              # Filtered category pages (/categories/[category])
 │   ├── developers/              # Developer guides, CLI instructions, registry docs
 │   ├── changelog/               # Component version history and updates
@@ -166,10 +166,10 @@ apps/web/
 │   ├── sound-toggle.tsx         # Global UI audio switch
 │   └── ui-sounds.ts             # Web Audio API sound generator
 ├── config/
-│   ├── components.ts            # Component metadata database (45 entries)
+│   ├── components.ts            # Component metadata database (50 entries)
 │   └── component-sources/       # Raw TypeScript/TSX source strings for registry distribution
 ├── public/
-│   ├── previews/                # High-res webp/png preview thumbnails for all 45 components
+│   ├── previews/                # High-res webp/png preview thumbnails for all 50 components
 │   ├── flourish-ui-showcase.gif # Animated showcase demo
 │   ├── flourish-ui-showcase.mp4 # HD presentation video
 │   ├── flourish-ui-linkedin-banner.jpg # 3D isometric presentation banner
@@ -258,7 +258,7 @@ Flourish UI includes native support for **WebMCP (Web Model Context Protocol)**,
 
 - **Endpoint**: `/api/mcp`
 - **Exposed Tools**:
-  - `list_components`: Lists all 45 components with slugs, categories, tags, and descriptions.
+  - `list_components`: Lists all 50 components with slugs, categories, tags, and descriptions.
   - `get_component`: Returns full TypeScript source code, installation steps, and prop specifications.
   - `search_components`: Performs semantic search over titles, tags, and categories.
 
