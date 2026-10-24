@@ -1,4 +1,9 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "botanical-pixel-dispersion": () => import("./component-sources/botanical-pixel-dispersion"),
+  "morning-mostly-rituals": () => import("./component-sources/morning-mostly-rituals"),
+  "prismatic-liquid-shader": () => import("./component-sources/prismatic-liquid-shader"),
+  "shelter-skin-team-dossier": () => import("./component-sources/shelter-skin-team-dossier"),
+  "swedish-candy-cart-hero": () => import("./component-sources/swedish-candy-cart-hero"),
   "letters-from-the-garden": () => import("./component-sources/letters-from-the-garden"),
   "sequel-frontier-footer": () => import("./component-sources/sequel-frontier-footer"),
   "storybook-play-canvas": () => import("./component-sources/storybook-play-canvas"),
