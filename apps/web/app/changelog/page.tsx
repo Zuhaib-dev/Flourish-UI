@@ -43,6 +43,15 @@ export const metadata: Metadata = {
 const releases = [
   {
     date: 'October 2026',
+    tag: 'MILESTONE 50+ COMPONENTS',
+    icon: <Sparkles size={15} />,
+    title: '5 New Flagship Components: Botanical Dispersion, Prismatic Liquid, Risograph Rituals, Shelter Dossier & Swedish Candy Cart',
+    body: 'Flourish UI crosses the 50-component milestone with five new extraordinary creations: Botanical Pixel Dispersion (full Yuni Yoshida physical raster tile canvas simulation with click shockwaves and 3D shatter/reassemble), Prismatic Liquid Shader (hyper-fluid WebGL wave shader with perceptual OKLab mixing and 6 spectral presets), Morning, Mostly — Five Small Rituals (mid-century modern risograph editorial gallery and 07:00-09:00 scrubber timeline), Shelter Skin — Meet The Team Dossier (tactile cream paper questionnaire with unpinnable Polaroid and gel-pen handwriting), and The Swedish Candy Cart of Your Dreams — Nectar (Scandinavian lördagsgodis confectionery storefront with scalloped awning and Pick & Mix tasting modal).',
+    tags: ['canvas', 'shaders', 'webgl', 'skeuomorphic', 'editorial', '50+ milestone'],
+    accent: '#e86034',
+  },
+  {
+    date: 'October 2026',
     tag: 'NEW RELEASES (45+ TOTAL)',
     icon: <Sparkles size={15} />,
     title: 'Letters from the Garden & Sequel Frontier Footer',
