@@ -1,6 +1,6 @@
 # Flourish UI
 
-> Flourish UI is an open-source collection of 45+ expressive, interactive React components with live previews, WebGL shaders, tactile skeuomorphism, motion physics, and shadcn CLI registry support.
+> Flourish UI is an open-source collection of 50+ expressive, interactive React components with live previews, WebGL shaders, tactile skeuomorphism, motion physics, and shadcn CLI registry support.
 
 ## Overview
 - Official Website: https://flourish-ui.vercel.app

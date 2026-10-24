@@ -69,6 +69,11 @@ export default function ClientDetailTabs({ component }: { component: ComponentEn
     'storybook-play-canvas': 'StorybookPlayCanvas',
     'letters-from-the-garden': 'LettersFromTheGarden',
     'sequel-frontier-footer': 'SequelFrontierFooter',
+    'botanical-pixel-dispersion': 'BotanicalPixelDispersion',
+    'morning-mostly-rituals': 'MorningMostlyRituals',
+    'prismatic-liquid-shader': 'PrismaticLiquidShader',
+    'shelter-skin-team-dossier': 'ShelterSkinTeamDossier',
+    'swedish-candy-cart-hero': 'SwedishCandyCartHero',
   }
   const exportName = namedExports[component.slug]
   const componentName = exportName ?? 'Component'

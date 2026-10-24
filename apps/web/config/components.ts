@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
@@ -775,6 +775,106 @@ export const components: ComponentEntry[] = [
       "lucide-react"
     ],
     "previewImage": "/previews/sequel-frontier-footer.webp"
+  },
+  {
+    "slug": "botanical-pixel-dispersion",
+    "title": "Botanical Pixel Dispersion",
+    "category": "Canvas & Generative",
+    "description": "An artisanal raster dynamics botanical canvas inspired by Yuni Yoshida and Raster Dynamics Wordmark. Features offscreen sub-pixel color sampling, spring-damper physics, expanding click shockwave rings, 4 tile materials, and global 3D shatter/reassemble mechanics.",
+    "tags": [
+      "canvas",
+      "generative",
+      "physics",
+      "botanical",
+      "spring-damper",
+      "typescript"
+    ],
+    "tone": "rose",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "previewImage": "/previews/botanical-pixel-dispersion.png"
+  },
+  {
+    "slug": "morning-mostly-rituals",
+    "title": "Morning, Mostly — Five Small Rituals",
+    "category": "Interactive Surfaces",
+    "description": "A mid-century modern risograph editorial gallery and interactive timeline component chronicling the quiet hours of early morning. Features dual-axis horizontal drag physics, 07:00-09:00 scrubber timeline, and curatorial print inspector.",
+    "tags": [
+      "interactive surfaces",
+      "editorial",
+      "risograph",
+      "timeline",
+      "motion",
+      "typescript"
+    ],
+    "tone": "amber",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "previewImage": "/previews/morning-mostly-rituals.png"
+  },
+  {
+    "slug": "prismatic-liquid-shader",
+    "title": "Prismatic Liquid Shader",
+    "category": "Shaders & WebGL",
+    "description": "An interactive, hyper-fluid WebGL liquid wave shader featuring perceptual OKLab color transitions, velocity-driven cursor ripples and vortex distortion, 6 curated spectral presets, and hydrodynamic turbulence controls.",
+    "tags": [
+      "shaders",
+      "webgl",
+      "oklab",
+      "fluids",
+      "interactive",
+      "typescript"
+    ],
+    "tone": "violet",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "previewImage": "/previews/prismatic-liquid-shader.png"
+  },
+  {
+    "slug": "shelter-skin-team-dossier",
+    "title": "Shelter Skin — Meet The Team Dossier",
+    "category": "Skeuomorphic & 3D",
+    "description": "A tactile editorial questionnaire dossier card and interactive modal component. Features creamy archival paper, clipped 35mm Polaroid with metallic paperclip, authentic gel-pen handwriting, hand-drawn ink doodles, and interactive scent selector.",
+    "tags": [
+      "skeuomorphic",
+      "editorial",
+      "dossier",
+      "handwritten",
+      "modal",
+      "typescript"
+    ],
+    "tone": "blue",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "previewImage": "/previews/shelter-skin-team-dossier.png"
+  },
+  {
+    "slug": "swedish-candy-cart-hero",
+    "title": "The Swedish Candy Cart of Your Dreams — Nectar",
+    "category": "Interactive Surfaces",
+    "description": "A delightful Scandinavian confectionery storefront hero section inspired by Swedish lördagsgodis. Features pink gingham grid canvas, scalloped valance awning, vintage Piaggio Ape truck, and interactive Pick & Mix tasting menu modal.",
+    "tags": [
+      "interactive surfaces",
+      "editorial",
+      "ecommerce",
+      "confectionery",
+      "motion",
+      "typescript"
+    ],
+    "tone": "rose",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "previewImage": "/previews/swedish-candy-cart-hero.png"
   }
 ]
 
