@@ -226,10 +226,12 @@ export function BotanicalPixelDispersion({
         const avgA = (sumA / samples) / 255
 
         // Botanical Detection: Identify flower petals, center disc, stem, and leaves
-        // Background is pure paper off-white (RGB > 238)
+        // Filter out desaturated paper shadows: shadows have high luminance and near-zero chroma
         const isWhiteBg = avgR > 238 && avgG > 238 && avgB > 238
         const colorDiffFromWhite = Math.max(255 - avgR, 255 - avgG, 255 - avgB)
-        const isBotanical = !isWhiteBg && colorDiffFromWhite > 22 && avgA > 0.3
+        const chroma = Math.max(avgR, avgG, avgB) - Math.min(avgR, avgG, avgB)
+        const luminance = (avgR * 299 + avgG * 587 + avgB * 114) / 1000
+        const isBotanical = !isWhiteBg && avgA > 0.3 && colorDiffFromWhite > 24 && (chroma > 16 || luminance < 155)
 
         if (isBotanical) {
           tiles.push({
