@@ -2311,11 +2311,11 @@ button { cursor: pointer; }
 
 /* Editorial Typography */
 .font-editorial {
-  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Garamond, Georgia, serif;
 }
 
 .font-brand {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Didot, Georgia, serif;
+  font-family: var(--font-playfair), 'Playfair Display', 'Cormorant Garamond', Didot, Georgia, serif;
 }
 
 /* Letters from the Garden Animations */
