@@ -109,10 +109,10 @@ export default async function ComponentPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
       />
-      <div className="noise-overlay" />
+      <div className="noise-overlay" style={{ contentVisibility: 'auto' }} />
       <div className="blueprint-grid" />
-      <div className="radial-glow glow-primary" />
-      <div className="radial-glow glow-secondary" />
+      <div className="radial-glow glow-primary" style={{ willChange: 'transform', contain: 'strict' }} />
+      <div className="radial-glow glow-secondary" style={{ willChange: 'transform', contain: 'strict' }} />
 
       {/* Global Header */}
       <header className="site-header">
@@ -253,6 +253,8 @@ export default async function ComponentPage({
                 src={`/previews/${component.slug}`}
                 className="live-component-frame"
                 loading="lazy"
+                width="100%"
+                height="100%"
                 sandbox="allow-scripts allow-same-origin"
               />
             </div>
@@ -319,7 +321,8 @@ export default async function ComponentPage({
                       src={rel.previewImage}
                       alt={rel.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

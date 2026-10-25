@@ -23,10 +23,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--background);
   color: var(--foreground);
   color-scheme: light;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -77,16 +82,19 @@ button { cursor: pointer; }
   pointer-events: none;
   opacity: 0.015;
   z-index: 999;
+  contain: strict;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Soft Ambient Light Glows */
+/* Soft Ambient Light Glows — GPU layer promoted to avoid main thread repaints */
 .radial-glow {
   position: absolute;
   border-radius: 999px;
   filter: blur(140px);
   pointer-events: none;
   opacity: 0.25;
+  transform: translateZ(0);
+  will-change: transform;
 }
 .glow-primary {
   width: 600px;
@@ -165,7 +173,7 @@ button { cursor: pointer; }
   border: 1px solid rgba(0, 0, 0, 0.09);
   background: #ffffff;
   color: #64748b;
-  transition: all 0.2s var(--ease-out);
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -599,7 +607,7 @@ button { cursor: pointer; }
 .premium-card-footer button { border: 0; padding: 4px 0; background: transparent; color: #44443d; }
 .premium-card-footer button:hover { color: #a44320; }
 .catalog-load-sentinel { display: flex; justify-content: center; padding: 36px 0 12px; }
-.catalog-load-more-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 28px; border: 1px solid #d4d2c8; border-radius: 999px; background: #faf9f5; color: #383832; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .2s ease; }
+.catalog-load-more-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 28px; border: 1px solid #d4d2c8; border-radius: 999px; background: #faf9f5; color: #383832; font-size: 11px; font-weight: 600; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }
 .catalog-load-more-btn:hover { border-color: #a44320; background: #fff; color: #a44320; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
 .catalog-load-more-btn small { color: #55554e; font-size: 9px; font-weight: 400; }
 .premium-list { display: grid; border-top: 1px solid var(--line); }
@@ -925,7 +933,7 @@ button { cursor: pointer; }
   font-size: 11px;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .registry-cta-ghost:hover {
@@ -1033,7 +1041,7 @@ button { cursor: pointer; }
   font-size: 11px;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
 .registry-manager-row button:hover {
@@ -1080,7 +1088,7 @@ button { cursor: pointer; }
   font-size: 11px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all 0.18s ease;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
 .registry-copy-command button:hover {
@@ -1457,7 +1465,7 @@ button { cursor: pointer; }
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 

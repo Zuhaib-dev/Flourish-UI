@@ -20,14 +20,19 @@ const sharedPackageAliases = Object.fromEntries(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   experimental: {
     agentUpgrade: 'security',
+    optimizeServerReact: true,
+    optimizePackageImports: ['lucide-react'],
   },
   poweredByHeader: false,
   compress: true,
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   async headers() {
     return [
@@ -47,7 +52,8 @@ const nextConfig = {
         ],
       },
       {
-        source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        // Only send LLM discovery headers on navigable HTML pages, not API/JSON endpoints
+        source: '/((?!api|_next|r/|openapi\.json|feed\.xml|sitemap\.xml|robots\.txt|.*\.json|.*\.txt|.*\.md|.*\.xml).*)',
         headers: [
           {
             key: 'Link',

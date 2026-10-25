@@ -251,7 +251,8 @@ export default function ChangelogPage() {
                     src={component.previewImage}
                     alt={component.title}
                     fill
-                    sizes="(max-width: 600px) 100vw, 33vw"
+                    loading="lazy"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="changelog-recent-img"
                   />
                 </div>

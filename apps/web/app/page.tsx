@@ -145,7 +145,7 @@ export default function LandingPage() {
         <div className="section-heading"><div><span className="section-kicker">FRESH FROM THE STUDIO</span><h2 id="recent-title">Recently added.</h2></div><a href="/components" className="bento-all-link">Browse the full collection <ArrowRight size={14} /></a></div>
         <div className="selected-grid">
           {recentlyAdded.slice(0, 3).map((item, index) => <a key={item.slug} href={`/components/${item.slug}`} className={`selected-card selected-card-${index + 1}`}>
-            <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
+            <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
             <div className="selected-meta"><span>{item.category}</span><span>NEW</span></div><h3>{item.title}</h3><p>{item.description}</p>
           </a>)}
         </div>
@@ -163,7 +163,7 @@ export default function LandingPage() {
               href={`/components/${item.slug}`}
               className={`selected-card selected-card-${index + 1}`}
             >
-              <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
+              <div className="selected-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><span className="card-open"><ArrowUpRight size={15} /></span></div>
               <div className="selected-meta"><span>{item.category}</span><span>{String(index + 2).padStart(2, '0')}</span></div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
