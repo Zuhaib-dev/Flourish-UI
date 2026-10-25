@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,19 +13,110 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Skiper39 - Crowd Canvas",
-  description: "A generative canvas crowd rendering component",
-  keywords: ["Canvas", "GSAP", "Generative", "UI Component", "React", "Next.js", "Zuhaib Rashid"],
+  metadataBase: new URL("https://flourish-ui.vercel.app"),
+  title: "Skiper39 — Crowd Canvas | Zuhaib Rashid — Flourish UI",
+  description:
+    "A generative canvas crowd rendering component built with GSAP and HTML5 Canvas. Simulates dynamic crowd flow and pedestrian motion across an interactive 2D stage.",
+  keywords: [
+    "skiper39",
+    "crowd canvas",
+    "generative crowd rendering",
+    "gsap canvas animation",
+    "pedestrian simulation",
+    "interactive canvas",
+    "react component",
+    "nextjs",
+    "tailwind css",
+    "Flourish UI",
+    "Zuhaib Rashid",
+  ],
   authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
   creator: "Zuhaib Rashid",
+  publisher: "Flourish UI",
+  category: "Canvas & Generative",
+  alternates: {
+    canonical: "/components/skiper39",
+  },
+  openGraph: {
+    title: "Skiper39 — Crowd Canvas | Flourish UI",
+    description:
+      "A generative canvas crowd rendering component built with GSAP and HTML5 Canvas. Simulates dynamic crowd flow and pedestrian motion across an interactive 2D stage.",
+    url: "/components/skiper39",
+    siteName: "Flourish UI",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/skiper39/public/Preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Skiper39 — Crowd Canvas Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Skiper39 — Crowd Canvas | Zuhaib Rashid — Flourish UI",
+    description:
+      "A generative canvas crowd rendering component built with GSAP and HTML5 Canvas. Simulates dynamic crowd flow and pedestrian motion across an interactive 2D stage.",
+    creator: "@xuhaib_x9",
+    images: [
+      "https://raw.githubusercontent.com/Zuhaib-dev/Flourish-UI/main/skiper39/public/Preview.png",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareSourceCode",
+              name: "Skiper39 — Crowd Canvas",
+              description:
+                "A generative canvas crowd rendering component built with GSAP and HTML5 Canvas. Simulates dynamic crowd flow and pedestrian motion across an interactive 2D stage.",
+              programmingLanguage: "TypeScript",
+              author: {
+                "@type": "Person",
+                name: "Zuhaib Rashid",
+                url: "https://www.zuhaibrashid.com",
+                sameAs: [
+                  "https://github.com/Zuhaib-dev",
+                  "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+                  "https://x.com/xuhaib_x9",
+                ],
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
