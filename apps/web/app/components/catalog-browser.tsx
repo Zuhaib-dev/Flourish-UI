@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import {
   ArrowRight,
@@ -20,6 +20,9 @@ import {
 import { categories, components, installCommand, recentlyAddedSlugs, stats } from '@/config/components'
 import { playUiSound } from '../ui-sounds'
 
+const INITIAL_BATCH = 18
+const BATCH_INCREMENT = 18
+
 function recentlyAddedRank(slug: string) {
   const index = recentlyAddedSlugs.indexOf(slug)
   return index === -1 ? Number.MAX_SAFE_INTEGER : index
@@ -35,6 +38,8 @@ export default function CatalogBrowser() {
   const [savedReady, setSavedReady] = useState(false)
   const [savedOnly, setSavedOnly] = useState(false)
   const [sortBy, setSortBy] = useState<'recent' | 'name' | 'lightest'>('recent')
+  const [visibleLimit, setVisibleLimit] = useState(INITIAL_BATCH)
+  const sentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     try {
@@ -64,6 +69,29 @@ export default function CatalogBrowser() {
     const secondIndex = recentlyAddedRank(second.slug)
     return firstIndex - secondIndex || first.title.localeCompare(second.title)
   }), [selectedCategory, searchQuery, savedOnly, savedSlugs, sortBy])
+
+  useEffect(() => {
+    setVisibleLimit(INITIAL_BATCH)
+  }, [selectedCategory, searchQuery, savedOnly, sortBy])
+
+  useEffect(() => {
+    if (visibleLimit >= filteredComponents.length) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setVisibleLimit((prev) => Math.min(prev + BATCH_INCREMENT, filteredComponents.length))
+        }
+      },
+      { rootMargin: '500px' }
+    )
+    const node = sentinelRef.current
+    if (node) observer.observe(node)
+    return () => observer.disconnect()
+  }, [visibleLimit, filteredComponents.length])
+
+  const displayedComponents = useMemo(() => {
+    return filteredComponents.slice(0, visibleLimit)
+  }, [filteredComponents, visibleLimit])
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { 'All components': components.length }
@@ -115,36 +143,325 @@ export default function CatalogBrowser() {
 
   return (
     <>
-      <button className="catalog-search-trigger catalog-island-search" onClick={openSearch}><Search size={14} /><span>Search library</span><kbd><Command size={10} /> K</kbd></button>
-        <section className="catalog-browser" aria-label="Browse component collection">
-          <div className="catalog-toolbar">
-            <div className="catalog-toolbar-title"><span>01</span><div><strong>Browse the collection</strong><small>{filteredComponents.length} {filteredComponents.length === 1 ? 'result' : 'results'}</small></div></div>
-            <div className="catalog-controls">
-              <label className="catalog-search"><Search size={14} /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search components" aria-label="Search components" />{searchQuery && <button onClick={() => setSearchQuery('')} aria-label="Clear search"><X size={13} /></button>}</label>
-              <label className="catalog-sort"><ArrowDownUp size={13} /><span className="sr-only">Sort components</span><select value={sortBy} onChange={(event) => { playUiSound('filter'); setSortBy(event.target.value as typeof sortBy) }} aria-label="Sort components"><option value="recent">Recently added</option><option value="name">Name: A to Z</option><option value="lightest">Fewest dependencies</option></select></label>
-              <button className={`saved-filter${savedOnly ? ' selected' : ''}`} onClick={() => { playUiSound('filter'); setSavedOnly((active) => !active) }} aria-pressed={savedOnly}><Heart size={13} fill={savedOnly ? 'currentColor' : 'none'} /><span>Saved</span><span>{savedSlugs.length}</span></button>
-              <div className="catalog-view-switch" aria-label="View mode"><button onClick={() => { if (viewMode !== 'grid') playUiSound('tab'); setViewMode('grid') }} className={viewMode === 'grid' ? 'selected' : ''} aria-label="Grid view"><LayoutGrid size={15} /></button><button onClick={() => { if (viewMode !== 'list') playUiSound('tab'); setViewMode('list') }} className={viewMode === 'list' ? 'selected' : ''} aria-label="List view"><List size={15} /></button></div>
+      <button
+        type="button"
+        className="catalog-search-trigger catalog-island-search"
+        onClick={openSearch}
+        aria-label="Search component library (Command K)"
+      >
+        <Search size={14} aria-hidden="true" />
+        <span>Search library</span>
+        <kbd aria-hidden="true"><Command size={10} /> K</kbd>
+      </button>
+
+      <section className="catalog-browser" aria-label="Browse component collection">
+        <div className="catalog-toolbar">
+          <div className="catalog-toolbar-title">
+            <span aria-hidden="true">01</span>
+            <div>
+              <strong>Browse the collection</strong>
+              <small>{filteredComponents.length} {filteredComponents.length === 1 ? 'result' : 'results'}</small>
             </div>
           </div>
+          <div className="catalog-controls">
+            <label className="catalog-search">
+              <Search size={14} aria-hidden="true" />
+              <input
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search components"
+                aria-label="Search components"
+              />
+              {searchQuery && (
+                <button type="button" onClick={() => setSearchQuery('')} aria-label="Clear search">
+                  <X size={13} aria-hidden="true" />
+                </button>
+              )}
+            </label>
+            <label className="catalog-sort">
+              <ArrowDownUp size={13} aria-hidden="true" />
+              <span className="sr-only">Sort components</span>
+              <select
+                value={sortBy}
+                onChange={(event) => { playUiSound('filter'); setSortBy(event.target.value as typeof sortBy) }}
+                aria-label="Sort components"
+              >
+                <option value="recent">Recently added</option>
+                <option value="name">Name: A to Z</option>
+                <option value="lightest">Fewest dependencies</option>
+              </select>
+            </label>
+            <button
+              type="button"
+              className={`saved-filter${savedOnly ? ' selected' : ''}`}
+              onClick={() => { playUiSound('filter'); setSavedOnly((active) => !active) }}
+              aria-label={savedOnly ? 'Show all components' : `Show saved components only (${savedSlugs.length})`}
+              aria-pressed={savedOnly}
+            >
+              <Heart size={13} fill={savedOnly ? 'currentColor' : 'none'} aria-hidden="true" />
+              <span>Saved</span>
+              <span>{savedSlugs.length}</span>
+            </button>
+            <div className="catalog-view-switch" role="group" aria-label="View mode">
+              <button
+                type="button"
+                onClick={() => { if (viewMode !== 'grid') playUiSound('tab'); setViewMode('grid') }}
+                className={viewMode === 'grid' ? 'selected' : ''}
+                aria-label="Grid view"
+                aria-pressed={viewMode === 'grid'}
+              >
+                <LayoutGrid size={15} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={() => { if (viewMode !== 'list') playUiSound('tab'); setViewMode('list') }}
+                className={viewMode === 'list' ? 'selected' : ''}
+                aria-label="List view"
+                aria-pressed={viewMode === 'list'}
+              >
+                <List size={15} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </div>
 
-          <div className="catalog-category-row"><span className="category-label">FILTER BY</span><div className="catalog-categories">{categories.map((category) => <button key={category} onClick={() => { if (category !== selectedCategory) playUiSound('filter'); setSelectedCategory(category) }} className={selectedCategory === category ? 'selected' : ''}>{category}<span>{categoryCounts[category] ?? 0}</span></button>)}</div></div>
+        <div className="catalog-category-row">
+          <span className="category-label">FILTER BY</span>
+          <div className="catalog-categories" role="group" aria-label="Filter by component category">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => { if (category !== selectedCategory) playUiSound('filter'); setSelectedCategory(category) }}
+                className={selectedCategory === category ? 'selected' : ''}
+                aria-label={`Filter by ${category} (${categoryCounts[category] ?? 0} components)`}
+                aria-pressed={selectedCategory === category}
+              >
+                {category}
+                <span>{categoryCounts[category] ?? 0}</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-          {filteredComponents.length ? viewMode === 'grid' ? (
-            <div className="premium-card-grid">
-              
-                {filteredComponents.map((item, index) => (
+        {filteredComponents.length ? (
+          viewMode === 'grid' ? (
+            <>
+              <div className="premium-card-grid">
+                {displayedComponents.map((item, index) => (
                   <article key={item.slug} className="premium-component-card">
-                    <div className="premium-card-visual"><a href={`/components/${item.slug}`} className="premium-card-image"><Image src={item.previewImage} alt={item.title} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" priority={index < 3} loading={index < 3 ? 'eager' : 'lazy'} /><span className="card-image-index">{String(index + 1).padStart(2, '0')} <ArrowUpRight size={13} /></span></a><a className="card-open-new-tab" href={`/previews/${item.slug}`} onClick={() => playUiSound('preview')} target="_blank" rel="noopener noreferrer" aria-label={`Preview ${item.title} in a new tab`} title="Open live preview in a new tab"><ExternalLink size={14} /><span>Live preview</span></a><button className={`save-component${savedSlugs.includes(item.slug) ? ' is-saved' : ''}`} onClick={() => toggleSaved(item.slug)} aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`} aria-pressed={savedSlugs.includes(item.slug)} title={savedSlugs.includes(item.slug) ? 'Remove from saved' : 'Save component'}><Heart size={15} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} /></button></div>
-                    <div className="premium-card-content"><div className="premium-card-category"><span>{item.category}</span><span>{item.dependencies.length ? `${item.dependencies.length} packages` : 'No dependencies'}</span></div><a href={`/components/${item.slug}`} className="premium-card-title">{item.title}</a><p>{item.description}</p><div className="premium-card-footer"><a href={`/components/${item.slug}`}>Explore component <ArrowRight size={13} /></a><button onClick={() => copyCommand(item.slug)} aria-label={`Copy install command for ${item.title}`}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button></div></div>
+                    <div className="premium-card-visual">
+                      <a
+                        href={`/components/${item.slug}`}
+                        className="premium-card-image"
+                        aria-label={`View details and live demo for ${item.title}`}
+                      >
+                        <Image
+                          src={item.previewImage}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                          priority={index === 0}
+                          fetchPriority={index === 0 ? 'high' : 'auto'}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                        <span className="card-image-index">
+                          {String(index + 1).padStart(2, '0')} <ArrowUpRight size={13} aria-hidden="true" />
+                        </span>
+                      </a>
+                      <a
+                        className="card-open-new-tab"
+                        href={`/previews/${item.slug}`}
+                        onClick={() => playUiSound('preview')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open live preview of ${item.title} in a new tab`}
+                        title="Open live preview in a new tab"
+                      >
+                        <ExternalLink size={14} aria-hidden="true" />
+                        <span>Live preview</span>
+                      </a>
+                      <button
+                        type="button"
+                        className={`save-component${savedSlugs.includes(item.slug) ? ' is-saved' : ''}`}
+                        onClick={() => toggleSaved(item.slug)}
+                        aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`}
+                        aria-pressed={savedSlugs.includes(item.slug)}
+                        title={savedSlugs.includes(item.slug) ? 'Remove from saved' : 'Save component'}
+                      >
+                        <Heart size={15} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} aria-hidden="true" />
+                      </button>
+                    </div>
+                    <div className="premium-card-content">
+                      <div className="premium-card-category">
+                        <span>{item.category}</span>
+                        <span>{item.dependencies.length ? `${item.dependencies.length} packages` : 'No dependencies'}</span>
+                      </div>
+                      <a href={`/components/${item.slug}`} className="premium-card-title">
+                        {item.title}
+                      </a>
+                      <p>{item.description}</p>
+                      <div className="premium-card-footer">
+                        <a
+                          href={`/components/${item.slug}`}
+                          aria-label={`Explore details and copy code for ${item.title}`}
+                        >
+                          Explore component <ArrowRight size={13} aria-hidden="true" />
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => copyCommand(item.slug)}
+                          aria-label={`Copy install command for ${item.title}`}
+                        >
+                          {copiedSlug === item.slug ? <Check size={13} aria-hidden="true" /> : <Copy size={13} aria-hidden="true" />}
+                          <span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span>
+                        </button>
+                      </div>
+                    </div>
                   </article>
                 ))}
-              
-            </div>
+              </div>
+
+              {visibleLimit < filteredComponents.length && (
+                <div ref={sentinelRef} className="catalog-load-sentinel">
+                  <button
+                    type="button"
+                    onClick={() => setVisibleLimit((prev) => Math.min(prev + BATCH_INCREMENT, filteredComponents.length))}
+                    className="catalog-load-more-btn"
+                    aria-label={`Load more components (${filteredComponents.length - visibleLimit} remaining)`}
+                  >
+                    <span>Showing {displayedComponents.length} of {filteredComponents.length} components</span>
+                    <small>Scroll down to reveal more</small>
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="premium-list">{filteredComponents.map((item, index) => <article key={item.slug} className="premium-list-row"><span className="list-index">{String(index + 1).padStart(2, '0')}</span><a href={`/components/${item.slug}`} className="list-thumb"><Image src={item.previewImage} alt="" fill sizes="72px" priority={index < 4} loading={index < 4 ? 'eager' : 'lazy'} /></a><div className="list-copy"><a href={`/components/${item.slug}`}>{item.title}</a><p>{item.description}</p></div><span className="list-category">{item.category}</span><button className="list-save" onClick={() => toggleSaved(item.slug)} aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`} aria-pressed={savedSlugs.includes(item.slug)}><Heart size={14} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} /></button><button className="list-copy-command" onClick={() => copyCommand(item.slug)} aria-label={`Copy install command for ${item.title}`}>{copiedSlug === item.slug ? <Check size={13} /> : <Copy size={13} />}<span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span></button><a className="list-open" href={`/previews/${item.slug}`} onClick={() => playUiSound('preview')} target="_blank" rel="noopener noreferrer" aria-label={`Preview ${item.title} in a new tab`} title="Open live preview in a new tab"><ExternalLink size={15} /></a></article>)}</div>
-          ) : <div className="catalog-empty"><span>{savedOnly ? 'YOUR SHORTLIST' : 'NO MATCHES'}</span><strong>{savedOnly && savedSlugs.length === 0 ? 'Save a few to start.' : 'Nothing here just yet.'}</strong><p>{savedOnly && savedSlugs.length === 0 ? 'Tap the heart on any component and it will be waiting here.' : 'Try a different search or clear the selected filters.'}</p><button onClick={() => { setSearchQuery(''); setSelectedCategory('All components'); setSavedOnly(false) }}>{savedOnly && savedSlugs.length === 0 ? 'Browse all components' : 'Reset filters'} <ArrowRight size={13} /></button></div>}
-        </section>
-      {paletteOpen && <div className="search-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) closeSearch() }}><div className="search-dialog"><div className="search-dialog-input"><Search size={17} /><input autoFocus value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Find a component..." /><button onClick={closeSearch} aria-label="Close search"><X size={16} /></button></div><div className="search-results">{visibleSearchResults.map((item) => <a key={item.slug} href={`/components/${item.slug}`}><Image src={item.previewImage} alt="" width={108} height={76} sizes="54px" /><span><strong>{item.title}</strong><small>{item.category}</small></span><ArrowUpRight size={14} /></a>)}{visibleSearchResults.length === 0 && <p className="search-empty">No components found. Try another phrase.</p>}</div><div className="search-hint"><span>Search by title, style, or category</span><kbd>ESC</kbd></div></div></div>}
+            <>
+              <div className="premium-list">
+                {displayedComponents.map((item, index) => (
+                  <article key={item.slug} className="premium-list-row">
+                    <span className="list-index">{String(index + 1).padStart(2, '0')}</span>
+                    <a
+                      href={`/components/${item.slug}`}
+                      className="list-thumb"
+                      aria-label={`View details for ${item.title}`}
+                    >
+                      <Image
+                        src={item.previewImage}
+                        alt=""
+                        fill
+                        sizes="72px"
+                        priority={index === 0}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                      />
+                    </a>
+                    <div className="list-copy">
+                      <a href={`/components/${item.slug}`}>{item.title}</a>
+                      <p>{item.description}</p>
+                    </div>
+                    <span className="list-category">{item.category}</span>
+                    <button
+                      type="button"
+                      className="list-save"
+                      onClick={() => toggleSaved(item.slug)}
+                      aria-label={`${savedSlugs.includes(item.slug) ? 'Remove' : 'Save'} ${item.title}${savedSlugs.includes(item.slug) ? ' from' : ' to'} saved components`}
+                      aria-pressed={savedSlugs.includes(item.slug)}
+                    >
+                      <Heart size={14} fill={savedSlugs.includes(item.slug) ? 'currentColor' : 'none'} aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      className="list-copy-command"
+                      onClick={() => copyCommand(item.slug)}
+                      aria-label={`Copy install command for ${item.title}`}
+                    >
+                      {copiedSlug === item.slug ? <Check size={13} aria-hidden="true" /> : <Copy size={13} aria-hidden="true" />}
+                      <span>{copiedSlug === item.slug ? 'Copied' : 'Copy CLI'}</span>
+                    </button>
+                    <a
+                      className="list-open"
+                      href={`/previews/${item.slug}`}
+                      onClick={() => playUiSound('preview')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Preview ${item.title} in a new tab`}
+                      title="Open live preview in a new tab"
+                    >
+                      <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                  </article>
+                ))}
+              </div>
+
+              {visibleLimit < filteredComponents.length && (
+                <div ref={sentinelRef} className="catalog-load-sentinel">
+                  <button
+                    type="button"
+                    onClick={() => setVisibleLimit((prev) => Math.min(prev + BATCH_INCREMENT, filteredComponents.length))}
+                    className="catalog-load-more-btn"
+                    aria-label={`Load more components (${filteredComponents.length - visibleLimit} remaining)`}
+                  >
+                    <span>Showing {displayedComponents.length} of {filteredComponents.length} components</span>
+                    <small>Scroll down to reveal more</small>
+                  </button>
+                </div>
+              )}
+            </>
+          )
+        ) : (
+          <div className="catalog-empty">
+            <span>{savedOnly ? 'YOUR SHORTLIST' : 'NO MATCHES'}</span>
+            <strong>{savedOnly && savedSlugs.length === 0 ? 'Save a few to start.' : 'Nothing here just yet.'}</strong>
+            <p>{savedOnly && savedSlugs.length === 0 ? 'Tap the heart on any component and it will be waiting here.' : 'Try a different search or clear the selected filters.'}</p>
+            <button
+              type="button"
+              onClick={() => { setSearchQuery(''); setSelectedCategory('All components'); setSavedOnly(false) }}
+            >
+              {savedOnly && savedSlugs.length === 0 ? 'Browse all components' : 'Reset filters'} <ArrowRight size={13} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      </section>
+
+      {paletteOpen && (
+        <div className="search-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) closeSearch() }}>
+          <div className="search-dialog" role="dialog" aria-modal="true" aria-label="Component search dialog">
+            <div className="search-dialog-input">
+              <Search size={17} aria-hidden="true" />
+              <input
+                autoFocus
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Find a component..."
+                aria-label="Find a component by name, category, or tag"
+              />
+              <button type="button" onClick={closeSearch} aria-label="Close search">
+                <X size={16} aria-hidden="true" />
+              </button>
+            </div>
+            <div className="search-results">
+              {visibleSearchResults.map((item) => (
+                <a key={item.slug} href={`/components/${item.slug}`} aria-label={`${item.title} — ${item.category}`}>
+                  <Image src={item.previewImage} alt="" width={108} height={76} sizes="54px" />
+                  <span>
+                    <strong>{item.title}</strong>
+                    <small>{item.category}</small>
+                  </span>
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+              ))}
+              {visibleSearchResults.length === 0 && (
+                <p className="search-empty">No components found. Try another phrase.</p>
+              )}
+            </div>
+            <div className="search-hint">
+              <span>Search by title, style, or category</span>
+              <kbd aria-hidden="true">ESC</kbd>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
