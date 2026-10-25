@@ -1,7 +1,31 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import WebMcpProvider from './webmcp-provider'
 import './globals.css'
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-jakarta',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flourish-ui.vercel.app'),
@@ -89,7 +113,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`light ${cormorantGaramond.variable} ${playfairDisplay.variable} ${plusJakartaSans.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased bg-[#f5f4ef] text-[#191916] min-h-screen selection:bg-orange-200/50 selection:text-[#191916]">
         <script
           type="application/ld+json"
