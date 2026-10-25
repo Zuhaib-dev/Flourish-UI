@@ -5,7 +5,12 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flourish-ui.vercel.app'),
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': 'https://flourish-ui.vercel.app/feed.xml',
+    },
+  },
   title: {
     default: 'Flourish UI — Expressive React Components',
     template: '%s | Flourish UI',

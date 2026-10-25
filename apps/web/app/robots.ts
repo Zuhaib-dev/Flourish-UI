@@ -24,6 +24,7 @@ export default function robots(): MetadataRoute.Robots {
           '/AGENTS.md',
           '/okf/',
           '/.well-known/',
+          '/feed.xml',
         ],
         disallow: ['/previews/'],
       },
@@ -61,11 +62,15 @@ export default function robots(): MetadataRoute.Robots {
           '/AGENTS.md',
           '/okf/',
           '/.well-known/',
+          '/feed.xml',
         ],
         disallow: ['/previews/'],
       },
     ],
-    sitemap: 'https://flourish-ui.vercel.app/sitemap.xml',
+    sitemap: [
+      'https://flourish-ui.vercel.app/sitemap.xml',
+      'https://flourish-ui.vercel.app/feed.xml',
+    ],
     host: 'https://flourish-ui.vercel.app',
   }
 }

@@ -348,6 +348,15 @@ export default async function ComponentPage({
             <span>Crafted by Zuhaib Rashid</span>
           </div>
 
+          <nav className="detail-footer-nav flex items-center gap-4 text-xs font-mono text-zinc-500 flex-wrap" aria-label="Footer navigation">
+            <a href="/components" className="hover:text-zinc-950 transition-colors">Components</a>
+            <a href="/registry" className="hover:text-zinc-950 transition-colors">Registry</a>
+            <a href="/developers" className="hover:text-zinc-950 transition-colors">Developers</a>
+            <a href="/about" className="hover:text-zinc-950 transition-colors">About</a>
+            <a href="/changelog" className="hover:text-zinc-950 transition-colors">Changelog</a>
+            <a href="/contact" className="hover:text-zinc-950 transition-colors">Contact</a>
+          </nav>
+
           <div className="flex items-center gap-6">
             <a
               href="https://github.com/Zuhaib-dev/Flourish-UI"
@@ -395,24 +404,43 @@ export async function generateMetadata({
       ? `${component.description.slice(0, 157).replace(/\s+\S*$/, '')}…`
       : component.description
     : undefined
+  const pageUrl = `https://flourish-ui.vercel.app/components/${slug}`
+  const imageUrl = component ? `https://flourish-ui.vercel.app${component.previewImage}` : 'https://flourish-ui.vercel.app/og-image.png'
   return {
     title,
     description,
-    alternates: { canonical: `/components/${slug}` },
-    keywords: component ? [component.title, 'React UI component', ...component.tags] : undefined,
+    alternates: { canonical: pageUrl },
+    keywords: component ? [component.title, component.slug, component.category, 'React UI component', 'Next.js', 'shadcn registry', 'Flourish UI', 'Zuhaib Rashid', ...component.tags] : undefined,
+    authors: [{ name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' }],
+    creator: 'Zuhaib Rashid',
+    publisher: 'Flourish UI',
+    category: component?.category,
     openGraph: component ? {
       type: 'website',
       siteName: 'Flourish UI',
+      locale: 'en_US',
       title: `${title} | Flourish UI`,
       description,
-      url: `/components/${slug}`,
-      images: [{ url: component.previewImage.replace(/\.webp$/, '.jpg'), alt: `${component.title} component preview` }],
+      url: pageUrl,
+      images: [{ url: imageUrl, alt: `${component.title} component preview` }],
     } : undefined,
     twitter: component ? {
       card: 'summary_large_image',
       title: `${title} | Flourish UI`,
       description,
-      images: [{ url: component.previewImage.replace(/\.webp$/, '.jpg'), alt: `${component.title} component preview` }],
+      creator: '@xuhaib_x9',
+      images: [imageUrl],
     } : undefined,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
   }
 }
