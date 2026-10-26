@@ -416,5 +416,5 @@ An artisanal raster dynamics botanical canvas inspired by Yuni Yoshida and Raste
     <a href="https://www.linkedin.com/in/zuhaib-rashid-661345318/">LinkedIn</a> • 
     <a href="https://x.com/xuhaib_x9">X (@xuhaibx9)</a>
   </p>
-  <p><sub>© 2026 Zuhaib Rashid. All rights reserved.</sub></p>
+  <p><sub>© 2026 Zuhaib Rashid . All rights reserved.</sub></p>
 </div>
