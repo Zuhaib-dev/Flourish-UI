@@ -16,12 +16,12 @@ import { HomeSearch, CopyInstallCommand } from './home-interactions'
 import SoundToggle from './sound-toggle'
 
 export const metadata: Metadata = {
-  title: 'Flourish UI — Expressive React & Next.js Components Library',
+  title: 'Flourish UI — Expressive React Components',
   description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
   alternates: { canonical: 'https://flourish-ui.vercel.app' },
   openGraph: {
     type: 'website',
-    title: 'Flourish UI — Expressive React & Next.js Components Library',
+    title: 'Flourish UI — Expressive React Components',
     description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
     url: 'https://flourish-ui.vercel.app',
     siteName: 'Flourish UI',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flourish UI — Expressive React & Next.js Components Library',
+    title: 'Flourish UI — Expressive React Components',
     description: 'An open collection of expressive, interactive React components with live previews, spring motion, and shadcn CLI support.',
     creator: '@xuhaibx9',
     images: ['/og-image.png'],

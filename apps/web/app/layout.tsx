@@ -150,6 +150,7 @@ export default function RootLayout({
                   '@id': 'https://flourish-ui.vercel.app/#website',
                   url: 'https://flourish-ui.vercel.app/',
                   name: 'Flourish UI',
+                  alternateName: 'flourish-ui.vercel.app',
                   description: 'An open collection of expressive, interactive React components with live previews and copyable source.',
                   inLanguage: 'en',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
