@@ -67,7 +67,7 @@ export const components: ComponentEntry[] = [
     "slug": "auth-section-1",
     "title": "Auth Section Split Portal",
     "category": "Interactive Surfaces",
-    "description": "A gorgeous, highly-converting split-screen authentication component layout built for Next.js.",
+    "description": "A split-screen account creation page with social sign-up buttons, profile and password fields, and a shader-driven visual panel for Next.js.",
     "tags": [
       "interactive surfaces",
       "webgl",
@@ -207,7 +207,7 @@ export const components: ComponentEntry[] = [
     "slug": "draggable-widget-grid",
     "title": "Draggable Widget Observability Grid",
     "category": "Dashboards & Editors",
-    "description": "A beautiful, draggable grid of widgets that can be rearranged seamlessly using `motion/react`.",
+    "description": "A responsive dashboard grid with resizable widget spans, animated drag-and-drop rearrangement, touch support, and keyboard controls using Motion.",
     "tags": [
       "dashboards",
       "motion",
@@ -331,7 +331,7 @@ export const components: ComponentEntry[] = [
     "slug": "particle-wordmark",
     "title": "Interactive Particle Wordmark",
     "category": "Canvas & Generative",
-    "description": "A gorgeous, interactive particle-based wordmark component.",
+    "description": "An animated canvas wordmark effect that renders lettering as a field of moving particles, with light and dark modes and adjustable color settings.",
     "tags": [
       "canvas",
       "webgl",

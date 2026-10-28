@@ -26,7 +26,6 @@ export default function robots(): MetadataRoute.Robots {
           '/.well-known/',
           '/feed.xml',
         ],
-        disallow: ['/previews/'],
       },
       {
         userAgent: [
@@ -64,7 +63,6 @@ export default function robots(): MetadataRoute.Robots {
           '/.well-known/',
           '/feed.xml',
         ],
-        disallow: ['/previews/'],
       },
     ],
     sitemap: [

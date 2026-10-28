@@ -36,12 +36,20 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: '/previews/:path*',
-        headers: [
-          { key: 'X-Robots-Tag', value: 'noindex, follow' },
-        ],
-      },
+      ...[
+        '/api/:path*',
+        '/r/:path*',
+        '/openapi.json',
+        '/llms.txt',
+        '/llms-full.txt',
+        '/pricing.md',
+        '/AGENTS.md',
+        '/okf/:path*',
+        '/.well-known/:path*',
+      ].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      })),
       {
         source: '/(.*)\\.(png|jpg|jpeg|webp|avif|svg|ico)',
         headers: [

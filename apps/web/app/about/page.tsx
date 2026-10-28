@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Code2, Cpu, Globe, Heart, Layers, ShieldCheck
 import { stats } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'About Flourish UI — Open Source Expressive React Components & Story',
+  title: 'About the Project',
   description:
     'Discover the story behind Flourish UI. Created by Zuhaib Rashid, Flourish UI brings tactile skeuomorphism, WebGL shaders, and feeling back to modern React and Next.js interfaces under the MIT license.',
   keywords: [

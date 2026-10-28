@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ArrowRight, ArrowUpRight, HelpCircle, Mail, MessageSquare, Send, Sparkles, Terminal, Wrench } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contact & Developer Support — Flourish UI',
+  title: 'Contact and Developer Support',
   description:
     'Get in touch with the Flourish UI team for developer support, custom WebGL shader engineering, feature requests, design consultations, or community collaborations.',
   keywords: [

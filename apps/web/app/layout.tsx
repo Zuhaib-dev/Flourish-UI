@@ -155,14 +155,6 @@ export default function RootLayout({
                   inLanguage: 'en',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
-                  potentialAction: {
-                    '@type': 'SearchAction',
-                    target: {
-                      '@type': 'EntryPoint',
-                      urlTemplate: 'https://flourish-ui.vercel.app/components?search={search_term_string}',
-                    },
-                    'query-input': 'required name=search_term_string',
-                  },
                 },
                 {
                   '@type': 'Organization',
@@ -186,16 +178,12 @@ export default function RootLayout({
                   },
                 },
                 {
-                  '@type': 'SoftwareApplication',
-                  '@id': 'https://flourish-ui.vercel.app/#software',
-                  name: 'Flourish UI',
-                  applicationCategory: 'DeveloperApplication',
-                  operatingSystem: 'Any',
-                  offers: {
-                    '@type': 'Offer',
-                    price: '0',
-                    priceCurrency: 'USD',
-                  },
+                  '@type': 'SoftwareSourceCode',
+                  '@id': 'https://flourish-ui.vercel.app/#software-source',
+                  name: 'Flourish UI Component Library',
+                  codeRepository: 'https://github.com/Zuhaib-dev/Flourish-UI',
+                  programmingLanguage: 'TypeScript',
+                  runtimePlatform: 'React and Next.js',
                   license: 'https://opensource.org/licenses/MIT',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },

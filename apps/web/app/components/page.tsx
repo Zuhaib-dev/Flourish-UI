@@ -5,8 +5,8 @@ import CatalogBrowser from './catalog-browser'
 import SoundToggle from '../sound-toggle'
 
 export const metadata: Metadata = {
-  title: 'Explore 50+ Expressive React Components | Flourish UI',
-  description: 'Browse the complete collection of 50+ expressive React components with live previews, motion design, WebGL shaders, and shadcn CLI registry support.',
+  title: `Explore ${components.length}+ Expressive React Components`,
+  description: 'Browse 50+ open-source React components with live previews, motion design, WebGL effects, and one-command shadcn CLI installation.',
   keywords: [
     'React components',
     'Next.js component library',
@@ -97,7 +97,7 @@ export default function ComponentsArchivePage() {
       </div></header>
       <main className="catalog-main">
         <nav className="catalog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Components</span></nav>
-        <section className="catalog-intro"><div className="catalog-intro-copy"><span className="catalog-kicker"><i aria-hidden="true" /> THE COLLECTION</span><h1>Find your next<br /><em>starting point.</em></h1><p>A considered set of expressive React components. Explore the details, then bring the source into your own project.</p><div className="catalog-category-links" role="navigation" aria-label="Component categories">{categories.slice(1).map((category) => <a key={category} href={`/categories/${categorySlug(category)}`} aria-label={`Browse ${category} category (${counts[category]} components)`}>{category}<span>{counts[category]}</span></a>)}</div></div><div className="catalog-summary"><div><strong>{String(stats.components).padStart(2, '0')}</strong><span>COMPONENTS</span></div><i aria-hidden="true" /><div><strong>{String(stats.categories).padStart(2, '0')}</strong><span>CATEGORIES</span></div><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer" aria-label="Open source repository on GitHub">OPEN SOURCE <ArrowUpRight size={13} aria-hidden="true" /></a></div></section>
+        <section className="catalog-intro"><div className="catalog-intro-copy"><span className="catalog-kicker"><i aria-hidden="true" /> THE COLLECTION</span><h1>Expressive React<br /><em>components.</em></h1><p>Browse interactive React and Next.js components by category. Try each live preview, review its dependencies, and install the editable source with shadcn CLI.</p><div className="catalog-category-links" role="navigation" aria-label="Component categories">{categories.slice(1).map((category) => <a key={category} href={`/categories/${categorySlug(category)}`} aria-label={`Browse ${category} category (${counts[category]} components)`}>{category}<span>{counts[category]}</span></a>)}</div></div><div className="catalog-summary"><div><strong>{String(stats.components).padStart(2, '0')}</strong><span>COMPONENTS</span></div><i aria-hidden="true" /><div><strong>{String(stats.categories).padStart(2, '0')}</strong><span>CATEGORIES</span></div><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer" aria-label="Open source repository on GitHub">OPEN SOURCE <ArrowUpRight size={13} aria-hidden="true" /></a></div></section>
         <CatalogBrowser />
         <section className="catalog-endcap"><span className="section-kicker">OPEN SOURCE, FULLY YOURS</span><p>Every piece is a starting point.<br /><em>Take it somewhere new.</em></p><a href="https://github.com/Zuhaib-dev/Flourish-UI" target="_blank" rel="noreferrer" aria-label="Explore the Flourish UI GitHub repository">Explore the repository <ArrowUpRight size={14} aria-hidden="true" /></a></section>
       </main>

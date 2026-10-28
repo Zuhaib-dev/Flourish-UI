@@ -16,14 +16,14 @@ import { HomeSearch, CopyInstallCommand } from './home-interactions'
 import SoundToggle from './sound-toggle'
 
 export const metadata: Metadata = {
-  title: 'Flourish UI — Expressive React Components',
+  title: 'Expressive React Components',
   description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
-  alternates: { canonical: 'https://flourish-ui.vercel.app' },
+  alternates: { canonical: 'https://flourish-ui.vercel.app/' },
   openGraph: {
     type: 'website',
     title: 'Flourish UI — Expressive React Components',
     description: 'An open collection of expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.',
-    url: 'https://flourish-ui.vercel.app',
+    url: 'https://flourish-ui.vercel.app/',
     siteName: 'Flourish UI',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Flourish UI — Expressive React Components' }],
   },
@@ -73,8 +73,8 @@ export default function LandingPage() {
       <section className="home-hero">
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-dot" /> AN OPEN COMPONENT LIBRARY <span className="eyebrow-rule" /> {stats.components} AND GROWING</div>
-          <h1>Good interfaces<br />have a little <em>feeling.</em></h1>
-          <p className="hero-description">Expressive React components with the details left in. Built to explore, easy to make your own.</p>
+          <h1>Expressive React components<br />with a little <em>feeling.</em></h1>
+          <p className="hero-description">Explore distinctive React and Next.js components, try the live previews, then install and make the source your own.</p>
           <div className="hero-actions">
             <a href="/components" className="button-dark">Explore the library <ArrowRight size={15} /></a>
             <a href="#selected" className="button-text">See what’s inside <ArrowDownRight size={15} /></a>

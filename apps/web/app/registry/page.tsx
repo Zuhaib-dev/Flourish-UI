@@ -4,7 +4,7 @@ import RegistryCommands from './registry-commands'
 import { components } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'Flourish UI Registry — Install React Components via shadcn CLI',
+  title: 'Install React Components with shadcn CLI',
   description: 'Install Flourish UI components directly into your project with the shadcn CLI. One command brings the complete, editable TypeScript & Tailwind source into your codebase.',
   keywords: [
     'Flourish UI registry',

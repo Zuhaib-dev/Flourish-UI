@@ -12,11 +12,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const category = categoryNames.find((item) => categorySlug(item) === slug)
-  if (!category) return { title: 'Category not found | Flourish UI' }
+  if (!category) return { title: 'Category Not Found' }
   const description = categoryDescriptions[category]
   const pageUrl = `https://flourish-ui.vercel.app/categories/${slug}`
   return {
-    title: `${category} Components — Expressive React Library | Flourish UI`,
+    title: `${category} React Components`,
     description,
     keywords: [
       category,

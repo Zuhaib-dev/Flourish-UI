@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Sparkles, GitBranch, Layers, Rocket, Wrench, 
 import { components, recentlyAddedSlugs } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'Changelog — Updates, New Components & Releases | Flourish UI',
+  title: 'Changelog and Component Releases',
   description: 'Track the latest component releases, design improvements, live previews, and shadcn registry updates in Flourish UI.',
   keywords: [
     'Flourish UI changelog',

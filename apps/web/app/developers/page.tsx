@@ -17,7 +17,7 @@ import ApiTester from './api-tester'
 import { components, stats } from '@/config/components'
 
 export const metadata: Metadata = {
-  title: 'Developer Portal & Public REST API | Flourish UI',
+  title: 'Developer Portal and Public REST API',
   description:
     'Programmatic access to Flourish UI components. Official REST API endpoints, OpenAPI 3.1.0 specification, WebMCP agent tools, and interactive API sandbox.',
   keywords: [

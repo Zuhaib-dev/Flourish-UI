@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ArrowRight, ArrowUpRight, CheckCircle2, Lock, ShieldCheck, Terminal } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Data Ethics — Flourish UI',
+  title: 'Privacy Policy and Data Practices',
   description:
     'Flourish UI privacy policy. Zero tracking cookies, zero runtime telemetry, and complete privacy for developers and end-users. Read our transparent data ethics.',
   keywords: [

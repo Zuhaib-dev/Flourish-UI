@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { stats } from '@/config/components'
 
 const HOMEPAGE_MARKDOWN = `# Flourish UI — Expressive React & Next.js Components
 
-> An open collection of 45+ expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.
+> An open collection of ${stats.components}+ expressive, interactive React components with live previews, tactile skeuomorphism, WebGL shaders, and shadcn CLI registry support.
 
 - **Website**: https://flourish-ui.vercel.app
 - **Components Directory**: https://flourish-ui.vercel.app/components
@@ -26,9 +27,9 @@ pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].jso
 \`\`\`
 `
 
-const COMPONENTS_MARKDOWN = `# Flourish UI — 45+ Component Catalog
+const COMPONENTS_MARKDOWN = `# Flourish UI — ${stats.components}+ Component Catalog
 
-> A curated collection of 45+ interactive, expressive React components ready for one-command installation via shadcn CLI.
+> A curated collection of ${stats.components}+ interactive, expressive React components ready for one-command installation via shadcn CLI.
 
 ## Design Categories
 1. **Shaders & WebGL**: Shader backgrounds, OKLab wave simulations, WebGL 3D ticket foil.
@@ -38,7 +39,7 @@ const COMPONENTS_MARKDOWN = `# Flourish UI — 45+ Component Catalog
 5. **Dashboards & Editors**: Visual workflow nodes, podcast studio workspaces, SEO agent chat UIs.
 6. **Interactive Surfaces**: Editorial cottagecore footers, antique cyanotype engravings, fine-art heroes, offline error pages.
 
-## Ingest All 45 Components
+## Ingest All ${stats.components} Components
 - **Full Single-File Knowledge Bundle**: https://flourish-ui.vercel.app/llms-full.txt
 - **Component Directory API**: https://flourish-ui.vercel.app/api/components
 - **shadcn Registry Catalog**: https://flourish-ui.vercel.app/r/registry.json
@@ -72,7 +73,7 @@ const ABOUT_MARKDOWN = `# About Flourish UI
 Modern design systems have accomplished wonders for baseline usability, but have also fostered a visual monoculture. Flourish UI blends hardware-accelerated WebGL shaders, tactile physical skeuomorphism, dynamic audio synthesis, and fluid spring curves to bring feeling back to web software.
 
 ## Key Stats
-- 45+ Ready Components
+- ${stats.components}+ Ready Components
 - 100% Free under MIT License
 - 0 Vendor Lock-In (Source-first via shadcn CLI)
 - Agent-Ready (OpenAPI, WebMCP, OKF)
