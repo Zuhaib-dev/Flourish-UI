@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #030307;
+  --foreground: #e9e4df;
+  --card: #0a0a12;
+  --card-foreground: #e9e4df;
+  --popover: #0a0a12;
+  --popover-foreground: #e9e4df;
+  --primary: #d3121f;
+  --primary-foreground: #ffffff;
+  --secondary: #161524;
+  --secondary-foreground: #e9e4df;
+  --muted: #161524;
+  --muted-foreground: #8e8a9b;
+  --accent: #231b2e;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(233, 228, 223, 0.12);
+  --input: rgba(233, 228, 223, 0.12);
+  --ring: #d3121f;
+  --radius: 0.75rem;
+
+  --color-background: #030307;
+  --color-foreground: #e9e4df;
+  --color-muted-foreground: #8e8a9b;
+  --color-card: #0a0a12;
+  --color-card-foreground: #e9e4df;
+  --color-border: rgba(233, 228, 223, 0.12);
+  --color-ring: #d3121f;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
