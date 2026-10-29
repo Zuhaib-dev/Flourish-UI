@@ -1,11 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import EtchedAccretion, {
-  AccretionPreset,
-  ACCRETION_PRESETS,
-} from '@/components/ui/etched-accretion'
-import { Sparkles, Eye, Compass, Sliders, ExternalLink, Activity } from 'lucide-react'
+import EtchedAccretion, { AccretionPreset } from '@/components/ui/etched-accretion'
+import { Sliders, ExternalLink, Activity } from 'lucide-react'
 
 const PRESET_LABELS: Record<AccretionPreset, { label: string; desc: string; accent: string }> = {
   crimson: {
