@@ -28,25 +28,9 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['etched-accretion', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
-  {
-    "slug": "etched-accretion",
-    "title": "Etched Accretion",
-    "category": "Shaders & WebGL",
-    "description": "A black hole drawn like a classical copperplate engraving: a tilted accretion disk of hair-thin orbital streaks banded in crimson, a photon crown flaring off the horizon, and dark nebula banks cut out of contour lines. Heavy film grain over deep space. 100% procedural WebGL2 fragment shader.",
-    "tags": [
-      "shaders",
-      "webgl",
-      "canvas",
-      "space",
-      "typescript"
-    ],
-    "tone": "red",
-    "dependencies": [],
-    "previewImage": "/previews/etched-accretion.png"
-  },
   {
     "slug": "admit-one-3-d-holographic-ticket",
     "title": "Admit One 3D Holographic Ticket",
