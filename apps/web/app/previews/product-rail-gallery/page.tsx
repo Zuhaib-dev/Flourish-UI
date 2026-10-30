@@ -1,6 +1,6 @@
 "use client"
 
-import { ClothingRailHero, type RailGarment } from "../../../../../product-rail-gallery/components/ui/product-rail-gallery"
+import { ClothingRailHero, type RailGarment } from "../../../components/preview-components/product-rail-gallery"
 
 const items: RailGarment[] = [
   { id: "tee", name: "Heavyweight tee · Bone", kind: "tee", color: "#e9e2d5", tag: "$48", description: "Organic cotton with a relaxed everyday fit.", details: ["240 gsm cotton", "Regular fit", "Made to layer"] },
