@@ -12,7 +12,7 @@
 - Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
 - GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
 - License: MIT (100% Free for personal and commercial usage)
-- Total Components Cataloged: 50
+- Total Components Cataloged: 52
 - Total Design Categories: 6
 
 ## How to Install Components
@@ -483,6 +483,23 @@ Components land cleanly in `components/flourish/` with zero vendor lock-in.
 - **Component URL**: https://flourish-ui.vercel.app/components/swedish-candy-cart-hero
 - **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/swedish-candy-cart-hero.json`
 - **Source Code API**: `https://flourish-ui.vercel.app/api/components/swedish-candy-cart-hero/source`
+
+### 51. Liquid Glass Navbar (`liquid-glass-navbar`)
+- **Category**: Shaders & WebGL
+- **Description**: A responsive glass navigation bar with a WebGL water shader, spring-driven active indicator, interactive ripples, keyboard navigation, reduced-motion support, and optional synthesized sound.
+- **Tags**: navigation, webgl, glass, motion, accessibility
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/liquid-glass-navbar
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-navbar.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/liquid-glass-navbar/source`
+### 52. Product Rail Gallery (`product-rail-gallery`)
+- **Category**: Skeuomorphic & 3D
+- **Description**: An interactive clothing product gallery with simulated hanger swing, drag and collision physics, a responsive rail-to-carousel layout, and a lightbox for front, back, and side garment views.
+- **Tags**: e-commerce, fashion, 3d, motion, gallery
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/product-rail-gallery
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/product-rail-gallery.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/product-rail-gallery/source`
 
 ## WebMCP In-Browser Autonomous Agent Tools
 Flourish UI implements the WebMCP standard via `document.modelContext` and `navigator.modelContext` for browser AI agents:

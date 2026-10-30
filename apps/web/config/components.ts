@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
@@ -875,7 +875,39 @@ export const components: ComponentEntry[] = [
       "lucide-react"
     ],
     "previewImage": "/previews/swedish-candy-cart-hero.png"
-  }
+  },
+  {
+    "slug": "liquid-glass-navbar",
+    "title": "Liquid Glass Navbar",
+    "category": "Shaders & WebGL",
+    "description": "A responsive glass navigation bar with a WebGL water shader, spring-driven active indicator, interactive ripples, keyboard navigation, reduced-motion support, and optional synthesized sound.",
+    "tags": [
+      "navigation",
+      "webgl",
+      "glass",
+      "motion",
+      "accessibility"
+    ],
+    "tone": "blue",
+    "dependencies": [],
+    "previewImage": "/previews/liquid-glass-navbar.webp"
+  },
+  {
+    "slug": "product-rail-gallery",
+    "title": "Product Rail Gallery",
+    "category": "Skeuomorphic & 3D",
+    "description": "An interactive clothing product gallery with simulated hanger swing, drag and collision physics, a responsive rail-to-carousel layout, and a lightbox for front, back, and side garment views.",
+    "tags": [
+      "e-commerce",
+      "fashion",
+      "3d",
+      "motion",
+      "gallery"
+    ],
+    "tone": "peach",
+    "dependencies": [],
+    "previewImage": "/previews/product-rail-gallery.webp"
+  },
 ]
 
 export const getComponent = (slug: string) => components.find((component) => component.slug === slug)

@@ -1,4 +1,6 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "liquid-glass-navbar": () => import("./component-sources/liquid-glass-navbar"),
+  "product-rail-gallery": () => import("./component-sources/product-rail-gallery"),
   "botanical-pixel-dispersion": () => import("./component-sources/botanical-pixel-dispersion"),
   "morning-mostly-rituals": () => import("./component-sources/morning-mostly-rituals"),
   "prismatic-liquid-shader": () => import("./component-sources/prismatic-liquid-shader"),

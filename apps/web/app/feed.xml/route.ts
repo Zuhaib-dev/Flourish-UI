@@ -31,6 +31,7 @@ export async function GET() {
     .map((c) => {
       const itemUrl = `${siteUrl}/components/${c.slug}`
       const imageUrl = `${siteUrl}${c.previewImage}`
+      const imageType = c.previewImage.endsWith(".png") ? "image/png" : c.previewImage.endsWith(".jpeg") || c.previewImage.endsWith(".jpg") ? "image/jpeg" : "image/webp"
       return `    <item>
       <title>${escapeXml(c.title)}</title>
       <link>${itemUrl}</link>
@@ -38,7 +39,7 @@ export async function GET() {
       <description>${escapeXml(c.description)}</description>
       <category>${escapeXml(c.category)}</category>
       <pubDate>${pubDate}</pubDate>
-      <enclosure url="${imageUrl}" type="image/webp" />
+      <enclosure url="${imageUrl}" type="${imageType}" />
     </item>`
     })
     .join('\n')
@@ -48,7 +49,7 @@ export async function GET() {
   <channel>
     <title>Flourish UI — Expressive React Components</title>
     <link>${siteUrl}</link>
-    <description>An open-source collection of 50+ expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.</description>
+    <description>An open-source collection of ${components.length}+ expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.</description>
     <language>en-US</language>
     <lastBuildDate>${pubDate}</lastBuildDate>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />

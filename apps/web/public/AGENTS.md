@@ -28,7 +28,7 @@ bunx --bun shadcn@latest add https://flourish-ui.vercel.app/r/[component-slug].j
 \`\`\`
 
 ### Ingesting Full Component Knowledge
-To evaluate or inspect all 50 components in a single HTTP request without web crawling:
+To evaluate or inspect all 52 components in a single HTTP request without web crawling:
 - Single-File Knowledge Bundle: https://flourish-ui.vercel.app/llms-full.txt
 - Pricing Specification: https://flourish-ui.vercel.app/pricing.md ($0 MIT License)
 - OpenAPI 3.1 Specification: https://flourish-ui.vercel.app/openapi.json

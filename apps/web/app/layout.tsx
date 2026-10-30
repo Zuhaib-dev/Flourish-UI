@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import WebMcpProvider from './webmcp-provider'
+import { stats } from '@/config/components'
 import './globals.css'
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -187,7 +188,7 @@ export default function RootLayout({
                   license: 'https://opensource.org/licenses/MIT',
                   author: { '@id': 'https://www.zuhaibrashid.com/#person' },
                   publisher: { '@id': 'https://flourish-ui.vercel.app/#organization' },
-                  description: 'An open-source collection of 50+ expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.',
+                  description: `An open-source collection of ${stats.components}+ expressive React and Next.js components with live previews, WebGL shaders, tactile skeuomorphism, and shadcn CLI registry support.`,
                   url: 'https://flourish-ui.vercel.app',
                 },
                 {
@@ -200,7 +201,7 @@ export default function RootLayout({
                       '@type': 'SiteNavigationElement',
                       position: 1,
                       name: 'Components',
-                      description: 'Browse 50+ expressive React components with live previews, spring motion, and source code.',
+                      description: `Browse ${stats.components}+ expressive React components with live previews, spring motion, and source code.`,
                       url: 'https://flourish-ui.vercel.app/components',
                     },
                     {

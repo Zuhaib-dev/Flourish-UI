@@ -6,7 +6,7 @@ import SoundToggle from '../sound-toggle'
 
 export const metadata: Metadata = {
   title: `Explore ${components.length}+ Expressive React Components`,
-  description: 'Browse 50+ open-source React components with live previews, motion design, WebGL effects, and one-command shadcn CLI installation.',
+  description: `Browse ${stats.components}+ open-source React components with live previews, motion design, WebGL effects, and one-command shadcn CLI installation.`,
   keywords: [
     'React components',
     'Next.js component library',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://flourish-ui.vercel.app/components' },
   openGraph: {
-    title: 'Explore 50+ Expressive React Components | Flourish UI',
-    description: 'Browse the complete collection of 50+ expressive React components with live previews and shadcn CLI registry support.',
+    title: `Explore ${stats.components}+ Expressive React Components | Flourish UI`,
+    description: `Browse the complete collection of ${stats.components}+ expressive React components with live previews and shadcn CLI registry support.`,
     type: 'website',
     url: 'https://flourish-ui.vercel.app/components',
     siteName: 'Flourish UI',
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Explore 50+ Expressive React Components | Flourish UI',
-    description: 'Browse 50+ expressive React components with live previews, spring physics, and shadcn CLI registry support.',
+    title: `Explore ${stats.components}+ Expressive React Components | Flourish UI`,
+    description: `Browse ${stats.components}+ expressive React components with live previews, spring physics, and shadcn CLI registry support.`,
     creator: '@xuhaibx9',
     images: ['/og-image.png'],
   },

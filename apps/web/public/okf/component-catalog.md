@@ -1,7 +1,7 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 50 interactive React components in Flourish UI.
+description: Categorized directory of all 52 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
 timestamp: 2026-10-24
@@ -9,9 +9,16 @@ timestamp: 2026-10-24
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 50 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 52 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
+
+### Liquid Glass Navbar (`liquid-glass-navbar`)
+- **Description**: A responsive glass navigation bar with a WebGL water shader, spring-driven active indicator, interactive ripples, keyboard navigation, reduced-motion support, and optional synthesized sound.
+- **URL**: https://flourish-ui.vercel.app/components/liquid-glass-navbar
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/liquid-glass-navbar.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/liquid-glass-navbar/source
+
 
 ### Admit One 3D Holographic Ticket (`admit-one-3-d-holographic-ticket`)
 - **Description**: A high-fidelity 3D holographic foil admission ticket featuring procedural WebGL shaders, Bayer matrix dithering, simplex noise foil, interactive physical mouse tilt, and realistic specular glare.
@@ -38,6 +45,12 @@ Flourish UI categorizes its 50 components into 6 distinct design aesthetics:
 - **Source Code**: https://flourish-ui.vercel.app/api/components/prismatic-liquid-shader/source
 
 ## Skeuomorphic & 3D
+
+### Product Rail Gallery (`product-rail-gallery`)
+- **Description**: An interactive clothing product gallery with simulated hanger swing, drag and collision physics, a responsive rail-to-carousel layout, and a lightbox for front, back, and side garment views.
+- **URL**: https://flourish-ui.vercel.app/components/product-rail-gallery
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/product-rail-gallery.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/product-rail-gallery/source
 
 ### Tactile 3D Credit Card Form (`credit-card-form`)
 - **Description**: A tactile, interactive 3D flippable credit card form component with dynamic input focus highlighting, number slot slide animations, Luhn validation, and smooth dual-sided flip transitions.

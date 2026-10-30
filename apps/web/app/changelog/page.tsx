@@ -42,6 +42,15 @@ export const metadata: Metadata = {
 
 const releases = [
   {
+    date: 'October 30, 2026',
+    tag: 'NEW COMPONENTS',
+    icon: <Sparkles size={15} />,
+    title: 'Liquid Glass Navbar & Product Rail Gallery',
+    body: 'Liquid Glass Navbar adds a shader-driven, keyboard-accessible glass navigation bar with interactive ripples and reduced-motion support. Product Rail Gallery adds a draggable clothing rail with hanger physics, a responsive carousel layout, and garment detail views. Both components now have live previews, searchable catalog pages, source endpoints, and shadcn registry entries.',
+    tags: ['navigation', 'webgl', 'gallery', 'motion', 'registry'],
+    accent: '#3b6ea5',
+  },
+  {
     date: 'October 2026',
     tag: 'MILESTONE 50+ COMPONENTS',
     icon: <Sparkles size={15} />,
