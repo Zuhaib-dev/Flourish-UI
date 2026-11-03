@@ -1032,7 +1032,7 @@ export function ClothingRailHero({
       )}
 
       <div className="relative z-10 flex flex-col items-center gap-4 px-6 pb-8 pt-4 text-center">
-        <div id={`${uid}-caption`} aria-live="polite" className="min-h-[3.25rem]">
+        <div id={`${uid}-caption`} aria-live="polite" className="min-h-13">
           <p key={current?.id ?? "caption"} className="animate-in fade-in text-sm font-medium [animation-duration:300ms] motion-reduce:animate-none">{current ? current.name : caption}</p>
           {current?.description && <p key={`${current.id}-d`} className="mx-auto mt-1 max-w-[42ch] text-[13px] leading-relaxed text-muted-foreground">{current.description}</p>}
         </div>
