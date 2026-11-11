@@ -3,7 +3,7 @@
   <p align="center">
     <strong>A premium, highly interactive UI component library crafted for modern web applications.</strong>
     <br />
-    An artisanal collection of 52 high-fidelity components and design experiments built with React, Next.js, WebGL, Framer Motion, and Tailwind CSS.
+    An artisanal collection of 52+ high-fidelity components and design experiments built with React, Next.js, WebGL, Framer Motion, and Tailwind CSS.
   </p>
   
   <p align="center">
