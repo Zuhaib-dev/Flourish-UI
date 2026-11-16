@@ -1,0 +1,35 @@
+{
+  "name": "emberveil-shader",
+  "version": "0.1.0",
+  "description": "A warm WebGL shader background with flowing ember, copper, and cream gradients for React hero sections.",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "keywords": [
+    "react",
+    "nextjs",
+    "webgl",
+    "shader",
+    "background",
+    "emberveil",
+    "generative-art"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

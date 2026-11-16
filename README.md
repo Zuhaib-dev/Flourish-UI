@@ -1134,6 +1134,13 @@ An impressionist fine-art portfolio hero section and interactive studio dock fea
 
 ---
 
+## Standalone component in progress
+
+### 🔥 [Emberveil Shader](./emberveil-shader)
+A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections. This component is available as a standalone project; its catalog listing and preview image are being prepared separately.
+
+---
+
 <div align="center">
   <h3>✨ Keep Flourishing</h3>
   <p>If you found value in these components, consider starring the repository or sharing it with others.</p>
