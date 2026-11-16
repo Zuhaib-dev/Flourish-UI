@@ -24,12 +24,14 @@ export const metadata: Metadata = {
     siteName: 'Flourish UI',
     locale: 'en_US',
     type: 'website',
+    images: ['/Preview.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Emberveil Shader React Component | Flourish UI",
     description: "A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.",
     creator: '@xuhaib_x9',
+    images: ['/Preview.png'],
   },
 }
 

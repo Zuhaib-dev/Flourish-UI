@@ -3,6 +3,8 @@
 **SEO title:** Emberveil Shader React Component | Flourish UI  
 **Description:** A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.
 
+![Emberveil Shader preview showing a warm flowing ember, copper, and cream WebGL background](./public/Preview.png)
+
 Emberveil is a full-bleed procedural background for hero sections, landing pages, and atmospheric panels. It renders a slowly shifting silk-like field with an ember palette using one WebGL canvas and no runtime libraries beyond React.
 
 ## Quick start
@@ -46,4 +48,4 @@ The parent needs a positioned box with an explicit height. The canvas fills its 
 
 ## SEO and preview
 
-The component name and description above are intended for a future catalog listing. This standalone project does not have a public catalog URL or preview image yet.
+The component name and description above are ready for a future catalog listing. The preview image is included at `public/Preview.png`; the standalone project does not have a public catalog URL yet.
