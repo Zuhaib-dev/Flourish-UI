@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   
     { name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' },
   ],
-  creator: ' Zuhaib Rashid',
+  creator: 'Zuhaib Rashid',
   openGraph: {
     title: 'Glyphwave Scramble React Component | Flourish UI',
     description,
@@ -55,11 +55,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               programmingLanguage: 'TypeScript',
               isBasedOn: 'https://dev.21st.dev/@louisstudios/components/math-scramble',
               author: [
-                {
-                  '@type': 'Organization',
-                  name: 'Louis Studios',
-                  url: 'https://dev.21st.dev/@louisstudios/components/math-scramble',
-                },
                 {
                   '@type': 'Person',
                   name: 'Zuhaib Rashid',
