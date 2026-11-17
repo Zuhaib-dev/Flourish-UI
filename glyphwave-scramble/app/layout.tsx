@@ -53,7 +53,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               name: 'Glyphwave Scramble',
               description,
               programmingLanguage: 'TypeScript',
-              isBasedOn: 'https://dev.21st.dev/@louisstudios/components/math-scramble',
               author: [
                 {
                   '@type': 'Person',
