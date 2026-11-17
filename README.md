@@ -3,7 +3,7 @@
   <p align="center">
     <strong>A premium, highly interactive UI component library crafted for modern web applications.</strong>
     <br />
-    An artisanal collection of 53+ high-fidelity components and design experiments built with React, Next.js, WebGL, Framer Motion, and Tailwind CSS.
+    An artisanal collection of 54+ high-fidelity components and design experiments built with React, Next.js, WebGL, Framer Motion, and Tailwind CSS.
   </p>
   
   <p align="center">
@@ -30,69 +30,82 @@
 ---
 
 <details>
-  <summary><b>📚 Quick Component Directory (All 53 Components)</b> — <i>Click to expand</i></summary>
+  <summary><b>📚 Quick Component Directory (All 54 Components)</b> — <i>Click to expand</i></summary>
   <br />
 
-| # | Component | Live Preview | Source Code |
+| # | Component | Preview | Source Code |
 | :-: | :--- | :---: | :---: |
-| 1 | 🔥 **[Emberveil Shader](./emberveil-shader)** | [🖼️ Preview](./emberveil-shader/public/Preview.png) | [📁 Code](./emberveil-shader) |
-| 2 | 💧 **[Liquid Glass Navbar — "Waterline"](https://flourish-ui.vercel.app/components/liquid-glass-navbar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-navbar) | [📁 Code](./liquid-glass-navbar) |
-| 3 | 👔 **[Product Rail Gallery](https://flourish-ui.vercel.app/components/product-rail-gallery)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/product-rail-gallery) | [📁 Code](./product-rail-gallery) |
-| 4 | 🌸 **[Botanical Pixel Dispersion](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion) | [📁 Code](./botanical-pixel-dispersion) |
-| 5 | 📎 **[Shelter Skin — Meet The Team Dossier](https://flourish-ui.vercel.app/components/shelter-skin-team-dossier)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/shelter-skin-team-dossier) | [📁 Code](./shelter-skin-team-dossier) |
-| 6 | 🍬 **[The Swedish Candy Cart of Your Dreams — Nectar](https://flourish-ui.vercel.app/components/swedish-candy-cart-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/swedish-candy-cart-hero) | [📁 Code](./swedish-candy-cart-hero) |
-| 7 | 🌈 **[Prismatic Liquid Shader](https://flourish-ui.vercel.app/components/prismatic-liquid-shader)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/prismatic-liquid-shader) | [📁 Code](./prismatic-liquid-shader) |
-| 8 | ⏰ **[Morning, Mostly — Five Small Rituals](https://flourish-ui.vercel.app/components/morning-mostly-rituals)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/morning-mostly-rituals) | [📁 Code](./morning-mostly-rituals) |
-| 9 | 🐎 **[Sequel Frontier Footer](https://flourish-ui.vercel.app/components/sequel-frontier-footer)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/sequel-frontier-footer) | [📁 Code](./sequel-frontier-footer) |
-| 10 | 🧺 **[Letters from the garden](https://flourish-ui.vercel.app/components/letters-from-the-garden)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/letters-from-the-garden) | [📁 Code](./letters-from-the-garden) |
-| 11 | 🌸 **[Bloom Select](https://flourish-ui.vercel.app/components/bloom-select)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/bloom-select) | [📁 Code](./bloom-select) |
-| 12 | ✍️ **[Digital Signature Modal](https://flourish-ui.vercel.app/components/digital-signature-modal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/digital-signature-modal) | [📁 Code](./digital-signature-modal) |
-| 13 | 🏡 **[Property Comparison Dashboard](https://flourish-ui.vercel.app/components/property-comparison-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/property-comparison-dashboard) | [📁 Code](./property-comparison-dashboard) |
-| 14 | 📔 **[Digital Journal Album](https://flourish-ui.vercel.app/components/digital-journal-album)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/digital-journal-album) | [📁 Code](./digital-journal-album) |
-| 15 | ✈️ **[Voyage Planner](https://flourish-ui.vercel.app/components/voyage-planner)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/voyage-planner) | [📁 Code](./voyage-planner) |
-| 16 | 📊 **[Isometric Dashboard](https://flourish-ui.vercel.app/components/isometric-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/isometric-dashboard) | [📁 Code](./isometric-dashboard) |
-| 17 | 📬 **[Skeuomorphic Verify Email](https://flourish-ui.vercel.app/components/skeuomorphic-verify-email)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skeuomorphic-verify-email) | [📁 Code](./skeuomorphic-verify-email) |
-| 18 | 🌅 **[Daybreak Editorial](https://flourish-ui.vercel.app/components/daybreak-editorial)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/daybreak-editorial) | [📁 Code](./daybreak-editorial) |
-| 19 | 🖱️ **[Kinetic Hover](https://flourish-ui.vercel.app/components/kinetic-hover)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/kinetic-hover) | [📁 Code](./kinetic-hover) |
-| 20 | 📓 **[Skeuomorphic Notebook Guestbook](https://flourish-ui.vercel.app/components/skeuomorphic-notebook)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skeuomorphic-notebook) | [📁 Code](./skeuomorphic-notebook) |
-| 21 | ☁️ **[Split Sign Up Modal](https://flourish-ui.vercel.app/components/split-signup-modal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/split-signup-modal) | [📁 Code](./split-signup-modal) |
-| 22 | 🌊 **[Velocity Spring System](https://flourish-ui.vercel.app/components/velocity-spring-system)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/velocity-spring-system) | [📁 Code](./velocity-spring-system) |
-| 23 | 📈 **[Dashboard May Look Minimal](https://flourish-ui.vercel.app/components/dashboard-may-look-minimal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/dashboard-may-look-minimal) | [📁 Code](./dashboard-may-look-minimal) |
-| 24 | 🤖 **[Agent Orchestration Dashboard](https://flourish-ui.vercel.app/components/agent-orchestration-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/agent-orchestration-dashboard) | [📁 Code](./agent-orchestration-dashboard) |
-| 25 | 📅 **[Post Planner Calendar](https://flourish-ui.vercel.app/components/post-planner-calendar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/post-planner-calendar) | [📁 Code](./post-planner-calendar) |
-| 26 | 🤖 **[SEO Agent Chat UI](https://flourish-ui.vercel.app/components/seo-agent-chat-ui)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/seo-agent-chat-ui) | [📁 Code](./seo-agent-chat-ui) |
-| 27 | 🎙️ **[Proma Content Workspace](https://flourish-ui.vercel.app/components/proma-content-workspace)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/proma-content-workspace) | [📁 Code](./proma-content-workspace) |
-| 28 | 🕸️ **[FlowAI Canvas](https://flourish-ui.vercel.app/components/flow-ai-canvas)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/flow-ai-canvas) | [📁 Code](./flow-ai-canvas) |
-| 29 | 🎨 **[Quadrant Workspace Setup](https://flourish-ui.vercel.app/components/quadrant-workspace-setup)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/quadrant-workspace-setup) | [📁 Code](./quadrant-workspace-setup) |
-| 30 | 🌴 **[Travel Booking Bento](https://flourish-ui.vercel.app/components/travel-booking-bento)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/travel-booking-bento) | [📁 Code](./travel-booking-bento) |
-| 31 | 🦄 **[Hero ASCII One](https://flourish-ui.vercel.app/components/hero-ascii-one)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/hero-ascii-one) | [📁 Code](./hero-ascii-one) |
-| 32 | 🎬 **[Prisma Hero](https://flourish-ui.vercel.app/components/prisma-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/prisma-hero) | [📁 Code](./prisma-hero) |
-| 33 | 📊 **[Contribution Skyline](https://flourish-ui.vercel.app/components/contribution-skyline)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/contribution-skyline) | [📁 Code](./contribution-skyline) |
-| 34 | 🪐 **[Ink Orbit Hero](https://flourish-ui.vercel.app/components/ink-orbit-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/ink-orbit-hero) | [📁 Code](./ink-orbit-hero) |
-| 35 | 🎟️ **[Ticket Stub Footer](https://flourish-ui.vercel.app/components/ticket-stub-footer)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/ticket-stub-footer) | [📁 Code](./ticket-stub-footer) |
-| 36 | ✨ **[Particle Wordmark](https://flourish-ui.vercel.app/components/particle-wordmark)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/particle-wordmark) | [📁 Code](./particle-wordmark) |
-| 37 | 🔲 **[Draggable Widget Grid](https://flourish-ui.vercel.app/components/draggable-widget-grid)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/draggable-widget-grid) | [📁 Code](./draggable-widget-grid) |
-| 38 | 🚶‍♂️ **[Skiper39 - Crowd Canvas](https://flourish-ui.vercel.app/components/skiper39)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skiper39) | [📁 Code](./skiper39) |
-| 39 | 🔐 **[Auth Section 1](https://flourish-ui.vercel.app/components/auth-section-1)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/auth-section-1) | [📁 Code](./auth-section-1) |
-| 40 | 🔗 **[Share File Dialog](https://flourish-ui.vercel.app/components/share-file-dialog)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/share-file-dialog) | [📁 Code](./share-file-dialog) |
-| 41 | 🔔 **[Live Notification Feed](https://flourish-ui.vercel.app/components/live-notification-feed)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/live-notification-feed) | [📁 Code](./live-notification-feed) |
-| 42 | 💳 **[Credit Card Form](https://flourish-ui.vercel.app/components/credit-card-form)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/credit-card-form) | [📁 Code](./credit-card-form) |
-| 43 | 🎟️ **[Admit One 3D Holographic Ticket](https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket) | [📁 Code](./admit-one-3-d-holographic-ticket) |
-| 44 | 🔥 **[Cold Flame Drift](https://flourish-ui.vercel.app/components/cold-flame-drift)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/cold-flame-drift) | [📁 Code](./cold-flame-drift) |
-| 45 | 🌊 **[Waves Shaders](https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui) | [📁 Code](./waves-shaders-homlu-ui) |
-| 46 | 🪩 **[Raster Dynamics Wordmark](https://flourish-ui.vercel.app/components/raster-dynamics-wordmark)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/raster-dynamics-wordmark) | [📁 Code](./raster-dynamics-wordmark) |
-| 47 | 📁 **[Liquid Glass Folder Stack](https://flourish-ui.vercel.app/components/liquid-glass-folder-stack)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-folder-stack) | [📁 Code](./liquid-glass-folder-stack) |
-| 48 | 🎨 **[Storybook Play Canvas](https://flourish-ui.vercel.app/components/storybook-play-canvas)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/storybook-play-canvas) | [📁 Code](./storybook-play-canvas) |
-| 49 | 🚫 **[No Internet Offline 404](https://flourish-ui.vercel.app/components/404-error-page-component)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/404-error-page-component) | [📁 Code](./404-error-page-component) |
-| 50 | 🎨 **[Create from the Heart](https://flourish-ui.vercel.app/components/create-from-the-heart)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/create-from-the-heart) | [📁 Code](./create-from-the-heart) |
-| 51 | 🏡 **[House Savings Goal Card](https://flourish-ui.vercel.app/components/house-savings-goal-card)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/house-savings-goal-card) | [📁 Code](./house-savings-goal-card) |
-| 52 | 🌌 **[Genesis Onboarding Card](https://flourish-ui.vercel.app/components/genesis-onboarding-card)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/genesis-onboarding-card) | [📁 Code](./genesis-onboarding-card) |
-| 53 | 🎨 **[Design with Soul](https://flourish-ui.vercel.app/components/design-with-soul)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/design-with-soul) | [📁 Code](./design-with-soul) |
+| 1 | ✨ **[Glyphwave Scramble](./glyphwave-scramble)** | [🖼️ Preview](./glyphwave-scramble/public/Preview.png) | [📁 Code](./glyphwave-scramble) |
+| 2 | 🔥 **[Emberveil Shader](./emberveil-shader)** | [🖼️ Preview](./emberveil-shader/public/Preview.png) | [📁 Code](./emberveil-shader) |
+| 3 | 💧 **[Liquid Glass Navbar — "Waterline"](https://flourish-ui.vercel.app/components/liquid-glass-navbar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-navbar) | [📁 Code](./liquid-glass-navbar) |
+| 4 | 👔 **[Product Rail Gallery](https://flourish-ui.vercel.app/components/product-rail-gallery)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/product-rail-gallery) | [📁 Code](./product-rail-gallery) |
+| 5 | 🌸 **[Botanical Pixel Dispersion](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion) | [📁 Code](./botanical-pixel-dispersion) |
+| 6 | 📎 **[Shelter Skin — Meet The Team Dossier](https://flourish-ui.vercel.app/components/shelter-skin-team-dossier)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/shelter-skin-team-dossier) | [📁 Code](./shelter-skin-team-dossier) |
+| 7 | 🍬 **[The Swedish Candy Cart of Your Dreams — Nectar](https://flourish-ui.vercel.app/components/swedish-candy-cart-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/swedish-candy-cart-hero) | [📁 Code](./swedish-candy-cart-hero) |
+| 8 | 🌈 **[Prismatic Liquid Shader](https://flourish-ui.vercel.app/components/prismatic-liquid-shader)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/prismatic-liquid-shader) | [📁 Code](./prismatic-liquid-shader) |
+| 9 | ⏰ **[Morning, Mostly — Five Small Rituals](https://flourish-ui.vercel.app/components/morning-mostly-rituals)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/morning-mostly-rituals) | [📁 Code](./morning-mostly-rituals) |
+| 10 | 🐎 **[Sequel Frontier Footer](https://flourish-ui.vercel.app/components/sequel-frontier-footer)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/sequel-frontier-footer) | [📁 Code](./sequel-frontier-footer) |
+| 11 | 🧺 **[Letters from the garden](https://flourish-ui.vercel.app/components/letters-from-the-garden)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/letters-from-the-garden) | [📁 Code](./letters-from-the-garden) |
+| 12 | 🌸 **[Bloom Select](https://flourish-ui.vercel.app/components/bloom-select)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/bloom-select) | [📁 Code](./bloom-select) |
+| 13 | ✍️ **[Digital Signature Modal](https://flourish-ui.vercel.app/components/digital-signature-modal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/digital-signature-modal) | [📁 Code](./digital-signature-modal) |
+| 14 | 🏡 **[Property Comparison Dashboard](https://flourish-ui.vercel.app/components/property-comparison-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/property-comparison-dashboard) | [📁 Code](./property-comparison-dashboard) |
+| 15 | 📔 **[Digital Journal Album](https://flourish-ui.vercel.app/components/digital-journal-album)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/digital-journal-album) | [📁 Code](./digital-journal-album) |
+| 16 | ✈️ **[Voyage Planner](https://flourish-ui.vercel.app/components/voyage-planner)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/voyage-planner) | [📁 Code](./voyage-planner) |
+| 17 | 📊 **[Isometric Dashboard](https://flourish-ui.vercel.app/components/isometric-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/isometric-dashboard) | [📁 Code](./isometric-dashboard) |
+| 18 | 📬 **[Skeuomorphic Verify Email](https://flourish-ui.vercel.app/components/skeuomorphic-verify-email)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skeuomorphic-verify-email) | [📁 Code](./skeuomorphic-verify-email) |
+| 19 | 🌅 **[Daybreak Editorial](https://flourish-ui.vercel.app/components/daybreak-editorial)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/daybreak-editorial) | [📁 Code](./daybreak-editorial) |
+| 20 | 🖱️ **[Kinetic Hover](https://flourish-ui.vercel.app/components/kinetic-hover)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/kinetic-hover) | [📁 Code](./kinetic-hover) |
+| 21 | 📓 **[Skeuomorphic Notebook Guestbook](https://flourish-ui.vercel.app/components/skeuomorphic-notebook)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skeuomorphic-notebook) | [📁 Code](./skeuomorphic-notebook) |
+| 22 | ☁️ **[Split Sign Up Modal](https://flourish-ui.vercel.app/components/split-signup-modal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/split-signup-modal) | [📁 Code](./split-signup-modal) |
+| 23 | 🌊 **[Velocity Spring System](https://flourish-ui.vercel.app/components/velocity-spring-system)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/velocity-spring-system) | [📁 Code](./velocity-spring-system) |
+| 24 | 📈 **[Dashboard May Look Minimal](https://flourish-ui.vercel.app/components/dashboard-may-look-minimal)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/dashboard-may-look-minimal) | [📁 Code](./dashboard-may-look-minimal) |
+| 25 | 🤖 **[Agent Orchestration Dashboard](https://flourish-ui.vercel.app/components/agent-orchestration-dashboard)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/agent-orchestration-dashboard) | [📁 Code](./agent-orchestration-dashboard) |
+| 26 | 📅 **[Post Planner Calendar](https://flourish-ui.vercel.app/components/post-planner-calendar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/post-planner-calendar) | [📁 Code](./post-planner-calendar) |
+| 27 | 🤖 **[SEO Agent Chat UI](https://flourish-ui.vercel.app/components/seo-agent-chat-ui)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/seo-agent-chat-ui) | [📁 Code](./seo-agent-chat-ui) |
+| 28 | 🎙️ **[Proma Content Workspace](https://flourish-ui.vercel.app/components/proma-content-workspace)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/proma-content-workspace) | [📁 Code](./proma-content-workspace) |
+| 29 | 🕸️ **[FlowAI Canvas](https://flourish-ui.vercel.app/components/flow-ai-canvas)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/flow-ai-canvas) | [📁 Code](./flow-ai-canvas) |
+| 30 | 🎨 **[Quadrant Workspace Setup](https://flourish-ui.vercel.app/components/quadrant-workspace-setup)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/quadrant-workspace-setup) | [📁 Code](./quadrant-workspace-setup) |
+| 31 | 🌴 **[Travel Booking Bento](https://flourish-ui.vercel.app/components/travel-booking-bento)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/travel-booking-bento) | [📁 Code](./travel-booking-bento) |
+| 32 | 🦄 **[Hero ASCII One](https://flourish-ui.vercel.app/components/hero-ascii-one)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/hero-ascii-one) | [📁 Code](./hero-ascii-one) |
+| 33 | 🎬 **[Prisma Hero](https://flourish-ui.vercel.app/components/prisma-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/prisma-hero) | [📁 Code](./prisma-hero) |
+| 34 | 📊 **[Contribution Skyline](https://flourish-ui.vercel.app/components/contribution-skyline)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/contribution-skyline) | [📁 Code](./contribution-skyline) |
+| 35 | 🪐 **[Ink Orbit Hero](https://flourish-ui.vercel.app/components/ink-orbit-hero)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/ink-orbit-hero) | [📁 Code](./ink-orbit-hero) |
+| 36 | 🎟️ **[Ticket Stub Footer](https://flourish-ui.vercel.app/components/ticket-stub-footer)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/ticket-stub-footer) | [📁 Code](./ticket-stub-footer) |
+| 37 | ✨ **[Particle Wordmark](https://flourish-ui.vercel.app/components/particle-wordmark)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/particle-wordmark) | [📁 Code](./particle-wordmark) |
+| 38 | 🔲 **[Draggable Widget Grid](https://flourish-ui.vercel.app/components/draggable-widget-grid)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/draggable-widget-grid) | [📁 Code](./draggable-widget-grid) |
+| 39 | 🚶‍♂️ **[Skiper39 - Crowd Canvas](https://flourish-ui.vercel.app/components/skiper39)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/skiper39) | [📁 Code](./skiper39) |
+| 40 | 🔐 **[Auth Section 1](https://flourish-ui.vercel.app/components/auth-section-1)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/auth-section-1) | [📁 Code](./auth-section-1) |
+| 41 | 🔗 **[Share File Dialog](https://flourish-ui.vercel.app/components/share-file-dialog)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/share-file-dialog) | [📁 Code](./share-file-dialog) |
+| 42 | 🔔 **[Live Notification Feed](https://flourish-ui.vercel.app/components/live-notification-feed)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/live-notification-feed) | [📁 Code](./live-notification-feed) |
+| 43 | 💳 **[Credit Card Form](https://flourish-ui.vercel.app/components/credit-card-form)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/credit-card-form) | [📁 Code](./credit-card-form) |
+| 44 | 🎟️ **[Admit One 3D Holographic Ticket](https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/admit-one-3-d-holographic-ticket) | [📁 Code](./admit-one-3-d-holographic-ticket) |
+| 45 | 🔥 **[Cold Flame Drift](https://flourish-ui.vercel.app/components/cold-flame-drift)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/cold-flame-drift) | [📁 Code](./cold-flame-drift) |
+| 46 | 🌊 **[Waves Shaders](https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/waves-shaders-homlu-ui) | [📁 Code](./waves-shaders-homlu-ui) |
+| 47 | 🪩 **[Raster Dynamics Wordmark](https://flourish-ui.vercel.app/components/raster-dynamics-wordmark)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/raster-dynamics-wordmark) | [📁 Code](./raster-dynamics-wordmark) |
+| 48 | 📁 **[Liquid Glass Folder Stack](https://flourish-ui.vercel.app/components/liquid-glass-folder-stack)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-folder-stack) | [📁 Code](./liquid-glass-folder-stack) |
+| 49 | 🎨 **[Storybook Play Canvas](https://flourish-ui.vercel.app/components/storybook-play-canvas)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/storybook-play-canvas) | [📁 Code](./storybook-play-canvas) |
+| 50 | 🚫 **[No Internet Offline 404](https://flourish-ui.vercel.app/components/404-error-page-component)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/404-error-page-component) | [📁 Code](./404-error-page-component) |
+| 51 | 🎨 **[Create from the Heart](https://flourish-ui.vercel.app/components/create-from-the-heart)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/create-from-the-heart) | [📁 Code](./create-from-the-heart) |
+| 52 | 🏡 **[House Savings Goal Card](https://flourish-ui.vercel.app/components/house-savings-goal-card)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/house-savings-goal-card) | [📁 Code](./house-savings-goal-card) |
+| 53 | 🌌 **[Genesis Onboarding Card](https://flourish-ui.vercel.app/components/genesis-onboarding-card)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/genesis-onboarding-card) | [📁 Code](./genesis-onboarding-card) |
+| 54 | 🎨 **[Design with Soul](https://flourish-ui.vercel.app/components/design-with-soul)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/design-with-soul) | [📁 Code](./design-with-soul) |
 </details>
 
 ---
 
 ## 📦 The Collection
+
+### ✨ [Glyphwave Scramble](./glyphwave-scramble)
+An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place.
+
+<div align="center">
+  <img src="./glyphwave-scramble/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" alt="Glyphwave Scramble preview showing words turning into colorful mathematical symbols" />
+</div>
+
+Add the preview image at `glyphwave-scramble/public/Preview.png` to make the embed visible.
+**Original source:** [Math Scramble by Louis Studios](https://dev.21st.dev/@louisstudios/components/math-scramble) (MIT).
+
+---
 
 ### 🔥 [Emberveil Shader](./emberveil-shader)
 A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.
