@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     'Flourish UI',
   ],
   authors: [
-    { name: 'Louis Studios', url: 'https://dev.21st.dev/@louisstudios/components/math-scramble' },
+  
     { name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' },
   ],
-  creator: 'Louis Studios and Zuhaib Rashid',
+  creator: ' Zuhaib Rashid',
   openGraph: {
     title: 'Glyphwave Scramble React Component | Flourish UI',
     description,
