@@ -4,7 +4,7 @@ This handbook defines how an AI contributor should take a Flourish UI component 
 
 ## What the existing collection is
 
-The visual audit reviewed all 52 entries currently in `apps/web/config/components.ts` and their catalog preview images. The library spans six maintained groups:
+The visual audit reviewed 52 entries in `apps/web/config/components.ts` at the time of the audit and their catalog preview images. The library spans six maintained groups:
 
 - **Shaders & WebGL:** procedural shader effects, liquid and foil treatments, interactive visual fields.
 - **Skeuomorphic & 3D:** tactile objects and dashboards with dimensional materials and physical interaction.
@@ -17,7 +17,7 @@ The common thread is expressive craft with clear interaction and a recognizable 
 
 ### Current inventory distinction
 
-The website registry now has **52 entries**, including the standalone `liquid-glass-navbar` and `product-rail-gallery` projects. A standalone project is considered website-published only after it is present in the catalog and has matching source, preview, image, metadata, and generated endpoint support.
+The website registry now has **53 entries**, including the standalone `liquid-glass-navbar`, `product-rail-gallery`, and `emberveil-shader` projects. A standalone project is considered website-published only after it is present in the catalog and has matching source, preview, image, metadata, and generated endpoint support.
 
 ## A. Build a component that fits the library
 
