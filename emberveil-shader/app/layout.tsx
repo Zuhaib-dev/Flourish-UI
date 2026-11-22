@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/components/emberveil-shader' },
   creator: 'Zuhaib Rashid',
   openGraph: {
-    title: "Emberveil Shader Background React Component",
+    title: "Emberveil Shader Background React Component | Flourish UI",
     description: "A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.",
     url: '/components/emberveil-shader',
     siteName: 'Flourish UI',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Emberveil Shader Background React Component",
+    title: "Emberveil Shader Background React Component | Flourish UI",
     description: "A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.",
     creator: '@xuhaib_x9',
     images: ['/previews/emberveil-shader.webp'],
@@ -58,7 +58,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'SoftwareSourceCode',
-              name: "Emberveil Shader",
+              name: "Emberveil Shader Background",
               description: "A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.",
               programmingLanguage: 'TypeScript',
               author: {

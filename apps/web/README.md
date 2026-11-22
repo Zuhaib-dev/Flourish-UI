@@ -51,7 +51,7 @@
 Every component in the library can be inspected in real time, manipulated with live interactive controls, viewed across responsive viewports, and installed into any Next.js or React project with a single CLI command.
 
 ### 🎯 Key Metrics
-- **52+ Production-Ready Components** across 6 distinct design archetypes.
+- **53 Components** across 6 distinct design archetypes.
 - **100% Free & Open Source** under the permissive MIT license.
 - **Zero Proprietary Lock-In**: Direct source copy-pasting or automated installation via the standard `shadcn` CLI.
 - **Native Tailwind CSS v4 & React 19** architectural foundation.
@@ -107,7 +107,7 @@ It combines:
 
 | Category | Description | Flagship Components |
 |---|---|---|
-| **Shaders & WebGL** | Procedural WebGL effects, simplex noise, and shader reflections | *Admit One 3D Holographic Ticket, Liquid Glass Navbar, Prismatic Liquid Shader, Waves Shaders Homlu UI, Cold Flame Drift, Ink Orbit Hero* |
+| **Shaders & WebGL** | Procedural WebGL effects, simplex noise, and shader reflections | *Emberveil Shader Background, Admit One 3D Holographic Ticket, Liquid Glass Navbar, Prismatic Liquid Shader, Waves Shaders Homlu UI, Cold Flame Drift, Ink Orbit Hero* |
 | **Skeuomorphic & 3D** | Realistic materials, tactile depth, analog dials, and physical hardware | *Product Rail Gallery, Liquid Glass Folder Stack, Shelter Skin Team Dossier, Skeuomorphic Verify Email, Digital Journal Album, Voyage Planner* |
 | **Motion & Physics** | Spring-based choreography, gesture dragging, and responsive hover dynamics | *Velocity Spring System, Kinetic Hover, Draggable Widget Grid, Post Planner Calendar* |
 | **Canvas & Generative** | HTML5 canvas simulations, procedural particles, and generative geometry | *Botanical Pixel Dispersion, Hero ASCII One, Particle Wordmark, Storybook Play Canvas, Raster Dynamics Wordmark* |
@@ -152,7 +152,7 @@ apps/web/
 │   ├── page.tsx                 # Homepage with hero, spotlights, and interactive catalog
 │   ├── globals.css              # Tailwind v4 theme, fonts, animations, utilities
 │   ├── components/              # Component catalog directory & detail pages (/components/[slug])
-│   ├── previews/                # 52+ isolated preview routes (/previews/[slug])
+│   ├── previews/                # 53 isolated preview routes (/previews/[slug])
 │   ├── categories/              # Filtered category pages (/categories/[category])
 │   ├── developers/              # Developer guides, CLI instructions, registry docs
 │   ├── changelog/               # Component version history and updates
