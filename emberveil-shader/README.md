@@ -1,6 +1,8 @@
 # Emberveil Shader
 
-**SEO title:** Emberveil Shader React Component | Flourish UI  
+**Live page:** [Emberveil Shader Background](https://flourish-ui.vercel.app/components/emberveil-shader) · [Interactive preview](https://flourish-ui.vercel.app/previews/emberveil-shader)
+
+**SEO title:** Emberveil Shader Background React Component | Flourish UI  
 **Description:** A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.
 
 ![Emberveil Shader preview showing a warm flowing ember, copper, and cream WebGL background](./public/Preview.png)
@@ -48,4 +50,4 @@ The parent needs a positioned box with an explicit height. The canvas fills its 
 
 ## SEO and preview
 
-The component name and description above are ready for a future catalog listing. The preview image is included at `public/Preview.png`; the standalone project does not have a public catalog URL yet.
+The preview image is included at `public/Preview.png`. The public component page and isolated interactive preview are linked above.

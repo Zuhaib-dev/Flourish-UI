@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['emberveil-shader', 'liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
@@ -218,6 +218,22 @@ export const components: ComponentEntry[] = [
       "motion"
     ],
     "previewImage": "/previews/draggable-widget-grid.webp"
+  },
+  {
+    "slug": "emberveil-shader",
+    "title": "Emberveil Shader Background",
+    "category": "Shaders & WebGL",
+    "description": "A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.",
+    "tags": [
+      "shaders",
+      "webgl",
+      "background",
+      "generative-art",
+      "typescript"
+    ],
+    "tone": "amber",
+    "dependencies": [],
+    "previewImage": "/previews/emberveil-shader.webp"
   },
   {
     "slug": "flow-ai-canvas",

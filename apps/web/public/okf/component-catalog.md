@@ -1,7 +1,7 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 52 interactive React components in Flourish UI.
+description: Categorized directory of all 53 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
 timestamp: 2026-10-24
@@ -9,7 +9,7 @@ timestamp: 2026-10-24
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 52 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 53 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
 
@@ -43,6 +43,12 @@ Flourish UI categorizes its 52 components into 6 distinct design aesthetics:
 - **URL**: https://flourish-ui.vercel.app/components/prismatic-liquid-shader
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/prismatic-liquid-shader.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/prismatic-liquid-shader/source
+
+### Emberveil Shader Background (`emberveil-shader`)
+- **Description**: A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.
+- **URL**: https://flourish-ui.vercel.app/components/emberveil-shader
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/emberveil-shader.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/emberveil-shader/source
 
 ## Skeuomorphic & 3D
 

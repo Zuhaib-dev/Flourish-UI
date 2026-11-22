@@ -11,7 +11,7 @@
     <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" /></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
     <a href="https://www.framer.com/motion/"><img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" /></a>
-    <a href="https://flourish-ui.vercel.app"><img src="https://img.shields.io/badge/52_Live_Components-flourish--ui-00a2ff?style=for-the-badge&logo=vercel&logoColor=white" alt="Components" /></a>
+    <a href="https://flourish-ui.vercel.app"><img src="https://img.shields.io/badge/53_Live_Components-flourish--ui-00a2ff?style=for-the-badge&logo=vercel&logoColor=white" alt="Components" /></a>
   </p>
   
   <p align="center">
@@ -36,7 +36,7 @@
 | # | Component | Preview | Source Code |
 | :-: | :--- | :---: | :---: |
 | 1 | ✨ **[Glyphwave Scramble](./glyphwave-scramble)** | [🖼️ Preview](./glyphwave-scramble/public/Preview.png) | [📁 Code](./glyphwave-scramble) |
-| 2 | 🔥 **[Emberveil Shader](./emberveil-shader)** | [🖼️ Preview](./emberveil-shader/public/Preview.png) | [📁 Code](./emberveil-shader) |
+| 2 | 🔥 **[Emberveil Shader](https://flourish-ui.vercel.app/components/emberveil-shader)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/emberveil-shader) | [📁 Code](./emberveil-shader) |
 | 3 | 💧 **[Liquid Glass Navbar — "Waterline"](https://flourish-ui.vercel.app/components/liquid-glass-navbar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-navbar) | [📁 Code](./liquid-glass-navbar) |
 | 4 | 👔 **[Product Rail Gallery](https://flourish-ui.vercel.app/components/product-rail-gallery)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/product-rail-gallery) | [📁 Code](./product-rail-gallery) |
 | 5 | 🌸 **[Botanical Pixel Dispersion](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/botanical-pixel-dispersion) | [📁 Code](./botanical-pixel-dispersion) |
@@ -107,10 +107,10 @@ Add the preview image at `glyphwave-scramble/public/Preview.png` to make the emb
 
 ---
 
-### 🔥 [Emberveil Shader](./emberveil-shader)
+### 🔥 [Emberveil Shader](https://flourish-ui.vercel.app/components/emberveil-shader)
 A warm WebGL shader background with flowing ember, copper, and cream gradients, subtle film grain, and a responsive canvas for React hero sections.
 
-<p><a href="./emberveil-shader">Source Code</a> · <a href="./emberveil-shader/public/Preview.png">Preview image</a></p>
+<p><a href="https://flourish-ui.vercel.app/components/emberveil-shader">Live Demo</a> · <a href="./emberveil-shader">Source Code</a></p>
 
 <div align="center">
   <img src="./emberveil-shader/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" alt="Emberveil Shader preview showing a warm flowing ember, copper, and cream WebGL background" />

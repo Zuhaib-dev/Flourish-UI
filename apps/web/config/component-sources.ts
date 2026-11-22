@@ -1,4 +1,5 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "emberveil-shader": () => import("./component-sources/emberveil-shader"),
   "liquid-glass-navbar": () => import("./component-sources/liquid-glass-navbar"),
   "product-rail-gallery": () => import("./component-sources/product-rail-gallery"),
   "botanical-pixel-dispersion": () => import("./component-sources/botanical-pixel-dispersion"),

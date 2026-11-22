@@ -20,7 +20,7 @@
   <p>
     <a href="https://flourish-ui.vercel.app"><strong>Explore Live Website →</strong></a> • 
     <a href="./public/PublishVideo.mp4">🎬 <strong>Watch Launch Video (MP4)</strong></a> • 
-    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 52+ Components</strong></a> • 
+    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 53+ Components</strong></a> • 
     <a href="https://flourish-ui.vercel.app/developers"><strong>Developer Docs</strong></a>
   </p>
 </div>
@@ -32,7 +32,7 @@
 - [Overview](#-overview)
 - [Why Flourish UI?](#-why-flourish-ui)
 - [Key Features](#-key-features)
-- [Component Categories (52 Components)](#-component-categories-50-components)
+- [Component Categories (53 Components)](#-component-categories-50-components)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Local Development](#-local-development)
@@ -103,7 +103,7 @@ It combines:
 
 ---
 
-## 🗂️ Component Categories (52 Components)
+## 🗂️ Component Categories (53 Components)
 
 | Category | Description | Flagship Components |
 |---|---|---|
@@ -166,10 +166,10 @@ apps/web/
 │   ├── sound-toggle.tsx         # Global UI audio switch
 │   └── ui-sounds.ts             # Web Audio API sound generator
 ├── config/
-│   ├── components.ts            # Component metadata database (52 entries)
+│   ├── components.ts            # Component metadata database (53 entries)
 │   └── component-sources/       # Raw TypeScript/TSX source strings for registry distribution
 ├── public/
-│   ├── previews/                # High-res webp/png preview thumbnails for all 52 components
+│   ├── previews/                # High-res webp/png preview thumbnails for all 53 components
 │   ├── flourish-ui-showcase.gif # Animated showcase demo
 │   ├── flourish-ui-showcase.mp4 # HD presentation video
 │   ├── flourish-ui-linkedin-banner.jpg # 3D isometric presentation banner
@@ -258,7 +258,7 @@ Flourish UI includes native support for **WebMCP (Web Model Context Protocol)**,
 
 - **Endpoint**: `/api/mcp`
 - **Exposed Tools**:
-  - `list_components`: Lists all 52 components with slugs, categories, tags, and descriptions.
+  - `list_components`: Lists all 53 components with slugs, categories, tags, and descriptions.
   - `get_component`: Returns full TypeScript source code, installation steps, and prop specifications.
   - `search_components`: Performs semantic search over titles, tags, and categories.
 
