@@ -5,11 +5,10 @@ import './globals.css'
 const description = "An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place."
 
 export const metadata: Metadata = {
-  title: 'Glyphwave Scramble React Component | Flourish UI',
   metadataBase: new URL('https://flourish-ui.vercel.app'),
-  alternates: { canonical: '/components/glyphwave-scramble' },
-  publisher: 'Flourish UI',
+  title: 'Glyphwave Scramble React Component | Flourish UI',
   description,
+  alternates: { canonical: '/components/glyphwave-scramble' },
   keywords: [
     'glyphwave scramble',
     'text scramble effect',
@@ -23,25 +22,19 @@ export const metadata: Metadata = {
     { name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' },
   ],
   creator: 'Louis Studios and Zuhaib Rashid',
+  publisher: 'Flourish UI',
   openGraph: {
     title: 'Glyphwave Scramble React Component | Flourish UI',
-  metadataBase: new URL('https://flourish-ui.vercel.app'),
-  alternates: { canonical: '/components/glyphwave-scramble' },
-  publisher: 'Flourish UI',
     description,
     url: '/components/glyphwave-scramble',
-    images: ['/previews/glyphwave-scramble.webp'],
-    title: 'Glyphwave Scramble React Component | Flourish UI',
     siteName: 'Flourish UI',
     locale: 'en_US',
     type: 'website',
+    images: ['/previews/glyphwave-scramble.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Glyphwave Scramble React Component | Flourish UI',
-  metadataBase: new URL('https://flourish-ui.vercel.app'),
-  alternates: { canonical: '/components/glyphwave-scramble' },
-  publisher: 'Flourish UI',
     description,
     creator: '@xuhaib_x9',
     images: ['/previews/glyphwave-scramble.webp'],

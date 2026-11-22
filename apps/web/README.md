@@ -32,7 +32,7 @@
 - [Overview](#-overview)
 - [Why Flourish UI?](#-why-flourish-ui)
 - [Key Features](#-key-features)
-- [Component Categories (54 Components)](#-component-categories-53-components)
+- [Component Categories (54 Components)](#-component-categories-54-components)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Local Development](#-local-development)
