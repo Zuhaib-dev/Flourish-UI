@@ -6,6 +6,9 @@ const description = "An interactive canvas text effect that turns words into col
 
 export const metadata: Metadata = {
   title: 'Glyphwave Scramble React Component | Flourish UI',
+  metadataBase: new URL('https://flourish-ui.vercel.app'),
+  alternates: { canonical: '/components/glyphwave-scramble' },
+  publisher: 'Flourish UI',
   description,
   keywords: [
     'glyphwave scramble',
@@ -16,13 +19,19 @@ export const metadata: Metadata = {
     'Flourish UI',
   ],
   authors: [
-  
+    { name: 'Louis Studios', url: 'https://dev.21st.dev/@louisstudios/components/math-scramble' },
     { name: 'Zuhaib Rashid', url: 'https://www.zuhaibrashid.com' },
   ],
-  creator: 'Zuhaib Rashid',
+  creator: 'Louis Studios and Zuhaib Rashid',
   openGraph: {
     title: 'Glyphwave Scramble React Component | Flourish UI',
+  metadataBase: new URL('https://flourish-ui.vercel.app'),
+  alternates: { canonical: '/components/glyphwave-scramble' },
+  publisher: 'Flourish UI',
     description,
+    url: '/components/glyphwave-scramble',
+    images: ['/previews/glyphwave-scramble.webp'],
+    title: 'Glyphwave Scramble React Component | Flourish UI',
     siteName: 'Flourish UI',
     locale: 'en_US',
     type: 'website',
@@ -30,8 +39,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Glyphwave Scramble React Component | Flourish UI',
+  metadataBase: new URL('https://flourish-ui.vercel.app'),
+  alternates: { canonical: '/components/glyphwave-scramble' },
+  publisher: 'Flourish UI',
     description,
     creator: '@xuhaib_x9',
+    images: ['/previews/glyphwave-scramble.webp'],
   },
 }
 
@@ -54,6 +67,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               description,
               programmingLanguage: 'TypeScript',
               author: [
+                {
+                  '@type': 'Organization',
+                  name: 'Louis Studios',
+                  url: 'https://dev.21st.dev/@louisstudios/components/math-scramble',
+                },
                 {
                   '@type': 'Person',
                   name: 'Zuhaib Rashid',

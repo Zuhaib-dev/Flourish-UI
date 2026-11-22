@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['emberveil-shader', 'liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['glyphwave-scramble', 'emberveil-shader', 'liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
@@ -252,6 +252,22 @@ export const components: ComponentEntry[] = [
       "lucide-react"
     ],
     "previewImage": "/previews/flow-ai-canvas.webp"
+  },
+  {
+    "slug": "glyphwave-scramble",
+    "title": "Glyphwave Scramble",
+    "category": "Canvas & Generative",
+    "description": "An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place.",
+    "tags": [
+      "canvas",
+      "typography",
+      "text-animation",
+      "interactive",
+      "typescript"
+    ],
+    "tone": "violet",
+    "dependencies": [],
+    "previewImage": "/previews/glyphwave-scramble.webp"
   },
   {
     "slug": "hero-ascii-one",

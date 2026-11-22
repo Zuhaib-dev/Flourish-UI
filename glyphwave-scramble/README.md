@@ -1,5 +1,7 @@
 # Glyphwave Scramble
 
+**Live page:** [Glyphwave Scramble](https://flourish-ui.vercel.app/components/glyphwave-scramble) · [Interactive preview](https://flourish-ui.vercel.app/previews/glyphwave-scramble)
+
 **SEO title:** Glyphwave Scramble React Component | Flourish UI  
 **Description:** An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place.
 
@@ -9,7 +11,7 @@ A canvas typography effect for hero sections and editorial headers. Move a point
 
 ![Glyphwave Scramble preview](./public/Preview.png)
 
-Add the preview image at `public/Preview.png` to make this embed visible.
+The preview image is included at `public/Preview.png`.
 
 ## Quick start
 
@@ -64,4 +66,4 @@ The root fills its parent and has a 360px minimum height. The component uses a 2
 
 Adapted from Louis Studios’ **Math Scramble**, listed under the MIT License. The original source and author are credited in the component file. See the [original 21st.dev component](https://dev.21st.dev/@louisstudios/components/math-scramble).
 
-This standalone project has no public catalog URL yet. Add a preview at `public/Preview.png` before publishing it.
+The standalone source, preview image, and interactive website preview are linked above.

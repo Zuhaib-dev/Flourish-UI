@@ -1,4 +1,5 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "glyphwave-scramble": () => import("./component-sources/glyphwave-scramble"),
   "emberveil-shader": () => import("./component-sources/emberveil-shader"),
   "liquid-glass-navbar": () => import("./component-sources/liquid-glass-navbar"),
   "product-rail-gallery": () => import("./component-sources/product-rail-gallery"),

@@ -1,7 +1,7 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 53 interactive React components in Flourish UI.
+description: Categorized directory of all 54 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
 timestamp: 2026-10-24
@@ -9,7 +9,7 @@ timestamp: 2026-10-24
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 53 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 54 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
 
@@ -181,6 +181,12 @@ Flourish UI categorizes its 53 components into 6 distinct design aesthetics:
 - **URL**: https://flourish-ui.vercel.app/components/velocity-spring-system
 - **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/velocity-spring-system.json`
 - **Source Code**: https://flourish-ui.vercel.app/api/components/velocity-spring-system/source
+
+### Glyphwave Scramble (`glyphwave-scramble`)
+- **Description**: An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place.
+- **URL**: https://flourish-ui.vercel.app/components/glyphwave-scramble
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/glyphwave-scramble.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/glyphwave-scramble/source
 
 ## Dashboards & Editors
 

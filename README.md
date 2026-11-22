@@ -11,7 +11,7 @@
     <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" /></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
     <a href="https://www.framer.com/motion/"><img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" /></a>
-    <a href="https://flourish-ui.vercel.app"><img src="https://img.shields.io/badge/53_Live_Components-flourish--ui-00a2ff?style=for-the-badge&logo=vercel&logoColor=white" alt="Components" /></a>
+    <a href="https://flourish-ui.vercel.app"><img src="https://img.shields.io/badge/54_Live_Components-flourish--ui-00a2ff?style=for-the-badge&logo=vercel&logoColor=white" alt="Components" /></a>
   </p>
   
   <p align="center">
@@ -35,7 +35,7 @@
 
 | # | Component | Preview | Source Code |
 | :-: | :--- | :---: | :---: |
-| 1 | ✨ **[Glyphwave Scramble](./glyphwave-scramble)** | [🖼️ Preview](./glyphwave-scramble/public/Preview.png) | [📁 Code](./glyphwave-scramble) |
+| 1 | ✨ **[Glyphwave Scramble](https://flourish-ui.vercel.app/components/glyphwave-scramble)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/glyphwave-scramble) | [📁 Code](./glyphwave-scramble) |
 | 2 | 🔥 **[Emberveil Shader](https://flourish-ui.vercel.app/components/emberveil-shader)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/emberveil-shader) | [📁 Code](./emberveil-shader) |
 | 3 | 💧 **[Liquid Glass Navbar — "Waterline"](https://flourish-ui.vercel.app/components/liquid-glass-navbar)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/liquid-glass-navbar) | [📁 Code](./liquid-glass-navbar) |
 | 4 | 👔 **[Product Rail Gallery](https://flourish-ui.vercel.app/components/product-rail-gallery)** | [🔗 Live Demo](https://flourish-ui.vercel.app/components/product-rail-gallery) | [📁 Code](./product-rail-gallery) |
@@ -95,14 +95,14 @@
 
 ## 📦 The Collection
 
-### ✨ [Glyphwave Scramble](./glyphwave-scramble)
+### ✨ [Glyphwave Scramble](https://flourish-ui.vercel.app/components/glyphwave-scramble)
 An interactive canvas text effect that turns words into colorful mathematical symbols as the pointer passes, then settles each letter back into place.
 
 <div align="center">
   <img src="./glyphwave-scramble/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" alt="Glyphwave Scramble preview showing words turning into colorful mathematical symbols" />
 </div>
 
-Add the preview image at `glyphwave-scramble/public/Preview.png` to make the embed visible.
+<p><a href="https://flourish-ui.vercel.app/components/glyphwave-scramble">Live Demo</a> · <a href="./glyphwave-scramble">Source Code</a></p>
 **Original source:** [Math Scramble by Louis Studios](https://dev.21st.dev/@louisstudios/components/math-scramble) (MIT).
 
 ---
