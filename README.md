@@ -29,6 +29,15 @@
 
 ---
 
+## 🆕 Standalone component in progress
+
+### 🎞️ [Guideline Fan Preloader](./guideline-fan-preloader)
+An editorial loading sequence that unfolds seven photographs through a fan, rotating cube, picture ring, and double-sided print. This standalone project is not in the website catalog yet; its preview image will be added separately.
+
+[📁 Source and setup](./guideline-fan-preloader)
+
+---
+
 <details>
   <summary><b>📚 Quick Component Directory (All 54 Components)</b> — <i>Click to expand</i></summary>
   <br />
