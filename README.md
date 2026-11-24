@@ -32,7 +32,11 @@
 ## 🆕 Standalone component in progress
 
 ### 🎞️ [Guideline Fan Preloader](./guideline-fan-preloader)
-An editorial loading sequence that unfolds seven photographs through a fan, rotating cube, picture ring, and double-sided print. This standalone project is not in the website catalog yet; its preview image will be added separately.
+An editorial loading sequence that unfolds seven photographs through a fan, rotating cube, picture ring, and double-sided print. This standalone project is not in the website catalog yet.
+
+<div align="center">
+  <img src="./guideline-fan-preloader/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" alt="Guideline Fan Preloader preview showing the red guide grid, photo panels, and editorial labels" />
+</div>
 
 [📁 Source and setup](./guideline-fan-preloader)
 

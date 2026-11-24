@@ -1,15 +1,18 @@
 # Guideline Fan Preloader
 
 **SEO title:** Guideline Fan Preloader React Component | Flourish UI  
-**Description:** An editorial React preloader that unfolds seven photographs through a fan, a rotating cube, a picture ring, and a double-sided print.
+**Description:** An editorial React preloader that unfolds seven photographs through a fan, a rotating cube, a picture ring, and a double-sided print.  
+**Keywords:** guideline fan preloader, React preloader, editorial loading animation, image loading screen, React component.
 
 An editorial loading sequence for portfolios, campaign pages, and other image-led experiences. Seven square photographs move through four art-directed scenes with thin layout guides, small captions, and a closing pan.
 
-This standalone project is not yet listed in the Flourish UI website catalog. Its preview image is intentionally left for you to add.
+This standalone project is not yet listed in the Flourish UI website catalog. Its website detail URL and canonical will be added when it is integrated there.
 
 ## Preview
 
-Add your preview image at `public/Preview.png` when it is ready.
+![Guideline Fan Preloader preview showing the red guide grid, photo panels, and editorial labels](./public/Preview.png)
+
+The preview image is included at `public/Preview.png`.
 
 ## Quick start
 
@@ -61,6 +64,10 @@ With `loop={false}`, the children remain inert beneath the preloader and are rev
 | `height` | `string` | `"100svh"` | Definite height for the component root. |
 | `fontHref` | `string \| null` | Google Fonts stylesheet | Stylesheet URL for Anton and Montserrat, or null if already loaded by the host. |
 | `className` | `string` | — | Additional class names for the root. |
+
+## SEO and preview metadata
+
+The app layout defines the page title, description, keywords, Open Graph and X card details, and `SoftwareSourceCode` JSON-LD. The social card uses the component preview image. A canonical URL and public page URL are intentionally omitted until a matching page exists in the website catalog.
 
 ## Notes
 
