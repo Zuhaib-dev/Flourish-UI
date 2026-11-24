@@ -6,7 +6,7 @@
 
 An editorial loading sequence for portfolios, campaign pages, and other image-led experiences. Seven square photographs move through four art-directed scenes with thin layout guides, small captions, and a closing pan.
 
-This standalone project is not yet listed in the Flourish UI website catalog. Its website detail URL and canonical will be added when it is integrated there.
+This standalone project is not yet listed in the Flourish UI website catalog. Its metadata is prepared for the planned `/components/guideline-fan-preloader` page; the catalog route still needs to be added before that canonical URL is live.
 
 ## Preview
 
@@ -67,7 +67,7 @@ With `loop={false}`, the children remain inert beneath the preloader and are rev
 
 ## SEO and preview metadata
 
-The app layout defines the page title, description, keywords, Open Graph and X card details, and `SoftwareSourceCode` JSON-LD. The social card uses the component preview image. A canonical URL and public page URL are intentionally omitted until a matching page exists in the website catalog.
+The app layout defines the page title, description, keywords, canonical, Open Graph and X card details, and `SoftwareSourceCode` JSON-LD. The social card uses the component preview image. The canonical and Open Graph URL point to the planned component detail route and will resolve after the website catalog integration.
 
 ## Notes
 

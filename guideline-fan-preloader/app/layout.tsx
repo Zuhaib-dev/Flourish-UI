@@ -25,9 +25,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Flourish UI', url: 'https://flourish-ui.vercel.app' }],
   creator: 'Flourish UI',
   publisher: 'Flourish UI',
+  alternates: { canonical: '/components/guideline-fan-preloader' },
   openGraph: {
     title,
     description,
+    url: '/components/guideline-fan-preloader',
     siteName: 'Flourish UI',
     locale: 'en_US',
     type: 'website',
