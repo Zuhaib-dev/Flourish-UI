@@ -1,0 +1,44 @@
+{
+  "name": "fuzzfall-footer",
+  "version": "0.1.0",
+  "description": "A playful Three.js footer with interactive fuzzy critters, springy physics, and a curved wordmark.",
+  "author": {
+    "name": "Zuhaib Rashid",
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com"
+  },
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "keywords": [
+    "react",
+    "nextjs",
+    "threejs",
+    "webgl",
+    "footer",
+    "3d-animation",
+    "interactive",
+    "shadcn",
+    "tailwind"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "^0.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.0.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
