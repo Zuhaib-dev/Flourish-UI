@@ -29,7 +29,14 @@
 
 ---
 
-## 🆕 Standalone component in progress
+## 🆕 Standalone components in progress
+
+### 🧸 [Fuzzfall Footer](./fuzzfall-footer)
+A 3D React footer where six fuzzy characters tumble into place, react to dragging, and hop on click. It is not in the website catalog yet; you can add its preview image later.
+
+[📁 Source and setup](./fuzzfall-footer)
+
+---
 
 ### 🎞️ [Guideline Fan Preloader](./guideline-fan-preloader)
 An editorial loading sequence that unfolds seven photographs through a fan, rotating cube, picture ring, and double-sided print. This standalone project is not in the website catalog yet.
