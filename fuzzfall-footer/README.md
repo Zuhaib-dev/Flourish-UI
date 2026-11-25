@@ -29,9 +29,9 @@ import FuzzfallFooter from './components/ui/fuzzfall-footer'
 export function SiteFooter() {
   return (
     <FuzzfallFooter
-      name="Tuftworks"
-      tagline="Soft little things that sit on your desk."
-      wordmark="TUFTWORKS"
+      name="Mosslight"
+      tagline="Small soft creatures, big happy energy."
+      wordmark="Mosslight"
       sound={false}
       columns={[
         { title: 'Studio', links: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }] },
@@ -48,11 +48,11 @@ The component renders semantic footer and navigation markup. Its WebGL scene is 
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `wordmark` | `string` | `TUFTWORKS` | Large bottom wordmark. It fits the footer width and can curve while scrolling. |
-| `name`, `tagline` | `string` | `Tuftworks`, studio tagline | Brand name and short description. |
+| `wordmark` | `string` | `Mosslight` | Large bottom wordmark. It fits the footer width and can curve while scrolling. |
+| `name`, `tagline` | `string` | `Mosslight`, studio tagline | Brand name and short description. |
 | `columns` | `FooterColumn[]` | Product, Company, Elsewhere | Navigation columns; each column has a title and links. |
 | `legal` | `FooterLink[]` | Privacy, Terms | Small legal links beside the copyright. |
-| `copyright` | `string` | `© 2026 Tuftworks` | Copyright line. |
+| `copyright` | `string` | `© 2026 Mosslight` | Copyright line. |
 | `critters` | `Critter[]` | Six colorful characters | Character shape, fur colors, eye style, and optional relative size. |
 | `gravity` | `number` | `2600` | Fall acceleration in stage pixels per second squared. |
 | `bounce` | `number` | `0.32` | Restitution for collisions, from 0 to 0.9. |

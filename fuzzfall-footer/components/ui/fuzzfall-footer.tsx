@@ -417,12 +417,12 @@ type Rig = {
 }
 
 export default function FuzzfallFooter({
-  wordmark = "Tuftworks",
-  name = "Tuftworks",
-  tagline = "Soft little things that sit on your desk.",
+  wordmark = "Mosslight",
+  name = "Mosslight",
+  tagline = "Small soft creatures, big happy energy.",
   columns = DEFAULT_COLUMNS,
   legal = DEFAULT_LEGAL,
-  copyright = "© 2026 Tuftworks",
+  copyright = "© 2026 Mosslight",
   critters = DEFAULT_CRITTERS,
   gravity = 2600,
   bounce = 0.32,
