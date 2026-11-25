@@ -32,7 +32,11 @@
 ## 🆕 Standalone components in progress
 
 ### 🧸 [Fuzzfall Footer](./fuzzfall-footer)
-A 3D React footer where six fuzzy characters tumble into place, react to dragging, and hop on click. It is not in the website catalog yet; you can add its preview image later.
+A 3D React footer where six fuzzy characters tumble into place, react to dragging, and hop on click. It is not in the website catalog yet.
+
+<div align="center">
+  <img src="./fuzzfall-footer/public/Preview.png" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" alt="Fuzzfall Footer preview showing six colorful fuzzy critters in front of the Mosslight wordmark" />
+</div>
 
 [📁 Source and setup](./fuzzfall-footer)
 
