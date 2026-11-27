@@ -1,7 +1,7 @@
 --- 
 type: ItemList
 title: Flourish UI Component Directory & Taxonomy
-description: Categorized directory of all 54 interactive React components in Flourish UI.
+description: Categorized directory of all 56 interactive React components in Flourish UI.
 resource: https://flourish-ui.vercel.app/components
 tags: [catalog, components, taxonomy, directory]
 timestamp: 2026-10-24
@@ -9,7 +9,7 @@ timestamp: 2026-10-24
 
 # Flourish UI Component Catalog
 
-Flourish UI categorizes its 54 components into 6 distinct design aesthetics:
+Flourish UI categorizes its 56 components into 6 distinct design aesthetics:
 
 ## Shaders & WebGL
 
@@ -164,6 +164,13 @@ Flourish UI categorizes its 54 components into 6 distinct design aesthetics:
 
 ## Motion & Physics
 
+### Guideline Fan Preloader (`guideline-fan-preloader`)
+- **Description**: An editorial React preloader that unfolds seven photographs through a fan, a rotating cube, a picture ring, and a double-sided print.
+- **URL**: https://flourish-ui.vercel.app/components/guideline-fan-preloader
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/guideline-fan-preloader.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/guideline-fan-preloader/source
+
+
 ### Bloom Select Text Garden (`bloom-select`)
 - **Description**: Bloom Select turns highlighted text into playful, animated flowers, adding an expressive moment to reading and writing interfaces.
 - **URL**: https://flourish-ui.vercel.app/components/bloom-select
@@ -257,6 +264,13 @@ Flourish UI categorizes its 54 components into 6 distinct design aesthetics:
 - **Source Code**: https://flourish-ui.vercel.app/api/components/travel-booking-bento/source
 
 ## Interactive Surfaces
+
+### Fuzzfall Footer (`fuzzfall-footer`)
+- **Description**: A 3D React footer with six fuzzy characters that fall, bounce, respond to dragging, and hop on click, alongside configurable navigation and a giant wordmark.
+- **URL**: https://flourish-ui.vercel.app/components/fuzzfall-footer
+- **Install**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/fuzzfall-footer.json`
+- **Source Code**: https://flourish-ui.vercel.app/api/components/fuzzfall-footer/source
+
 
 ### Auth Section Split Portal (`auth-section-1`)
 - **Description**: A gorgeous, highly-converting split-screen authentication component layout built for Next.js.

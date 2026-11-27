@@ -28,7 +28,7 @@ export const categoryDescriptions: Record<string, string> = {
   'Dashboards & Editors': 'Practical dashboards, creative tools, and polished workflows for real product interfaces.',
   'Interactive Surfaces': 'Distinctive interactive sections and surfaces for engaging product experiences.',
 }
-export const recentlyAddedSlugs = ['glyphwave-scramble', 'emberveil-shader', 'liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
+export const recentlyAddedSlugs = ['fuzzfall-footer', 'guideline-fan-preloader', 'glyphwave-scramble', 'emberveil-shader', 'liquid-glass-navbar', 'product-rail-gallery', 'botanical-pixel-dispersion', 'morning-mostly-rituals', 'prismatic-liquid-shader', 'shelter-skin-team-dossier', 'swedish-candy-cart-hero', 'letters-from-the-garden', 'sequel-frontier-footer', 'design-with-soul', 'create-from-the-heart', 'house-savings-goal-card', 'genesis-onboarding-card', 'storybook-play-canvas', '404-error-page-component']
 
 export const components: ComponentEntry[] = [
   {
@@ -939,6 +939,26 @@ export const components: ComponentEntry[] = [
     "tone": "peach",
     "dependencies": [],
     "previewImage": "/previews/product-rail-gallery.webp"
+  },
+  {
+    "slug": "fuzzfall-footer",
+    "title": "Fuzzfall Footer",
+    "category": "Interactive Surfaces",
+    "description": "A 3D React footer with six fuzzy characters that fall, bounce, respond to dragging, and hop on click, alongside configurable navigation and a giant wordmark.",
+    "tags": ["footer", "threejs", "3d", "physics", "interactive", "typescript"],
+    "tone": "lime",
+    "dependencies": ["three"],
+    "previewImage": "/previews/fuzzfall-footer.webp"
+  },
+  {
+    "slug": "guideline-fan-preloader",
+    "title": "Guideline Fan Preloader",
+    "category": "Motion & Physics",
+    "description": "An editorial React preloader that unfolds seven photographs through a fan, a rotating cube, a picture ring, and a double-sided print.",
+    "tags": ["preloader", "loading-animation", "editorial", "image-gallery", "motion", "typescript"],
+    "tone": "coral",
+    "dependencies": [],
+    "previewImage": "/previews/guideline-fan-preloader.webp"
   },
 ]
 

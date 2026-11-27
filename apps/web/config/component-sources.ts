@@ -1,4 +1,6 @@
 const sourceLoaders: Record<string, () => Promise<{ default: string }>> = {
+  "fuzzfall-footer": () => import("./component-sources/fuzzfall-footer"),
+  "guideline-fan-preloader": () => import("./component-sources/guideline-fan-preloader"),
   "glyphwave-scramble": () => import("./component-sources/glyphwave-scramble"),
   "emberveil-shader": () => import("./component-sources/emberveil-shader"),
   "liquid-glass-navbar": () => import("./component-sources/liquid-glass-navbar"),

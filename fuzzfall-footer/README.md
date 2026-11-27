@@ -6,7 +6,7 @@
 
 Fuzzfall Footer pairs a useful site footer with six procedural furry characters. They tumble into place, settle with springy collisions, follow the pointer, and respond to drag and click. The wordmark bends as the footer scrolls into view and straightens when it settles.
 
-This standalone project is not yet in the Flourish UI website catalog. The preview image is included at `public/Preview.png`; the social metadata points to the same asset.
+The component is listed in the [Flourish UI catalog](https://flourish-ui.vercel.app/components/fuzzfall-footer), with a [live preview](https://flourish-ui.vercel.app/previews/fuzzfall-footer). The preview image is included at `public/Preview.png`; the social metadata points to the same asset.
 
 ## Preview
 
@@ -69,7 +69,7 @@ The component renders semantic footer and navigation markup. Its WebGL scene is 
 
 ## SEO and preview
 
-The app layout defines a person-first title and description, keywords, canonical and Open Graph URLs, Open Graph and X card metadata, and `SoftwareSourceCode` JSON-LD. These point to the planned `/components/fuzzfall-footer` catalog page and the preview asset at `public/Preview.png`. The website catalog route is not included yet.
+The app layout defines a person-first title and description, keywords, canonical and Open Graph URLs, Open Graph and X card metadata, and `SoftwareSourceCode` JSON-LD. These point to the published `/components/fuzzfall-footer` catalog page and the preview asset at `public/Preview.png`.
 
 ## Runtime notes
 

@@ -12,7 +12,7 @@
 - Open Knowledge Format (OKF): https://flourish-ui.vercel.app/okf/index.md
 - GitHub Repository: https://github.com/Zuhaib-dev/Flourish-UI
 - License: MIT (100% Free for personal and commercial usage)
-- Total Components Cataloged: 54
+- Total Components Cataloged: 56
 - Total Design Categories: 6
 
 ## How to Install Components
@@ -535,3 +535,22 @@ Yes. All components are licensed under the MIT License and can be used in person
 
 ### Does Flourish UI create vendor lock-in?
 No. Installing via `shadcn` CLI copies the clean TypeScript/React source code directly into your repository (`components/flourish/`), meaning you own the code completely.
+
+### 55. Fuzzfall Footer (`fuzzfall-footer`)
+- **Category**: Interactive Surfaces
+- **Description**: A 3D React footer with six fuzzy characters that fall, bounce, respond to dragging, and hop on click, alongside configurable navigation and a giant wordmark.
+- **Tags**: footer, threejs, 3d, physics, interactive, typescript
+- **Dependencies**: `three`
+- **Component URL**: https://flourish-ui.vercel.app/components/fuzzfall-footer
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/fuzzfall-footer.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/fuzzfall-footer/source`
+
+### 56. Guideline Fan Preloader (`guideline-fan-preloader`)
+- **Category**: Motion & Physics
+- **Description**: An editorial React preloader that unfolds seven photographs through a fan, a rotating cube, a picture ring, and a double-sided print.
+- **Tags**: preloader, loading-animation, editorial, image-gallery, motion, typescript
+- **Dependencies**: `None`
+- **Component URL**: https://flourish-ui.vercel.app/components/guideline-fan-preloader
+- **Install Command**: `pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/guideline-fan-preloader.json`
+- **Source Code API**: `https://flourish-ui.vercel.app/api/components/guideline-fan-preloader/source`
+

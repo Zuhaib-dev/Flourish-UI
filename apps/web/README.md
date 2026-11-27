@@ -20,7 +20,7 @@
   <p>
     <a href="https://flourish-ui.vercel.app"><strong>Explore Live Website →</strong></a> • 
     <a href="./public/PublishVideo.mp4">🎬 <strong>Watch Launch Video (MP4)</strong></a> • 
-    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 54+ Components</strong></a> • 
+    <a href="https://flourish-ui.vercel.app/components"><strong>Browse 56+ Components</strong></a> • 
     <a href="https://flourish-ui.vercel.app/developers"><strong>Developer Docs</strong></a>
   </p>
 </div>
@@ -32,7 +32,7 @@
 - [Overview](#-overview)
 - [Why Flourish UI?](#-why-flourish-ui)
 - [Key Features](#-key-features)
-- [Component Categories (54 Components)](#-component-categories-54-components)
+- [Component Categories (56 Components)](#-component-categories-56-components)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Local Development](#-local-development)
@@ -51,7 +51,7 @@
 Every component in the library can be inspected in real time, manipulated with live interactive controls, viewed across responsive viewports, and installed into any Next.js or React project with a single CLI command.
 
 ### 🎯 Key Metrics
-- **54 Components** across 6 distinct design archetypes.
+- **56 Components** across 6 distinct design archetypes.
 - **100% Free & Open Source** under the permissive MIT license.
 - **Zero Proprietary Lock-In**: Direct source copy-pasting or automated installation via the standard `shadcn` CLI.
 - **Native Tailwind CSS v4 & React 19** architectural foundation.
@@ -103,7 +103,7 @@ It combines:
 
 ---
 
-## 🗂️ Component Categories (54 Components)
+## 🗂️ Component Categories (56 Components)
 
 | Category | Description | Flagship Components |
 |---|---|---|
@@ -152,7 +152,7 @@ apps/web/
 │   ├── page.tsx                 # Homepage with hero, spotlights, and interactive catalog
 │   ├── globals.css              # Tailwind v4 theme, fonts, animations, utilities
 │   ├── components/              # Component catalog directory & detail pages (/components/[slug])
-│   ├── previews/                # 54 isolated preview routes (/previews/[slug])
+│   ├── previews/                # 56 isolated preview routes (/previews/[slug])
 │   ├── categories/              # Filtered category pages (/categories/[category])
 │   ├── developers/              # Developer guides, CLI instructions, registry docs
 │   ├── changelog/               # Component version history and updates
@@ -166,10 +166,10 @@ apps/web/
 │   ├── sound-toggle.tsx         # Global UI audio switch
 │   └── ui-sounds.ts             # Web Audio API sound generator
 ├── config/
-│   ├── components.ts            # Component metadata database (54 entries)
+│   ├── components.ts            # Component metadata database (56 entries)
 │   └── component-sources/       # Raw TypeScript/TSX source strings for registry distribution
 ├── public/
-│   ├── previews/                # High-res webp/png preview thumbnails for all 54 components
+│   ├── previews/                # High-res webp/png preview thumbnails for all 56 components
 │   ├── flourish-ui-showcase.gif # Animated showcase demo
 │   ├── flourish-ui-showcase.mp4 # HD presentation video
 │   ├── flourish-ui-linkedin-banner.jpg # 3D isometric presentation banner
@@ -258,7 +258,7 @@ Flourish UI includes native support for **WebMCP (Web Model Context Protocol)**,
 
 - **Endpoint**: `/api/mcp`
 - **Exposed Tools**:
-  - `list_components`: Lists all 54 components with slugs, categories, tags, and descriptions.
+  - `list_components`: Lists all 56 components with slugs, categories, tags, and descriptions.
   - `get_component`: Returns full TypeScript source code, installation steps, and prop specifications.
   - `search_components`: Performs semantic search over titles, tags, and categories.
 

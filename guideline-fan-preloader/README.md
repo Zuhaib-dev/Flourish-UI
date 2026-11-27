@@ -6,7 +6,7 @@
 
 An editorial loading sequence for portfolios, campaign pages, and other image-led experiences. Seven square photographs move through four art-directed scenes with thin layout guides, small captions, and a closing pan.
 
-This standalone project is not yet listed in the Flourish UI website catalog. Its metadata is prepared for the planned `/components/guideline-fan-preloader` page; the catalog route still needs to be added before that canonical URL is live.
+The component is listed in the [Flourish UI catalog](https://flourish-ui.vercel.app/components/guideline-fan-preloader), with a [live preview](https://flourish-ui.vercel.app/previews/guideline-fan-preloader).
 
 ## Preview
 
