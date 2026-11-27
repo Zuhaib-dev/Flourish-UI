@@ -17,7 +17,7 @@ The common thread is expressive craft with clear interaction and a recognizable 
 
 ### Current inventory distinction
 
-The website registry now has **54 entries**, including the standalone `liquid-glass-navbar`, `product-rail-gallery`, `emberveil-shader`, and `glyphwave-scramble` projects. A standalone project is considered website-published only after it is present in the catalog and has matching source, preview, image, metadata, and generated endpoint support.
+The website registry now has **56 entries**, including the standalone `liquid-glass-navbar`, `product-rail-gallery`, `emberveil-shader`, and `glyphwave-scramble` projects. A standalone project is considered website-published only after it is present in the catalog and has matching source, preview, image, metadata, and generated endpoint support.
 
 ## A. Build a component that fits the library
 
